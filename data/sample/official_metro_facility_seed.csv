@@ -1,0 +1,5 @@
+candidate_id,name,candidate_type,latitude,longitude,capacity_riders,cost_usd,accessible,address,source_name,source_url,evidence_level,official_source,capacity_verified,accessibility_verified
+metro_fannin_south,Fannin South Park & Ride,park_ride,29.674480,-95.401278,0,0,yes,"1604 West Bellfort St., Houston, TX 77054",Houston METRO,https://www.ridemetro.org/riding-metro/accessing-metro/by-car,official_location,yes,no,yes
+metro_downtown_tc,Downtown Transit Center,park_ride,29.750269,-95.371137,0,0,yes,"1900 Main St., Houston, TX 77002",Houston METRO,https://www.ridemetro.org/riding-metro/transit-facility-addresses,official_location,yes,no,yes
+metro_west_loop_tc,West Loop Transit Center,park_ride,29.679587,-95.457308,0,0,yes,"4675 South Braeswood Blvd., Houston, TX 77096",Houston METRO,https://www.ridemetro.org/riding-metro/transit-facility-addresses,official_location,yes,no,yes
+metro_hobby_tc,Hobby Transit Center,park_ride,29.655033,-95.275609,0,0,yes,"7800 Airport Blvd., Houston, TX 77061",Houston METRO,https://www.ridemetro.org/riding-metro/transit-facility-addresses,official_location,yes,no,yes

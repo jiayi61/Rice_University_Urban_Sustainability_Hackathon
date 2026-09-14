@@ -1,0 +1,7 @@
+zone_id,zone_name,population,zero_vehicle_share,low_income_share,disability_share,svi_percentile,ada_path_score,source_name,evidence_year
+Downtown,Downtown / Fan Zone,18000,0.31,0.22,0.10,0.58,0.82,Illustrative ACS-SVI mapping,2022-2024
+Galleria,Galleria / Uptown,22000,0.08,0.11,0.07,0.24,0.68,Illustrative ACS-SVI mapping,2022-2024
+Medical,Texas Medical Center,14500,0.19,0.17,0.12,0.43,0.88,Illustrative ACS-SVI mapping,2022-2024
+IAH,IAH Airport Area,11000,0.15,0.28,0.11,0.66,0.46,Illustrative ACS-SVI mapping,2022-2024
+Hobby,Hobby Airport Area,12500,0.21,0.36,0.14,0.78,0.42,Illustrative ACS-SVI mapping,2022-2024
+EaDo,EaDo / East Downtown,16000,0.27,0.29,0.09,0.71,0.61,Illustrative ACS-SVI mapping,2022-2024

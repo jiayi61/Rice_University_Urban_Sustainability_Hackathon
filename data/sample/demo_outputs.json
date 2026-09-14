@@ -1,0 +1,465 @@
+{
+  "baseline": {
+    "selected_interventions": [],
+    "selected_names": [],
+    "cost_usd": 0,
+    "metrics": {
+      "high_pressure_segments": 11,
+      "critical_segments": 11,
+      "max_pressure": 6.565,
+      "average_network_travel_minutes": 52.7,
+      "emissions_kg_index": 49291.7,
+      "heat_exposure_index": 117.4,
+      "readiness_score": 0.0
+    },
+    "edges": [
+      {
+        "edge_id": "d1",
+        "name": "Downtown\u2013Midtown Corridor",
+        "source": "downtown",
+        "target": "midtown",
+        "baseline": 1450,
+        "added_flow": 3744.3,
+        "capacity": 2300,
+        "pressure": 2.2584,
+        "heat_index": 92.0,
+        "distance_miles": 2.1,
+        "travel_time_minutes": 36.5
+      },
+      {
+        "edge_id": "d2",
+        "name": "Main Street / Rail Spine",
+        "source": "midtown",
+        "target": "medical",
+        "baseline": 1550,
+        "added_flow": 5445.2,
+        "capacity": 2400,
+        "pressure": 2.9147,
+        "heat_index": 95.0,
+        "distance_miles": 2.7,
+        "travel_time_minutes": 58.3
+      },
+      {
+        "edge_id": "d3",
+        "name": "Medical Center\u2013Stadium",
+        "source": "medical",
+        "target": "stadium",
+        "baseline": 1700,
+        "added_flow": 6675.7,
+        "capacity": 2350,
+        "pressure": 3.5641,
+        "heat_index": 98.0,
+        "distance_miles": 1.8,
+        "travel_time_minutes": 52.3
+      },
+      {
+        "edge_id": "g1",
+        "name": "Galleria\u2013West Loop",
+        "source": "galleria",
+        "target": "west_loop",
+        "baseline": 1950,
+        "added_flow": 3397.6,
+        "capacity": 2600,
+        "pressure": 2.0568,
+        "heat_index": 96.0,
+        "distance_miles": 3.1,
+        "travel_time_minutes": 44.1
+      },
+      {
+        "edge_id": "g2",
+        "name": "West Loop\u2013Stadium",
+        "source": "west_loop",
+        "target": "stadium",
+        "baseline": 2300,
+        "added_flow": 3397.6,
+        "capacity": 2800,
+        "pressure": 2.0349,
+        "heat_index": 99.0,
+        "distance_miles": 4.4,
+        "travel_time_minutes": 54.5
+      },
+      {
+        "edge_id": "i1",
+        "name": "IAH\u2013North Corridor",
+        "source": "iah",
+        "target": "north_corridor",
+        "baseline": 2400,
+        "added_flow": 1659.0,
+        "capacity": 3600,
+        "pressure": 1.1275,
+        "heat_index": 91.0,
+        "distance_miles": 13.0,
+        "travel_time_minutes": 45.8
+      },
+      {
+        "edge_id": "i2",
+        "name": "North Corridor\u2013Downtown",
+        "source": "north_corridor",
+        "target": "downtown",
+        "baseline": 2750,
+        "added_flow": 1659.0,
+        "capacity": 3900,
+        "pressure": 1.1305,
+        "heat_index": 93.0,
+        "distance_miles": 9.0,
+        "travel_time_minutes": 34.4
+      },
+      {
+        "edge_id": "h1",
+        "name": "Hobby\u2013South Corridor",
+        "source": "hobby",
+        "target": "south_corridor",
+        "baseline": 1850,
+        "added_flow": 1207.1,
+        "capacity": 2700,
+        "pressure": 1.1323,
+        "heat_index": 94.0,
+        "distance_miles": 5.8,
+        "travel_time_minutes": 30.7
+      },
+      {
+        "edge_id": "h2",
+        "name": "South Corridor\u2013Stadium",
+        "source": "south_corridor",
+        "target": "stadium",
+        "baseline": 2200,
+        "added_flow": 1207.1,
+        "capacity": 2850,
+        "pressure": 1.1955,
+        "heat_index": 98.0,
+        "distance_miles": 4.5,
+        "travel_time_minutes": 28.5
+      },
+      {
+        "edge_id": "e1",
+        "name": "EaDo\u2013Midtown",
+        "source": "eado",
+        "target": "midtown",
+        "baseline": 1350,
+        "added_flow": 1701.0,
+        "capacity": 2200,
+        "pressure": 1.3868,
+        "heat_index": 93.0,
+        "distance_miles": 2.4,
+        "travel_time_minutes": 24.0
+      },
+      {
+        "edge_id": "s1",
+        "name": "Stadium Core Access",
+        "source": "stadium",
+        "target": "stadium_core",
+        "baseline": 1850,
+        "added_flow": 11280.5,
+        "capacity": 2000,
+        "pressure": 6.5652,
+        "heat_index": 101.0,
+        "distance_miles": 0.9,
+        "travel_time_minutes": 85.7
+      }
+    ]
+  },
+  "optimized_500k": {
+    "selected_interventions": [
+      "vehicle_restriction",
+      "park_ride_shuttle",
+      "transit_boost"
+    ],
+    "selected_names": [
+      "2-mile Vehicle Restriction Zone",
+      "Park-and-Ride Shuttle",
+      "Transit Frequency Boost"
+    ],
+    "cost_usd": 460000,
+    "metrics": {
+      "high_pressure_segments": 10,
+      "critical_segments": 9,
+      "max_pressure": 3.36,
+      "average_network_travel_minutes": 32.8,
+      "emissions_kg_index": 27063.3,
+      "heat_exposure_index": 64.4,
+      "readiness_score": 0.0
+    },
+    "edges": [
+      {
+        "edge_id": "d1",
+        "name": "Downtown\u2013Midtown Corridor",
+        "source": "downtown",
+        "target": "midtown",
+        "baseline": 1450,
+        "added_flow": 1833.0,
+        "capacity": 2300,
+        "pressure": 1.4274,
+        "heat_index": 92.0,
+        "distance_miles": 2.1,
+        "travel_time_minutes": 22.3
+      },
+      {
+        "edge_id": "d2",
+        "name": "Main Street / Rail Spine",
+        "source": "midtown",
+        "target": "medical",
+        "baseline": 1550,
+        "added_flow": 3176.1,
+        "capacity": 2400,
+        "pressure": 1.9692,
+        "heat_index": 95.0,
+        "distance_miles": 2.7,
+        "travel_time_minutes": 38.6
+      },
+      {
+        "edge_id": "d3",
+        "name": "Medical Center\u2013Stadium",
+        "source": "medical",
+        "target": "stadium",
+        "baseline": 1700,
+        "added_flow": 4147.7,
+        "capacity": 2350,
+        "pressure": 2.4884,
+        "heat_index": 98.0,
+        "distance_miles": 1.8,
+        "travel_time_minutes": 35.9
+      },
+      {
+        "edge_id": "g1",
+        "name": "Galleria\u2013West Loop",
+        "source": "galleria",
+        "target": "west_loop",
+        "baseline": 1950,
+        "added_flow": 1663.3,
+        "capacity": 2600,
+        "pressure": 1.3897,
+        "heat_index": 96.0,
+        "distance_miles": 3.1,
+        "travel_time_minutes": 28.9
+      },
+      {
+        "edge_id": "g2",
+        "name": "West Loop\u2013Stadium",
+        "source": "west_loop",
+        "target": "stadium",
+        "baseline": 2300,
+        "added_flow": 1663.3,
+        "capacity": 2800,
+        "pressure": 1.4155,
+        "heat_index": 99.0,
+        "distance_miles": 4.4,
+        "travel_time_minutes": 36.8
+      },
+      {
+        "edge_id": "i1",
+        "name": "IAH\u2013North Corridor",
+        "source": "iah",
+        "target": "north_corridor",
+        "baseline": 2400,
+        "added_flow": 812.2,
+        "capacity": 3600,
+        "pressure": 0.8923,
+        "heat_index": 91.0,
+        "distance_miles": 13.0,
+        "travel_time_minutes": 35.0
+      },
+      {
+        "edge_id": "i2",
+        "name": "North Corridor\u2013Downtown",
+        "source": "north_corridor",
+        "target": "downtown",
+        "baseline": 2750,
+        "added_flow": 812.2,
+        "capacity": 3900,
+        "pressure": 0.9134,
+        "heat_index": 93.0,
+        "distance_miles": 9.0,
+        "travel_time_minutes": 27.0
+      },
+      {
+        "edge_id": "h1",
+        "name": "Hobby\u2013South Corridor",
+        "source": "hobby",
+        "target": "south_corridor",
+        "baseline": 1850,
+        "added_flow": 953.2,
+        "capacity": 2700,
+        "pressure": 1.0382,
+        "heat_index": 94.0,
+        "distance_miles": 5.8,
+        "travel_time_minutes": 27.8
+      },
+      {
+        "edge_id": "h2",
+        "name": "South Corridor\u2013Stadium",
+        "source": "south_corridor",
+        "target": "stadium",
+        "baseline": 2200,
+        "added_flow": 953.2,
+        "capacity": 2850,
+        "pressure": 1.1064,
+        "heat_index": 98.0,
+        "distance_miles": 4.5,
+        "travel_time_minutes": 26.1
+      },
+      {
+        "edge_id": "e1",
+        "name": "EaDo\u2013Midtown",
+        "source": "eado",
+        "target": "midtown",
+        "baseline": 1350,
+        "added_flow": 1343.1,
+        "capacity": 2200,
+        "pressure": 1.2241,
+        "heat_index": 93.0,
+        "distance_miles": 2.4,
+        "travel_time_minutes": 20.9
+      },
+      {
+        "edge_id": "s1",
+        "name": "Stadium Core Access",
+        "source": "stadium",
+        "target": "stadium_core",
+        "baseline": 1850,
+        "added_flow": 4870.2,
+        "capacity": 2000.0,
+        "pressure": 3.3601,
+        "heat_index": 101.0,
+        "distance_miles": 0.9,
+        "travel_time_minutes": 43.0
+      }
+    ],
+    "improvement": {
+      "high_pressure_reduction_pct": 9.1,
+      "critical_reduction_pct": 18.2,
+      "travel_time_reduction_pct": 37.8,
+      "emissions_reduction_pct": 45.1,
+      "heat_reduction_pct": 45.1,
+      "readiness_gain": 0.0
+    },
+    "objective_score": 26.344,
+    "pareto_front": [
+      {
+        "cost_usd": 0,
+        "objective_score": 0.0,
+        "selected_interventions": []
+      },
+      {
+        "cost_usd": 45000,
+        "objective_score": 0.54,
+        "selected_interventions": [
+          "pedestrian_guidance"
+        ]
+      },
+      {
+        "cost_usd": 65000,
+        "objective_score": 1.818,
+        "selected_interventions": [
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 110000,
+        "objective_score": 2.358,
+        "selected_interventions": [
+          "pedestrian_guidance",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 120000,
+        "objective_score": 5.75,
+        "selected_interventions": [
+          "vehicle_restriction"
+        ]
+      },
+      {
+        "cost_usd": 160000,
+        "objective_score": 8.26,
+        "selected_interventions": [
+          "transit_boost"
+        ]
+      },
+      {
+        "cost_usd": 180000,
+        "objective_score": 14.414,
+        "selected_interventions": [
+          "park_ride_shuttle"
+        ]
+      },
+      {
+        "cost_usd": 225000,
+        "objective_score": 14.794,
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "pedestrian_guidance"
+        ]
+      },
+      {
+        "cost_usd": 245000,
+        "objective_score": 15.782,
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 290000,
+        "objective_score": 16.162,
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "pedestrian_guidance",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 300000,
+        "objective_score": 18.594,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "park_ride_shuttle"
+        ]
+      },
+      {
+        "cost_usd": 340000,
+        "objective_score": 20.338,
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "transit_boost"
+        ]
+      },
+      {
+        "cost_usd": 385000,
+        "objective_score": 20.678,
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "transit_boost",
+          "pedestrian_guidance"
+        ]
+      },
+      {
+        "cost_usd": 405000,
+        "objective_score": 21.472,
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "transit_boost",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 450000,
+        "objective_score": 21.812,
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "transit_boost",
+          "pedestrian_guidance",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 460000,
+        "objective_score": 26.344,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "park_ride_shuttle",
+          "transit_boost"
+        ]
+      }
+    ]
+  }
+}

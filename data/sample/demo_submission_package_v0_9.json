@@ -1,0 +1,1725 @@
+{
+  "generated_at": "2026-07-30T20:43:27.103692+00:00",
+  "project": {
+    "title": "EventFlow AI Command Center",
+    "subtitle": "AI-assisted mobility scenario planning for mega-event host cities",
+    "case_study": "Houston / NRG Stadium — FIFA World Cup 2026",
+    "track": "Track 1: Transportation & Access, with Track 3 heat and public-health integration"
+  },
+  "executive_summary": "EventFlow AI Command Center treats FIFA 2026 as a reproducible urban-mobility stress test. The platform estimates visitor-origin demand, assigns flows to road and transit networks, identifies first/last-mile bottlenecks, and evaluates bounded intervention portfolios under budget, operational, equity and accessibility constraints. For the Houston / NRG Stadium case, the recommended portfolio uses $485,000 of a $500,000 budget and improves the modeled readiness score by 55.4 points.",
+  "methodology": [
+    "Estimate zone-level event demand from POI, store-visit, spending, venue-capacity and event-window signals.",
+    "Assign multimodal visitor flows to road, transit, Shuttle, rideshare and walk/bike options with explicit capacity limits.",
+    "Calculate link pressure as baseline flow plus event-added flow divided by modeled road capacity.",
+    "Simulate traffic-management, transit, curb, pedestrian and heat-mitigation interventions with transparent effect parameters.",
+    "Search feasible intervention combinations under budget and policy constraints, then test robustness across 81 uncertainty cases.",
+    "Generate an agency-owned implementation playbook and grounded action plan from deterministic model outputs."
+  ],
+  "key_findings": [
+    "Modeled high-pressure segments fall by 33.3% under the recommended portfolio.",
+    "Average network travel time falls by 31.3%.",
+    "The emissions index falls by 26.6% and heat exposure falls by 47.2%.",
+    "The recommended portfolio retains 3 modeled segment(s) above capacity and a worst modeled pressure of 1.61.",
+    "The 10th-percentile readiness score across sensitivity runs is 44.5.",
+    "Vulnerability-weighted non-car coverage reaches 60.5% and the accessibility-support proxy reaches 18.5%."
+  ],
+  "recommended_portfolio": {
+    "data_mode": "osm+traffic+sites+equity",
+    "data_metadata": {
+      "rice": {
+        "profile_path": "/mnt/data/eventflow_ai_command_center_v0_9/data/local/houston_profile.json",
+        "profile_exists": false,
+        "built_at": null,
+        "root": null,
+        "settings": {},
+        "warnings": [],
+        "disclaimer": null
+      },
+      "gtfs": {
+        "profile_path": "/mnt/data/eventflow_ai_command_center_v0_9/data/local/gtfs_profile.json",
+        "profile_exists": false,
+        "built_at": null,
+        "source": null,
+        "agency_names": [],
+        "event_date": null,
+        "kickoff_time": null,
+        "attribution": null,
+        "disclaimer": null
+      },
+      "osm": {
+        "profile_path": "/mnt/data/eventflow_ai_command_center_v0_9/data/local/osm_profile.json",
+        "profile_exists": true,
+        "built_at": "2026-07-30T20:41:42.667440+00:00",
+        "source": "/mnt/data/eventflow_ai_command_center_v0_9/data/sample/mock_overpass_houston.json",
+        "node_count": 12,
+        "edge_count": 13,
+        "warnings": [],
+        "attribution": "© OpenStreetMap contributors; network extracted through Overpass or a local Overpass JSON file.",
+        "disclaimer": "Road geometry comes from OpenStreetMap. Capacities and uncalibrated baseline volumes are inferred from road class, lane and speed tags until traffic counts are connected."
+      },
+      "traffic": {
+        "profile_path": "/mnt/data/eventflow_ai_command_center_v0_9/data/local/traffic_profile.json",
+        "profile_exists": true,
+        "built_at": "2026-07-30T20:41:42.670383+00:00",
+        "source": "/mnt/data/eventflow_ai_command_center_v0_9/data/sample/mock_houston_traffic_counts.csv",
+        "directly_calibrated_edges": 9,
+        "class_inferred_edges": 2,
+        "settings": {
+          "peak_hour_factor": 0.09,
+          "directional_factor": 0.55,
+          "max_snap_miles": 1.25,
+          "max_rows": 200000
+        },
+        "disclaimer": "Daily traffic counts are converted to a directional event-hour baseline using configurable factors. This is a planning calibration, not an official design-hour traffic forecast."
+      },
+      "candidates": {
+        "profile_path": "/mnt/data/eventflow_ai_command_center_v0_9/data/local/candidate_profile.json",
+        "profile_exists": true,
+        "built_at": "2026-07-30T20:41:42.673100+00:00",
+        "source": "/mnt/data/eventflow_ai_command_center_v0_9/data/sample/mock_candidate_sites.csv",
+        "candidate_count": 8,
+        "type_summary": {
+          "cooling_medical": {
+            "label": "Cooling / medical",
+            "site_count": 2,
+            "total_capacity_riders": 5000,
+            "accessible_site_count": 2,
+            "verified_accessible_site_count": 0,
+            "official_site_count": 0,
+            "verified_capacity_riders": 0,
+            "best_site_id": "cm_stadium_east"
+          },
+          "fan_zone": {
+            "label": "Fan Zone",
+            "site_count": 1,
+            "total_capacity_riders": 12000,
+            "accessible_site_count": 1,
+            "verified_accessible_site_count": 0,
+            "official_site_count": 0,
+            "verified_capacity_riders": 0,
+            "best_site_id": "fz_downtown"
+          },
+          "park_ride": {
+            "label": "Park-and-Ride",
+            "site_count": 3,
+            "total_capacity_riders": 10600,
+            "accessible_site_count": 3,
+            "verified_accessible_site_count": 0,
+            "official_site_count": 0,
+            "verified_capacity_riders": 0,
+            "best_site_id": "pr_galleria"
+          },
+          "rideshare": {
+            "label": "Rideshare staging",
+            "site_count": 2,
+            "total_capacity_riders": 4500,
+            "accessible_site_count": 1,
+            "verified_accessible_site_count": 0,
+            "official_site_count": 0,
+            "verified_capacity_riders": 0,
+            "best_site_id": "rs_fannin"
+          }
+        },
+        "official_source_count": 0,
+        "verified_capacity_count": 0,
+        "verified_accessibility_count": 0,
+        "warnings": [],
+        "disclaimer": "Candidate-site rankings are planning-screening outputs. Site control, permits, curb operations, ADA compliance and agency feasibility require field validation."
+      },
+      "equity": {
+        "profile_path": "/mnt/data/eventflow_ai_command_center_v0_9/data/local/equity_profile.json",
+        "profile_exists": true,
+        "built_at": "2026-07-30T20:41:42.676096+00:00",
+        "source": "/mnt/data/eventflow_ai_command_center_v0_9/data/sample/mock_equity_profile.csv",
+        "zone_count": 6,
+        "warnings": [],
+        "method": {
+          "vulnerability_formula": "30% zero-vehicle share + 25% low-income share + 25% disability share + 20% SVI percentile",
+          "ada_path_score": "Planning proxy for accessible origin-to-transit and last-mile paths; field validation remains required."
+        },
+        "disclaimer": "Equity indicators are planning-screening inputs. They identify who may face disproportionate mobility burdens; they do not establish legal ADA compliance or individual-level vulnerability."
+      }
+    },
+    "time_window": "ingress_peak",
+    "time_window_label": "Ingress peak",
+    "flow_direction": "inbound",
+    "selected_interventions": [
+      "vehicle_restriction",
+      "bus_only_lane",
+      "transit_boost",
+      "cooling_resources"
+    ],
+    "selected_names": [
+      "2-mile Vehicle Restriction Zone",
+      "Temporary Bus-Only Lane",
+      "Transit Frequency Boost",
+      "Cooling, Water and Medical Points"
+    ],
+    "cost_usd": 485000.0,
+    "operations": {
+      "shuttle_fleet": 24.0,
+      "shuttle_seats": 42.0,
+      "shuttle_cycle_minutes": 55.0,
+      "operating_window_minutes": 150.0,
+      "shuttle_load_factor": 0.85,
+      "transit_extra_capacity": 7000.0,
+      "rideshare_staging_capacity": 3500.0
+    },
+    "operational_feasibility": {
+      "shuttle": {
+        "active": false,
+        "desired_riders": 0,
+        "capacity_riders": 0,
+        "fleet_capacity_riders": 0,
+        "candidate_site_capacity_riders": 10600,
+        "served_riders": 0,
+        "unmet_riders": 0,
+        "utilization_pct": 0.0,
+        "fleet": 24,
+        "trips_per_vehicle": 2,
+        "configured_cycle_minutes": 55.0,
+        "effective_cycle_minutes": 55.0,
+        "candidate_sites_connected": true
+      },
+      "transit": {
+        "active": true,
+        "desired_riders": 3563,
+        "capacity_riders": 7000,
+        "served_riders": 3563,
+        "unmet_riders": 0,
+        "utilization_pct": 50.9
+      },
+      "rideshare": {
+        "active": false,
+        "estimated_riders": 0,
+        "capacity_riders": 0,
+        "configured_capacity_riders": 0,
+        "candidate_site_capacity_riders": 4500,
+        "served_riders": 0,
+        "unmet_riders": 0,
+        "utilization_pct": 0.0
+      },
+      "total_unmet_shift_demand": 0
+    },
+    "mode_split": {
+      "road_vehicle_passengers": {
+        "riders": 18705,
+        "share_pct": 40.0
+      },
+      "shuttle_riders": {
+        "riders": 0,
+        "share_pct": 0.0
+      },
+      "transit_riders": {
+        "riders": 12448,
+        "share_pct": 26.6
+      },
+      "walk_bike_riders": {
+        "riders": 15647,
+        "share_pct": 33.4
+      }
+    },
+    "zone_assignments": [
+      {
+        "zone_id": "downtown",
+        "zone_name": "Downtown / Fan Zone",
+        "visitors": 12500,
+        "road_vehicle_passengers": 4145,
+        "shuttle_riders": 0,
+        "transit_riders": 3843,
+        "walk_bike_riders": 4511,
+        "private_vehicles": 1974,
+        "transit_access_score": 0.0,
+        "route_distance_miles": 5.7,
+        "equity_evidence_connected": true,
+        "vulnerability_index": 28.9,
+        "zero_vehicle_share": 31.0,
+        "disability_share": 10.0,
+        "ada_path_score": 82.0,
+        "noncar_coverage_pct": 66.8,
+        "accessible_public_mode_proxy_pct": 25.2
+      },
+      {
+        "zone_id": "galleria",
+        "zone_name": "Galleria / Uptown",
+        "visitors": 10800,
+        "road_vehicle_passengers": 4946,
+        "shuttle_riders": 0,
+        "transit_riders": 2693,
+        "walk_bike_riders": 3161,
+        "private_vehicles": 2355,
+        "transit_access_score": 0.0,
+        "route_distance_miles": 5.4,
+        "equity_evidence_connected": true,
+        "vulnerability_index": 11.7,
+        "zero_vehicle_share": 8.0,
+        "disability_share": 7.0,
+        "ada_path_score": 68.0,
+        "noncar_coverage_pct": 54.2,
+        "accessible_public_mode_proxy_pct": 17.0
+      },
+      {
+        "zone_id": "medical",
+        "zone_name": "Texas Medical Center",
+        "visitors": 6800,
+        "road_vehicle_passengers": 2040,
+        "shuttle_riders": 0,
+        "transit_riders": 1713,
+        "walk_bike_riders": 3046,
+        "private_vehicles": 972,
+        "transit_access_score": 0.0,
+        "route_distance_miles": 1.8,
+        "equity_evidence_connected": true,
+        "vulnerability_index": 21.6,
+        "zero_vehicle_share": 19.0,
+        "disability_share": 12.0,
+        "ada_path_score": 88.0,
+        "noncar_coverage_pct": 70.0,
+        "accessible_public_mode_proxy_pct": 22.2
+      },
+      {
+        "zone_id": "iah",
+        "zone_name": "IAH Airport Area",
+        "visitors": 5200,
+        "road_vehicle_passengers": 2751,
+        "shuttle_riders": 0,
+        "transit_riders": 1127,
+        "walk_bike_riders": 1322,
+        "private_vehicles": 1310,
+        "transit_access_score": 0.0,
+        "route_distance_miles": 22.0,
+        "equity_evidence_connected": true,
+        "vulnerability_index": 27.5,
+        "zero_vehicle_share": 15.0,
+        "disability_share": 11.0,
+        "ada_path_score": 46.0,
+        "noncar_coverage_pct": 47.1,
+        "accessible_public_mode_proxy_pct": 10.0
+      },
+      {
+        "zone_id": "hobby",
+        "zone_name": "Hobby Airport Area",
+        "visitors": 3900,
+        "road_vehicle_passengers": 2002,
+        "shuttle_riders": 0,
+        "transit_riders": 873,
+        "walk_bike_riders": 1025,
+        "private_vehicles": 953,
+        "transit_access_score": 0.0,
+        "route_distance_miles": 8.4,
+        "equity_evidence_connected": true,
+        "vulnerability_index": 34.4,
+        "zero_vehicle_share": 21.0,
+        "disability_share": 14.0,
+        "ada_path_score": 42.0,
+        "noncar_coverage_pct": 48.7,
+        "accessible_public_mode_proxy_pct": 9.4
+      },
+      {
+        "zone_id": "eado",
+        "zone_name": "EaDo / East Downtown",
+        "visitors": 7600,
+        "road_vehicle_passengers": 2820,
+        "shuttle_riders": 0,
+        "transit_riders": 2199,
+        "walk_bike_riders": 2581,
+        "private_vehicles": 1343,
+        "transit_access_score": 0.0,
+        "route_distance_miles": 6.0,
+        "equity_evidence_connected": true,
+        "vulnerability_index": 31.8,
+        "zero_vehicle_share": 27.0,
+        "disability_share": 9.0,
+        "ada_path_score": 61.0,
+        "noncar_coverage_pct": 62.9,
+        "accessible_public_mode_proxy_pct": 17.6
+      }
+    ],
+    "equity_metrics": {
+      "profile_connected": true,
+      "vulnerable_noncar_coverage_pct": 60.5,
+      "zero_vehicle_mobility_coverage_pct": 62.2,
+      "accessible_public_mode_coverage_pct": 18.5,
+      "vulnerability_weighted_demand": 11527,
+      "zero_vehicle_weighted_demand": 9682,
+      "disability_weighted_demand": 4624,
+      "shuttle_accessibility_factor_pct": 100.0,
+      "interpretation": "Coverage metrics are demand-weighted planning proxies; they do not certify route-level ADA compliance."
+    },
+    "assumptions": {
+      "demand_multiplier": 1.0,
+      "capacity_multiplier": 1.0,
+      "car_share_multiplier": 1.0,
+      "heat_multiplier": 1.0,
+      "baseline_multiplier": 1.0,
+      "stadium_transit_access_score": 0.0,
+      "shuttle_capacity_riders": 0,
+      "shuttle_effective_cycle_minutes": 55.0,
+      "candidate_site_profile_connected": true,
+      "transit_extra_capacity": 7000
+    },
+    "metrics": {
+      "modeled_visitors": 46800,
+      "modeled_private_vehicles": 8907,
+      "road_vehicle_passengers": 18705,
+      "shuttle_riders": 0,
+      "transit_riders": 12448,
+      "walk_bike_riders": 15647,
+      "unmet_shift_demand": 0,
+      "high_pressure_segments": 4,
+      "critical_segments": 3,
+      "max_pressure": 1.611,
+      "average_network_travel_minutes": 6.8,
+      "emissions_kg_index": 26299.6,
+      "heat_exposure_index": 44.3,
+      "readiness_score": 55.4,
+      "vulnerable_noncar_coverage_pct": 60.5,
+      "zero_vehicle_mobility_coverage_pct": 62.2,
+      "accessible_public_mode_coverage_pct": 18.5
+    },
+    "network_summary": {
+      "total_edges": 13,
+      "displayed_edges": 13,
+      "osm_connected": true,
+      "traffic_calibrated": true
+    },
+    "edges": [
+      {
+        "edge_id": "w1000_0_f",
+        "name": "Main Street Event Spine",
+        "source": "100",
+        "target": "101",
+        "baseline": 2006.4,
+        "added_flow": 3284.0,
+        "capacity": 4224.0,
+        "pressure": 1.2525,
+        "heat_index": 66.2,
+        "distance_miles": 1.61431,
+        "direction": "inbound",
+        "highway": "primary",
+        "geometry": [
+          [
+            29.7589,
+            -95.3677
+          ],
+          [
+            29.7375,
+            -95.3785
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 5.9
+      },
+      {
+        "edge_id": "w1000_1_f",
+        "name": "Main Street Event Spine",
+        "source": "101",
+        "target": "102",
+        "baseline": 2362.8,
+        "added_flow": 4291.3,
+        "capacity": 4224.0,
+        "pressure": 1.5753,
+        "heat_index": 68.4,
+        "distance_miles": 2.3475,
+        "direction": "inbound",
+        "highway": "primary",
+        "geometry": [
+          [
+            29.7375,
+            -95.3785
+          ],
+          [
+            29.7078,
+            -95.3975
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 11.1
+      },
+      {
+        "edge_id": "w1000_2_f",
+        "name": "Main Street Event Spine",
+        "source": "102",
+        "target": "103",
+        "baseline": 2349.6,
+        "added_flow": 4455.0,
+        "capacity": 4224.0,
+        "pressure": 1.6109,
+        "heat_index": 68.4,
+        "distance_miles": 1.78187,
+        "direction": "inbound",
+        "highway": "primary",
+        "geometry": [
+          [
+            29.7078,
+            -95.3975
+          ],
+          [
+            29.6847,
+            -95.4107
+          ]
+        ],
+        "calibration_source": "road-class factor inferred from observed primary counts",
+        "travel_time_minutes": 8.6
+      },
+      {
+        "edge_id": "w1001_0_f",
+        "name": "West Loop Stadium Corridor",
+        "source": "110",
+        "target": "111",
+        "baseline": 3524.4,
+        "added_flow": 2355.3,
+        "capacity": 6336.0,
+        "pressure": 0.928,
+        "heat_index": 69.1,
+        "distance_miles": 2.05568,
+        "direction": "inbound",
+        "highway": "primary",
+        "geometry": [
+          [
+            29.7407,
+            -95.4636
+          ],
+          [
+            29.716,
+            -95.4445
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 4.2
+      },
+      {
+        "edge_id": "w1001_1_f",
+        "name": "West Loop Stadium Corridor",
+        "source": "111",
+        "target": "103",
+        "baseline": 3247.2,
+        "added_flow": 1271.8,
+        "capacity": 6336.0,
+        "pressure": 0.7132,
+        "heat_index": 68.4,
+        "distance_miles": 2.96513,
+        "direction": "inbound",
+        "highway": "primary",
+        "geometry": [
+          [
+            29.716,
+            -95.4445
+          ],
+          [
+            29.6847,
+            -95.4107
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 4.4
+      },
+      {
+        "edge_id": "w1002_0_f",
+        "name": "North Airport Corridor",
+        "source": "120",
+        "target": "121",
+        "baseline": 6528.8,
+        "added_flow": 1310.0,
+        "capacity": 20480.0,
+        "pressure": 0.3828,
+        "heat_index": 65.5,
+        "distance_miles": 9.94716,
+        "direction": "inbound",
+        "highway": "motorway",
+        "geometry": [
+          [
+            29.9931,
+            -95.3418
+          ],
+          [
+            29.85,
+            -95.36
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 9.9
+      },
+      {
+        "edge_id": "w1002_1_f",
+        "name": "North Airport Corridor",
+        "source": "121",
+        "target": "100",
+        "baseline": 5974.4,
+        "added_flow": 1310.0,
+        "capacity": 20480.0,
+        "pressure": 0.3557,
+        "heat_index": 66.2,
+        "distance_miles": 6.31132,
+        "direction": "inbound",
+        "highway": "motorway",
+        "geometry": [
+          [
+            29.85,
+            -95.36
+          ],
+          [
+            29.7589,
+            -95.3677
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 6.3
+      },
+      {
+        "edge_id": "w1003_0_f",
+        "name": "South Airport Corridor",
+        "source": "130",
+        "target": "131",
+        "baseline": 3161.4,
+        "added_flow": 953.2,
+        "capacity": 7296.0,
+        "pressure": 0.5639,
+        "heat_index": 67.7,
+        "distance_miles": 4.38676,
+        "direction": "inbound",
+        "highway": "trunk",
+        "geometry": [
+          [
+            29.6454,
+            -95.2789
+          ],
+          [
+            29.66,
+            -95.35
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 5.3
+      },
+      {
+        "edge_id": "w1003_1_f",
+        "name": "South Airport Corridor",
+        "source": "131",
+        "target": "103",
+        "baseline": 2923.8,
+        "added_flow": 953.2,
+        "capacity": 7296.0,
+        "pressure": 0.5314,
+        "heat_index": 68.4,
+        "distance_miles": 4.02385,
+        "direction": "inbound",
+        "highway": "trunk",
+        "geometry": [
+          [
+            29.66,
+            -95.35
+          ],
+          [
+            29.6847,
+            -95.4107
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 4.8
+      },
+      {
+        "edge_id": "w1004_0_f",
+        "name": "EaDo Midtown Connector",
+        "source": "140",
+        "target": "101",
+        "baseline": 1500.2,
+        "added_flow": 1007.3,
+        "capacity": 3712.0,
+        "pressure": 0.6755,
+        "heat_index": 66.2,
+        "distance_miles": 1.83241,
+        "direction": "inbound",
+        "highway": "secondary",
+        "geometry": [
+          [
+            29.7521,
+            -95.353
+          ],
+          [
+            29.7375,
+            -95.3785
+          ]
+        ],
+        "calibration_source": "observed traffic count",
+        "travel_time_minutes": 3.8
+      },
+      {
+        "edge_id": "w1005_0_f",
+        "name": "East Medical Connector",
+        "source": "140",
+        "target": "141",
+        "baseline": 500.0,
+        "added_flow": 335.8,
+        "capacity": 1600.0,
+        "pressure": 0.5224,
+        "heat_index": 67.0,
+        "distance_miles": 2.44117,
+        "direction": "inbound",
+        "highway": "tertiary",
+        "geometry": [
+          [
+            29.7521,
+            -95.353
+          ],
+          [
+            29.72,
+            -95.37
+          ]
+        ],
+        "calibration_source": "highway-class assumption",
+        "travel_time_minutes": 4.9
+      },
+      {
+        "edge_id": "w1005_1_f",
+        "name": "East Medical Connector",
+        "source": "141",
+        "target": "102",
+        "baseline": 500.0,
+        "added_flow": 335.8,
+        "capacity": 1600.0,
+        "pressure": 0.5224,
+        "heat_index": 68.4,
+        "distance_miles": 1.85305,
+        "direction": "inbound",
+        "highway": "tertiary",
+        "geometry": [
+          [
+            29.72,
+            -95.37
+          ],
+          [
+            29.7078,
+            -95.3975
+          ]
+        ],
+        "calibration_source": "highway-class assumption",
+        "travel_time_minutes": 3.7
+      },
+      {
+        "edge_id": "w1006_0_f",
+        "name": "West Medical Connector",
+        "source": "111",
+        "target": "102",
+        "baseline": 1500.2,
+        "added_flow": 423.9,
+        "capacity": 3712.0,
+        "pressure": 0.5184,
+        "heat_index": 68.4,
+        "distance_miles": 2.87679,
+        "direction": "inbound",
+        "highway": "secondary",
+        "geometry": [
+          [
+            29.716,
+            -95.4445
+          ],
+          [
+            29.7078,
+            -95.3975
+          ]
+        ],
+        "calibration_source": "road-class factor inferred from observed secondary counts",
+        "travel_time_minutes": 4.9
+      }
+    ],
+    "improvement": {
+      "high_pressure_reduction_pct": 33.3,
+      "critical_reduction_pct": 40.0,
+      "travel_time_reduction_pct": 31.3,
+      "emissions_reduction_pct": 26.6,
+      "heat_reduction_pct": 47.2,
+      "readiness_gain": 55.4,
+      "vulnerable_noncar_coverage_gain": 10.6,
+      "zero_vehicle_coverage_gain": 10.1,
+      "accessibility_coverage_gain": 3.1
+    },
+    "objective_score": 37.732,
+    "pareto_front": [
+      {
+        "cost_usd": 0.0,
+        "objective_score": 0.0,
+        "selected_interventions": []
+      },
+      {
+        "cost_usd": 45000,
+        "objective_score": 1.02,
+        "selected_interventions": [
+          "pedestrian_guidance"
+        ]
+      },
+      {
+        "cost_usd": 65000,
+        "objective_score": 5.04,
+        "selected_interventions": [
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 110000,
+        "objective_score": 6.14,
+        "selected_interventions": [
+          "pedestrian_guidance",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 120000,
+        "objective_score": 10.458,
+        "selected_interventions": [
+          "vehicle_restriction"
+        ]
+      },
+      {
+        "cost_usd": 140000,
+        "objective_score": 16.724,
+        "selected_interventions": [
+          "bus_only_lane"
+        ]
+      },
+      {
+        "cost_usd": 185000,
+        "objective_score": 17.94,
+        "selected_interventions": [
+          "bus_only_lane",
+          "pedestrian_guidance"
+        ]
+      },
+      {
+        "cost_usd": 205000,
+        "objective_score": 22.132,
+        "selected_interventions": [
+          "bus_only_lane",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 250000,
+        "objective_score": 23.348,
+        "selected_interventions": [
+          "bus_only_lane",
+          "pedestrian_guidance",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 260000,
+        "objective_score": 26.454,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane"
+        ]
+      },
+      {
+        "cost_usd": 305000,
+        "objective_score": 27.326,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane",
+          "pedestrian_guidance"
+        ]
+      },
+      {
+        "cost_usd": 325000,
+        "objective_score": 31.182,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 370000,
+        "objective_score": 32.054,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane",
+          "pedestrian_guidance",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 405000.0,
+        "objective_score": 32.058,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane",
+          "rideshare_staging",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 420000.0,
+        "objective_score": 33.77,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane",
+          "transit_boost"
+        ]
+      },
+      {
+        "cost_usd": 425000.0,
+        "objective_score": 33.776,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "transit_boost",
+          "rideshare_staging",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 465000.0,
+        "objective_score": 34.61,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane",
+          "transit_boost",
+          "pedestrian_guidance"
+        ]
+      },
+      {
+        "cost_usd": 470000.0,
+        "objective_score": 34.864,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "transit_boost",
+          "rideshare_staging",
+          "pedestrian_guidance",
+          "cooling_resources"
+        ]
+      },
+      {
+        "cost_usd": 485000.0,
+        "objective_score": 37.732,
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane",
+          "transit_boost",
+          "cooling_resources"
+        ]
+      }
+    ],
+    "robustness": {
+      "time_window": "ingress_peak",
+      "selected_interventions": [
+        "vehicle_restriction",
+        "bus_only_lane",
+        "transit_boost",
+        "cooling_resources"
+      ],
+      "run_count": 81,
+      "distributions": {
+        "readiness_score": {
+          "min": 36.7,
+          "p10": 44.5,
+          "median": 56.0,
+          "p90": 67.4,
+          "max": 72.2
+        },
+        "max_pressure": {
+          "min": 1.24,
+          "p10": 1.36,
+          "median": 1.61,
+          "p90": 1.91,
+          "max": 2.1
+        },
+        "average_network_travel_minutes": {
+          "min": 6.0,
+          "p10": 6.3,
+          "median": 6.8,
+          "p90": 7.6,
+          "max": 8.1
+        },
+        "emissions_kg_index": {
+          "min": 20119.0,
+          "p10": 20119.0,
+          "median": 26299.6,
+          "p90": 33268.2,
+          "max": 33268.2
+        },
+        "heat_exposure_index": {
+          "min": 32.2,
+          "p10": 35.7,
+          "median": 44.3,
+          "p90": 55.0,
+          "max": 60.5
+        }
+      },
+      "robustness_score": 44.5,
+      "worst_case": {
+        "parameters": {
+          "demand": 1.15,
+          "capacity": 0.9,
+          "car_share": 1.1,
+          "heat": 1.08
+        },
+        "metrics": {
+          "modeled_visitors": 53820,
+          "modeled_private_vehicles": 11267,
+          "road_vehicle_passengers": 23662,
+          "shuttle_riders": 0,
+          "transit_riders": 13349,
+          "walk_bike_riders": 16809,
+          "unmet_shift_demand": 0,
+          "high_pressure_segments": 4,
+          "critical_segments": 4,
+          "max_pressure": 2.1,
+          "average_network_travel_minutes": 8.1,
+          "emissions_kg_index": 33268.2,
+          "heat_exposure_index": 60.5,
+          "readiness_score": 36.7,
+          "vulnerable_noncar_coverage_pct": 56.5,
+          "zero_vehicle_mobility_coverage_pct": 58.4,
+          "accessible_public_mode_coverage_pct": 17.3
+        }
+      },
+      "best_case": {
+        "parameters": {
+          "demand": 0.85,
+          "capacity": 1.1,
+          "car_share": 0.9,
+          "heat": 0.95
+        },
+        "metrics": {
+          "modeled_visitors": 39780,
+          "modeled_private_vehicles": 6814,
+          "road_vehicle_passengers": 14309,
+          "shuttle_riders": 0,
+          "transit_riders": 11295,
+          "walk_bike_riders": 14176,
+          "unmet_shift_demand": 0,
+          "high_pressure_segments": 3,
+          "critical_segments": 2,
+          "max_pressure": 1.239,
+          "average_network_travel_minutes": 6.0,
+          "emissions_kg_index": 20119.0,
+          "heat_exposure_index": 32.2,
+          "readiness_score": 72.2,
+          "vulnerable_noncar_coverage_pct": 64.4,
+          "zero_vehicle_mobility_coverage_pct": 66.0,
+          "accessible_public_mode_coverage_pct": 19.6
+        }
+      }
+    },
+    "decision_policy": {
+      "objective_mode": "balanced",
+      "minimum_equity_coverage_pct": 0.0,
+      "minimum_accessibility_coverage_pct": 0.0,
+      "equity_profile_connected": true
+    }
+  },
+  "portfolio_explainability": {
+    "time_window": "ingress_peak",
+    "objective_mode": "balanced",
+    "selected_interventions": [
+      "vehicle_restriction",
+      "bus_only_lane",
+      "transit_boost",
+      "cooling_resources"
+    ],
+    "portfolio_cost_usd": 485000.0,
+    "portfolio_improvement": {
+      "high_pressure_reduction_pct": 33.3,
+      "critical_reduction_pct": 40.0,
+      "travel_time_reduction_pct": 31.3,
+      "emissions_reduction_pct": 26.6,
+      "heat_reduction_pct": 47.2,
+      "readiness_gain": 55.4,
+      "vulnerable_noncar_coverage_gain": 10.6,
+      "zero_vehicle_coverage_gain": 10.1,
+      "accessibility_coverage_gain": 3.1
+    },
+    "portfolio_score": 37.732,
+    "intervention_contributions": [
+      {
+        "intervention_id": "bus_only_lane",
+        "name": "Temporary Bus-Only Lane",
+        "cost_usd": 140000,
+        "standalone_improvement": {
+          "high_pressure_reduction_pct": 33.3,
+          "critical_reduction_pct": 20.0,
+          "travel_time_reduction_pct": 18.2,
+          "emissions_reduction_pct": 0.0,
+          "heat_reduction_pct": 0.0,
+          "readiness_gain": 23.5,
+          "vulnerable_noncar_coverage_gain": 0.0,
+          "zero_vehicle_coverage_gain": 0.0,
+          "accessibility_coverage_gain": 0.0
+        },
+        "standalone_score": 16.724,
+        "marginal_improvement": {
+          "high_pressure_reduction_pct": 20.0,
+          "critical_reduction_pct": 25.0,
+          "travel_time_reduction_pct": 16.0,
+          "emissions_reduction_pct": 0.0,
+          "heat_reduction_pct": 0.0,
+          "readiness_gain": 18.2,
+          "vulnerable_noncar_coverage_gain": 0.0,
+          "zero_vehicle_coverage_gain": 0.0,
+          "accessibility_coverage_gain": 0.0
+        },
+        "marginal_score": 11.712,
+        "marginal_score_per_10000_usd": 0.837,
+        "owner": "Houston Public Works + METRO + HPD",
+        "lead_time_days": 60,
+        "implementation_difficulty": 5,
+        "verification_metric": "Bus travel-time reliability and lane throughput"
+      },
+      {
+        "intervention_id": "vehicle_restriction",
+        "name": "2-mile Vehicle Restriction Zone",
+        "cost_usd": 120000,
+        "standalone_improvement": {
+          "high_pressure_reduction_pct": 0.0,
+          "critical_reduction_pct": 20.0,
+          "travel_time_reduction_pct": 11.1,
+          "emissions_reduction_pct": 12.7,
+          "heat_reduction_pct": 12.8,
+          "readiness_gain": 22.8,
+          "vulnerable_noncar_coverage_gain": 3.0,
+          "zero_vehicle_coverage_gain": 2.9,
+          "accessibility_coverage_gain": 0.9
+        },
+        "standalone_score": 10.458,
+        "marginal_improvement": {
+          "high_pressure_reduction_pct": 0.0,
+          "critical_reduction_pct": 0.0,
+          "travel_time_reduction_pct": 8.1,
+          "emissions_reduction_pct": 12.7,
+          "heat_reduction_pct": 12.6,
+          "readiness_gain": 18.2,
+          "vulnerable_noncar_coverage_gain": 2.6,
+          "zero_vehicle_coverage_gain": 2.4,
+          "accessibility_coverage_gain": 0.8
+        },
+        "marginal_score": 9.086,
+        "marginal_score_per_10000_usd": 0.757,
+        "owner": "Houston Public Works + HPD + venue operations",
+        "lead_time_days": 45,
+        "implementation_difficulty": 4,
+        "verification_metric": "Core-zone private-vehicle entries per 15 minutes"
+      },
+      {
+        "intervention_id": "transit_boost",
+        "name": "Transit Frequency Boost",
+        "cost_usd": 160000,
+        "standalone_improvement": {
+          "high_pressure_reduction_pct": 16.7,
+          "critical_reduction_pct": 0.0,
+          "travel_time_reduction_pct": 10.1,
+          "emissions_reduction_pct": 16.0,
+          "heat_reduction_pct": 16.0,
+          "readiness_gain": 12.0,
+          "vulnerable_noncar_coverage_gain": 8.0,
+          "zero_vehicle_coverage_gain": 7.7,
+          "accessibility_coverage_gain": 2.3
+        },
+        "standalone_score": 14.376,
+        "marginal_improvement": {
+          "high_pressure_reduction_pct": 0.0,
+          "critical_reduction_pct": 0.0,
+          "travel_time_reduction_pct": 6.8,
+          "emissions_reduction_pct": 16.0,
+          "heat_reduction_pct": 15.9,
+          "readiness_gain": 7.8,
+          "vulnerable_noncar_coverage_gain": 7.6,
+          "zero_vehicle_coverage_gain": 7.2,
+          "accessibility_coverage_gain": 2.2
+        },
+        "marginal_score": 8.35,
+        "marginal_score_per_10000_usd": 0.522,
+        "owner": "METRO service planning and operations",
+        "lead_time_days": 90,
+        "implementation_difficulty": 4,
+        "verification_metric": "Additional passenger capacity and load factor by trip"
+      },
+      {
+        "intervention_id": "cooling_resources",
+        "name": "Cooling, Water and Medical Points",
+        "cost_usd": 65000,
+        "standalone_improvement": {
+          "high_pressure_reduction_pct": 0.0,
+          "critical_reduction_pct": 0.0,
+          "travel_time_reduction_pct": 0.0,
+          "emissions_reduction_pct": 0.0,
+          "heat_reduction_pct": 28.0,
+          "readiness_gain": 0.0,
+          "vulnerable_noncar_coverage_gain": 0.0,
+          "zero_vehicle_coverage_gain": 0.0,
+          "accessibility_coverage_gain": 0.0
+        },
+        "standalone_score": 5.04,
+        "marginal_improvement": {
+          "high_pressure_reduction_pct": 0.0,
+          "critical_reduction_pct": 0.0,
+          "travel_time_reduction_pct": 0.0,
+          "emissions_reduction_pct": 0.0,
+          "heat_reduction_pct": 28.0,
+          "readiness_gain": 1.7,
+          "vulnerable_noncar_coverage_gain": 0.0,
+          "zero_vehicle_coverage_gain": 0.0,
+          "accessibility_coverage_gain": 0.0
+        },
+        "marginal_score": 5.312,
+        "marginal_score_per_10000_usd": 0.817,
+        "owner": "Houston Health Department + fire/EMS + venue medical operations",
+        "lead_time_days": 21,
+        "implementation_difficulty": 2,
+        "verification_metric": "Visitors served, heat-related calls and response time"
+      }
+    ],
+    "interaction_effect": -8.866,
+    "interaction_interpretation": "Positive values indicate complementary effects; negative values indicate overlap or diminishing returns.",
+    "benchmark_portfolios": [
+      {
+        "label": "Current portfolio",
+        "selected_interventions": [
+          "vehicle_restriction",
+          "bus_only_lane",
+          "transit_boost",
+          "cooling_resources"
+        ],
+        "cost_usd": 485000.0,
+        "objective_score": 37.732,
+        "improvement": {
+          "high_pressure_reduction_pct": 33.3,
+          "critical_reduction_pct": 40.0,
+          "travel_time_reduction_pct": 31.3,
+          "emissions_reduction_pct": 26.6,
+          "heat_reduction_pct": 47.2,
+          "readiness_gain": 55.4,
+          "vulnerable_noncar_coverage_gain": 10.6,
+          "zero_vehicle_coverage_gain": 10.1,
+          "accessibility_coverage_gain": 3.1
+        }
+      },
+      {
+        "label": "Transit First",
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "transit_boost",
+          "bus_only_lane"
+        ],
+        "cost_usd": 480000.0,
+        "objective_score": 29.338,
+        "improvement": {
+          "high_pressure_reduction_pct": 33.3,
+          "critical_reduction_pct": 40.0,
+          "travel_time_reduction_pct": 28.3,
+          "emissions_reduction_pct": 24.0,
+          "heat_reduction_pct": 24.1,
+          "readiness_gain": 35.6,
+          "vulnerable_noncar_coverage_gain": 11.2,
+          "zero_vehicle_coverage_gain": 10.8,
+          "accessibility_coverage_gain": 4.6
+        }
+      },
+      {
+        "label": "Balanced",
+        "selected_interventions": [
+          "park_ride_shuttle",
+          "bus_only_lane",
+          "rideshare_staging",
+          "cooling_resources"
+        ],
+        "cost_usd": 465000.0,
+        "objective_score": 27.72,
+        "improvement": {
+          "high_pressure_reduction_pct": 33.3,
+          "critical_reduction_pct": 40.0,
+          "travel_time_reduction_pct": 24.2,
+          "emissions_reduction_pct": 11.3,
+          "heat_reduction_pct": 36.1,
+          "readiness_gain": 31.4,
+          "vulnerable_noncar_coverage_gain": 3.2,
+          "zero_vehicle_coverage_gain": 3.1,
+          "accessibility_coverage_gain": 2.2
+        }
+      },
+      {
+        "label": "Heat Safe",
+        "selected_interventions": [
+          "cooling_resources",
+          "pedestrian_guidance",
+          "transit_boost"
+        ],
+        "cost_usd": 270000.0,
+        "objective_score": 20.192,
+        "improvement": {
+          "high_pressure_reduction_pct": 16.7,
+          "critical_reduction_pct": 0.0,
+          "travel_time_reduction_pct": 14.1,
+          "emissions_reduction_pct": 16.0,
+          "heat_reduction_pct": 39.6,
+          "readiness_gain": 16.8,
+          "vulnerable_noncar_coverage_gain": 8.0,
+          "zero_vehicle_coverage_gain": 7.7,
+          "accessibility_coverage_gain": 2.3
+        }
+      },
+      {
+        "label": "Traffic Control",
+        "selected_interventions": [
+          "vehicle_restriction",
+          "rideshare_staging",
+          "pedestrian_guidance"
+        ],
+        "cost_usd": 245000.0,
+        "objective_score": 12.896,
+        "improvement": {
+          "high_pressure_reduction_pct": 0.0,
+          "critical_reduction_pct": 20.0,
+          "travel_time_reduction_pct": 17.2,
+          "emissions_reduction_pct": 15.1,
+          "heat_reduction_pct": 15.3,
+          "readiness_gain": 24.9,
+          "vulnerable_noncar_coverage_gain": 3.0,
+          "zero_vehicle_coverage_gain": 2.9,
+          "accessibility_coverage_gain": 0.9
+        }
+      },
+      {
+        "label": "No intervention",
+        "selected_interventions": [],
+        "cost_usd": 0.0,
+        "objective_score": 0.0,
+        "improvement": {
+          "high_pressure_reduction_pct": 0.0,
+          "critical_reduction_pct": 0.0,
+          "travel_time_reduction_pct": 0.0,
+          "emissions_reduction_pct": 0.0,
+          "heat_reduction_pct": 0.0,
+          "readiness_gain": 0.0,
+          "vulnerable_noncar_coverage_gain": 0.0,
+          "zero_vehicle_coverage_gain": 0.0,
+          "accessibility_coverage_gain": 0.0
+        }
+      }
+    ],
+    "disclaimer": "Marginal contributions are model counterfactuals, not causal estimates from observed operations."
+  },
+  "implementation_playbook": {
+    "selected_interventions": [
+      "vehicle_restriction",
+      "bus_only_lane",
+      "transit_boost",
+      "cooling_resources"
+    ],
+    "portfolio_lead_time_days": 90,
+    "implementation_rows": [
+      {
+        "intervention_id": "transit_boost",
+        "name": "Transit Frequency Boost",
+        "owner": "METRO service planning and operations",
+        "lead_time_days": 90,
+        "implementation_difficulty": 4,
+        "permit_or_approval": "Special-event service plan, labor schedule and operating budget",
+        "reversible": true,
+        "dependencies": [
+          "vehicle availability",
+          "operator staffing",
+          "event-day service calendar"
+        ],
+        "verification_metric": "Additional passenger capacity and load factor by trip",
+        "cost_usd": 160000,
+        "evidence_gate": "Complete agency engineering and operations review before activation."
+      },
+      {
+        "intervention_id": "bus_only_lane",
+        "name": "Temporary Bus-Only Lane",
+        "owner": "Houston Public Works + METRO + HPD",
+        "lead_time_days": 60,
+        "implementation_difficulty": 5,
+        "permit_or_approval": "Lane-control plan, traffic engineering review and enforcement staffing",
+        "reversible": true,
+        "dependencies": [
+          "corridor feasibility study",
+          "temporary signs and barriers",
+          "incident-response plan"
+        ],
+        "verification_metric": "Bus travel-time reliability and lane throughput",
+        "cost_usd": 140000,
+        "evidence_gate": "Complete agency engineering and operations review before activation."
+      },
+      {
+        "intervention_id": "vehicle_restriction",
+        "name": "2-mile Vehicle Restriction Zone",
+        "owner": "Houston Public Works + HPD + venue operations",
+        "lead_time_days": 45,
+        "implementation_difficulty": 4,
+        "permit_or_approval": "Temporary traffic-control plan, enforcement order and emergency-access review",
+        "reversible": true,
+        "dependencies": [
+          "signed diversion plan",
+          "managed access points",
+          "public communication campaign"
+        ],
+        "verification_metric": "Core-zone private-vehicle entries per 15 minutes",
+        "cost_usd": 120000,
+        "evidence_gate": "Complete agency engineering and operations review before activation."
+      },
+      {
+        "intervention_id": "cooling_resources",
+        "name": "Cooling, Water and Medical Points",
+        "owner": "Houston Health Department + fire/EMS + venue medical operations",
+        "lead_time_days": 21,
+        "implementation_difficulty": 2,
+        "permit_or_approval": "Public-health operating plan, site approval and utility/logistics check",
+        "reversible": true,
+        "dependencies": [
+          "verified candidate locations",
+          "water and power logistics",
+          "medical escalation protocol"
+        ],
+        "verification_metric": "Visitors served, heat-related calls and response time",
+        "cost_usd": 65000,
+        "evidence_gate": "Verify candidate-site capacity and control before procurement."
+      }
+    ],
+    "timeline": [
+      {
+        "phase": "T-90 to T-61 days",
+        "action": "Confirm portfolio, executive sponsor, budget ceiling and agency owners.",
+        "gate": "Written scope and data-evidence review."
+      },
+      {
+        "phase": "T-60 to T-31 days",
+        "action": "Complete engineering, permits, site agreements, procurement and staffing plans.",
+        "gate": "Signed operating plans and verified site capacities."
+      },
+      {
+        "phase": "T-30 to T-8 days",
+        "action": "Configure services, publish traveler guidance, train field teams and finalize incident contingencies.",
+        "gate": "Public communication package and command-center runbook."
+      },
+      {
+        "phase": "T-7 to T-1 days",
+        "action": "Run tabletop exercise, field inspection and full data/communications test.",
+        "gate": "Go/no-go review with unresolved risks logged."
+      },
+      {
+        "phase": "Event day",
+        "action": "Activate interventions, monitor pressure and queues, and apply manual override thresholds.",
+        "gate": "15-minute operational dashboard and incident log."
+      },
+      {
+        "phase": "T+1 to T+14 days",
+        "action": "Reconcile observed outcomes, costs, complaints and safety events; update model parameters.",
+        "gate": "After-action report and reusable event template."
+      }
+    ],
+    "readiness_gates": [
+      "All candidate-site capacities and site-control rights verified",
+      "Emergency access and ADA route review completed",
+      "Transit, Shuttle and rideshare capacities reconciled with modeled demand",
+      "Public communication and multilingual wayfinding approved",
+      "Real-time monitoring owner and manual override thresholds assigned"
+    ],
+    "disclaimer": "Owners, lead times and approvals are planning templates and require confirmation by the responsible agencies."
+  },
+  "action_plan": {
+    "title": "Houston Ingress peak Action Plan",
+    "priorities": [
+      {
+        "priority": 1,
+        "action": "2-mile Vehicle Restriction Zone"
+      },
+      {
+        "priority": 2,
+        "action": "Temporary Bus-Only Lane"
+      },
+      {
+        "priority": 3,
+        "action": "Transit Frequency Boost"
+      },
+      {
+        "priority": 4,
+        "action": "Cooling, Water and Medical Points"
+      }
+    ],
+    "rationale": "For the ingress peak window, the recommended portfolio uses $485,000 of the $500,000 budget. It improves readiness by 55.4 points, reduces modeled travel time by 31.3%, reduces emissions by 26.6%, and reduces heat exposure by 47.2%. It improves non-car coverage for vulnerability-weighted demand by 10.6 points and the accessibility-support proxy by 3.1 points. The 10th-percentile readiness score across 81 sensitivity runs is 44.5.",
+    "expected_impact": {
+      "high_pressure_reduction_pct": 33.3,
+      "critical_reduction_pct": 40.0,
+      "travel_time_reduction_pct": 31.3,
+      "emissions_reduction_pct": 26.6,
+      "heat_reduction_pct": 47.2,
+      "readiness_gain": 55.4,
+      "vulnerable_noncar_coverage_gain": 10.6,
+      "zero_vehicle_coverage_gain": 10.1,
+      "accessibility_coverage_gain": 3.1
+    },
+    "remaining_risk": [
+      "3 modeled road segment(s) remain above capacity.",
+      "The stadium core remains sensitive to late arrivals, incidents and compressed post-match departures.",
+      "The portfolio is sensitive to uncertainty in attendance, car share and road capacity; retain operational contingencies.",
+      "The accessibility-support coverage proxy remains 18.5%; route-level sidewalks, curb ramps, boarding paths and accessible vehicle availability require additional validation."
+    ],
+    "robustness": {
+      "time_window": "ingress_peak",
+      "selected_interventions": [
+        "vehicle_restriction",
+        "bus_only_lane",
+        "transit_boost",
+        "cooling_resources"
+      ],
+      "run_count": 81,
+      "distributions": {
+        "readiness_score": {
+          "min": 36.7,
+          "p10": 44.5,
+          "median": 56.0,
+          "p90": 67.4,
+          "max": 72.2
+        },
+        "max_pressure": {
+          "min": 1.24,
+          "p10": 1.36,
+          "median": 1.61,
+          "p90": 1.91,
+          "max": 2.1
+        },
+        "average_network_travel_minutes": {
+          "min": 6.0,
+          "p10": 6.3,
+          "median": 6.8,
+          "p90": 7.6,
+          "max": 8.1
+        },
+        "emissions_kg_index": {
+          "min": 20119.0,
+          "p10": 20119.0,
+          "median": 26299.6,
+          "p90": 33268.2,
+          "max": 33268.2
+        },
+        "heat_exposure_index": {
+          "min": 32.2,
+          "p10": 35.7,
+          "median": 44.3,
+          "p90": 55.0,
+          "max": 60.5
+        }
+      },
+      "robustness_score": 44.5,
+      "worst_case": {
+        "parameters": {
+          "demand": 1.15,
+          "capacity": 0.9,
+          "car_share": 1.1,
+          "heat": 1.08
+        },
+        "metrics": {
+          "modeled_visitors": 53820,
+          "modeled_private_vehicles": 11267,
+          "road_vehicle_passengers": 23662,
+          "shuttle_riders": 0,
+          "transit_riders": 13349,
+          "walk_bike_riders": 16809,
+          "unmet_shift_demand": 0,
+          "high_pressure_segments": 4,
+          "critical_segments": 4,
+          "max_pressure": 2.1,
+          "average_network_travel_minutes": 8.1,
+          "emissions_kg_index": 33268.2,
+          "heat_exposure_index": 60.5,
+          "readiness_score": 36.7,
+          "vulnerable_noncar_coverage_pct": 56.5,
+          "zero_vehicle_mobility_coverage_pct": 58.4,
+          "accessible_public_mode_coverage_pct": 17.3
+        }
+      },
+      "best_case": {
+        "parameters": {
+          "demand": 0.85,
+          "capacity": 1.1,
+          "car_share": 0.9,
+          "heat": 0.95
+        },
+        "metrics": {
+          "modeled_visitors": 39780,
+          "modeled_private_vehicles": 6814,
+          "road_vehicle_passengers": 14309,
+          "shuttle_riders": 0,
+          "transit_riders": 11295,
+          "walk_bike_riders": 14176,
+          "unmet_shift_demand": 0,
+          "high_pressure_segments": 3,
+          "critical_segments": 2,
+          "max_pressure": 1.239,
+          "average_network_travel_minutes": 6.0,
+          "emissions_kg_index": 20119.0,
+          "heat_exposure_index": 32.2,
+          "readiness_score": 72.2,
+          "vulnerable_noncar_coverage_pct": 64.4,
+          "zero_vehicle_mobility_coverage_pct": 66.0,
+          "accessible_public_mode_coverage_pct": 19.6
+        }
+      }
+    },
+    "operational_feasibility": {
+      "shuttle": {
+        "active": false,
+        "desired_riders": 0,
+        "capacity_riders": 0,
+        "fleet_capacity_riders": 0,
+        "candidate_site_capacity_riders": 10600,
+        "served_riders": 0,
+        "unmet_riders": 0,
+        "utilization_pct": 0.0,
+        "fleet": 24,
+        "trips_per_vehicle": 2,
+        "configured_cycle_minutes": 55.0,
+        "effective_cycle_minutes": 55.0,
+        "candidate_sites_connected": true
+      },
+      "transit": {
+        "active": true,
+        "desired_riders": 3563,
+        "capacity_riders": 7000,
+        "served_riders": 3563,
+        "unmet_riders": 0,
+        "utilization_pct": 50.9
+      },
+      "rideshare": {
+        "active": false,
+        "estimated_riders": 0,
+        "capacity_riders": 0,
+        "configured_capacity_riders": 0,
+        "candidate_site_capacity_riders": 4500,
+        "served_riders": 0,
+        "unmet_riders": 0,
+        "utilization_pct": 0.0
+      },
+      "total_unmet_shift_demand": 0
+    },
+    "disclaimer": "Generated only from deterministic scenario outputs and bounded sensitivity tests. It is a planning prototype, not an operational traffic forecast."
+  },
+  "validation": {
+    "data_mode": "osm+traffic+sites+equity",
+    "confidence_score": 66.4,
+    "confidence_band": "partially calibrated",
+    "components": {
+      "visitor_demand": 35.0,
+      "transit_schedule": 20.0,
+      "road_topology": 100.0,
+      "traffic_baseline": 76.2,
+      "route_coverage": 100.0,
+      "transit_zone_coverage": 0.0,
+      "candidate_infrastructure": 100.0,
+      "equity_accessibility": 100.0
+    },
+    "coverage": {
+      "origin_zones_with_routes": 6,
+      "origin_zone_count": 6,
+      "road_edges": 13,
+      "directly_calibrated_edges": 9,
+      "class_inferred_edges": 2
+    },
+    "assumptions": [
+      "Match-day OD demand is inferred from sampled activity and venue-capacity signals unless an official OD table is connected.",
+      "Road capacities rely on highway-class defaults wherever observed counts or lane tags are unavailable.",
+      "Shuttle, transit and rideshare shifts are capped by explicit operational and candidate-site capacity assumptions in v0.9.",
+      "Equity metrics use zone-level screening indicators and do not establish legal ADA compliance.",
+      "Intervention costs and behavioral response coefficients remain planning estimates for scenario comparison."
+    ],
+    "interpretation": "The score measures model-evidence coverage, not predictive accuracy."
+  },
+  "audit": {
+    "checks": [
+      {
+        "check": "OD demand reconciliation",
+        "status": "pass",
+        "value": 46800,
+        "target": 46800
+      },
+      {
+        "check": "Mode assignment conservation",
+        "status": "pass",
+        "value": 46800,
+        "target": 46800
+      },
+      {
+        "check": "Origin route coverage",
+        "status": "pass",
+        "value": 6,
+        "target": 6
+      },
+      {
+        "check": "Observed traffic calibration",
+        "status": "pass",
+        "value": 69.2,
+        "target": ">= 35% of modeled edges"
+      },
+      {
+        "check": "Candidate infrastructure evidence",
+        "status": "pass",
+        "value": 8,
+        "target": "> 0 candidate sites"
+      },
+      {
+        "check": "Equity and accessibility evidence",
+        "status": "pass",
+        "value": 6,
+        "target": 6
+      }
+    ],
+    "passed": 6,
+    "total": 6,
+    "validation": {
+      "data_mode": "osm+traffic+sites+equity",
+      "confidence_score": 66.4,
+      "confidence_band": "partially calibrated",
+      "components": {
+        "visitor_demand": 35.0,
+        "transit_schedule": 20.0,
+        "road_topology": 100.0,
+        "traffic_baseline": 76.2,
+        "route_coverage": 100.0,
+        "transit_zone_coverage": 0.0,
+        "candidate_infrastructure": 100.0,
+        "equity_accessibility": 100.0
+      },
+      "coverage": {
+        "origin_zones_with_routes": 6,
+        "origin_zone_count": 6,
+        "road_edges": 13,
+        "directly_calibrated_edges": 9,
+        "class_inferred_edges": 2
+      },
+      "assumptions": [
+        "Match-day OD demand is inferred from sampled activity and venue-capacity signals unless an official OD table is connected.",
+        "Road capacities rely on highway-class defaults wherever observed counts or lane tags are unavailable.",
+        "Shuttle, transit and rideshare shifts are capped by explicit operational and candidate-site capacity assumptions in v0.9.",
+        "Equity metrics use zone-level screening indicators and do not establish legal ADA compliance.",
+        "Intervention costs and behavioral response coefficients remain planning estimates for scenario comparison."
+      ],
+      "interpretation": "The score measures model-evidence coverage, not predictive accuracy."
+    },
+    "demand_totals": {
+      "configured_event_attendance": 72000,
+      "central_modeled_demand": 46800,
+      "low_modeled_demand": 38376,
+      "high_modeled_demand": 55224,
+      "modeled_share_of_attendance_pct": 65.0
+    },
+    "interpretation": "The audit checks internal consistency and evidence coverage; it does not establish predictive accuracy."
+  },
+  "judging_alignment": {
+    "Impact": "Quantifies congestion, travel-time, emissions, heat and distributional outcomes before and after intervention.",
+    "Data Analytics": "Combines multi-source spatial data, OD demand calibration, route assignment, capacity-constrained mode shift, sensitivity analysis and counterfactual evaluation.",
+    "Innovation": "Moves from static mapping to an explainable scenario optimizer, marginal-contribution analysis and grounded AI action plan.",
+    "Feasibility / Implementation": "Assigns agency owners, lead times, approvals, dependencies, verification metrics and go/no-go gates to every selected intervention.",
+    "Legacy": "Uses reusable city, venue, event-window, intervention and evidence profiles for future sports, concerts, marathons and conventions.",
+    "Visualization": "Supports network pressure maps, before/after metrics, Pareto frontiers, equity screening and implementation timelines.",
+    "Presentation / Pitch": "Provides a concise executive summary, evidence package, implementation playbook and demo-ready decision story."
+  },
+  "limitations": [
+    "Hackathon activity data is anonymized and perturbed; demand estimates are planning proxies.",
+    "Intervention effect sizes, costs, owners and lead times remain editable planning assumptions until agency validation.",
+    "Zone-level accessibility screening does not establish route-level or legal ADA compliance.",
+    "Cross-city readiness values remain illustrative until each city receives the same reproducible evidence pipeline.",
+    "The prototype supports pre-event planning and does not replace real-time traffic control or emergency command authority."
+  ],
+  "markdown": "# EventFlow AI Command Center\n## AI-assisted mobility scenario planning for mega-event host cities\n\n**Case study:** Houston / NRG Stadium — FIFA World Cup 2026  \n**Competition alignment:** Track 1: Transportation & Access, with Track 3 heat and public-health integration\n\n## Executive Summary\nEventFlow AI Command Center treats FIFA 2026 as a reproducible urban-mobility stress test. The platform estimates visitor-origin demand, assigns flows to road and transit networks, identifies first/last-mile bottlenecks, and evaluates bounded intervention portfolios under budget, operational, equity and accessibility constraints. For the Houston / NRG Stadium case, the recommended portfolio uses $485,000 of a $500,000 budget and improves the modeled readiness score by 55.4 points.\n\n## Methodology\n1. Estimate zone-level event demand from POI, store-visit, spending, venue-capacity and event-window signals.\n2. Assign multimodal visitor flows to road, transit, Shuttle, rideshare and walk/bike options with explicit capacity limits.\n3. Calculate link pressure as baseline flow plus event-added flow divided by modeled road capacity.\n4. Simulate traffic-management, transit, curb, pedestrian and heat-mitigation interventions with transparent effect parameters.\n5. Search feasible intervention combinations under budget and policy constraints, then test robustness across 81 uncertainty cases.\n6. Generate an agency-owned implementation playbook and grounded action plan from deterministic model outputs.\n\n## Key Findings\n- Modeled high-pressure segments fall by 33.3% under the recommended portfolio.\n- Average network travel time falls by 31.3%.\n- The emissions index falls by 26.6% and heat exposure falls by 47.2%.\n- The recommended portfolio retains 3 modeled segment(s) above capacity and a worst modeled pressure of 1.61.\n- The 10th-percentile readiness score across sensitivity runs is 44.5.\n- Vulnerability-weighted non-car coverage reaches 60.5% and the accessibility-support proxy reaches 18.5%.\n\n## Recommended Portfolio\n- 2-mile Vehicle Restriction Zone\n- Temporary Bus-Only Lane\n- Transit Frequency Boost\n- Cooling, Water and Medical Points\n\n**Modeled cost:** $485,000\n**Portfolio score:** 37.73\n**Robustness P10:** 44.5\n\n## Marginal Contribution\n| Intervention | Cost | Marginal score | Score / $10k | Lead time | Owner |\n|---|---:|---:|---:|---:|---|\n| Temporary Bus-Only Lane | $140,000 | 11.71 | 0.84 | 60 days | Houston Public Works + METRO + HPD |\n| 2-mile Vehicle Restriction Zone | $120,000 | 9.09 | 0.76 | 45 days | Houston Public Works + HPD + venue operations |\n| Transit Frequency Boost | $160,000 | 8.35 | 0.52 | 90 days | METRO service planning and operations |\n| Cooling, Water and Medical Points | $65,000 | 5.31 | 0.82 | 21 days | Houston Health Department + fire/EMS + venue medical operations |\n\n## Implementation Playbook\n- **Transit Frequency Boost** — Owner: METRO service planning and operations; lead time: 90 days; approval: Special-event service plan, labor schedule and operating budget; dependencies: vehicle availability; operator staffing; event-day service calendar; verification: Additional passenger capacity and load factor by trip.\n- **Temporary Bus-Only Lane** — Owner: Houston Public Works + METRO + HPD; lead time: 60 days; approval: Lane-control plan, traffic engineering review and enforcement staffing; dependencies: corridor feasibility study; temporary signs and barriers; incident-response plan; verification: Bus travel-time reliability and lane throughput.\n- **2-mile Vehicle Restriction Zone** — Owner: Houston Public Works + HPD + venue operations; lead time: 45 days; approval: Temporary traffic-control plan, enforcement order and emergency-access review; dependencies: signed diversion plan; managed access points; public communication campaign; verification: Core-zone private-vehicle entries per 15 minutes.\n- **Cooling, Water and Medical Points** — Owner: Houston Health Department + fire/EMS + venue medical operations; lead time: 21 days; approval: Public-health operating plan, site approval and utility/logistics check; dependencies: verified candidate locations; water and power logistics; medical escalation protocol; verification: Visitors served, heat-related calls and response time.\n\n## Competition Criteria Alignment\n- **Impact:** Quantifies congestion, travel-time, emissions, heat and distributional outcomes before and after intervention.\n- **Data Analytics:** Combines multi-source spatial data, OD demand calibration, route assignment, capacity-constrained mode shift, sensitivity analysis and counterfactual evaluation.\n- **Innovation:** Moves from static mapping to an explainable scenario optimizer, marginal-contribution analysis and grounded AI action plan.\n- **Feasibility / Implementation:** Assigns agency owners, lead times, approvals, dependencies, verification metrics and go/no-go gates to every selected intervention.\n- **Legacy:** Uses reusable city, venue, event-window, intervention and evidence profiles for future sports, concerts, marathons and conventions.\n- **Visualization:** Supports network pressure maps, before/after metrics, Pareto frontiers, equity screening and implementation timelines.\n- **Presentation / Pitch:** Provides a concise executive summary, evidence package, implementation playbook and demo-ready decision story.\n\n## Limitations\n- Hackathon activity data is anonymized and perturbed; demand estimates are planning proxies.\n- Intervention effect sizes, costs, owners and lead times remain editable planning assumptions until agency validation.\n- Zone-level accessibility screening does not establish route-level or legal ADA compliance.\n- Cross-city readiness values remain illustrative until each city receives the same reproducible evidence pipeline.\n- The prototype supports pre-event planning and does not replace real-time traffic control or emergency command authority.\n\n## Legacy\nThe same data, network, intervention and evidence framework can be configured for the Super Bowl, concerts, marathons, conventions, festivals, university game days and heat-emergency planning.\n"
+}

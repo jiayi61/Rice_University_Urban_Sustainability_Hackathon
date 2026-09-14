@@ -1,0 +1,9 @@
+candidate_id,name,candidate_type,latitude,longitude,capacity_riders,cost_usd,accessible
+pr_galleria,Galleria Park-and-Ride,park_ride,29.7410,-95.4630,4200,165000,yes
+pr_downtown,Downtown Convention Parking,park_ride,29.7518,-95.3588,3600,140000,yes
+pr_hobby,Hobby Airport South Lot,park_ride,29.6545,-95.2865,2800,120000,yes
+rs_fannin,Fannin South Rideshare Hub,rideshare,29.6724,-95.4022,2600,75000,yes
+rs_kirby,Kirby Outer Staging Zone,rideshare,29.6955,-95.4148,1900,58000,no
+fz_downtown,Downtown Fan Zone,fan_zone,29.7589,-95.3677,12000,210000,yes
+cm_medical,Medical Center Cooling Hub,cooling_medical,29.7078,-95.3975,3200,68000,yes
+cm_stadium_east,Stadium East Cooling and Medical Point,cooling_medical,29.6865,-95.4028,1800,52000,yes

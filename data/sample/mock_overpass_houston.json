@@ -1,0 +1,183 @@
+{
+  "version": 0.6,
+  "generator": "EventFlow mock",
+  "elements": [
+    {
+      "type": "node",
+      "id": 100,
+      "lat": 29.7589,
+      "lon": -95.3677
+    },
+    {
+      "type": "node",
+      "id": 101,
+      "lat": 29.7375,
+      "lon": -95.3785
+    },
+    {
+      "type": "node",
+      "id": 102,
+      "lat": 29.7078,
+      "lon": -95.3975
+    },
+    {
+      "type": "node",
+      "id": 103,
+      "lat": 29.6847,
+      "lon": -95.4107
+    },
+    {
+      "type": "node",
+      "id": 110,
+      "lat": 29.7407,
+      "lon": -95.4636
+    },
+    {
+      "type": "node",
+      "id": 111,
+      "lat": 29.716,
+      "lon": -95.4445
+    },
+    {
+      "type": "node",
+      "id": 120,
+      "lat": 29.9931,
+      "lon": -95.3418
+    },
+    {
+      "type": "node",
+      "id": 121,
+      "lat": 29.85,
+      "lon": -95.36
+    },
+    {
+      "type": "node",
+      "id": 130,
+      "lat": 29.6454,
+      "lon": -95.2789
+    },
+    {
+      "type": "node",
+      "id": 131,
+      "lat": 29.66,
+      "lon": -95.35
+    },
+    {
+      "type": "node",
+      "id": 140,
+      "lat": 29.7521,
+      "lon": -95.353
+    },
+    {
+      "type": "node",
+      "id": 141,
+      "lat": 29.72,
+      "lon": -95.37
+    },
+    {
+      "type": "way",
+      "id": 1000,
+      "nodes": [
+        100,
+        101,
+        102,
+        103
+      ],
+      "tags": {
+        "highway": "primary",
+        "name": "Main Street Event Spine",
+        "lanes": "4",
+        "maxspeed": "35 mph"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1001,
+      "nodes": [
+        110,
+        111,
+        103
+      ],
+      "tags": {
+        "highway": "primary",
+        "name": "West Loop Stadium Corridor",
+        "lanes": "6",
+        "maxspeed": "45 mph"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1002,
+      "nodes": [
+        120,
+        121,
+        100
+      ],
+      "tags": {
+        "highway": "motorway",
+        "name": "North Airport Corridor",
+        "lanes": "8",
+        "maxspeed": "60 mph",
+        "ref": "I-45"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1003,
+      "nodes": [
+        130,
+        131,
+        103
+      ],
+      "tags": {
+        "highway": "trunk",
+        "name": "South Airport Corridor",
+        "lanes": "6",
+        "maxspeed": "50 mph"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1004,
+      "nodes": [
+        140,
+        101
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "EaDo Midtown Connector",
+        "lanes": "4",
+        "maxspeed": "30 mph"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1005,
+      "nodes": [
+        140,
+        141,
+        102
+      ],
+      "tags": {
+        "highway": "tertiary",
+        "name": "East Medical Connector",
+        "lanes": "2",
+        "maxspeed": "30 mph"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1006,
+      "nodes": [
+        111,
+        102
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "West Medical Connector",
+        "lanes": "4",
+        "maxspeed": "35 mph"
+      }
+    }
+  ]
+}
