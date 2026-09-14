@@ -1,0 +1,14 @@
+{
+  "city": "Houston",
+  "venue": "Houston Stadium / NRG Stadium",
+  "event_type": "FIFA World Cup 2026 match",
+  "venue_lat": 29.6847,
+  "venue_lon": -95.4107,
+  "attendance": 72000,
+  "default_budget_usd": 500000,
+  "pressure_threshold": 0.90,
+  "critical_pressure_threshold": 1.00,
+  "emission_kg_per_vehicle_mile": 0.40,
+  "data_mode": "synthetic_demo",
+  "real_data_root": "/Users/linda/Desktop/Rice WC Hack"
+}

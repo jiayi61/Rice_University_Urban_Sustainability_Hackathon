@@ -1,0 +1,123 @@
+{
+  "scenarios": [
+    {
+      "name": "Baseline",
+      "description": "Synthetic current-state matchday plan with limited dedicated shuttle capacity and baseline heat-safety assets.",
+      "rail_capacity_multiplier": 1.0,
+      "shuttle_capacity_multiplier": 1.0,
+      "rideshare_capacity_multiplier": 1.0,
+      "park_capacity_multiplier": 1.0,
+      "walk_capacity_multiplier": 1.0,
+      "peak_smoothing": 0.0,
+      "temperature_f": 96,
+      "humidity_pct": 58,
+      "shade_bonus": 0.0,
+      "hydration_units": 8,
+      "cooling_units": 4,
+      "medical_units": 3,
+      "mode_shifts": []
+    },
+    {
+      "name": "Shuttle",
+      "description": "Adds targeted shuttle service from downtown, hotels, airports, and park-and-ride zones to reduce rideshare and parking pressure.",
+      "rail_capacity_multiplier": 1.0,
+      "shuttle_capacity_multiplier": 2.8,
+      "rideshare_capacity_multiplier": 1.08,
+      "park_capacity_multiplier": 1.0,
+      "walk_capacity_multiplier": 1.0,
+      "peak_smoothing": 0.04,
+      "temperature_f": 96,
+      "humidity_pct": 58,
+      "shade_bonus": 0.03,
+      "hydration_units": 10,
+      "cooling_units": 5,
+      "medical_units": 3,
+      "mode_shifts": [
+        {
+          "to": "shuttle",
+          "from": ["rideshare", "park"],
+          "eligible_field": "shuttle_eligible",
+          "points": 0.18
+        }
+      ]
+    },
+    {
+      "name": "Transit Boost",
+      "description": "Boosts Red Line and rail-linked throughput with shorter headways, queue management, station ambassadors, and transfer wayfinding.",
+      "rail_capacity_multiplier": 1.28,
+      "shuttle_capacity_multiplier": 1.25,
+      "rideshare_capacity_multiplier": 1.0,
+      "park_capacity_multiplier": 1.0,
+      "walk_capacity_multiplier": 1.0,
+      "peak_smoothing": 0.05,
+      "temperature_f": 96,
+      "humidity_pct": 58,
+      "shade_bonus": 0.04,
+      "hydration_units": 10,
+      "cooling_units": 5,
+      "medical_units": 3,
+      "mode_shifts": [
+        {
+          "to": "rail",
+          "from": ["rideshare", "park"],
+          "eligible_field": "rail_eligible",
+          "points": 0.14
+        }
+      ]
+    },
+    {
+      "name": "Heat Safety",
+      "description": "Prioritizes shade, hydration, cooling tents, medical teams, and arrival smoothing to reduce pedestrian heat exposure.",
+      "rail_capacity_multiplier": 1.04,
+      "shuttle_capacity_multiplier": 1.15,
+      "rideshare_capacity_multiplier": 1.0,
+      "park_capacity_multiplier": 1.0,
+      "walk_capacity_multiplier": 1.0,
+      "peak_smoothing": 0.11,
+      "temperature_f": 96,
+      "humidity_pct": 58,
+      "shade_bonus": 0.18,
+      "hydration_units": 18,
+      "cooling_units": 11,
+      "medical_units": 5,
+      "mode_shifts": [
+        {
+          "to": "shuttle",
+          "from": ["rideshare", "park"],
+          "eligible_field": "shuttle_eligible",
+          "points": 0.06
+        }
+      ]
+    },
+    {
+      "name": "Mixed Optimized",
+      "description": "Combines rail boost, targeted shuttles, arrival smoothing, and heat-safety resources for the strongest balanced outcome.",
+      "rail_capacity_multiplier": 1.32,
+      "shuttle_capacity_multiplier": 3.0,
+      "rideshare_capacity_multiplier": 1.12,
+      "park_capacity_multiplier": 1.03,
+      "walk_capacity_multiplier": 1.0,
+      "peak_smoothing": 0.14,
+      "temperature_f": 96,
+      "humidity_pct": 58,
+      "shade_bonus": 0.2,
+      "hydration_units": 20,
+      "cooling_units": 12,
+      "medical_units": 6,
+      "mode_shifts": [
+        {
+          "to": "rail",
+          "from": ["rideshare", "park"],
+          "eligible_field": "rail_eligible",
+          "points": 0.12
+        },
+        {
+          "to": "shuttle",
+          "from": ["rideshare", "park"],
+          "eligible_field": "shuttle_eligible",
+          "points": 0.16
+        }
+      ]
+    }
+  ]
+}
