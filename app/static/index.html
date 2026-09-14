@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Reusable mega-event mobility forecasting, resilience comparison and intervention planning.">
+  <title>EventFlow — Mobility Readiness</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a1220'/%3E%3Cpath d='M6 22c4-8 7-12 11-12 3 0 4 3 7 3 1 0 2-.3 3-1' fill='none' stroke='%235eead4' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='7' cy='22' r='3' fill='%23fb923c'/%3E%3Ccircle cx='17' cy='10' r='3' fill='%235eead4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="EventFlow home">
+      <span class="brand-mark"><i></i><i></i><i></i></span>
+      <span><strong>EventFlow</strong><small>Mobility readiness</small></span>
+    </a>
+    <nav class="view-tabs" aria-label="Primary views">
+      <button class="view-tab active" data-view="planner">Live plan</button>
+      <button class="view-tab" data-view="routes">Routes & costs</button>
+      <button class="view-tab" data-view="cities">Host cities</button>
+      <button class="view-tab" data-view="evidence">Evidence</button>
+    </nav>
+    <div class="event-control">
+      <label for="eventSelect">Saved examples</label>
+      <select id="eventSelect" aria-label="Event model"></select>
+    </div>
+    <div class="engine-state"><span></span><b>Auto-planned</b><small id="freshnessLabel">Loading inputs…</small></div>
+  </header>
+
+  <main>
+    <div id="errorBanner" class="error-banner" hidden></div>
+
+    <section id="plannerView" class="view active" aria-labelledby="plannerHeading">
+      <section class="brief-card" aria-labelledby="briefHeading">
+        <div class="brief-copy">
+          <p class="eyebrow">PLAN ANY EVENT, ANY CITY</p>
+          <h1 id="briefHeading">What event should EventFlow prepare for?</h1>
+          <p>Describe it normally. The engine finds the venue, transport network, likely crowd, routes, weather context and local cost basis.</p>
+        </div>
+        <form id="briefForm" class="brief-form">
+          <label class="sr-only" for="briefInput">Event description</label>
+          <input id="briefInput" autocomplete="off" maxlength="1000" value="Give me projections for a Shakira concert in London June 8th 2027" placeholder="e.g. Shakira concert in London June 8th 2027">
+          <button id="briefSubmit" type="submit">Generate plan <span>→</span></button>
+        </form>
+        <div class="brief-examples"><span>Try:</span><button data-example="A football final at Stade de France in Paris July 18th 2028">Paris final</button><button data-example="A sold-out concert at SoFi Stadium in Los Angeles September 14th 2027">Los Angeles concert</button><button data-example="A technology convention in Toronto October 2nd 2027 attendance 35000">Toronto convention</button></div>
+        <div id="discoveryProgress" class="discovery-progress" hidden></div>
+      </section>
+
+      <div class="context-row">
+        <div>
+          <p class="eyebrow">AUTONOMOUS EVENT-DAY PLAN</p>
+          <h1 id="plannerHeading">Event mobility plan</h1>
+          <p id="eventMeta" class="context-copy">Selecting the highest-value interventions from street, transit, cost and event-demand inputs.</p>
+        </div>
+        <div class="mode-key">
+          <span><i class="key-dot projection"></i>Projected conditions</span>
+          <span><i class="key-line"></i>Street-routed corridor</span>
+          <button id="recenterBtn" class="text-button">Recenter map</button>
+        </div>
+      </div>
+
+      <div class="planner-grid">
+        <section class="map-card">
+          <div id="map" aria-label="Dynamic event mobility projection map"></div>
+          <div class="map-top-left">
+            <button id="layerButton" class="map-button" aria-expanded="false">Layers <span id="layerCount">5</span></button>
+            <div id="layerPanel" class="layer-panel" hidden>
+              <div class="layer-heading"><b>Map layers</b><span>Click to isolate transport systems</span></div>
+              <label><input type="checkbox" data-layer="traffic" checked><i class="swatch traffic"></i>Traffic pressure</label>
+              <label><input type="checkbox" data-layer="demand" checked><i class="swatch demand"></i>Visitor demand</label>
+              <label><input type="checkbox" data-layer="rail" checked><i class="swatch rail"></i>Rail / metro</label>
+              <label><input type="checkbox" data-layer="bus"><i class="swatch bus"></i>Bus / coach</label>
+              <label><input type="checkbox" data-layer="shuttle" checked><i class="swatch shuttle"></i>Recommended shuttles</label>
+              <label><input type="checkbox" data-layer="parkRide" checked><i class="swatch park"></i>Park-and-ride</label>
+              <label><input type="checkbox" data-layer="gaps"><i class="swatch gaps"></i>First / last-mile gaps</label>
+              <label><input type="checkbox" data-layer="heat"><i class="swatch heat"></i>Heat exposure</label>
+            </div>
+          </div>
+          <div class="map-legend">
+            <span>Route pressure</span>
+            <div class="gradient"></div>
+            <div class="legend-labels"><b>Free</b><b>Busy</b><b>Over capacity</b></div>
+          </div>
+          <div class="map-status"><span class="pulse-dot"></span><b id="projectionLabel">T−60 min</b><small id="mapStatusText">Projection time · not a live sensor claim</small></div>
+        </section>
+
+        <aside class="decision-rail">
+          <div class="decision-heading">
+            <div><p class="eyebrow">GENERATED PORTFOLIOS</p><h2>Choose the decision, not the inputs</h2></div>
+            <span class="ai-chip">3 ranked plans</span>
+          </div>
+          <div id="planCards" class="plan-cards" aria-label="Generated mobility plans"></div>
+          <div id="selectedPlanSummary" class="selected-summary"></div>
+        </aside>
+      </div>
+
+      <div class="timeline-strip">
+        <button id="playButton" class="play-button" aria-label="Play projection">▶</button>
+        <div class="time-title"><strong id="timeTitle">60 minutes before start</strong><span>Projected network state</span></div>
+        <input id="timeSlider" type="range" min="0" max="10" value="4" step="1" aria-label="Projection time">
+        <div class="time-ticks"><span>T−180</span><span>Kickoff</span><span>T+120</span></div>
+      </div>
+
+      <div id="kpiGrid" class="kpi-grid"></div>
+
+      <section id="assumptionPanel" class="assumption-panel" hidden></section>
+
+      <div class="analysis-grid">
+        <section class="chart-card">
+          <div class="card-heading"><div><p class="eyebrow">OVER TIME</p><h3>Network pressure forecast</h3></div><span>1.0 = modeled capacity</span></div>
+          <svg id="pressureChart" viewBox="0 0 760 210" role="img" aria-label="Network pressure forecast by plan"></svg>
+          <div id="chartLegend" class="chart-legend"></div>
+        </section>
+        <section class="route-focus-card">
+          <div class="card-heading"><div><p class="eyebrow">PRIORITY CORRIDOR</p><h3 id="focusRouteName">Loading route…</h3></div><button id="nextRouteBtn" class="text-button">Next route</button></div>
+          <div id="focusRouteBody"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="routesView" class="view" aria-labelledby="routesHeading">
+      <div class="section-intro">
+        <div><p class="eyebrow">IMPLEMENTATION DETAIL</p><h1 id="routesHeading">Routes, capacity and full cost stack</h1><p>Every recommendation is attached to a corridor, operating unit, delivery owner, capacity effect and planning range.</p></div>
+        <div id="routesPlanPicker" class="segmented"></div>
+      </div>
+      <div class="summary-band" id="costSummaryBand"></div>
+      <section class="table-card">
+        <div class="card-heading"><div><p class="eyebrow">ROUTE ANALYSIS</p><h3>Origin-to-venue performance</h3></div><span id="routeCountLabel"></span></div>
+        <div class="table-scroll"><table><thead><tr><th>Origin / primary mode</th><th>Demand</th><th>Distance</th><th>Base time</th><th>Plan time</th><th>Peak pressure</th><th>Coverage</th><th>Access gap</th></tr></thead><tbody id="routeTableBody"></tbody></table></div>
+      </section>
+      <div class="action-layout">
+        <section><div class="card-heading"><div><p class="eyebrow">INVESTMENT PACKAGE</p><h3>Action-level cost and infrastructure</h3></div></div><div id="actionCards" class="action-cards"></div></section>
+        <aside class="cost-breakdown"><p class="eyebrow">COST COMPOSITION</p><h3 id="costBreakdownTitle">Plan cost</h3><div id="costBars"></div><div class="confidence-note"><b>Why ranges, not fake precision?</b><p>Vehicle-hour benchmarks are public. Procurement, police, dispatch, temporary works and contractor rates still require quotes, so the system preserves a low–mid–high range.</p></div></aside>
+      </div>
+    </section>
+
+    <section id="citiesView" class="view" aria-labelledby="citiesHeading">
+      <div class="section-intro">
+        <div><p class="eyebrow">COMPARABLE SCREENING MODEL</p><h1 id="citiesHeading">11 U.S. host cities, one resilience framework</h1><p>Every city is scored through the same five dimensions. Houston remains the deep implementation case; all others are screening-level until their agency feeds are ingested.</p></div>
+        <div class="score-formula">29% transit · 19% roads · 19% last mile · 14% climate · 19% data</div>
+      </div>
+      <div class="city-layout">
+        <section class="city-rank-card"><div id="cityRanking" class="city-ranking"></div></section>
+        <aside id="cityDetail" class="city-detail"></aside>
+      </div>
+    </section>
+
+    <section id="evidenceView" class="view" aria-labelledby="evidenceHeading">
+      <div class="section-intro">
+        <div><p class="eyebrow">AUDITABLE BY DESIGN</p><h1 id="evidenceHeading">Evidence, freshness and model boundaries</h1><p>The interface distinguishes live feeds, cached public geometry, calibrated assumptions and projections so a judge can tell exactly what each number means.</p></div>
+        <a class="legacy-link" href="/legacy.html">Open advanced / legacy tools ↗</a>
+      </div>
+      <div id="freshnessGrid" class="freshness-grid"></div>
+      <div class="evidence-layout">
+        <section><div class="card-heading"><div><p class="eyebrow">PUBLIC SOURCES</p><h3>Automatic acquisition registry</h3></div></div><div id="sourceCards" class="source-cards"></div></section>
+        <aside>
+          <div class="method-card"><p class="eyebrow">REUSABLE PIPELINE</p><h3>From a new event to a decision</h3><ol><li><b>Discover</b><span>Resolve venue, event window, attendance and public city feeds.</span></li><li><b>Forecast</b><span>Distribute demand by origin and time, then assign modes and street-routed corridors.</span></li><li><b>Stress</b><span>Test rail outage, incident, heat, rain and attendance-surge conditions.</span></li><li><b>Optimize</b><span>Rank portfolios on access, cost, congestion, emissions, equity and resilience.</span></li><li><b>Operate</b><span>Refresh from GTFS-RT, traffic and weather feeds as the event approaches.</span></li></ol></div>
+          <div id="limitsCard" class="limits-card"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="loadingOverlay" class="loading-overlay"><div class="loader"></div><b id="loadingTitle">Building the event plan</b><span id="loadingDetail">Routing demand · testing portfolios · pricing operations</span></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="/app.js"></script>
+</body>
+</html>
