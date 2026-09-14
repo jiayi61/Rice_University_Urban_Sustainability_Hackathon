@@ -1,0 +1,3 @@
+route_id,route_short_name,route_long_name,route_type
+red,Red,Demonstration Rail Line,0
+shuttle,S1,Demonstration Event Shuttle,3

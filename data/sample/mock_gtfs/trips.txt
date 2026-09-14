@@ -1,0 +1,17 @@
+route_id,service_id,trip_id
+red,daily,t0
+red,daily,t1
+red,daily,t2
+red,daily,t3
+red,daily,t4
+red,daily,t5
+red,daily,t6
+red,daily,t7
+red,daily,t8
+red,daily,t9
+shuttle,daily,t10
+shuttle,daily,t11
+shuttle,daily,t12
+shuttle,daily,t13
+shuttle,daily,t14
+shuttle,daily,t15

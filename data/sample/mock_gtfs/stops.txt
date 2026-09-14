@@ -1,0 +1,6 @@
+stop_id,stop_name,stop_lat,stop_lon
+stadium,Stadium Park,29.6860,-95.4105
+downtown,Central Station,29.7590,-95.3680
+medical,TMC Transit Center,29.7080,-95.3970
+eado,EaDo Station,29.7520,-95.3530
+galleria,Uptown Transit Center,29.7410,-95.4630
