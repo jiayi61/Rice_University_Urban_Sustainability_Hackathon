@@ -1,0 +1,184 @@
+{
+  "mode": "traffic_calibration",
+  "built_at": "2026-09-11T19:11:19.995131+00:00",
+  "source": "/workspace/scratch/5861073fc65d/eventflow/data/sample/mock_houston_traffic_counts.csv",
+  "osm_profile_path": "/workspace/scratch/5861073fc65d/eventflow/data/local/osm_profile.json",
+  "settings": {
+    "peak_hour_factor": 0.09,
+    "directional_factor": 0.55,
+    "max_snap_miles": 1.25,
+    "max_rows": 200000
+  },
+  "fields": {
+    "latitude": "latitude",
+    "longitude": "longitude",
+    "count": "aadt",
+    "name": "street_name"
+  },
+  "input_rows": 9,
+  "usable_count_points": 9,
+  "matched_count_points": 9,
+  "unmatched_count_points": 0,
+  "directly_calibrated_edges": 9,
+  "class_inferred_edges": 2,
+  "class_factors": {
+    "primary": 1.369,
+    "motorway": 0.704,
+    "trunk": 1.008,
+    "secondary": 1.101
+  },
+  "edge_calibration": {
+    "w1000_0_f": {
+      "baseline_vehicles": 2006.4,
+      "observed_daily_count": 42000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.0,
+      "calibration_source": "observed traffic count"
+    },
+    "w1000_1_f": {
+      "baseline_vehicles": 2362.8,
+      "observed_daily_count": 51000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.003,
+      "calibration_source": "observed traffic count"
+    },
+    "w1001_0_f": {
+      "baseline_vehicles": 3524.4,
+      "observed_daily_count": 76000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.005,
+      "calibration_source": "observed traffic count"
+    },
+    "w1001_1_f": {
+      "baseline_vehicles": 3247.2,
+      "observed_daily_count": 69000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.003,
+      "calibration_source": "observed traffic count"
+    },
+    "w1002_0_f": {
+      "baseline_vehicles": 6528.8,
+      "observed_daily_count": 118000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.003,
+      "calibration_source": "observed traffic count"
+    },
+    "w1002_1_f": {
+      "baseline_vehicles": 5974.4,
+      "observed_daily_count": 104000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.005,
+      "calibration_source": "observed traffic count"
+    },
+    "w1003_0_f": {
+      "baseline_vehicles": 3161.4,
+      "observed_daily_count": 64000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.003,
+      "calibration_source": "observed traffic count"
+    },
+    "w1003_1_f": {
+      "baseline_vehicles": 2923.8,
+      "observed_daily_count": 58000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.005,
+      "calibration_source": "observed traffic count"
+    },
+    "w1004_0_f": {
+      "baseline_vehicles": 1500.2,
+      "observed_daily_count": 31000.0,
+      "matched_points": 1,
+      "nearest_count_distance_miles": 0.003,
+      "calibration_source": "observed traffic count"
+    },
+    "w1000_2_f": {
+      "baseline_vehicles": 2349.6,
+      "observed_daily_count": null,
+      "matched_points": 0,
+      "nearest_count_distance_miles": null,
+      "calibration_source": "road-class factor inferred from observed primary counts"
+    },
+    "w1006_0_f": {
+      "baseline_vehicles": 1500.2,
+      "observed_daily_count": null,
+      "matched_points": 0,
+      "nearest_count_distance_miles": null,
+      "calibration_source": "road-class factor inferred from observed secondary counts"
+    }
+  },
+  "count_points": [
+    {
+      "lat": 29.7482,
+      "lon": -95.3731,
+      "daily_count": 42000.0,
+      "name": "Main Street north",
+      "nearest_edge_id": "w1000_0_f",
+      "snap_distance_miles": 0.0
+    },
+    {
+      "lat": 29.7227,
+      "lon": -95.388,
+      "daily_count": 51000.0,
+      "name": "Main Street south",
+      "nearest_edge_id": "w1000_1_f",
+      "snap_distance_miles": 0.003
+    },
+    {
+      "lat": 29.7284,
+      "lon": -95.4541,
+      "daily_count": 76000.0,
+      "name": "West Loop north",
+      "nearest_edge_id": "w1001_0_f",
+      "snap_distance_miles": 0.005
+    },
+    {
+      "lat": 29.7004,
+      "lon": -95.4276,
+      "daily_count": 69000.0,
+      "name": "West Loop stadium",
+      "nearest_edge_id": "w1001_1_f",
+      "snap_distance_miles": 0.003
+    },
+    {
+      "lat": 29.9215,
+      "lon": -95.3509,
+      "daily_count": 118000.0,
+      "name": "I-45 airport",
+      "nearest_edge_id": "w1002_0_f",
+      "snap_distance_miles": 0.003
+    },
+    {
+      "lat": 29.8045,
+      "lon": -95.3639,
+      "daily_count": 104000.0,
+      "name": "I-45 downtown",
+      "nearest_edge_id": "w1002_1_f",
+      "snap_distance_miles": 0.005
+    },
+    {
+      "lat": 29.6527,
+      "lon": -95.3144,
+      "daily_count": 64000.0,
+      "name": "South airport",
+      "nearest_edge_id": "w1003_0_f",
+      "snap_distance_miles": 0.003
+    },
+    {
+      "lat": 29.6724,
+      "lon": -95.3804,
+      "daily_count": 58000.0,
+      "name": "South stadium",
+      "nearest_edge_id": "w1003_1_f",
+      "snap_distance_miles": 0.005
+    },
+    {
+      "lat": 29.7448,
+      "lon": -95.3658,
+      "daily_count": 31000.0,
+      "name": "EaDo connector",
+      "nearest_edge_id": "w1004_0_f",
+      "snap_distance_miles": 0.003
+    }
+  ],
+  "disclaimer": "Daily traffic counts are converted to a directional event-hour baseline using configurable factors. This is a planning calibration, not an official design-hour traffic forecast."
+}

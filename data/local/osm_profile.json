@@ -1,0 +1,582 @@
+{
+  "mode": "osm_network",
+  "built_at": "2026-09-11T19:11:19.989835+00:00",
+  "source": "/workspace/scratch/5861073fc65d/eventflow/data/sample/mock_overpass_houston.json",
+  "bbox": {
+    "south": 29.62,
+    "west": -95.53,
+    "north": 30.03,
+    "east": -95.25
+  },
+  "attribution": "© OpenStreetMap contributors; network extracted through Overpass or a local Overpass JSON file.",
+  "node_count": 12,
+  "edge_count": 13,
+  "raw_node_count": 12,
+  "raw_edge_count": 24,
+  "way_count": 7,
+  "skipped_segments": 0,
+  "nodes": {
+    "100": {
+      "lat": 29.7589,
+      "lon": -95.3677
+    },
+    "101": {
+      "lat": 29.7375,
+      "lon": -95.3785
+    },
+    "102": {
+      "lat": 29.7078,
+      "lon": -95.3975
+    },
+    "103": {
+      "lat": 29.6847,
+      "lon": -95.4107
+    },
+    "110": {
+      "lat": 29.7407,
+      "lon": -95.4636
+    },
+    "111": {
+      "lat": 29.716,
+      "lon": -95.4445
+    },
+    "120": {
+      "lat": 29.9931,
+      "lon": -95.3418
+    },
+    "121": {
+      "lat": 29.85,
+      "lon": -95.36
+    },
+    "130": {
+      "lat": 29.6454,
+      "lon": -95.2789
+    },
+    "131": {
+      "lat": 29.66,
+      "lon": -95.35
+    },
+    "140": {
+      "lat": 29.7521,
+      "lon": -95.353
+    },
+    "141": {
+      "lat": 29.72,
+      "lon": -95.37
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "w1000_0_f",
+      "source": "100",
+      "target": "101",
+      "name": "Main Street Event Spine",
+      "highway": "primary",
+      "distance_miles": 1.61431,
+      "freeflow_minutes": 2.7674,
+      "baseline_vehicles": 1716.0,
+      "capacity_vehicles": 3300.0,
+      "lanes_directional": 2.0,
+      "speed_mph": 35.0,
+      "geometry": [
+        [
+          29.7589,
+          -95.3677
+        ],
+        [
+          29.7375,
+          -95.3785
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1000_1_f",
+      "source": "101",
+      "target": "102",
+      "name": "Main Street Event Spine",
+      "highway": "primary",
+      "distance_miles": 2.3475,
+      "freeflow_minutes": 4.0243,
+      "baseline_vehicles": 1716.0,
+      "capacity_vehicles": 3300.0,
+      "lanes_directional": 2.0,
+      "speed_mph": 35.0,
+      "geometry": [
+        [
+          29.7375,
+          -95.3785
+        ],
+        [
+          29.7078,
+          -95.3975
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1000_2_f",
+      "source": "102",
+      "target": "103",
+      "name": "Main Street Event Spine",
+      "highway": "primary",
+      "distance_miles": 1.78187,
+      "freeflow_minutes": 3.0546,
+      "baseline_vehicles": 1716.0,
+      "capacity_vehicles": 3300.0,
+      "lanes_directional": 2.0,
+      "speed_mph": 35.0,
+      "geometry": [
+        [
+          29.7078,
+          -95.3975
+        ],
+        [
+          29.6847,
+          -95.4107
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1001_0_f",
+      "source": "110",
+      "target": "111",
+      "name": "West Loop Stadium Corridor",
+      "highway": "primary",
+      "distance_miles": 2.05568,
+      "freeflow_minutes": 2.7409,
+      "baseline_vehicles": 2574.0,
+      "capacity_vehicles": 4950.0,
+      "lanes_directional": 3.0,
+      "speed_mph": 45.0,
+      "geometry": [
+        [
+          29.7407,
+          -95.4636
+        ],
+        [
+          29.716,
+          -95.4445
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1001_1_f",
+      "source": "111",
+      "target": "103",
+      "name": "West Loop Stadium Corridor",
+      "highway": "primary",
+      "distance_miles": 2.96513,
+      "freeflow_minutes": 3.9535,
+      "baseline_vehicles": 2574.0,
+      "capacity_vehicles": 4950.0,
+      "lanes_directional": 3.0,
+      "speed_mph": 45.0,
+      "geometry": [
+        [
+          29.716,
+          -95.4445
+        ],
+        [
+          29.6847,
+          -95.4107
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1002_0_f",
+      "source": "120",
+      "target": "121",
+      "name": "North Airport Corridor",
+      "highway": "motorway",
+      "distance_miles": 9.94716,
+      "freeflow_minutes": 9.9472,
+      "baseline_vehicles": 9280.0,
+      "capacity_vehicles": 16000.0,
+      "lanes_directional": 8.0,
+      "speed_mph": 60.0,
+      "geometry": [
+        [
+          29.9931,
+          -95.3418
+        ],
+        [
+          29.85,
+          -95.36
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1002_1_f",
+      "source": "121",
+      "target": "100",
+      "name": "North Airport Corridor",
+      "highway": "motorway",
+      "distance_miles": 6.31132,
+      "freeflow_minutes": 6.3113,
+      "baseline_vehicles": 9280.0,
+      "capacity_vehicles": 16000.0,
+      "lanes_directional": 8.0,
+      "speed_mph": 60.0,
+      "geometry": [
+        [
+          29.85,
+          -95.36
+        ],
+        [
+          29.7589,
+          -95.3677
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1003_0_f",
+      "source": "130",
+      "target": "131",
+      "name": "South Airport Corridor",
+      "highway": "trunk",
+      "distance_miles": 4.38676,
+      "freeflow_minutes": 5.2641,
+      "baseline_vehicles": 3135.0,
+      "capacity_vehicles": 5700.0,
+      "lanes_directional": 3.0,
+      "speed_mph": 50.0,
+      "geometry": [
+        [
+          29.6454,
+          -95.2789
+        ],
+        [
+          29.66,
+          -95.35
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1003_1_f",
+      "source": "131",
+      "target": "103",
+      "name": "South Airport Corridor",
+      "highway": "trunk",
+      "distance_miles": 4.02385,
+      "freeflow_minutes": 4.8286,
+      "baseline_vehicles": 3135.0,
+      "capacity_vehicles": 5700.0,
+      "lanes_directional": 3.0,
+      "speed_mph": 50.0,
+      "geometry": [
+        [
+          29.66,
+          -95.35
+        ],
+        [
+          29.6847,
+          -95.4107
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1004_0_f",
+      "source": "140",
+      "target": "101",
+      "name": "EaDo Midtown Connector",
+      "highway": "secondary",
+      "distance_miles": 1.83241,
+      "freeflow_minutes": 3.6648,
+      "baseline_vehicles": 1363.0,
+      "capacity_vehicles": 2900.0,
+      "lanes_directional": 2.0,
+      "speed_mph": 30.0,
+      "geometry": [
+        [
+          29.7521,
+          -95.353
+        ],
+        [
+          29.7375,
+          -95.3785
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1005_0_f",
+      "source": "140",
+      "target": "141",
+      "name": "East Medical Connector",
+      "highway": "tertiary",
+      "distance_miles": 2.44117,
+      "freeflow_minutes": 4.8823,
+      "baseline_vehicles": 500.0,
+      "capacity_vehicles": 1250.0,
+      "lanes_directional": 1.0,
+      "speed_mph": 30.0,
+      "geometry": [
+        [
+          29.7521,
+          -95.353
+        ],
+        [
+          29.72,
+          -95.37
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1005_1_f",
+      "source": "141",
+      "target": "102",
+      "name": "East Medical Connector",
+      "highway": "tertiary",
+      "distance_miles": 1.85305,
+      "freeflow_minutes": 3.7061,
+      "baseline_vehicles": 500.0,
+      "capacity_vehicles": 1250.0,
+      "lanes_directional": 1.0,
+      "speed_mph": 30.0,
+      "geometry": [
+        [
+          29.72,
+          -95.37
+        ],
+        [
+          29.7078,
+          -95.3975
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    },
+    {
+      "edge_id": "w1006_0_f",
+      "source": "111",
+      "target": "102",
+      "name": "West Medical Connector",
+      "highway": "secondary",
+      "distance_miles": 2.87679,
+      "freeflow_minutes": 4.9316,
+      "baseline_vehicles": 1363.0,
+      "capacity_vehicles": 2900.0,
+      "lanes_directional": 2.0,
+      "speed_mph": 35.0,
+      "geometry": [
+        [
+          29.716,
+          -95.4445
+        ],
+        [
+          29.7078,
+          -95.3975
+        ]
+      ],
+      "calibration_source": "highway-class assumption"
+    }
+  ],
+  "locations": {
+    "stadium": {
+      "location_id": "stadium",
+      "name": "Houston Stadium / NRG Stadium",
+      "lat": 29.6847,
+      "lon": -95.4107,
+      "node_id": "103",
+      "snap_distance_miles": 0.0
+    },
+    "downtown": {
+      "location_id": "downtown",
+      "name": "Downtown / Fan Zone",
+      "lat": 29.7589,
+      "lon": -95.3677,
+      "node_id": "100",
+      "snap_distance_miles": 0.0
+    },
+    "galleria": {
+      "location_id": "galleria",
+      "name": "Galleria / Uptown",
+      "lat": 29.7407,
+      "lon": -95.4636,
+      "node_id": "110",
+      "snap_distance_miles": 0.0
+    },
+    "medical": {
+      "location_id": "medical",
+      "name": "Texas Medical Center",
+      "lat": 29.7078,
+      "lon": -95.3975,
+      "node_id": "102",
+      "snap_distance_miles": 0.0
+    },
+    "iah": {
+      "location_id": "iah",
+      "name": "IAH Airport Area",
+      "lat": 29.9931,
+      "lon": -95.3418,
+      "node_id": "120",
+      "snap_distance_miles": 0.0
+    },
+    "hobby": {
+      "location_id": "hobby",
+      "name": "Hobby Airport Area",
+      "lat": 29.6454,
+      "lon": -95.2789,
+      "node_id": "130",
+      "snap_distance_miles": 0.0
+    },
+    "eado": {
+      "location_id": "eado",
+      "name": "EaDo / East Downtown",
+      "lat": 29.7521,
+      "lon": -95.353,
+      "node_id": "140",
+      "snap_distance_miles": 0.0
+    }
+  },
+  "routes": {
+    "downtown": {
+      "w1000_0_f": 1.0,
+      "w1000_1_f": 1.0,
+      "w1000_2_f": 1.0
+    },
+    "galleria": {
+      "w1001_0_f": 1.0,
+      "w1001_1_f": 0.75,
+      "w1006_0_f": 0.25,
+      "w1000_2_f": 0.25
+    },
+    "medical": {
+      "w1000_2_f": 1.0
+    },
+    "iah": {
+      "w1002_0_f": 1.0,
+      "w1002_1_f": 1.0,
+      "w1000_0_f": 1.0,
+      "w1000_1_f": 1.0,
+      "w1000_2_f": 1.0
+    },
+    "hobby": {
+      "w1003_0_f": 1.0,
+      "w1003_1_f": 1.0
+    },
+    "eado": {
+      "w1004_0_f": 0.75,
+      "w1000_1_f": 0.75,
+      "w1000_2_f": 1.0,
+      "w1005_0_f": 0.25,
+      "w1005_1_f": 0.25
+    }
+  },
+  "route_paths": {
+    "downtown": [
+      {
+        "edge_ids": [
+          "w1000_0_f",
+          "w1000_1_f",
+          "w1000_2_f"
+        ],
+        "travel_minutes": 9.85,
+        "share": 1.0
+      }
+    ],
+    "galleria": [
+      {
+        "edge_ids": [
+          "w1001_0_f",
+          "w1001_1_f"
+        ],
+        "travel_minutes": 6.69,
+        "share": 0.75
+      },
+      {
+        "edge_ids": [
+          "w1001_0_f",
+          "w1006_0_f",
+          "w1000_2_f"
+        ],
+        "travel_minutes": 10.73,
+        "share": 0.25
+      }
+    ],
+    "medical": [
+      {
+        "edge_ids": [
+          "w1000_2_f"
+        ],
+        "travel_minutes": 3.05,
+        "share": 1.0
+      }
+    ],
+    "iah": [
+      {
+        "edge_ids": [
+          "w1002_0_f",
+          "w1002_1_f",
+          "w1000_0_f",
+          "w1000_1_f",
+          "w1000_2_f"
+        ],
+        "travel_minutes": 26.1,
+        "share": 1.0
+      }
+    ],
+    "hobby": [
+      {
+        "edge_ids": [
+          "w1003_0_f",
+          "w1003_1_f"
+        ],
+        "travel_minutes": 10.09,
+        "share": 1.0
+      }
+    ],
+    "eado": [
+      {
+        "edge_ids": [
+          "w1004_0_f",
+          "w1000_1_f",
+          "w1000_2_f"
+        ],
+        "travel_minutes": 10.74,
+        "share": 0.75
+      },
+      {
+        "edge_ids": [
+          "w1005_0_f",
+          "w1005_1_f",
+          "w1000_2_f"
+        ],
+        "travel_minutes": 11.64,
+        "share": 0.25
+      }
+    ]
+  },
+  "target_groups": {
+    "stadium_core": [
+      "w1006_0_f",
+      "w1001_1_f",
+      "w1000_2_f"
+    ],
+    "critical_corridors": [
+      "w1000_2_f",
+      "w1000_1_f",
+      "w1000_0_f",
+      "w1001_0_f",
+      "w1001_1_f",
+      "w1002_0_f",
+      "w1002_1_f",
+      "w1004_0_f",
+      "w1003_0_f",
+      "w1003_1_f",
+      "w1006_0_f",
+      "w1005_0_f",
+      "w1005_1_f"
+    ]
+  },
+  "warnings": [],
+  "disclaimer": "Road geometry comes from OpenStreetMap. Capacities and uncalibrated baseline volumes are inferred from road class, lane and speed tags until traffic counts are connected."
+}
