@@ -1,0 +1,11 @@
+zone_id,name,kind,lat,lon,visitors,peak_share,vulnerability,rail_share,shuttle_share,rideshare_share,walk_share,park_share,rail_eligible,shuttle_eligible,notes
+downtown_fan_zone,Downtown Fan Zone,fan_zone,29.7604,-95.3698,12000,0.64,0.44,0.48,0.10,0.25,0.00,0.17,1,1,Discovery Green and central hotel demand
+midtown_hotels,Midtown Hotels,hotel_cluster,29.7426,-95.3767,8000,0.62,0.38,0.55,0.08,0.25,0.05,0.07,1,1,Hotel cluster with Red Line access
+museum_district,Museum District,visitor_zone,29.7216,-95.3896,5000,0.6,0.36,0.50,0.05,0.28,0.07,0.10,1,1,Museums and nearby hospitality demand
+medical_center,Texas Medical Center,employment_hotel,29.7069,-95.4018,9000,0.59,0.42,0.35,0.02,0.20,0.25,0.18,1,0,Walk and rail-accessible nearby district
+fannin_south,Fannin South Park and Ride,park_ride,29.6744,-95.4029,12000,0.66,0.47,0.48,0.02,0.05,0.30,0.15,1,0,Park-and-ride and Red Line terminal access
+galleria_uptown,Galleria Uptown Hotels,hotel_cluster,29.7390,-95.4641,7000,0.61,0.34,0.05,0.20,0.55,0.00,0.20,0,1,Hotel and visitor demand west of venue
+eado_fan_zone,EaDo Fan Zone,fan_zone,29.7522,-95.3524,5000,0.63,0.40,0.45,0.12,0.30,0.00,0.13,1,1,East downtown bar and fan activity
+hobby_airport,Hobby Airport Arrivals,airport,29.6454,-95.2789,4000,0.57,0.50,0.00,0.18,0.52,0.00,0.30,0,1,Airport arrival demand from south/southeast
+iah_airport,Bush IAH Airport Arrivals,airport,29.9902,-95.3368,5000,0.56,0.48,0.00,0.22,0.58,0.00,0.20,0,1,Airport arrival demand from north
+sw_park_ride,Southwest Park and Ride,park_ride,29.6511,-95.4647,5000,0.65,0.45,0.00,0.12,0.08,0.00,0.80,0,1,Remote parking intercept southwest of venue

@@ -1,0 +1,42 @@
+route_id,zone_id,corridor_id,name,mode,lat1,lon1,lat2,lon2,distance_km,base_minutes,capacity_per_hour,shade_index,ada_score,gap_m
+downtown_rail,downtown_fan_zone,red_line_north,Red Line north corridor,rail,29.7604,-95.3698,29.6847,-95.4107,10.8,31,8500,0.48,0.86,320
+downtown_shuttle,downtown_fan_zone,downtown_shuttle,Downtown direct shuttle,shuttle,29.7604,-95.3698,29.6847,-95.4107,12.4,27,1500,0.42,0.8,260
+downtown_rideshare,downtown_fan_zone,kirby_rideshare_loop,Kirby rideshare loop,rideshare,29.7604,-95.3698,29.6847,-95.4107,13.2,29,2400,0.32,0.76,180
+downtown_park,downtown_fan_zone,nrg_parking_loop,NRG parking loop,park,29.7604,-95.3698,29.6847,-95.4107,13.2,30,3300,0.28,0.72,420
+midtown_rail,midtown_hotels,red_line_north,Red Line north corridor,rail,29.7426,-95.3767,29.6847,-95.4107,8.4,24,8500,0.5,0.86,310
+midtown_shuttle,midtown_hotels,hotel_shuttle_loop,Midtown hotel shuttle,shuttle,29.7426,-95.3767,29.6847,-95.4107,9.5,23,1100,0.42,0.8,250
+midtown_rideshare,midtown_hotels,kirby_rideshare_loop,Kirby rideshare loop,rideshare,29.7426,-95.3767,29.6847,-95.4107,10.2,24,2400,0.32,0.76,170
+midtown_walk,midtown_hotels,long_walk_shed,Extended walk shed,walk,29.7426,-95.3767,29.6847,-95.4107,7.2,86,9000,0.24,0.62,760
+midtown_park,midtown_hotels,nrg_parking_loop,NRG parking loop,park,29.7426,-95.3767,29.6847,-95.4107,10.2,25,3300,0.28,0.72,420
+museum_rail,museum_district,red_line_north,Red Line north corridor,rail,29.7216,-95.3896,29.6847,-95.4107,5.4,17,8500,0.5,0.86,300
+museum_shuttle,museum_district,hotel_shuttle_loop,Museum district shuttle,shuttle,29.7216,-95.3896,29.6847,-95.4107,6.4,18,1100,0.42,0.8,250
+museum_rideshare,museum_district,kirby_rideshare_loop,Kirby rideshare loop,rideshare,29.7216,-95.3896,29.6847,-95.4107,6.8,19,2400,0.32,0.76,170
+museum_walk,museum_district,long_walk_shed,Extended walk shed,walk,29.7216,-95.3896,29.6847,-95.4107,4.8,58,9000,0.3,0.68,620
+museum_park,museum_district,nrg_parking_loop,NRG parking loop,park,29.7216,-95.3896,29.6847,-95.4107,6.8,20,3300,0.28,0.72,420
+medical_rail,medical_center,red_line_med_center,Red Line medical center segment,rail,29.7069,-95.4018,29.6847,-95.4107,3.2,12,7200,0.46,0.86,340
+medical_shuttle,medical_center,medical_center_shuttle,Medical Center circulator shuttle,shuttle,29.7069,-95.4018,29.6847,-95.4107,3.6,15,650,0.4,0.78,260
+medical_rideshare,medical_center,main_st_rideshare_loop,Main Street rideshare loop,rideshare,29.7069,-95.4018,29.6847,-95.4107,3.9,16,2500,0.35,0.74,160
+medical_walk,medical_center,medical_center_walk,Medical Center walk approach,walk,29.7069,-95.4018,29.6847,-95.4107,2.6,33,9000,0.36,0.72,520
+medical_park,medical_center,nrg_parking_loop,NRG parking loop,park,29.7069,-95.4018,29.6847,-95.4107,3.9,17,3300,0.28,0.72,420
+fannin_rail,fannin_south,red_line_south,Fannin South Red Line terminal,rail,29.6744,-95.4029,29.6847,-95.4107,1.6,10,7600,0.35,0.84,460
+fannin_shuttle,fannin_south,fannin_internal_shuttle,Fannin South internal shuttle,shuttle,29.6744,-95.4029,29.6847,-95.4107,1.8,9,700,0.3,0.78,240
+fannin_rideshare,fannin_south,kirby_rideshare_loop,Kirby rideshare loop,rideshare,29.6744,-95.4029,29.6847,-95.4107,2.4,13,2400,0.32,0.76,170
+fannin_walk,fannin_south,fannin_walk,Fannin South walk approach,walk,29.6744,-95.4029,29.6847,-95.4107,1.4,18,9000,0.26,0.7,610
+fannin_park,fannin_south,fannin_parking,Fannin South parking exit,park,29.6744,-95.4029,29.6847,-95.4107,2.2,12,2400,0.22,0.68,520
+galleria_rail,galleria_uptown,rail_transfer_west,West hotel rail transfer,rail,29.7390,-95.4641,29.6847,-95.4107,12.8,47,1600,0.36,0.74,510
+galleria_shuttle,galleria_uptown,galleria_shuttle,Galleria hotel shuttle,shuttle,29.7390,-95.4641,29.6847,-95.4107,13.8,31,1300,0.4,0.78,280
+galleria_rideshare,galleria_uptown,west_loop_rideshare,West Loop rideshare approach,rideshare,29.7390,-95.4641,29.6847,-95.4107,14.7,33,2600,0.25,0.72,180
+galleria_park,galleria_uptown,nrg_parking_loop,NRG parking loop,park,29.7390,-95.4641,29.6847,-95.4107,14.7,34,3300,0.28,0.72,420
+eado_rail,eado_fan_zone,red_line_north,Red Line north corridor,rail,29.7522,-95.3524,29.6847,-95.4107,10.7,30,8500,0.48,0.86,320
+eado_shuttle,eado_fan_zone,downtown_shuttle,EaDo fan-zone shuttle,shuttle,29.7522,-95.3524,29.6847,-95.4107,12.2,27,1500,0.42,0.8,260
+eado_rideshare,eado_fan_zone,kirby_rideshare_loop,Kirby rideshare loop,rideshare,29.7522,-95.3524,29.6847,-95.4107,13.0,28,2400,0.32,0.76,180
+eado_park,eado_fan_zone,nrg_parking_loop,NRG parking loop,park,29.7522,-95.3524,29.6847,-95.4107,13.0,29,3300,0.28,0.72,420
+hobby_shuttle,hobby_airport,hobby_airport_shuttle,Hobby airport shuttle,shuttle,29.6454,-95.2789,29.6847,-95.4107,16.8,35,900,0.38,0.76,300
+hobby_rideshare,hobby_airport,south_loop_rideshare,South Loop rideshare approach,rideshare,29.6454,-95.2789,29.6847,-95.4107,17.8,37,2200,0.24,0.7,180
+hobby_park,hobby_airport,nrg_parking_loop,NRG parking loop,park,29.6454,-95.2789,29.6847,-95.4107,17.8,38,3300,0.28,0.72,420
+iah_shuttle,iah_airport,iah_airport_shuttle,IAH airport shuttle,shuttle,29.9902,-95.3368,29.6847,-95.4107,42.0,58,1000,0.38,0.76,320
+iah_rideshare,iah_airport,north_freeway_rideshare,North freeway rideshare approach,rideshare,29.9902,-95.3368,29.6847,-95.4107,44.0,62,2400,0.22,0.68,190
+iah_park,iah_airport,nrg_parking_loop,NRG parking loop,park,29.9902,-95.3368,29.6847,-95.4107,44.0,63,3300,0.28,0.72,420
+sw_shuttle,sw_park_ride,sw_park_ride_shuttle,Southwest park-and-ride shuttle,shuttle,29.6511,-95.4647,29.6847,-95.4107,8.5,22,1000,0.38,0.76,300
+sw_rideshare,sw_park_ride,west_loop_rideshare,West Loop rideshare approach,rideshare,29.6511,-95.4647,29.6847,-95.4107,9.7,25,2600,0.25,0.72,180
+sw_park,sw_park_ride,remote_parking_southwest,Southwest remote parking approach,park,29.6511,-95.4647,29.6847,-95.4107,9.7,26,1200,0.24,0.7,500

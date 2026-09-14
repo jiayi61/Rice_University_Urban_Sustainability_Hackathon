@@ -1,0 +1,11 @@
+candidate_id,name,lat,lon,category,base_priority
+red_line_station,Stadium Red Line Station,29.6857,-95.4118,station,0.95
+fannin_gate,Fannin South Gate Walkway,29.6798,-95.4076,pedestrian_approach,0.88
+kirby_rideshare,Kirby Rideshare Corral,29.6889,-95.4148,rideshare,0.86
+yellow_lot,Yellow Lot Pedestrian Spine,29.6815,-95.4162,parking,0.82
+main_st_crossing,Main Street Crossing,29.6912,-95.4078,pedestrian_approach,0.78
+mcnee_gate,McNee Road Gate,29.6788,-95.4141,venue_gate,0.76
+south_bridge,South Pedestrian Bridge,29.6748,-95.4074,pedestrian_approach,0.74
+astrodome_plaza,Astrodome Plaza Holding Area,29.6851,-95.4070,holding_area,0.84
+north_kirby_gate,North Kirby Gate,29.6928,-95.4132,venue_gate,0.72
+fan_fest_downtown,Downtown Fan Fest Cooling Point,29.7604,-95.3698,offsite_fan_zone,0.68
