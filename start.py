@@ -40,6 +40,7 @@ from eventflow.osm_ingestion import build_osm_profile, fetch_overpass, scan_osm 
 from eventflow.traffic_ingestion import build_traffic_profile, scan_traffic_counts  # noqa: E402
 from eventflow.model import EventFlowModel  # noqa: E402
 from eventflow.platform import MobilityPlatform  # noqa: E402
+from eventflow.nynj import NYNJEngine, narrative  # noqa: E402
 from eventflow.universal import UniversalPlanner  # noqa: E402
 from eventflow.sample_data import demo_city_readiness  # noqa: E402
 from eventflow.submission import build_submission_package  # noqa: E402
@@ -47,6 +48,7 @@ from houston_mvp.cli import build_dashboard_payload as build_houston_mvp_payload
 
 MODEL = EventFlowModel(RICE_PROFILE_PATH, GTFS_PROFILE_PATH, OSM_PROFILE_PATH, TRAFFIC_PROFILE_PATH, CANDIDATE_PROFILE_PATH, EQUITY_PROFILE_PATH)
 PLATFORM = MobilityPlatform(ROOT)
+NYNJ = NYNJEngine(ROOT)
 UNIVERSAL = UniversalPlanner(ROOT, PLATFORM)
 
 
@@ -194,6 +196,10 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_asset(STYLES_FILE, "text/css; charset=utf-8")
             elif path == "/app.js":
                 self.send_asset(SCRIPT_FILE, "application/javascript; charset=utf-8")
+            elif path in {"/competition-data.json", "/competition-scenarios.json"}:
+                self.send_asset(ROOT / "app" / "static" / path.lstrip("/"), "application/json; charset=utf-8")
+            elif path == "/api/nynj/catalog":
+                self.send_json(NYNJ.catalog())
             elif path == "/favicon.ico":
                 self.send_response(HTTPStatus.NO_CONTENT)
                 self.end_headers()
@@ -251,6 +257,11 @@ class Handler(BaseHTTPRequestHandler):
         path = urlparse(self.path).path
         try:
             data = self.read_json()
+            if path == "/api/nynj/plan":
+                result = NYNJ.plan(data.get("budget", 500000), data.get("priority", "balanced"), data.get("stress", "normal"))
+                result["narrative"] = narrative(result)
+                self.send_json(result)
+                return
             if path == "/api/v2/plan":
                 self.send_json(PLATFORM.plan(str(data.get("event_id") or "houston_wc26")))
                 return

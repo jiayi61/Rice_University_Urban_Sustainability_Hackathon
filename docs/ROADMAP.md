@@ -1,3 +1,5 @@
+> Legacy prototype documentation. See README.md and NYNJ_METHODOLOGY.md for the current competition case.
+
 # EventFlow Roadmap after v0.9
 
 ## Phase 1 — Local evidence completion

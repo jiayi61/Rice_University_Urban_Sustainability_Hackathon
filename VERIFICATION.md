@@ -1,49 +1,11 @@
-# Verification Report — v0.9
+# Verification — 2026-09-14
 
-## Automated tests
+- All 192 private release assets match manifest byte sizes and GitHub SHA-256 digests; total 8,469,554,277 bytes. See data/rice/upload_verification.json.
+- Complete organizer scan: 191 compressed CSV shards across six data families. No row cap. NY/NJ weather matching returned zero rows and is disclosed.
+- Five NY/NJ regression tests passed: cohort conservation; zero/invalid budgets; all 36 snapshots reproduce and stay within central-cost budgets; holdout exclusion; raw manifest completeness. Each saved scenario has 81 sensitivity runs.
+- Browser check: homepage loads evidence, map, portfolio and charts. Changing $500,000/normal to $250,000/rail disruption changes projected maximum clearance from 180→132 to 400→354 minutes. No browser console errors observed in this interaction.
+- JavaScript syntax checked. Additional existing regression results are recorded below when run.
 
-```text
-21 passed
-```
+These are implementation checks, not external validation of intervention effectiveness. Hosted production deployment and a recorded pitch are separate deliverables and must not be inferred from a local preview.
 
-新增测试覆盖：
-
-- portfolio marginal contribution；
-- benchmark portfolio comparison；
-- implementation ownership and timeline；
-- submission Markdown generation；
-- judging-criteria alignment；
-- budget compliance。
-
-## Standalone smoke test
-
-验证了：
-
-- OSM road graph；
-- traffic-count calibration；
-- candidate-site and equity profiles；
-- capacity-constrained scenario simulation；
-- equity-aware optimization；
-- AI action plan；
-- `/api/explain`；
-- `/api/implementation`；
-- `/api/submission`。
-
-结果：
-
-```text
-PASS: v0.9 standalone server, explainability, implementation playbook,
-submission studio, equity-aware optimization and calibrated data pipelines
-are working.
-```
-
-## Frontend checks
-
-```text
-HTML parser check passed
-Frontend JavaScript syntax check passed
-```
-
-## Interpretation
-
-这些测试验证代码行为、内部一致性和数据管线。它们不证明比赛日交通预测准确率，也不替代机构审批、现场演练或外部验证。
+Existing unittest discovery: 15 tests passed, including the five NY/NJ checks. Python syntax compilation passed for the changed server, model and download script.

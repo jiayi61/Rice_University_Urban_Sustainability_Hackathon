@@ -1,0 +1,9 @@
+{
+  "source_url": "https://www.njtransit.com/press-releases/new-jersey-interagency-transportation-after-action-report-aar-njny-stadium-fifa",
+  "title": "NJ TRANSIT interagency after-action report: FIFA World Cup operations",
+  "report_date": "2026-07-21",
+  "accessed": "2026-09-14",
+  "data_class": "Observed public data — agency-reported aggregates",
+  "extraction": "Manually transcribed eight match columns from the Ridership & Service Data table; egress passenger and duration rows only. Checked against the published table.",
+  "limits": ["Agency-reported aggregates have not been independently audited.", "Mode counts and American Dream pedestrian counts are not a disjoint accounting of all spectators; do not sum pedestrian and mode counts.", "The report includes negative unallocated totals and estimated categories; those categories are excluded from this model.", "Egress duration is a system clearance window, not an individual passenger's waiting time.", "This is a retrospective 2026 case and future-event scenario tool, not a pre-tournament forecast."]
+}

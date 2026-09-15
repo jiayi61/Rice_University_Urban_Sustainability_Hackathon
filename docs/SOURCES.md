@@ -1,3 +1,5 @@
+> Legacy prototype documentation. See README.md and NYNJ_METHODOLOGY.md for the current competition case.
+
 # Public Data Sources
 
 ## Rice World Cup Hack Data

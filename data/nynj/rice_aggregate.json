@@ -1,0 +1,1933 @@
+{
+  "schema_version": 1,
+  "market": "New York/New Jersey",
+  "coverage": "Full scan of all available compressed shards; no row cap. Market labels and coordinates are organizer-transformed.",
+  "data_class": "Organizer sample data",
+  "limitations": [
+    "Not actual urban conditions or a FIFA visitor OD matrix.",
+    "Visitation totals are perturbed visits, not unique people.",
+    "Spatial cells are approximately 5 km and jittered; they are not street-level evidence.",
+    "UHI is retained as a 1\u201311 sample index, never converted to degrees.",
+    "Weather values are transformed historical observations, not a 2026 forecast."
+  ],
+  "datasets": {
+    "poi": {
+      "files_scanned": 32,
+      "rows_read": 511934,
+      "rows_matched_market_or_station": 162646,
+      "rows_within_nynj_bbox": 130258,
+      "date_min": "",
+      "date_max": "",
+      "totals": {
+        "store_id_present": 10802
+      },
+      "months": {},
+      "categories": {
+        "Accounting, Tax Preparation, Bookkeeping, and Payroll Services": 1481,
+        "Activities Related to Credit Intermediation": 1591,
+        "Activities Related to Real Estate": 822,
+        "Administration of Economic Programs": 84,
+        "Administration of Environmental Quality Programs": 12,
+        "Administration of Housing Programs, Urban Planning, and Community Development": 54,
+        "Administration of Human Resource Programs": 76,
+        "Advertising, Public Relations, and Related Services": 1133,
+        "Aerospace Product and Parts Manufacturing": 6,
+        "Agencies, Brokerages, and Other Insurance Related Activities": 1132,
+        "Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures": 18,
+        "Agriculture, Forestry, Fishing and Hunting": 48,
+        "Ambulatory Health Care Services": 77,
+        "Amusement Parks and Arcades": 116,
+        "Amusement, Gambling, and Recreation Industries": 14,
+        "Animal Slaughtering and Processing": 2,
+        "Apparel Accessories and Other Apparel Manufacturing": 29,
+        "Apparel Knitting Mills": 1,
+        "Apparel, Piece Goods, and Notions Merchant Wholesalers": 21,
+        "Aquaculture": 3,
+        "Architectural and Structural Metals Manufacturing": 57,
+        "Architectural, Engineering, and Related Services": 701,
+        "Arts, Entertainment, and Recreation": 80,
+        "Automobile Dealers": 667,
+        "Automotive Equipment Rental and Leasing": 205,
+        "Automotive Parts, Accessories, and Tire Stores": 442,
+        "Automotive Repair and Maintenance": 1995,
+        "Bakeries and Tortilla Manufacturing": 131,
+        "Basic Chemical Manufacturing": 11,
+        "Beer, Wine, and Distilled Alcoholic Beverage Merchant Wholesalers": 4,
+        "Beer, Wine, and Liquor Stores": 570,
+        "Beverage Manufacturing": 67,
+        "Boiler, Tank, and Shipping Container Manufacturing": 1,
+        "Book Stores and News Dealers": 217,
+        "Building Equipment Contractors": 1105,
+        "Building Finishing Contractors": 754,
+        "Building Material and Supplies Dealers": 582,
+        "Business Schools and Computer and Management Training": 43,
+        "Business Support Services": 273,
+        "Business, Professional, Labor, Political, and Similar Organizations": 147,
+        "Cable and Other Subscription Programming": 9,
+        "Cattle Ranching and Farming": 9,
+        "Cement and Concrete Product Manufacturing": 10,
+        "Charter Bus Industry": 4,
+        "Chemical and Allied Products Merchant Wholesalers": 12,
+        "Child Day Care Services": 1678,
+        "Civic and Social Organizations": 1200,
+        "Clay Product and Refractory Manufacturing": 3,
+        "Clothing Stores": 2269,
+        "Clothing and Clothing Accessories Stores": 100,
+        "Coating, Engraving, Heat Treating, and Allied Activities": 14,
+        "Colleges, Universities, and Professional Schools": 575,
+        "Commercial and Industrial Machinery and Equipment (except Automotive and Electronic) Repair and Maintenance": 14,
+        "Commercial and Industrial Machinery and Equipment Rental and Leasing": 41,
+        "Commercial and Service Industry Machinery Manufacturing": 1,
+        "Community Food and Housing, and Emergency and Other Relief Services": 286,
+        "Computer Systems Design and Related Services": 450,
+        "Construction of Buildings": 2,
+        "Consumer Goods Rental": 219,
+        "Continuing Care Retirement Communities and Assisted Living Facilities for the Elderly": 141,
+        "Converted Paper Product Manufacturing": 9,
+        "Couriers and Express Delivery Services": 1674,
+        "Crop Production": 3,
+        "Cut and Sew Apparel Manufacturing": 69,
+        "Cutlery and Handtool Manufacturing": 3,
+        "Dairy Product Manufacturing": 2,
+        "Data Processing, Hosting, and Related Services": 47,
+        "Death Care Services": 418,
+        "Deep Sea, Coastal, and Great Lakes Water Transportation": 3,
+        "Department Stores": 133,
+        "Depository Credit Intermediation": 1410,
+        "Direct Selling Establishments": 56,
+        "Drinking Places (Alcoholic Beverages)": 1022,
+        "Drugs and Druggists' Sundries Merchant Wholesalers": 83,
+        "Drycleaning and Laundry Services": 1105,
+        "Educational Services": 12,
+        "Educational Support Services": 85,
+        "Electric Lighting Equipment Manufacturing": 3,
+        "Electric Power Generation, Transmission and Distribution": 35,
+        "Electrical Equipment Manufacturing": 2,
+        "Electronic Shopping and Mail-Order Houses": 32,
+        "Electronic and Precision Equipment Repair and Maintenance": 223,
+        "Electronics and Appliance Stores": 1061,
+        "Elementary and Secondary Schools": 1590,
+        "Employment Services": 454,
+        "Executive, Legislative, and Other General Government Support": 812,
+        "Fabric Mills": 4,
+        "Facilities Support Services": 2,
+        "Farm Product Raw Material Merchant Wholesalers": 1,
+        "Finance and Insurance": 28,
+        "Florists": 435,
+        "Food Manufacturing": 1,
+        "Food Services and Drinking Places": 108,
+        "Food and Beverage Stores": 1,
+        "Footwear Manufacturing": 1,
+        "Foundation, Structure, and Building Exterior Contractors": 489,
+        "Foundries": 1,
+        "Freight Transportation Arrangement": 31,
+        "Fruit and Tree Nut Farming": 1,
+        "Fruit and Vegetable Preserving and Specialty Food Manufacturing": 2,
+        "Furniture Stores": 546,
+        "Furniture and Home Furnishing Merchant Wholesalers": 2,
+        "Furniture and Home Furnishings Stores": 10,
+        "Gambling Industries": 19,
+        "Gasoline Stations": 810,
+        "General Freight Trucking": 14,
+        "General Medical and Surgical Hospitals": 147,
+        "General Merchandise Stores, including Warehouse Clubs and Supercenters": 331,
+        "General Rental Centers": 23,
+        "Glass and Glass Product Manufacturing": 6,
+        "Grantmaking and Giving Services": 30,
+        "Greenhouse, Nursery, and Floriculture Production": 16,
+        "Grocery Stores": 2754,
+        "Grocery and Related Product Merchant Wholesalers": 64,
+        "Hardware Manufacturing": 2,
+        "Hardware, and Plumbing and Heating Equipment and Supplies Merchant Wholesalers": 73,
+        "Health Care and Social Assistance": 50,
+        "Health and Personal Care Stores": 1104,
+        "Highway, Street, and Bridge Construction": 12,
+        "Hog and Pig Farming": 2,
+        "Home Furnishings Stores": 691,
+        "Home Health Care Services": 314,
+        "Hospitals": 2,
+        "Household Appliance Manufacturing": 8,
+        "Household Appliances and Electrical and Electronic Goods Merchant Wholesalers": 11,
+        "Household and Institutional Furniture and Kitchen Cabinet Manufacturing": 53,
+        "Hunting and Trapping": 2,
+        "Independent Artists, Writers, and Performers": 119,
+        "Individual and Family Services": 479,
+        "Industrial Machinery Manufacturing": 1,
+        "Inland Water Transportation": 1,
+        "Insurance Carriers": 26,
+        "Insurance Carriers and Related Activities": 3,
+        "Insurance and Employee Benefit Funds": 3,
+        "Interurban and Rural Bus Transportation": 30,
+        "Investigation and Security Services": 465,
+        "Jewelry, Luggage, and Leather Goods Stores": 1150,
+        "Junior Colleges": 7,
+        "Justice, Public Order, and Safety Activities": 465,
+        "Land Subdivision": 1,
+        "Lawn and Garden Equipment and Supplies Stores": 172,
+        "Legal Services": 3556,
+        "Lessors of Real Estate": 13108,
+        "Local Messengers and Local Delivery": 177,
+        "Lumber and Other Construction Materials Merchant Wholesalers": 29,
+        "Machine Shops; Turned Product; and Screw, Nut, and Bolt Manufacturing": 11,
+        "Machinery, Equipment, and Supplies Merchant Wholesalers": 104,
+        "Management of Companies and Enterprises": 736,
+        "Management, Scientific, and Technical Consulting Services": 1078,
+        "Medical Equipment and Supplies Manufacturing": 13,
+        "Medical and Diagnostic Laboratories": 295,
+        "Metal and Mineral (except Petroleum) Merchant Wholesalers": 9,
+        "Metalworking Machinery Manufacturing": 21,
+        "Miscellaneous Durable Goods Merchant Wholesalers": 60,
+        "Miscellaneous Nondurable Goods Merchant Wholesalers": 14,
+        "Miscellaneous Store Retailers": 5,
+        "Motion Picture and Video Industries": 271,
+        "Motor Vehicle Manufacturing": 15,
+        "Motor Vehicle Parts Manufacturing": 3,
+        "Motor Vehicle and Motor Vehicle Parts and Supplies Merchant Wholesalers": 12,
+        "Museums, Historical Sites, and Similar Institutions": 1339,
+        "National Security and International Affairs": 70,
+        "Natural Gas Distribution": 7,
+        "Navigational, Measuring, Electromedical, and Control Instruments Manufacturing": 2,
+        "Newspaper, Periodical, Book, and Directory Publishers": 247,
+        "Nondepository Credit Intermediation": 195,
+        "Nonmetallic Mineral Mining and Quarrying": 4,
+        "Nonresidential Building Construction": 217,
+        "Nonscheduled Air Transportation": 7,
+        "Nursing Care Facilities (Skilled Nursing Facilities)": 184,
+        "Nursing and Residential Care Facilities": 65,
+        "Office Administrative Services": 88,
+        "Office Supplies, Stationery, and Gift Stores": 517,
+        "Offices of Dentists": 3986,
+        "Offices of Other Health Practitioners": 13735,
+        "Offices of Physicians": 22512,
+        "Offices of Real Estate Agents and Brokers": 3160,
+        "Oil and Gas Extraction": 1,
+        "Oilseed and Grain Farming": 22,
+        "Other Ambulatory Health Care Services": 86,
+        "Other Amusement and Recreation Industries": 2241,
+        "Other Animal Production": 6,
+        "Other Chemical Product and Preparation Manufacturing": 4,
+        "Other Crop Farming": 37,
+        "Other Fabricated Metal Product Manufacturing": 8,
+        "Other Financial Investment Activities": 1048,
+        "Other Food Manufacturing": 12,
+        "Other General Purpose Machinery Manufacturing": 16,
+        "Other Information Services": 152,
+        "Other Investment Pools and Funds": 1,
+        "Other Leather and Allied Product Manufacturing": 4,
+        "Other Miscellaneous Manufacturing": 1039,
+        "Other Miscellaneous Store Retailers": 1672,
+        "Other Motor Vehicle Dealers": 131,
+        "Other Nonmetallic Mineral Product Manufacturing": 2,
+        "Other Personal Services": 1418,
+        "Other Professional, Scientific, and Technical Services": 1407,
+        "Other Residential Care Facilities": 19,
+        "Other Schools and Instruction": 1534,
+        "Other Services (except Public Administration)": 25,
+        "Other Specialty Trade Contractors": 391,
+        "Other Support Activities for Transportation": 3,
+        "Other Support Services": 86,
+        "Other Telecommunications": 377,
+        "Other Textile Product Mills": 4,
+        "Other Transit and Ground Passenger Transportation": 132,
+        "Other Transportation Equipment Manufacturing": 2,
+        "Other Wood Product Manufacturing": 13,
+        "Outpatient Care Centers": 449,
+        "Paint, Coating, and Adhesive Manufacturing": 5,
+        "Paper and Paper Product Merchant Wholesalers": 6,
+        "Performing Arts Companies": 432,
+        "Personal Care Services": 5959,
+        "Personal and Household Goods Repair and Maintenance": 458,
+        "Pesticide, Fertilizer, and Other Agricultural Chemical Manufacturing": 1,
+        "Petroleum and Coal Products Manufacturing": 1,
+        "Petroleum and Petroleum Products Merchant Wholesalers": 8,
+        "Pharmaceutical and Medicine Manufacturing": 24,
+        "Pipeline Transportation of Crude Oil": 1,
+        "Plastics Product Manufacturing": 7,
+        "Postal Service": 150,
+        "Poultry and Egg Production": 1,
+        "Printing and Related Support Activities": 805,
+        "Professional and Commercial Equipment and Supplies Merchant Wholesalers": 32,
+        "Professional, Scientific, and Technical Services": 55,
+        "Promoters of Performing Arts, Sports, and Similar Events": 202,
+        "Psychiatric and Substance Abuse Hospitals": 8,
+        "Public Administration": 27,
+        "RV (Recreational Vehicle) Parks and Recreational Camps": 58,
+        "Radio and Television Broadcasting": 134,
+        "Rail Transportation": 72,
+        "Real Estate": 53,
+        "Religious Organizations": 4037,
+        "Religious, Grantmaking, Civic, Professional, and Similar Organizations": 214,
+        "Remediation and Other Waste Management Services": 107,
+        "Repair and Maintenance": 3,
+        "Residential Building Construction": 1334,
+        "Residential Intellectual and Developmental Disability, Mental Health, and Substance Abuse Facilities": 26,
+        "Resin, Synthetic Rubber, and Artificial and Synthetic Fibers and Filaments Manufacturing": 2,
+        "Restaurants and Other Eating Places": 12420,
+        "Retail Trade": 32,
+        "Rooming and Boarding Houses, Dormitories, and Workers' Camps": 8,
+        "Rubber Product Manufacturing": 3,
+        "Scenic and Sightseeing Transportation": 7,
+        "Scenic and Sightseeing Transportation, Land": 9,
+        "Scenic and Sightseeing Transportation, Water": 38,
+        "Scheduled Air Transportation": 40,
+        "School and Employee Bus Transportation": 7,
+        "Scientific Research and Development Services": 26,
+        "Seafood Product Preparation and Packaging": 1,
+        "Securities and Commodity Contracts Intermediation and Brokerage": 53,
+        "Securities and Commodity Exchanges": 1,
+        "Securities, Commodity Contracts, and Other Financial Investments and Related Activities": 1,
+        "Semiconductor and Other Electronic Component Manufacturing": 2,
+        "Services to Buildings and Dwellings": 982,
+        "Shoe Stores": 376,
+        "Soap, Cleaning Compound, and Toilet Preparation Manufacturing": 46,
+        "Social Advocacy Organizations": 319,
+        "Software Publishers": 541,
+        "Sound Recording Industries": 317,
+        "Space Research and Technology": 1,
+        "Special Food Services": 319,
+        "Specialized Design Services": 598,
+        "Specialized Freight Trucking": 326,
+        "Specialty (except Psychiatric and Substance Abuse) Hospitals": 118,
+        "Specialty Food Stores": 1276,
+        "Spectator Sports": 64,
+        "Sporting Goods, Hobby, and Musical Instrument Stores": 750,
+        "Spring and Wire Product Manufacturing": 1,
+        "Sugar and Confectionery Product Manufacturing": 3,
+        "Support Activities for Agriculture and Forestry": 5,
+        "Support Activities for Air Transportation": 53,
+        "Support Activities for Animal Production": 3,
+        "Support Activities for Crop Production": 5,
+        "Support Activities for Forestry": 2,
+        "Support Activities for Rail Transportation": 4,
+        "Support Activities for Road Transportation": 192,
+        "Support Activities for Water Transportation": 13,
+        "Taxi and Limousine Service": 216,
+        "Technical and Trade Schools": 105,
+        "Telecommunications": 13,
+        "Textile Furnishings Mills": 4,
+        "Textile and Fabric Finishing and Fabric Coating Mills": 3,
+        "Transit and Ground Passenger Transportation": 220,
+        "Travel Arrangement and Reservation Services": 508,
+        "Traveler Accommodation": 673,
+        "Urban Transit Systems": 4568,
+        "Used Merchandise Stores": 344,
+        "Utilities": 20,
+        "Utility System Construction": 9,
+        "Vegetable and Melon Farming": 1,
+        "Vending Machine Operators": 77,
+        "Ventilation, Heating, Air-Conditioning, and Commercial Refrigeration Equipment Manufacturing": 1,
+        "Vocational Rehabilitation Services": 3,
+        "Warehousing and Storage": 172,
+        "Waste Collection": 80,
+        "Waste Management and Remediation Services": 39,
+        "Waste Treatment and Disposal": 128,
+        "Water Transportation": 3,
+        "Water, Sewage and Other Systems": 24,
+        "Wholesale Electronic Markets and Agents and Brokers": 141,
+        "Wholesale Trade": 23,
+        "Wired and Wireless Telecommunications Carriers": 615
+      },
+      "cells": {
+        "40.45,-74.4": 1,
+        "40.45,-74.45": 18,
+        "40.45,-74.5": 24,
+        "40.5,-74.15": 1,
+        "40.5,-74.2": 79,
+        "40.5,-74.25": 196,
+        "40.5,-74.35": 231,
+        "40.5,-74.4": 432,
+        "40.5,-74.45": 1012,
+        "40.5,-74.5": 25,
+        "40.55,-73.85": 1,
+        "40.55,-73.9": 3,
+        "40.55,-73.95": 2,
+        "40.55,-74.0": 67,
+        "40.55,-74.1": 316,
+        "40.55,-74.15": 564,
+        "40.55,-74.2": 357,
+        "40.55,-74.25": 166,
+        "40.55,-74.3": 466,
+        "40.55,-74.35": 579,
+        "40.55,-74.4": 225,
+        "40.6,-73.6": 1,
+        "40.6,-73.65": 400,
+        "40.6,-73.7": 113,
+        "40.6,-73.75": 10,
+        "40.6,-73.8": 13,
+        "40.6,-73.85": 6,
+        "40.6,-73.9": 357,
+        "40.6,-73.95": 3912,
+        "40.6,-74.0": 2307,
+        "40.6,-74.05": 762,
+        "40.6,-74.1": 1191,
+        "40.6,-74.15": 809,
+        "40.6,-74.2": 208,
+        "40.6,-74.25": 3,
+        "40.6,-74.3": 2,
+        "40.6,-74.35": 133,
+        "40.6,-74.4": 315,
+        "40.6,-74.45": 104,
+        "40.6,-74.5": 1,
+        "40.65,-73.5": 1,
+        "40.65,-73.6": 1,
+        "40.65,-73.75": 14,
+        "40.65,-73.8": 35,
+        "40.65,-73.85": 236,
+        "40.65,-73.9": 2002,
+        "40.65,-73.95": 4311,
+        "40.65,-74.0": 4879,
+        "40.65,-74.05": 347,
+        "40.65,-74.1": 1315,
+        "40.65,-74.15": 791,
+        "40.65,-74.2": 1078,
+        "40.65,-74.25": 297,
+        "40.65,-74.4": 124,
+        "40.65,-74.45": 5,
+        "40.7,-73.5": 1,
+        "40.7,-73.55": 3,
+        "40.7,-73.6": 361,
+        "40.7,-73.65": 326,
+        "40.7,-73.7": 2,
+        "40.7,-73.75": 33,
+        "40.7,-73.8": 102,
+        "40.7,-73.85": 316,
+        "40.7,-73.9": 1675,
+        "40.7,-73.95": 5778,
+        "40.7,-74.0": 11501,
+        "40.7,-74.05": 1332,
+        "40.7,-74.1": 1177,
+        "40.7,-74.15": 343,
+        "40.7,-74.2": 1037,
+        "40.7,-74.25": 529,
+        "40.7,-74.3": 395,
+        "40.75,-73.6": 5,
+        "40.75,-73.7": 12,
+        "40.75,-73.75": 35,
+        "40.75,-73.8": 56,
+        "40.75,-73.85": 179,
+        "40.75,-73.9": 233,
+        "40.75,-73.95": 9641,
+        "40.75,-74.0": 22827,
+        "40.75,-74.05": 2922,
+        "40.75,-74.1": 88,
+        "40.75,-74.15": 1488,
+        "40.75,-74.2": 1391,
+        "40.75,-74.25": 175,
+        "40.8,-73.75": 2,
+        "40.8,-73.8": 142,
+        "40.8,-73.85": 264,
+        "40.8,-73.9": 1588,
+        "40.8,-73.95": 7659,
+        "40.8,-74.0": 1342,
+        "40.8,-74.1": 1,
+        "40.8,-74.15": 131,
+        "40.8,-74.2": 10,
+        "40.8,-74.25": 1,
+        "40.85,-73.8": 262,
+        "40.85,-73.85": 2771,
+        "40.85,-73.9": 4140,
+        "40.85,-73.95": 3387,
+        "40.85,-74.0": 259,
+        "40.85,-74.05": 101,
+        "40.85,-74.1": 275,
+        "40.85,-74.15": 1308,
+        "40.85,-74.2": 138,
+        "40.9,-73.8": 14,
+        "40.9,-73.85": 1231,
+        "40.9,-73.9": 1808,
+        "40.9,-73.95": 309,
+        "40.9,-74.0": 931,
+        "40.9,-74.05": 1460,
+        "40.9,-74.1": 39,
+        "40.9,-74.15": 1565,
+        "40.9,-74.2": 293,
+        "40.9,-74.25": 1,
+        "40.9,-74.3": 1,
+        "40.95,-73.75": 1,
+        "40.95,-73.8": 6,
+        "40.95,-73.85": 600,
+        "40.95,-73.9": 912,
+        "40.95,-73.95": 1,
+        "40.95,-74.0": 1,
+        "40.95,-74.15": 226,
+        "40.95,-74.2": 37,
+        "41.0,-73.7": 9,
+        "41.0,-73.75": 488,
+        "41.0,-73.8": 22,
+        "41.0,-73.85": 55,
+        "41.0,-73.9": 10,
+        "41.05,-73.7": 14,
+        "41.05,-73.75": 1319,
+        "41.05,-73.8": 299,
+        "41.05,-73.85": 8,
+        "41.1,-73.7": 4,
+        "41.1,-74.0": 1,
+        "41.15,-73.9": 1
+      },
+      "uhi": {},
+      "stations": {},
+      "shards": [
+        {
+          "file": "core-poi-geometry-rice_0_0_0.csv.gz",
+          "rows": 15121,
+          "matched": 4768
+        },
+        {
+          "file": "core-poi-geometry-rice_0_1_0.csv.gz",
+          "rows": 17483,
+          "matched": 5451
+        },
+        {
+          "file": "core-poi-geometry-rice_0_2_0.csv.gz",
+          "rows": 15700,
+          "matched": 5010
+        },
+        {
+          "file": "core-poi-geometry-rice_0_3_0.csv.gz",
+          "rows": 17968,
+          "matched": 5868
+        },
+        {
+          "file": "core-poi-geometry-rice_0_4_0.csv.gz",
+          "rows": 15446,
+          "matched": 4959
+        },
+        {
+          "file": "core-poi-geometry-rice_0_5_0.csv.gz",
+          "rows": 15692,
+          "matched": 5038
+        },
+        {
+          "file": "core-poi-geometry-rice_0_6_0.csv.gz",
+          "rows": 16360,
+          "matched": 5208
+        },
+        {
+          "file": "core-poi-geometry-rice_0_7_0.csv.gz",
+          "rows": 17175,
+          "matched": 5450
+        },
+        {
+          "file": "core-poi-geometry-rice_1_0_0.csv.gz",
+          "rows": 16556,
+          "matched": 5261
+        },
+        {
+          "file": "core-poi-geometry-rice_1_1_0.csv.gz",
+          "rows": 16955,
+          "matched": 5348
+        },
+        {
+          "file": "core-poi-geometry-rice_1_2_0.csv.gz",
+          "rows": 15983,
+          "matched": 5108
+        },
+        {
+          "file": "core-poi-geometry-rice_1_3_0.csv.gz",
+          "rows": 17015,
+          "matched": 5397
+        },
+        {
+          "file": "core-poi-geometry-rice_1_4_0.csv.gz",
+          "rows": 17223,
+          "matched": 5537
+        },
+        {
+          "file": "core-poi-geometry-rice_1_5_0.csv.gz",
+          "rows": 16239,
+          "matched": 5094
+        },
+        {
+          "file": "core-poi-geometry-rice_1_6_0.csv.gz",
+          "rows": 15831,
+          "matched": 5090
+        },
+        {
+          "file": "core-poi-geometry-rice_1_7_0.csv.gz",
+          "rows": 15419,
+          "matched": 4885
+        },
+        {
+          "file": "core-poi-geometry-rice_2_0_0.csv.gz",
+          "rows": 15528,
+          "matched": 4970
+        },
+        {
+          "file": "core-poi-geometry-rice_2_1_0.csv.gz",
+          "rows": 14790,
+          "matched": 4698
+        },
+        {
+          "file": "core-poi-geometry-rice_2_2_0.csv.gz",
+          "rows": 14285,
+          "matched": 4426
+        },
+        {
+          "file": "core-poi-geometry-rice_2_3_0.csv.gz",
+          "rows": 15423,
+          "matched": 5001
+        },
+        {
+          "file": "core-poi-geometry-rice_2_4_0.csv.gz",
+          "rows": 14547,
+          "matched": 4631
+        },
+        {
+          "file": "core-poi-geometry-rice_2_5_0.csv.gz",
+          "rows": 15594,
+          "matched": 4893
+        },
+        {
+          "file": "core-poi-geometry-rice_2_6_0.csv.gz",
+          "rows": 15202,
+          "matched": 4801
+        },
+        {
+          "file": "core-poi-geometry-rice_2_7_0.csv.gz",
+          "rows": 14564,
+          "matched": 4550
+        },
+        {
+          "file": "core-poi-geometry-rice_3_0_0.csv.gz",
+          "rows": 16382,
+          "matched": 5220
+        },
+        {
+          "file": "core-poi-geometry-rice_3_1_0.csv.gz",
+          "rows": 18511,
+          "matched": 5834
+        },
+        {
+          "file": "core-poi-geometry-rice_3_2_0.csv.gz",
+          "rows": 15479,
+          "matched": 4926
+        },
+        {
+          "file": "core-poi-geometry-rice_3_3_0.csv.gz",
+          "rows": 17118,
+          "matched": 5445
+        },
+        {
+          "file": "core-poi-geometry-rice_3_4_0.csv.gz",
+          "rows": 16451,
+          "matched": 5252
+        },
+        {
+          "file": "core-poi-geometry-rice_3_5_0.csv.gz",
+          "rows": 14904,
+          "matched": 4694
+        },
+        {
+          "file": "core-poi-geometry-rice_3_6_0.csv.gz",
+          "rows": 14428,
+          "matched": 4551
+        },
+        {
+          "file": "core-poi-geometry-rice_3_7_0.csv.gz",
+          "rows": 16562,
+          "matched": 5282
+        }
+      ]
+    },
+    "uhi": {
+      "files_scanned": 32,
+      "rows_read": 1229291,
+      "rows_matched_market_or_station": 291067,
+      "rows_within_nynj_bbox": 131963,
+      "date_min": "",
+      "date_max": "",
+      "totals": {},
+      "months": {},
+      "categories": {},
+      "cells": {
+        "40.45,-74.35": 132,
+        "40.45,-74.4": 64,
+        "40.45,-74.45": 65,
+        "40.45,-74.5": 64,
+        "40.5,-74.15": 9,
+        "40.5,-74.2": 463,
+        "40.5,-74.25": 625,
+        "40.5,-74.3": 323,
+        "40.5,-74.4": 409,
+        "40.5,-74.45": 1580,
+        "40.5,-74.5": 300,
+        "40.55,-73.85": 143,
+        "40.55,-73.9": 257,
+        "40.55,-73.95": 67,
+        "40.55,-74.0": 88,
+        "40.55,-74.1": 598,
+        "40.55,-74.15": 1640,
+        "40.55,-74.2": 1727,
+        "40.55,-74.25": 960,
+        "40.55,-74.3": 1541,
+        "40.55,-74.35": 617,
+        "40.55,-74.4": 344,
+        "40.55,-74.45": 35,
+        "40.6,-73.6": 151,
+        "40.6,-73.65": 718,
+        "40.6,-73.7": 417,
+        "40.6,-73.75": 806,
+        "40.6,-73.8": 841,
+        "40.6,-73.85": 359,
+        "40.6,-73.9": 1372,
+        "40.6,-73.95": 1961,
+        "40.6,-74.0": 1643,
+        "40.6,-74.05": 638,
+        "40.6,-74.1": 2074,
+        "40.6,-74.15": 1982,
+        "40.6,-74.2": 893,
+        "40.6,-74.25": 494,
+        "40.6,-74.3": 451,
+        "40.6,-74.35": 39,
+        "40.6,-74.4": 925,
+        "40.6,-74.45": 870,
+        "40.6,-74.5": 31,
+        "40.65,-73.5": 156,
+        "40.65,-73.55": 279,
+        "40.65,-73.6": 825,
+        "40.65,-73.65": 824,
+        "40.65,-73.7": 347,
+        "40.65,-73.75": 1220,
+        "40.65,-73.8": 1352,
+        "40.65,-73.85": 1084,
+        "40.65,-73.9": 1934,
+        "40.65,-73.95": 1952,
+        "40.65,-74.0": 1798,
+        "40.65,-74.05": 285,
+        "40.65,-74.1": 1686,
+        "40.65,-74.15": 1190,
+        "40.65,-74.2": 1793,
+        "40.65,-74.25": 1151,
+        "40.65,-74.3": 25,
+        "40.65,-74.4": 584,
+        "40.65,-74.45": 313,
+        "40.7,-73.5": 386,
+        "40.7,-73.55": 813,
+        "40.7,-73.6": 1498,
+        "40.7,-73.65": 1445,
+        "40.7,-73.7": 398,
+        "40.7,-73.75": 2007,
+        "40.7,-73.8": 1978,
+        "40.7,-73.85": 2046,
+        "40.7,-73.9": 2004,
+        "40.7,-73.95": 1938,
+        "40.7,-74.0": 1595,
+        "40.7,-74.05": 1032,
+        "40.7,-74.1": 1422,
+        "40.7,-74.15": 1695,
+        "40.7,-74.2": 1716,
+        "40.7,-74.25": 161,
+        "40.7,-74.3": 233,
+        "40.7,-74.35": 42,
+        "40.75,-73.5": 190,
+        "40.75,-73.55": 304,
+        "40.75,-73.6": 610,
+        "40.75,-73.65": 131,
+        "40.75,-73.7": 983,
+        "40.75,-73.75": 1852,
+        "40.75,-73.8": 1951,
+        "40.75,-73.85": 1891,
+        "40.75,-73.9": 1964,
+        "40.75,-73.95": 1954,
+        "40.75,-74.0": 1681,
+        "40.75,-74.05": 1463,
+        "40.75,-74.1": 694,
+        "40.75,-74.15": 1522,
+        "40.75,-74.2": 1680,
+        "40.75,-74.25": 240,
+        "40.8,-73.55": 90,
+        "40.8,-73.7": 73,
+        "40.8,-73.75": 369,
+        "40.8,-73.8": 1154,
+        "40.8,-73.85": 1576,
+        "40.8,-73.9": 1682,
+        "40.8,-73.95": 1886,
+        "40.8,-74.0": 606,
+        "40.8,-74.05": 148,
+        "40.8,-74.1": 240,
+        "40.8,-74.15": 273,
+        "40.8,-74.2": 130,
+        "40.8,-74.25": 51,
+        "40.85,-73.75": 47,
+        "40.85,-73.8": 861,
+        "40.85,-73.85": 1934,
+        "40.85,-73.9": 2036,
+        "40.85,-73.95": 1630,
+        "40.85,-74.0": 1144,
+        "40.85,-74.05": 658,
+        "40.85,-74.1": 966,
+        "40.85,-74.15": 1774,
+        "40.85,-74.2": 565,
+        "40.9,-73.75": 55,
+        "40.9,-73.8": 586,
+        "40.9,-73.85": 1781,
+        "40.9,-73.9": 1837,
+        "40.9,-73.95": 1041,
+        "40.9,-74.0": 665,
+        "40.9,-74.05": 1415,
+        "40.9,-74.1": 506,
+        "40.9,-74.15": 2018,
+        "40.9,-74.2": 1216,
+        "40.9,-74.25": 119,
+        "40.9,-74.3": 89,
+        "40.95,-73.75": 203,
+        "40.95,-73.8": 625,
+        "40.95,-73.85": 1989,
+        "40.95,-73.9": 1139,
+        "40.95,-73.95": 153,
+        "40.95,-74.0": 90,
+        "40.95,-74.05": 234,
+        "40.95,-74.1": 90,
+        "40.95,-74.15": 783,
+        "40.95,-74.2": 545,
+        "41.0,-73.65": 83,
+        "41.0,-73.7": 339,
+        "41.0,-73.75": 1436,
+        "41.0,-73.8": 679,
+        "41.0,-73.85": 427,
+        "41.0,-73.9": 242,
+        "41.05,-73.7": 404,
+        "41.05,-73.75": 1412,
+        "41.05,-73.8": 371,
+        "41.05,-73.85": 60,
+        "41.1,-73.7": 14,
+        "41.1,-73.75": 23,
+        "41.1,-73.8": 57,
+        "41.1,-73.85": 81,
+        "41.1,-73.9": 5,
+        "41.1,-73.95": 69,
+        "41.1,-74.0": 75,
+        "41.15,-73.85": 73,
+        "41.15,-73.9": 8
+      },
+      "uhi": {
+        "1": 21215,
+        "2": 10267,
+        "3": 8460,
+        "4": 8468,
+        "5": 8369,
+        "6": 8727,
+        "7": 10387,
+        "8": 12661,
+        "9": 16796,
+        "10": 24181,
+        "11": 2432
+      },
+      "stations": {},
+      "shards": [
+        {
+          "file": "urban-heat-index-rice_0_0_0.csv.gz",
+          "rows": 36682,
+          "matched": 7922
+        },
+        {
+          "file": "urban-heat-index-rice_0_1_0.csv.gz",
+          "rows": 37422,
+          "matched": 8060
+        },
+        {
+          "file": "urban-heat-index-rice_0_2_0.csv.gz",
+          "rows": 37714,
+          "matched": 9009
+        },
+        {
+          "file": "urban-heat-index-rice_0_3_0.csv.gz",
+          "rows": 37437,
+          "matched": 9461
+        },
+        {
+          "file": "urban-heat-index-rice_0_4_0.csv.gz",
+          "rows": 41206,
+          "matched": 9091
+        },
+        {
+          "file": "urban-heat-index-rice_0_5_0.csv.gz",
+          "rows": 39011,
+          "matched": 10048
+        },
+        {
+          "file": "urban-heat-index-rice_0_6_0.csv.gz",
+          "rows": 41948,
+          "matched": 8415
+        },
+        {
+          "file": "urban-heat-index-rice_0_7_0.csv.gz",
+          "rows": 37645,
+          "matched": 8916
+        },
+        {
+          "file": "urban-heat-index-rice_1_0_0.csv.gz",
+          "rows": 39391,
+          "matched": 8630
+        },
+        {
+          "file": "urban-heat-index-rice_1_1_0.csv.gz",
+          "rows": 42059,
+          "matched": 9313
+        },
+        {
+          "file": "urban-heat-index-rice_1_2_0.csv.gz",
+          "rows": 38229,
+          "matched": 10196
+        },
+        {
+          "file": "urban-heat-index-rice_1_3_0.csv.gz",
+          "rows": 39741,
+          "matched": 10175
+        },
+        {
+          "file": "urban-heat-index-rice_1_4_0.csv.gz",
+          "rows": 38695,
+          "matched": 9054
+        },
+        {
+          "file": "urban-heat-index-rice_1_5_0.csv.gz",
+          "rows": 38302,
+          "matched": 9149
+        },
+        {
+          "file": "urban-heat-index-rice_1_6_0.csv.gz",
+          "rows": 40062,
+          "matched": 10448
+        },
+        {
+          "file": "urban-heat-index-rice_1_7_0.csv.gz",
+          "rows": 35396,
+          "matched": 7647
+        },
+        {
+          "file": "urban-heat-index-rice_2_0_0.csv.gz",
+          "rows": 40209,
+          "matched": 9676
+        },
+        {
+          "file": "urban-heat-index-rice_2_1_0.csv.gz",
+          "rows": 37001,
+          "matched": 7488
+        },
+        {
+          "file": "urban-heat-index-rice_2_2_0.csv.gz",
+          "rows": 37336,
+          "matched": 8451
+        },
+        {
+          "file": "urban-heat-index-rice_2_3_0.csv.gz",
+          "rows": 40151,
+          "matched": 9211
+        },
+        {
+          "file": "urban-heat-index-rice_2_4_0.csv.gz",
+          "rows": 36579,
+          "matched": 9504
+        },
+        {
+          "file": "urban-heat-index-rice_2_5_0.csv.gz",
+          "rows": 34870,
+          "matched": 9662
+        },
+        {
+          "file": "urban-heat-index-rice_2_6_0.csv.gz",
+          "rows": 39599,
+          "matched": 9991
+        },
+        {
+          "file": "urban-heat-index-rice_2_7_0.csv.gz",
+          "rows": 37613,
+          "matched": 8593
+        },
+        {
+          "file": "urban-heat-index-rice_3_0_0.csv.gz",
+          "rows": 35680,
+          "matched": 9345
+        },
+        {
+          "file": "urban-heat-index-rice_3_1_0.csv.gz",
+          "rows": 39137,
+          "matched": 8418
+        },
+        {
+          "file": "urban-heat-index-rice_3_2_0.csv.gz",
+          "rows": 37021,
+          "matched": 7934
+        },
+        {
+          "file": "urban-heat-index-rice_3_3_0.csv.gz",
+          "rows": 39111,
+          "matched": 10180
+        },
+        {
+          "file": "urban-heat-index-rice_3_4_0.csv.gz",
+          "rows": 36644,
+          "matched": 9493
+        },
+        {
+          "file": "urban-heat-index-rice_3_5_0.csv.gz",
+          "rows": 38085,
+          "matched": 8755
+        },
+        {
+          "file": "urban-heat-index-rice_3_6_0.csv.gz",
+          "rows": 39728,
+          "matched": 9622
+        },
+        {
+          "file": "urban-heat-index-rice_3_7_0.csv.gz",
+          "rows": 39587,
+          "matched": 9210
+        }
+      ]
+    },
+    "visits": {
+      "files_scanned": 32,
+      "rows_read": 223342163,
+      "rows_matched_market_or_station": 31114783,
+      "rows_within_nynj_bbox": 0,
+      "date_min": "2020-01-01",
+      "date_max": "2024-12-31",
+      "totals": {
+        "DAILY_VISITS": 18579046565.0,
+        "month_visits:2020-01": 352865090.0,
+        "month_visits:2020-02": 344645140.0,
+        "month_visits:2020-03": 219580601.0,
+        "month_visits:2020-04": 66828296.0,
+        "month_visits:2020-05": 107618020.0,
+        "month_visits:2020-06": 191272292.0,
+        "month_visits:2020-07": 276059872.0,
+        "month_visits:2020-08": 270427929.0,
+        "month_visits:2020-09": 285720378.0,
+        "month_visits:2020-10": 279470732.0,
+        "month_visits:2020-11": 265662177.0,
+        "month_visits:2020-12": 266116041.0,
+        "month_visits:2021-01": 218502138.0,
+        "month_visits:2021-02": 189972751.0,
+        "month_visits:2021-03": 278651941.0,
+        "month_visits:2021-04": 290249845.0,
+        "month_visits:2021-05": 328743663.0,
+        "month_visits:2021-06": 340462634.0,
+        "month_visits:2021-07": 349520703.0,
+        "month_visits:2021-08": 333058435.0,
+        "month_visits:2021-09": 333603070.0,
+        "month_visits:2021-10": 336489623.0,
+        "month_visits:2021-11": 336391146.0,
+        "month_visits:2021-12": 359713739.0,
+        "month_visits:2022-01": 262416031.0,
+        "month_visits:2022-02": 266648161.0,
+        "month_visits:2022-03": 309401624.0,
+        "month_visits:2022-04": 333060028.0,
+        "month_visits:2022-05": 347266382.0,
+        "month_visits:2022-06": 355740562.0,
+        "month_visits:2022-07": 352398582.0,
+        "month_visits:2022-08": 346619406.0,
+        "month_visits:2022-09": 342394099.0,
+        "month_visits:2022-10": 338381898.0,
+        "month_visits:2022-11": 324400072.0,
+        "month_visits:2022-12": 356295600.0,
+        "month_visits:2023-01": 304286886.0,
+        "month_visits:2023-02": 286652425.0,
+        "month_visits:2023-03": 313786772.0,
+        "month_visits:2023-04": 336259774.0,
+        "month_visits:2023-05": 356150655.0,
+        "month_visits:2023-06": 360978313.0,
+        "month_visits:2023-07": 360624470.0,
+        "month_visits:2023-08": 351520098.0,
+        "month_visits:2023-09": 330270175.0,
+        "month_visits:2023-10": 334520726.0,
+        "month_visits:2023-11": 331524046.0,
+        "month_visits:2023-12": 361106803.0,
+        "month_visits:2024-01": 285826275.0,
+        "month_visits:2024-02": 290705173.0,
+        "month_visits:2024-03": 316919489.0,
+        "month_visits:2024-04": 319153799.0,
+        "month_visits:2024-05": 358208382.0,
+        "month_visits:2024-06": 361337665.0,
+        "month_visits:2024-07": 352732623.0,
+        "month_visits:2024-08": 356472517.0,
+        "month_visits:2024-09": 319905630.0,
+        "month_visits:2024-10": 333838212.0,
+        "month_visits:2024-11": 333593155.0,
+        "month_visits:2024-12": 366023801.0
+      },
+      "months": {
+        "2020-01": 536331,
+        "2020-02": 501613,
+        "2020-03": 535680,
+        "2020-04": 518520,
+        "2020-05": 535308,
+        "2020-06": 517680,
+        "2020-07": 533417,
+        "2020-08": 532053,
+        "2020-09": 511800,
+        "2020-10": 527589,
+        "2020-11": 511590,
+        "2020-12": 528767,
+        "2021-01": 527558,
+        "2021-02": 476000,
+        "2021-03": 527744,
+        "2021-04": 510390,
+        "2021-05": 528364,
+        "2021-06": 511950,
+        "2021-07": 529449,
+        "2021-08": 529883,
+        "2021-09": 512430,
+        "2021-10": 529170,
+        "2021-11": 512040,
+        "2021-12": 529325,
+        "2022-01": 528023,
+        "2022-02": 476784,
+        "2022-03": 528240,
+        "2022-04": 508890,
+        "2022-05": 526814,
+        "2022-06": 510570,
+        "2022-07": 527527,
+        "2022-08": 528054,
+        "2022-09": 511350,
+        "2022-10": 528550,
+        "2022-11": 511920,
+        "2022-12": 528302,
+        "2023-01": 526752,
+        "2023-02": 475048,
+        "2023-03": 525698,
+        "2023-04": 508650,
+        "2023-05": 527899,
+        "2023-06": 510150,
+        "2023-07": 525791,
+        "2023-08": 525760,
+        "2023-09": 508800,
+        "2023-10": 525605,
+        "2023-11": 508410,
+        "2023-12": 525264,
+        "2024-01": 524303,
+        "2024-02": 490129,
+        "2024-03": 523466,
+        "2024-04": 506580,
+        "2024-05": 523249,
+        "2024-06": 506400,
+        "2024-07": 524613,
+        "2024-08": 524985,
+        "2024-09": 508470,
+        "2024-10": 525295,
+        "2024-11": 508620,
+        "2024-12": 525171
+      },
+      "categories": {},
+      "cells": {},
+      "uhi": {},
+      "stations": {},
+      "shards": [
+        {
+          "file": "store-visits-rice_0_0_0.csv.gz",
+          "rows": 6971860,
+          "matched": 971000
+        },
+        {
+          "file": "store-visits-rice_0_1_0.csv.gz",
+          "rows": 6709666,
+          "matched": 935333
+        },
+        {
+          "file": "store-visits-rice_0_2_0.csv.gz",
+          "rows": 6983507,
+          "matched": 973686
+        },
+        {
+          "file": "store-visits-rice_0_3_0.csv.gz",
+          "rows": 7045163,
+          "matched": 978862
+        },
+        {
+          "file": "store-visits-rice_0_4_0.csv.gz",
+          "rows": 6863235,
+          "matched": 958899
+        },
+        {
+          "file": "store-visits-rice_0_5_0.csv.gz",
+          "rows": 6567168,
+          "matched": 916988
+        },
+        {
+          "file": "store-visits-rice_0_6_0.csv.gz",
+          "rows": 6854339,
+          "matched": 955470
+        },
+        {
+          "file": "store-visits-rice_0_7_0.csv.gz",
+          "rows": 6807809,
+          "matched": 946502
+        },
+        {
+          "file": "store-visits-rice_1_0_0.csv.gz",
+          "rows": 7279214,
+          "matched": 1016035
+        },
+        {
+          "file": "store-visits-rice_1_1_0.csv.gz",
+          "rows": 7324538,
+          "matched": 1019698
+        },
+        {
+          "file": "store-visits-rice_1_2_0.csv.gz",
+          "rows": 7253231,
+          "matched": 1012094
+        },
+        {
+          "file": "store-visits-rice_1_3_0.csv.gz",
+          "rows": 7309568,
+          "matched": 1018358
+        },
+        {
+          "file": "store-visits-rice_1_4_0.csv.gz",
+          "rows": 7286329,
+          "matched": 1015139
+        },
+        {
+          "file": "store-visits-rice_1_5_0.csv.gz",
+          "rows": 7209964,
+          "matched": 1002024
+        },
+        {
+          "file": "store-visits-rice_1_6_0.csv.gz",
+          "rows": 7414373,
+          "matched": 1033363
+        },
+        {
+          "file": "store-visits-rice_1_7_0.csv.gz",
+          "rows": 7456261,
+          "matched": 1038904
+        },
+        {
+          "file": "store-visits-rice_2_0_0.csv.gz",
+          "rows": 7096912,
+          "matched": 987185
+        },
+        {
+          "file": "store-visits-rice_2_1_0.csv.gz",
+          "rows": 6927939,
+          "matched": 967586
+        },
+        {
+          "file": "store-visits-rice_2_2_0.csv.gz",
+          "rows": 6566069,
+          "matched": 912847
+        },
+        {
+          "file": "store-visits-rice_2_3_0.csv.gz",
+          "rows": 6943642,
+          "matched": 963659
+        },
+        {
+          "file": "store-visits-rice_2_4_0.csv.gz",
+          "rows": 6693937,
+          "matched": 932762
+        },
+        {
+          "file": "store-visits-rice_2_5_0.csv.gz",
+          "rows": 7075936,
+          "matched": 981053
+        },
+        {
+          "file": "store-visits-rice_2_6_0.csv.gz",
+          "rows": 6962051,
+          "matched": 970854
+        },
+        {
+          "file": "store-visits-rice_2_7_0.csv.gz",
+          "rows": 6920397,
+          "matched": 963689
+        },
+        {
+          "file": "store-visits-rice_3_0_0.csv.gz",
+          "rows": 7081609,
+          "matched": 986362
+        },
+        {
+          "file": "store-visits-rice_3_1_0.csv.gz",
+          "rows": 6746142,
+          "matched": 943292
+        },
+        {
+          "file": "store-visits-rice_3_2_0.csv.gz",
+          "rows": 6842528,
+          "matched": 956447
+        },
+        {
+          "file": "store-visits-rice_3_3_0.csv.gz",
+          "rows": 6814115,
+          "matched": 948823
+        },
+        {
+          "file": "store-visits-rice_3_4_0.csv.gz",
+          "rows": 7041382,
+          "matched": 981804
+        },
+        {
+          "file": "store-visits-rice_3_5_0.csv.gz",
+          "rows": 6673389,
+          "matched": 926743
+        },
+        {
+          "file": "store-visits-rice_3_6_0.csv.gz",
+          "rows": 6865058,
+          "matched": 956505
+        },
+        {
+          "file": "store-visits-rice_3_7_0.csv.gz",
+          "rows": 6754832,
+          "matched": 942817
+        }
+      ]
+    },
+    "spend": {
+      "files_scanned": 32,
+      "rows_read": 1026618,
+      "rows_matched_market_or_station": 315999,
+      "rows_within_nynj_bbox": 0,
+      "date_min": "2019-12-01",
+      "date_max": "2024-12-01",
+      "totals": {
+        "RAW_NUM_CUSTOMERS": 25138922.500000004,
+        "RAW_TOTAL_SPEND": 1847941496.1666002
+      },
+      "months": {
+        "2019-12": 6555,
+        "2020-01": 6381,
+        "2020-02": 6386,
+        "2020-03": 6071,
+        "2020-04": 3334,
+        "2020-05": 4062,
+        "2020-06": 5081,
+        "2020-07": 5568,
+        "2020-08": 5606,
+        "2020-09": 5809,
+        "2020-10": 5865,
+        "2020-11": 5769,
+        "2020-12": 5741,
+        "2021-01": 5386,
+        "2021-02": 4435,
+        "2021-03": 4907,
+        "2021-04": 4895,
+        "2021-05": 4978,
+        "2021-06": 5089,
+        "2021-07": 4990,
+        "2021-08": 5014,
+        "2021-09": 4991,
+        "2021-10": 5059,
+        "2021-11": 5079,
+        "2021-12": 5056,
+        "2022-01": 4564,
+        "2022-02": 4687,
+        "2022-03": 4917,
+        "2022-04": 4965,
+        "2022-05": 5002,
+        "2022-06": 5175,
+        "2022-07": 5543,
+        "2022-08": 5796,
+        "2022-09": 5743,
+        "2022-10": 5603,
+        "2022-11": 5209,
+        "2022-12": 4976,
+        "2023-01": 4707,
+        "2023-02": 4747,
+        "2023-03": 4966,
+        "2023-04": 4757,
+        "2023-05": 5053,
+        "2023-06": 5398,
+        "2023-07": 5206,
+        "2023-08": 5233,
+        "2023-09": 5157,
+        "2023-10": 5177,
+        "2023-11": 5083,
+        "2023-12": 5140,
+        "2024-01": 4986,
+        "2024-02": 5056,
+        "2024-03": 5141,
+        "2024-04": 5068,
+        "2024-05": 5208,
+        "2024-06": 5207,
+        "2024-07": 5240,
+        "2024-08": 5026,
+        "2024-09": 4963,
+        "2024-10": 5071,
+        "2024-11": 5022,
+        "2024-12": 5100
+      },
+      "categories": {},
+      "cells": {},
+      "uhi": {},
+      "stations": {},
+      "shards": [
+        {
+          "file": "spend-patterns-rice_0_0_0.csv.gz",
+          "rows": 28068,
+          "matched": 8713
+        },
+        {
+          "file": "spend-patterns-rice_0_1_0.csv.gz",
+          "rows": 32076,
+          "matched": 9852
+        },
+        {
+          "file": "spend-patterns-rice_0_2_0.csv.gz",
+          "rows": 31259,
+          "matched": 9539
+        },
+        {
+          "file": "spend-patterns-rice_0_3_0.csv.gz",
+          "rows": 31950,
+          "matched": 9841
+        },
+        {
+          "file": "spend-patterns-rice_0_4_0.csv.gz",
+          "rows": 32540,
+          "matched": 9983
+        },
+        {
+          "file": "spend-patterns-rice_0_5_0.csv.gz",
+          "rows": 31978,
+          "matched": 9958
+        },
+        {
+          "file": "spend-patterns-rice_0_6_0.csv.gz",
+          "rows": 33359,
+          "matched": 10342
+        },
+        {
+          "file": "spend-patterns-rice_0_7_0.csv.gz",
+          "rows": 31497,
+          "matched": 9713
+        },
+        {
+          "file": "spend-patterns-rice_1_0_0.csv.gz",
+          "rows": 32671,
+          "matched": 10028
+        },
+        {
+          "file": "spend-patterns-rice_1_1_0.csv.gz",
+          "rows": 32733,
+          "matched": 9989
+        },
+        {
+          "file": "spend-patterns-rice_1_2_0.csv.gz",
+          "rows": 30143,
+          "matched": 9097
+        },
+        {
+          "file": "spend-patterns-rice_1_3_0.csv.gz",
+          "rows": 35597,
+          "matched": 11034
+        },
+        {
+          "file": "spend-patterns-rice_1_4_0.csv.gz",
+          "rows": 34063,
+          "matched": 10561
+        },
+        {
+          "file": "spend-patterns-rice_1_5_0.csv.gz",
+          "rows": 31902,
+          "matched": 9740
+        },
+        {
+          "file": "spend-patterns-rice_1_6_0.csv.gz",
+          "rows": 34608,
+          "matched": 10707
+        },
+        {
+          "file": "spend-patterns-rice_1_7_0.csv.gz",
+          "rows": 34845,
+          "matched": 10755
+        },
+        {
+          "file": "spend-patterns-rice_2_0_0.csv.gz",
+          "rows": 29246,
+          "matched": 9048
+        },
+        {
+          "file": "spend-patterns-rice_2_1_0.csv.gz",
+          "rows": 29980,
+          "matched": 9203
+        },
+        {
+          "file": "spend-patterns-rice_2_2_0.csv.gz",
+          "rows": 34565,
+          "matched": 10529
+        },
+        {
+          "file": "spend-patterns-rice_2_3_0.csv.gz",
+          "rows": 32228,
+          "matched": 9898
+        },
+        {
+          "file": "spend-patterns-rice_2_4_0.csv.gz",
+          "rows": 32807,
+          "matched": 10208
+        },
+        {
+          "file": "spend-patterns-rice_2_5_0.csv.gz",
+          "rows": 31180,
+          "matched": 9473
+        },
+        {
+          "file": "spend-patterns-rice_2_6_0.csv.gz",
+          "rows": 36337,
+          "matched": 11188
+        },
+        {
+          "file": "spend-patterns-rice_2_7_0.csv.gz",
+          "rows": 32147,
+          "matched": 9869
+        },
+        {
+          "file": "spend-patterns-rice_3_0_0.csv.gz",
+          "rows": 30284,
+          "matched": 9425
+        },
+        {
+          "file": "spend-patterns-rice_3_1_0.csv.gz",
+          "rows": 32799,
+          "matched": 9992
+        },
+        {
+          "file": "spend-patterns-rice_3_2_0.csv.gz",
+          "rows": 30951,
+          "matched": 9464
+        },
+        {
+          "file": "spend-patterns-rice_3_3_0.csv.gz",
+          "rows": 33191,
+          "matched": 10429
+        },
+        {
+          "file": "spend-patterns-rice_3_4_0.csv.gz",
+          "rows": 31639,
+          "matched": 9781
+        },
+        {
+          "file": "spend-patterns-rice_3_5_0.csv.gz",
+          "rows": 29309,
+          "matched": 9036
+        },
+        {
+          "file": "spend-patterns-rice_3_6_0.csv.gz",
+          "rows": 30659,
+          "matched": 9447
+        },
+        {
+          "file": "spend-patterns-rice_3_7_0.csv.gz",
+          "rows": 30007,
+          "matched": 9157
+        }
+      ]
+    },
+    "daily_spend": {
+      "files_scanned": 32,
+      "rows_read": 17253860,
+      "rows_matched_market_or_station": 3052943,
+      "rows_within_nynj_bbox": 0,
+      "date_min": "2020-01-01",
+      "date_max": "2024-12-31",
+      "totals": {
+        "SPEND_AMOUNT": 47717358143.6436,
+        "TRANS_COUNT": 862305462.8137999
+      },
+      "months": {
+        "2020-01": 47332,
+        "2020-02": 45291,
+        "2020-03": 44297,
+        "2020-04": 40780,
+        "2020-05": 45711,
+        "2020-06": 46618,
+        "2020-07": 49059,
+        "2020-08": 49088,
+        "2020-09": 47982,
+        "2020-10": 49521,
+        "2020-11": 48916,
+        "2020-12": 50111,
+        "2021-01": 49787,
+        "2021-02": 45158,
+        "2021-03": 52485,
+        "2021-04": 51474,
+        "2021-05": 53068,
+        "2021-06": 51356,
+        "2021-07": 53037,
+        "2021-08": 53356,
+        "2021-09": 51193,
+        "2021-10": 52552,
+        "2021-11": 52741,
+        "2021-12": 53671,
+        "2022-01": 52128,
+        "2022-02": 48291,
+        "2022-03": 54331,
+        "2022-04": 52672,
+        "2022-05": 54168,
+        "2022-06": 52129,
+        "2022-07": 53234,
+        "2022-08": 53375,
+        "2022-09": 51474,
+        "2022-10": 52484,
+        "2022-11": 52825,
+        "2022-12": 53728,
+        "2023-01": 52567,
+        "2023-02": 48220,
+        "2023-03": 53529,
+        "2023-04": 52020,
+        "2023-05": 53191,
+        "2023-06": 51289,
+        "2023-07": 52530,
+        "2023-08": 52764,
+        "2023-09": 50600,
+        "2023-10": 51623,
+        "2023-11": 52043,
+        "2023-12": 52747,
+        "2024-01": 51137,
+        "2024-02": 48813,
+        "2024-03": 52398,
+        "2024-04": 51010,
+        "2024-05": 52687,
+        "2024-06": 50482,
+        "2024-07": 51926,
+        "2024-08": 52475,
+        "2024-09": 49748,
+        "2024-10": 50757,
+        "2024-11": 50687,
+        "2024-12": 52277
+      },
+      "categories": {},
+      "cells": {},
+      "uhi": {},
+      "stations": {},
+      "shards": [
+        {
+          "file": "daily-spend-brand-and-state-rice_0_0_0.csv.gz",
+          "rows": 536962,
+          "matched": 95143
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_0_1_0.csv.gz",
+          "rows": 523218,
+          "matched": 92445
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_0_2_0.csv.gz",
+          "rows": 576248,
+          "matched": 101977
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_0_3_0.csv.gz",
+          "rows": 607463,
+          "matched": 107522
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_0_4_0.csv.gz",
+          "rows": 549336,
+          "matched": 97918
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_0_5_0.csv.gz",
+          "rows": 514822,
+          "matched": 91188
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_0_6_0.csv.gz",
+          "rows": 578557,
+          "matched": 102521
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_0_7_0.csv.gz",
+          "rows": 562714,
+          "matched": 99502
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_1_0_0.csv.gz",
+          "rows": 539610,
+          "matched": 94587
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_1_1_0.csv.gz",
+          "rows": 533023,
+          "matched": 94087
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_1_2_0.csv.gz",
+          "rows": 582939,
+          "matched": 103413
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_1_3_0.csv.gz",
+          "rows": 543560,
+          "matched": 95948
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_1_4_0.csv.gz",
+          "rows": 625174,
+          "matched": 110713
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_1_5_0.csv.gz",
+          "rows": 541619,
+          "matched": 95689
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_1_6_0.csv.gz",
+          "rows": 371325,
+          "matched": 65480
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_1_7_0.csv.gz",
+          "rows": 550604,
+          "matched": 97078
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_2_0_0.csv.gz",
+          "rows": 536940,
+          "matched": 94945
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_2_1_0.csv.gz",
+          "rows": 502992,
+          "matched": 89030
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_2_2_0.csv.gz",
+          "rows": 473266,
+          "matched": 83421
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_2_3_0.csv.gz",
+          "rows": 548213,
+          "matched": 97230
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_2_4_0.csv.gz",
+          "rows": 536902,
+          "matched": 95270
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_2_5_0.csv.gz",
+          "rows": 580410,
+          "matched": 102669
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_2_6_0.csv.gz",
+          "rows": 583623,
+          "matched": 103573
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_2_7_0.csv.gz",
+          "rows": 540238,
+          "matched": 95421
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_3_0_0.csv.gz",
+          "rows": 507495,
+          "matched": 90042
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_3_1_0.csv.gz",
+          "rows": 466446,
+          "matched": 82038
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_3_2_0.csv.gz",
+          "rows": 553725,
+          "matched": 98476
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_3_3_0.csv.gz",
+          "rows": 492818,
+          "matched": 87179
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_3_4_0.csv.gz",
+          "rows": 504753,
+          "matched": 89286
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_3_5_0.csv.gz",
+          "rows": 594427,
+          "matched": 105361
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_3_6_0.csv.gz",
+          "rows": 613182,
+          "matched": 109054
+        },
+        {
+          "file": "daily-spend-brand-and-state-rice_3_7_0.csv.gz",
+          "rows": 481256,
+          "matched": 84737
+        }
+      ]
+    },
+    "weather": {
+      "files_scanned": 31,
+      "rows_read": 732627,
+      "rows_matched_market_or_station": 0,
+      "rows_within_nynj_bbox": 0,
+      "date_min": "",
+      "date_max": "",
+      "totals": {},
+      "months": {},
+      "categories": {},
+      "cells": {},
+      "uhi": {},
+      "stations": {},
+      "shards": [
+        {
+          "file": "daily-weather-rice_0_0_0.csv.gz",
+          "rows": 51757,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_0_1_0.csv.gz",
+          "rows": 19840,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_0_2_0.csv.gz",
+          "rows": 25885,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_0_3_0.csv.gz",
+          "rows": 39624,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_0_4_0.csv.gz",
+          "rows": 25849,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_0_5_0.csv.gz",
+          "rows": 19659,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_0_6_0.csv.gz",
+          "rows": 25984,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_0_7_0.csv.gz",
+          "rows": 19731,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_1_0_0.csv.gz",
+          "rows": 25864,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_1_1_0.csv.gz",
+          "rows": 19658,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_1_2_0.csv.gz",
+          "rows": 19865,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_1_3_0.csv.gz",
+          "rows": 26000,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_1_4_0.csv.gz",
+          "rows": 19741,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_1_5_0.csv.gz",
+          "rows": 26004,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_1_6_0.csv.gz",
+          "rows": 26189,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_1_7_0.csv.gz",
+          "rows": 19909,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_2_1_0.csv.gz",
+          "rows": 19803,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_2_2_0.csv.gz",
+          "rows": 19818,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_2_3_0.csv.gz",
+          "rows": 26134,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_2_4_0.csv.gz",
+          "rows": 14,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_2_5_0.csv.gz",
+          "rows": 19857,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_2_6_0.csv.gz",
+          "rows": 26009,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_2_7_0.csv.gz",
+          "rows": 25965,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_3_0_0.csv.gz",
+          "rows": 20069,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_3_1_0.csv.gz",
+          "rows": 13,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_3_2_0.csv.gz",
+          "rows": 26122,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_3_3_0.csv.gz",
+          "rows": 25842,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_3_4_0.csv.gz",
+          "rows": 25769,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_3_5_0.csv.gz",
+          "rows": 45814,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_3_6_0.csv.gz",
+          "rows": 19926,
+          "matched": 0
+        },
+        {
+          "file": "daily-weather-rice_3_7_0.csv.gz",
+          "rows": 19913,
+          "matched": 0
+        }
+      ]
+    }
+  },
+  "runtime_seconds": 968
+}

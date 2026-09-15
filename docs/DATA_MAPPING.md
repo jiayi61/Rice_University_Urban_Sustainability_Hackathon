@@ -1,3 +1,5 @@
+> Legacy prototype documentation. See README.md and NYNJ_METHODOLOGY.md for the current competition case.
+
 # 数据接入与字段映射
 
 ## 黑客松数据

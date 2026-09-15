@@ -1,3 +1,5 @@
+> Legacy prototype documentation. See README.md and NYNJ_METHODOLOGY.md for the current competition case.
+
 # EventFlow AI 设计说明
 
 ## 1. 产品目标

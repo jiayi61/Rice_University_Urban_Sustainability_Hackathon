@@ -1,0 +1,1162 @@
+{
+  "repository": "jiayi61/Rice_University_Urban_Sustainability_Hackathon",
+  "release_tag": "rice-data-2026-09-14",
+  "access": "private; authenticated repository access required",
+  "use": "Organizer-transformed sample data; methodology demonstration only; keep confidential.",
+  "file_count": 192,
+  "total_bytes": 8469554277,
+  "files": [
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_0_0_0.csv.gz",
+      "asset": "core-poi-geometry-rice_0_0_0.csv.gz",
+      "bytes": 5803492,
+      "sha256": "7f5399d50bc7cc55fd95d72326df32f4c2ce0212ab0712570f3dc10ed9dd1c12"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_0_1_0.csv.gz",
+      "asset": "core-poi-geometry-rice_0_1_0.csv.gz",
+      "bytes": 6724552,
+      "sha256": "1244f486e9702b1cf0fc5059c60f3f27b3ebc3b2e8975dd3df21af692e37a90e"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_0_2_0.csv.gz",
+      "asset": "core-poi-geometry-rice_0_2_0.csv.gz",
+      "bytes": 6038976,
+      "sha256": "2b7601a3e3a321774075b6d85ff42735b5cd8f864447f6a91e63fba752255e06"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_0_3_0.csv.gz",
+      "asset": "core-poi-geometry-rice_0_3_0.csv.gz",
+      "bytes": 6874192,
+      "sha256": "9a4407ac6558a0066167d25815fe521e2ebaf4bba315639096e04a93505bceaa"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_0_4_0.csv.gz",
+      "asset": "core-poi-geometry-rice_0_4_0.csv.gz",
+      "bytes": 6141195,
+      "sha256": "d455324f58c867cdcb7ae0736d4616c008fe94c8e8e5441621200da7e128931a"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_0_5_0.csv.gz",
+      "asset": "core-poi-geometry-rice_0_5_0.csv.gz",
+      "bytes": 6099686,
+      "sha256": "b04aa341abd2c93fc299aa3dff5cd3478ffe7ece6b69280e5375f7fde026701d"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_0_6_0.csv.gz",
+      "asset": "core-poi-geometry-rice_0_6_0.csv.gz",
+      "bytes": 6379531,
+      "sha256": "805df4ab5b5e3c8c9d93b31b22a7285ee3bdab9f7cec2e436ebd8f90d240bd23"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_0_7_0.csv.gz",
+      "asset": "core-poi-geometry-rice_0_7_0.csv.gz",
+      "bytes": 6618406,
+      "sha256": "d72386c637d52bcb31a7deb684caf87a37956f7d61678450ea168759e90bc2d9"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_1_0_0.csv.gz",
+      "asset": "core-poi-geometry-rice_1_0_0.csv.gz",
+      "bytes": 6437330,
+      "sha256": "64c116c569846b6ec3831192683455a44d6d85a50a65061a933b3f938d690c3d"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_1_1_0.csv.gz",
+      "asset": "core-poi-geometry-rice_1_1_0.csv.gz",
+      "bytes": 6594194,
+      "sha256": "4a64b106840b25252efaf5c2657dd992b716a506d8245e02f38d0004fbf96161"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_1_2_0.csv.gz",
+      "asset": "core-poi-geometry-rice_1_2_0.csv.gz",
+      "bytes": 6161581,
+      "sha256": "3701f180b8ff9bd8e556103665b40e60989d35064d982e30c75a28a3567163ed"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_1_3_0.csv.gz",
+      "asset": "core-poi-geometry-rice_1_3_0.csv.gz",
+      "bytes": 6649339,
+      "sha256": "f4d458ceece25d880fb3a34e4eb93d826e7caf063c91866dede432f3699350e2"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_1_4_0.csv.gz",
+      "asset": "core-poi-geometry-rice_1_4_0.csv.gz",
+      "bytes": 6691624,
+      "sha256": "934f0726d434135ba5419a7503b8e28d57ff79ca76f579ef2d591158c4b51f30"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_1_5_0.csv.gz",
+      "asset": "core-poi-geometry-rice_1_5_0.csv.gz",
+      "bytes": 6337706,
+      "sha256": "7909609bcbbb25b79d3faa92eab0271b48d1bf934a3d652544a51a13f2d5f68a"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_1_6_0.csv.gz",
+      "asset": "core-poi-geometry-rice_1_6_0.csv.gz",
+      "bytes": 6114416,
+      "sha256": "f6fcd8d8f89d77dd2838bd97faaf65d0cf96bcd98996daba9ccd0e375bcfd225"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_1_7_0.csv.gz",
+      "asset": "core-poi-geometry-rice_1_7_0.csv.gz",
+      "bytes": 5940751,
+      "sha256": "4101a97b6d20758349d656f67451472942d55180bc2920401aa17e4bffca6e18"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_2_0_0.csv.gz",
+      "asset": "core-poi-geometry-rice_2_0_0.csv.gz",
+      "bytes": 6062807,
+      "sha256": "aa957a3f5ee6925a7f64d4bb132701f9cf1ac07fb8ad12a4c738128fad8bce1e"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_2_1_0.csv.gz",
+      "asset": "core-poi-geometry-rice_2_1_0.csv.gz",
+      "bytes": 5695057,
+      "sha256": "0ed8ab329b87efff5b5e3f58c93ca6a87c5ddd67afbd9073b77eaab085209d42"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_2_2_0.csv.gz",
+      "asset": "core-poi-geometry-rice_2_2_0.csv.gz",
+      "bytes": 5575225,
+      "sha256": "c0919f4f2e555982ca0a349190f19df94bf740857e1c6949b717da86e0dd6906"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_2_3_0.csv.gz",
+      "asset": "core-poi-geometry-rice_2_3_0.csv.gz",
+      "bytes": 5883977,
+      "sha256": "ee8165682241000c9470b0c3063253ba51281ab09e1ceec33f31ccdddc5cf6be"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_2_4_0.csv.gz",
+      "asset": "core-poi-geometry-rice_2_4_0.csv.gz",
+      "bytes": 5645523,
+      "sha256": "3b8bacce19d717b531f35ad8ef4b1748e69cb7cd522530a928057bb639941972"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_2_5_0.csv.gz",
+      "asset": "core-poi-geometry-rice_2_5_0.csv.gz",
+      "bytes": 6073347,
+      "sha256": "b71fe53a080e21489431f8293975db0a538fac371afe828590e723670133017d"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_2_6_0.csv.gz",
+      "asset": "core-poi-geometry-rice_2_6_0.csv.gz",
+      "bytes": 5875977,
+      "sha256": "a2024a029a6b45cdd7c0228d26269d37252bccb5b70ff8165f65dfc9249876e2"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_2_7_0.csv.gz",
+      "asset": "core-poi-geometry-rice_2_7_0.csv.gz",
+      "bytes": 5742552,
+      "sha256": "6e89715a51c218836334b23d62f6ebcbcff5fe26b441db1d2914227396d21737"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_3_0_0.csv.gz",
+      "asset": "core-poi-geometry-rice_3_0_0.csv.gz",
+      "bytes": 6395294,
+      "sha256": "e6d6df90f63fae4dbc697246cccea4f4037120065d50ab93fa100e2f26bc8a1d"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_3_1_0.csv.gz",
+      "asset": "core-poi-geometry-rice_3_1_0.csv.gz",
+      "bytes": 7205522,
+      "sha256": "26accdd9b9499b66b8ca52869306d2dc37cd0173da3581cb15d3f3fff1bd6401"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_3_2_0.csv.gz",
+      "asset": "core-poi-geometry-rice_3_2_0.csv.gz",
+      "bytes": 5942672,
+      "sha256": "5d36b3c391413684af68b8bd164d4a3b96065a0390f9a5a9197f5d749eefa5af"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_3_3_0.csv.gz",
+      "asset": "core-poi-geometry-rice_3_3_0.csv.gz",
+      "bytes": 6534377,
+      "sha256": "a0621ab417e7dc59e3a2c673114e61aab0c8f4cd64923872de71a9194ed41b9a"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_3_4_0.csv.gz",
+      "asset": "core-poi-geometry-rice_3_4_0.csv.gz",
+      "bytes": 6420677,
+      "sha256": "4a2f84f86d251efb3e3272b5b92bed804c0c99ceda6de2bc488eccf8dfafb2d8"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_3_5_0.csv.gz",
+      "asset": "core-poi-geometry-rice_3_5_0.csv.gz",
+      "bytes": 5740276,
+      "sha256": "c961245cb0e246b2a7c889b7f5b9fbd775a63a79eee84c04a44411a0b4fef4be"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_3_6_0.csv.gz",
+      "asset": "core-poi-geometry-rice_3_6_0.csv.gz",
+      "bytes": 5717635,
+      "sha256": "9beea270252a2ee59eb31bd5488063097d9f720ff3a920f5e1a11ce49645490c"
+    },
+    {
+      "path": "core-poi-geometry-rice/core-poi-geometry-rice_3_7_0.csv.gz",
+      "asset": "core-poi-geometry-rice_3_7_0.csv.gz",
+      "bytes": 6416069,
+      "sha256": "b1d5f502aab044b01552dc50826cb8f17321844e8e3de96c1c06e5c0ff72bc5f"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_0_0_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_0_0_0.csv.gz",
+      "bytes": 11128453,
+      "sha256": "165c100184a01baf73260d5b65d6596cd28844728ff0924155f18ddf87c5defe"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_0_1_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_0_1_0.csv.gz",
+      "bytes": 10839164,
+      "sha256": "315a9c43200d1718184b1a9faaf19f3cefcdd150d723a88a317f698911e13f90"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_0_2_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_0_2_0.csv.gz",
+      "bytes": 11946926,
+      "sha256": "1b9d2327bfb5e63bdc892ebac492201e6043f9f7d8432807e48ede837ddd8672"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_0_3_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_0_3_0.csv.gz",
+      "bytes": 12584344,
+      "sha256": "7d7c0a15b78cd95f6ef13183ffcae221838fff1b713bca265b1cd2d8b03ff6f3"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_0_4_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_0_4_0.csv.gz",
+      "bytes": 11383306,
+      "sha256": "169c21a876e12612dc14fad66219f86dde24f51aa4ea4a30fd98cfa430b0892e"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_0_5_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_0_5_0.csv.gz",
+      "bytes": 10670124,
+      "sha256": "cff257132a3dfe8bf298795b52d6e4da82f2e44442d1fcde9945b51880d49543"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_0_6_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_0_6_0.csv.gz",
+      "bytes": 11982982,
+      "sha256": "20419c2492399cc57057ba578144238a8e196efa846b1267cc99b4aeb231d043"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_0_7_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_0_7_0.csv.gz",
+      "bytes": 11665051,
+      "sha256": "bbb12c1fd7d3c2302ebbd343d6fa2ffc14a5a6cca25e635626d674e978f5625d"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_1_0_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_1_0_0.csv.gz",
+      "bytes": 11184700,
+      "sha256": "f0e90c26f540ca8e4f52d52ad1a3a680aea308dfcb37af36667c6313de076f8a"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_1_1_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_1_1_0.csv.gz",
+      "bytes": 11047381,
+      "sha256": "e507a2ad5bba898a412e88a23c2e5933cd65abcf18077059437a1dbb48200ca2"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_1_2_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_1_2_0.csv.gz",
+      "bytes": 12076628,
+      "sha256": "a1649957f060a6632aaa989a40f0b63d3f37fbd16843a009685b3ea93ed09a75"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_1_3_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_1_3_0.csv.gz",
+      "bytes": 11265264,
+      "sha256": "b6b8dfcaad77cffa7c5829ca20586f8e3deb752d9e1cf725a7601a82e597b168"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_1_4_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_1_4_0.csv.gz",
+      "bytes": 12950241,
+      "sha256": "497f538a0c8ce76b10664d44ec95ea134362ec4a2bbec3383f90996b32fac176"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_1_5_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_1_5_0.csv.gz",
+      "bytes": 11227581,
+      "sha256": "420f28fd41134d63cdb3d34e8cd17f761d1a53400ee9b654132befd4990ee0fe"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_1_6_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_1_6_0.csv.gz",
+      "bytes": 7692338,
+      "sha256": "ebd33fa463686f6811a60d50a709befef80d714a7d20c11258327bdcca44f7ed"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_1_7_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_1_7_0.csv.gz",
+      "bytes": 11412194,
+      "sha256": "4158962440c416c5e545f87629dbcd6721f91e2105e82dd003b8f977aae16f68"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_2_0_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_2_0_0.csv.gz",
+      "bytes": 11119476,
+      "sha256": "83261d6bf39b441710363e11e878effb9300c51b4957311946af7f98f1fc2244"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_2_1_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_2_1_0.csv.gz",
+      "bytes": 10422059,
+      "sha256": "0edc284eb66785d27614e2d5bee99a468c639d005b9213ee1ce7406545076c0a"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_2_2_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_2_2_0.csv.gz",
+      "bytes": 9806316,
+      "sha256": "6bfb722b2f8c4bbe51f16d8066973688e48afc511d2bcaa32679c111172a1fab"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_2_3_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_2_3_0.csv.gz",
+      "bytes": 11359604,
+      "sha256": "d21b59ee1390e89240bfc6d7f100965e06993f6dce357abfefbd0cd17d9def7d"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_2_4_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_2_4_0.csv.gz",
+      "bytes": 11129086,
+      "sha256": "1040aacba53d5a739a0106f38838651cc250b5e065e6b2202d07f3a883e03904"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_2_5_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_2_5_0.csv.gz",
+      "bytes": 12026037,
+      "sha256": "13658c1bb7ebd3b5885e1aa116a743e84cb90746d5e1f90bb901d8a016854c2f"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_2_6_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_2_6_0.csv.gz",
+      "bytes": 12092078,
+      "sha256": "75de9c83584a9d55b287f95b38eec7351b3676dcf79ff1aa92ec62c600b2402e"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_2_7_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_2_7_0.csv.gz",
+      "bytes": 11192149,
+      "sha256": "4c6e5e161d81a63709aca56da991455d5d11228da030a821cc796d20892661d5"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_3_0_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_3_0_0.csv.gz",
+      "bytes": 10517608,
+      "sha256": "0bd14434376c83592a6e94e1352027230a47eeecf88244dbc30687b9dfd9bf30"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_3_1_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_3_1_0.csv.gz",
+      "bytes": 9668759,
+      "sha256": "1dcb9283a4fde3fcb229bedad4b2835e609cdd140b7317b2cf6065a36097df33"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_3_2_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_3_2_0.csv.gz",
+      "bytes": 11471116,
+      "sha256": "9b175ee420c65d10e9caea1f92bc86dba82abde954b96f167fb5ad8206174110"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_3_3_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_3_3_0.csv.gz",
+      "bytes": 10211378,
+      "sha256": "4c72491d38bd431478e8625318e7ab48522103fac8320fe3672bf532a182cdbd"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_3_4_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_3_4_0.csv.gz",
+      "bytes": 10461283,
+      "sha256": "a1a9f2079d921e1149070d67b916a9c864909c6f68032874c7607350447222b0"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_3_5_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_3_5_0.csv.gz",
+      "bytes": 12318639,
+      "sha256": "24f4f42b7fb3f75a1711d91ce1f2d25803b605ef3dbbb627eb0bc67c54cb1933"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_3_6_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_3_6_0.csv.gz",
+      "bytes": 12704852,
+      "sha256": "9ffc7a160695033a719ff8201af04e7383ae196a2fc02f961bf6127c4152398c"
+    },
+    {
+      "path": "daily-spend-brand-and-state-rice/daily-spend-brand-and-state-rice_3_7_0.csv.gz",
+      "asset": "daily-spend-brand-and-state-rice_3_7_0.csv.gz",
+      "bytes": 9983789,
+      "sha256": "bf0b927fecb18730417a71f1bf93514df1054b0548a67f203c00d659125f17db"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_0_0_0.csv.gz",
+      "asset": "daily-weather-rice_0_0_0.csv.gz",
+      "bytes": 1616690,
+      "sha256": "571b50ffc40b2e5436aac8d4c8b2f3b2f74c6c22f20f3b6d1bbc34e95e405542"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_0_1_0.csv.gz",
+      "asset": "daily-weather-rice_0_1_0.csv.gz",
+      "bytes": 621629,
+      "sha256": "8ec5635a1f0cba54c82a0eafcd810d110e3ff947d574ba3dca21c845c1618496"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_0_2_0.csv.gz",
+      "asset": "daily-weather-rice_0_2_0.csv.gz",
+      "bytes": 809319,
+      "sha256": "b95b32b6f958ba8ced4b873cde717d63c0b06c047cf3ce550a4687a3467b95c3"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_0_3_0.csv.gz",
+      "asset": "daily-weather-rice_0_3_0.csv.gz",
+      "bytes": 1239106,
+      "sha256": "ced470643b385a9e9f9d40cbd95855202b1c85c5d7b08c5a7c13b196557477e3"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_0_4_0.csv.gz",
+      "asset": "daily-weather-rice_0_4_0.csv.gz",
+      "bytes": 808399,
+      "sha256": "101bb7606c5653fe6997f1f31565a61d5870f2ba321ad00969ab2f22609dbf70"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_0_5_0.csv.gz",
+      "asset": "daily-weather-rice_0_5_0.csv.gz",
+      "bytes": 616158,
+      "sha256": "b435642d6436b0d1854b2b3b1f0383dcec6a75371eae90e61fdfa9e7d4637fac"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_0_6_0.csv.gz",
+      "asset": "daily-weather-rice_0_6_0.csv.gz",
+      "bytes": 812582,
+      "sha256": "b6a68c69b6b911fe00b4128964871d0ee367c90e2ce7bbe62da967061d2eae21"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_0_7_0.csv.gz",
+      "asset": "daily-weather-rice_0_7_0.csv.gz",
+      "bytes": 617610,
+      "sha256": "49517c30d9d21ec0e447924226dbf28b86a429cd22e1e85ee7ae4a78b160e9d3"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_1_0_0.csv.gz",
+      "asset": "daily-weather-rice_1_0_0.csv.gz",
+      "bytes": 808544,
+      "sha256": "54d931794da6a0bfcbd66d3f559792b2aba47d6fda7b64ab96188a7d5f12b1b8"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_1_1_0.csv.gz",
+      "asset": "daily-weather-rice_1_1_0.csv.gz",
+      "bytes": 614890,
+      "sha256": "27d4b0cfdfafdec6a4fed60dcd2e4b12369c45eb0b2c5aab21d57458fa91ec98"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_1_2_0.csv.gz",
+      "asset": "daily-weather-rice_1_2_0.csv.gz",
+      "bytes": 622053,
+      "sha256": "8a115bd663d96243fa490644f8fff0703e16b5789a7a77d81fbdb7c81056e024"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_1_3_0.csv.gz",
+      "asset": "daily-weather-rice_1_3_0.csv.gz",
+      "bytes": 812897,
+      "sha256": "98a28f7ef90e7d86bc0d6a961c3a857015b5fb06cc3c680f909d4364a27e1231"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_1_4_0.csv.gz",
+      "asset": "daily-weather-rice_1_4_0.csv.gz",
+      "bytes": 618296,
+      "sha256": "88f2e7049b722903630387c3cf8ec9882583a4251512716e5ea1b06c806b128d"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_1_5_0.csv.gz",
+      "asset": "daily-weather-rice_1_5_0.csv.gz",
+      "bytes": 813489,
+      "sha256": "5bfc388e6d272aba01224acb78c80746d9db57c4d188d6d035afd0bb43bbc9c5"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_1_6_0.csv.gz",
+      "asset": "daily-weather-rice_1_6_0.csv.gz",
+      "bytes": 819364,
+      "sha256": "0d5d4d766ad4831e938504f3dfededdf6be92d4abdbfac9438ec31ce926edb05"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_1_7_0.csv.gz",
+      "asset": "daily-weather-rice_1_7_0.csv.gz",
+      "bytes": 622940,
+      "sha256": "49ecce1054924960a5c4edf688be41a043cb138c6d56a76b427f870e8c7d9041"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_2_1_0.csv.gz",
+      "asset": "daily-weather-rice_2_1_0.csv.gz",
+      "bytes": 619473,
+      "sha256": "0ffc2a46c45fd4995f6a89009390238d2dcd2e0ef6a5791f3138dd3c57bb7014"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_2_2_0.csv.gz",
+      "asset": "daily-weather-rice_2_2_0.csv.gz",
+      "bytes": 619938,
+      "sha256": "752afabcf9d44c9b7b286abe150413d1d60f9ae2702b479b8b87bc077c032f4e"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_2_3_0.csv.gz",
+      "asset": "daily-weather-rice_2_3_0.csv.gz",
+      "bytes": 816919,
+      "sha256": "7f8b1b9a9c32f7f4075004473fb03eb45e1b610bc81c698a7b5737dd3639874c"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_2_4_0.csv.gz",
+      "asset": "daily-weather-rice_2_4_0.csv.gz",
+      "bytes": 915,
+      "sha256": "4b082afcdc2abec127c8c82aafc2a7e48f259547c4888accfae4a2080f24ee5a"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_2_5_0.csv.gz",
+      "asset": "daily-weather-rice_2_5_0.csv.gz",
+      "bytes": 621530,
+      "sha256": "8d4169f7ced92d66711dfff029a27a79373ecf40a6cdd1fa25d9b64843cde55b"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_2_6_0.csv.gz",
+      "asset": "daily-weather-rice_2_6_0.csv.gz",
+      "bytes": 812639,
+      "sha256": "0ad44d498cde20dac5a070b0e9ba7e196a7c085ff6b8ef0661f7797b5d2a0a57"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_2_7_0.csv.gz",
+      "asset": "daily-weather-rice_2_7_0.csv.gz",
+      "bytes": 812229,
+      "sha256": "e7eb9cd32b1eff8c735ca0d8dc9a0dff25c47b7e8ce178361245e7c987c649a4"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_3_0_0.csv.gz",
+      "asset": "daily-weather-rice_3_0_0.csv.gz",
+      "bytes": 628477,
+      "sha256": "da71575bbbecfa04a68473bf791b3f740fdaaa9415151c4bb98891c3f88f7d8e"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_3_1_0.csv.gz",
+      "asset": "daily-weather-rice_3_1_0.csv.gz",
+      "bytes": 892,
+      "sha256": "20e0c8ca1e11a4ac4a0026eaa43b769ba5fa7ed83f7d4f49a90efa6037938621"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_3_2_0.csv.gz",
+      "asset": "daily-weather-rice_3_2_0.csv.gz",
+      "bytes": 817012,
+      "sha256": "e0bc49a035c7f009863500ce73487305407e43b47a81d4c9f699ab93706170f4"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_3_3_0.csv.gz",
+      "asset": "daily-weather-rice_3_3_0.csv.gz",
+      "bytes": 808309,
+      "sha256": "939982b3c796f900fcea77082df3587f4477b7e1e2da85e9d578d0b8f1e4256f"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_3_4_0.csv.gz",
+      "asset": "daily-weather-rice_3_4_0.csv.gz",
+      "bytes": 805757,
+      "sha256": "908364d306ae52e838c3f36da12a91a9a5b9c615698ce18b0216547828391079"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_3_5_0.csv.gz",
+      "asset": "daily-weather-rice_3_5_0.csv.gz",
+      "bytes": 1432380,
+      "sha256": "b584375b256d575e26d37b867e9a8d49270cf8448d990cae90355c9f6cec7499"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_3_6_0.csv.gz",
+      "asset": "daily-weather-rice_3_6_0.csv.gz",
+      "bytes": 623710,
+      "sha256": "4bbfcf9ed6dddf839412f16a8fc470086bba318930c22197d249ad71a2a7e101"
+    },
+    {
+      "path": "daily-weather-rice/daily-weather-rice_3_7_0.csv.gz",
+      "asset": "daily-weather-rice_3_7_0.csv.gz",
+      "bytes": 623529,
+      "sha256": "6d0790524b88d6e536f462946885cdb3ef784a47764aa7f268e67ff32c65f17a"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_0_0_0.csv.gz",
+      "asset": "spend-patterns-rice_0_0_0.csv.gz",
+      "bytes": 20733928,
+      "sha256": "c7e434feecb2b1b0aca704d25a4d9c5871e1e8caa18aaa19c3e94a024aecd67e"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_0_1_0.csv.gz",
+      "asset": "spend-patterns-rice_0_1_0.csv.gz",
+      "bytes": 23582757,
+      "sha256": "b9cbcbe64806b8d5f781e19886e62de564c11bb8c9025a7a610a2fafed9050d2"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_0_2_0.csv.gz",
+      "asset": "spend-patterns-rice_0_2_0.csv.gz",
+      "bytes": 22834710,
+      "sha256": "e096c76a436e3864b53b00ab2e4ccb91c71aaf1a3f20ccc78cf176bf1781efff"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_0_3_0.csv.gz",
+      "asset": "spend-patterns-rice_0_3_0.csv.gz",
+      "bytes": 23661124,
+      "sha256": "cde17d52cbacdc223afa1315f4a9c5bfbecbaa2fda6fd9ad0b124bde265bec3e"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_0_4_0.csv.gz",
+      "asset": "spend-patterns-rice_0_4_0.csv.gz",
+      "bytes": 23904343,
+      "sha256": "95675b42e4c9c8043a01fa893cbd8e3fbd78843ca4290f1a2423397396ea2f23"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_0_5_0.csv.gz",
+      "asset": "spend-patterns-rice_0_5_0.csv.gz",
+      "bytes": 23670145,
+      "sha256": "2d163ce65170a404e08e4a77e84eaf44e52036795353a3d117bf0de481773d86"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_0_6_0.csv.gz",
+      "asset": "spend-patterns-rice_0_6_0.csv.gz",
+      "bytes": 24582923,
+      "sha256": "273a5f6d9f094a91ec4640b53b3694a0790f2d9a5a449b18ee166ea81458fbec"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_0_7_0.csv.gz",
+      "asset": "spend-patterns-rice_0_7_0.csv.gz",
+      "bytes": 23372737,
+      "sha256": "4a030ec5c39fdc9acfee879faee2fce9741abb017c990501d426f8fdd90ca8f1"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_1_0_0.csv.gz",
+      "asset": "spend-patterns-rice_1_0_0.csv.gz",
+      "bytes": 23926234,
+      "sha256": "c66510147cadb2061696eb3aad9eb226b3e8ddb4f12260f05c294f9d5aa5324c"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_1_1_0.csv.gz",
+      "asset": "spend-patterns-rice_1_1_0.csv.gz",
+      "bytes": 23971419,
+      "sha256": "3d866444ce5867a788676ee91a28a7984fe97a4cfde3739391d4839a0d0b9d26"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_1_2_0.csv.gz",
+      "asset": "spend-patterns-rice_1_2_0.csv.gz",
+      "bytes": 21935495,
+      "sha256": "ff16902cd034a0368df60d3145155d0c407fab4d66a80b59f332c3a3601987c0"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_1_3_0.csv.gz",
+      "asset": "spend-patterns-rice_1_3_0.csv.gz",
+      "bytes": 26083873,
+      "sha256": "64d416d7fd222ad8d1f74a2c4c17c1a48f36dd65fe85e1936ce084f4ce0c640b"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_1_4_0.csv.gz",
+      "asset": "spend-patterns-rice_1_4_0.csv.gz",
+      "bytes": 25260584,
+      "sha256": "c4c7887e4983d9e0ce87828a5e055292a814cee38333b9c36c7ea00a98e8d778"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_1_5_0.csv.gz",
+      "asset": "spend-patterns-rice_1_5_0.csv.gz",
+      "bytes": 23498732,
+      "sha256": "3e9682b34c5637adea49ec799cef3518bff8f5cb7e1b6fa10c5d961b3e969bdc"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_1_6_0.csv.gz",
+      "asset": "spend-patterns-rice_1_6_0.csv.gz",
+      "bytes": 25213206,
+      "sha256": "721fbcef37aa29df8734b79b2559697da7c2bc5606d56663cb105d140afca481"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_1_7_0.csv.gz",
+      "asset": "spend-patterns-rice_1_7_0.csv.gz",
+      "bytes": 25409157,
+      "sha256": "ab6b10be3d32cd5855743b86eccd8af1e4704138ca865d9eed89061308c93bc9"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_2_0_0.csv.gz",
+      "asset": "spend-patterns-rice_2_0_0.csv.gz",
+      "bytes": 21457907,
+      "sha256": "5f73c26d58eae659526c259b14b2145054eff70caa42222aeb1513c1c700bd66"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_2_1_0.csv.gz",
+      "asset": "spend-patterns-rice_2_1_0.csv.gz",
+      "bytes": 21851674,
+      "sha256": "b1257d8904d57f4da84f53f3f82e324e620cdde57c5de95ee8d06b3c30472d79"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_2_2_0.csv.gz",
+      "asset": "spend-patterns-rice_2_2_0.csv.gz",
+      "bytes": 25219514,
+      "sha256": "437dc583c1deee515f0789bca462e15ca7d651ec7f749013fbf66dd661b6c1ae"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_2_3_0.csv.gz",
+      "asset": "spend-patterns-rice_2_3_0.csv.gz",
+      "bytes": 23720620,
+      "sha256": "a9cc87a5b5ed1fc65e15beced29ad1c1d5a46cb46ff5ffe0a2f689118da264d4"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_2_4_0.csv.gz",
+      "asset": "spend-patterns-rice_2_4_0.csv.gz",
+      "bytes": 24088651,
+      "sha256": "003f2a46df9d11f701b01b724bdc036b0029964238b69a7296bf4b5409f3acd6"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_2_5_0.csv.gz",
+      "asset": "spend-patterns-rice_2_5_0.csv.gz",
+      "bytes": 22722712,
+      "sha256": "116bd8c72ce0289873a3297cf9831ee78543aa41eae676c38909bc1b75cf0dec"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_2_6_0.csv.gz",
+      "asset": "spend-patterns-rice_2_6_0.csv.gz",
+      "bytes": 26763187,
+      "sha256": "04a2037b41eb0d3744596ee9b56ee73b400da20719a0cd745ae34856be7cb564"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_2_7_0.csv.gz",
+      "asset": "spend-patterns-rice_2_7_0.csv.gz",
+      "bytes": 23608954,
+      "sha256": "4c1e01a1120ccd3b813d3d3df8d9e3df16c02fc344f93de1425fd7263d922136"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_3_0_0.csv.gz",
+      "asset": "spend-patterns-rice_3_0_0.csv.gz",
+      "bytes": 22451271,
+      "sha256": "9411bc49a5bc500937c094e03d4bb49150ace1d574193250212219eb006aaa36"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_3_1_0.csv.gz",
+      "asset": "spend-patterns-rice_3_1_0.csv.gz",
+      "bytes": 24112046,
+      "sha256": "9edb6482de1bdd0be975b69ea67f6e33fcabb840805d7ec3e28ae9f04acbe4fe"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_3_2_0.csv.gz",
+      "asset": "spend-patterns-rice_3_2_0.csv.gz",
+      "bytes": 22834747,
+      "sha256": "230140c093fd56fc8f030aebc24dd6e66fe58e9e08725e5e7d4d4eca0431f3db"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_3_3_0.csv.gz",
+      "asset": "spend-patterns-rice_3_3_0.csv.gz",
+      "bytes": 24283819,
+      "sha256": "a141f9974eadd2e9c091dc145e03366e79132761f32a4cbafb9ec8bbd1f7451c"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_3_4_0.csv.gz",
+      "asset": "spend-patterns-rice_3_4_0.csv.gz",
+      "bytes": 23309248,
+      "sha256": "6d54f419137ac618277c0914242190508bd80badd3a86e1f33b09cd6daf21a33"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_3_5_0.csv.gz",
+      "asset": "spend-patterns-rice_3_5_0.csv.gz",
+      "bytes": 21635558,
+      "sha256": "6ad480ef5a8a0cb391377524254815f3e7c591cbc8f0fc867383a659c7421b4f"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_3_6_0.csv.gz",
+      "asset": "spend-patterns-rice_3_6_0.csv.gz",
+      "bytes": 22440822,
+      "sha256": "ba7532bf911514bf3ea59bf69515a157244832d0ce03128c91b54c15d29d8c31"
+    },
+    {
+      "path": "spend-patterns-rice/spend-patterns-rice_3_7_0.csv.gz",
+      "asset": "spend-patterns-rice_3_7_0.csv.gz",
+      "bytes": 22160719,
+      "sha256": "4526cdbc8bd173d40e851005687aa3adaa9db8fcabad80e98fc63ba65ca2fec7"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_0_0_0.csv.gz",
+      "asset": "store-visits-rice_0_0_0.csv.gz",
+      "bytes": 222556323,
+      "sha256": "f24af5af5ee0b89c1a9ad51f8247375aef99c340188ac736069eaea193ae3f4f"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_0_1_0.csv.gz",
+      "asset": "store-visits-rice_0_1_0.csv.gz",
+      "bytes": 214014551,
+      "sha256": "08f3e88836c51749a4a40855fa15bc6a19d0f32bffc8dede142e8f6b245548d2"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_0_2_0.csv.gz",
+      "asset": "store-visits-rice_0_2_0.csv.gz",
+      "bytes": 222864615,
+      "sha256": "5dcbd14f35a8f455ce1d533ff4bd9937ce0a21c1dd74bd7b73e9a351df77d382"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_0_3_0.csv.gz",
+      "asset": "store-visits-rice_0_3_0.csv.gz",
+      "bytes": 224835334,
+      "sha256": "4f14cc8320d94c17a6ccc3dd38092e39706a7e16753505851c6e4bdbf9339d25"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_0_4_0.csv.gz",
+      "asset": "store-visits-rice_0_4_0.csv.gz",
+      "bytes": 218947376,
+      "sha256": "9b319b9d9c96b5ff0b7b8b19f5113253b294edf3d2d85ebbdcbb189b0fc685d9"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_0_5_0.csv.gz",
+      "asset": "store-visits-rice_0_5_0.csv.gz",
+      "bytes": 209443834,
+      "sha256": "ac83c6cbf7375b0d1a4e4aac2e6ddca45f9242ebe0b9fdbedfd812fb98b26714"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_0_6_0.csv.gz",
+      "asset": "store-visits-rice_0_6_0.csv.gz",
+      "bytes": 218541587,
+      "sha256": "1cfd4bc2fc7b4dab1e6134a8c77158af9ac3f59e97543f6598e4670e7666b050"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_0_7_0.csv.gz",
+      "asset": "store-visits-rice_0_7_0.csv.gz",
+      "bytes": 217357238,
+      "sha256": "bba6964825a5a04c2b3cf6fb7e1f188b78e641f25915f9f48fa448e08359b00c"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_1_0_0.csv.gz",
+      "asset": "store-visits-rice_1_0_0.csv.gz",
+      "bytes": 232278686,
+      "sha256": "5f6abdf777db21641406ab0197596053cd7236e02d9b88ccf8a5ea56c38bff5f"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_1_1_0.csv.gz",
+      "asset": "store-visits-rice_1_1_0.csv.gz",
+      "bytes": 233555457,
+      "sha256": "fd159e3671d1e038d5605a84a58143eccbee3c64ce7c9ab9cbf311d1c3eb03ca"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_1_2_0.csv.gz",
+      "asset": "store-visits-rice_1_2_0.csv.gz",
+      "bytes": 231398915,
+      "sha256": "28d686d4a1e070a93b61ed082aa3bf6154031da0a78a377a25665e210a1128f1"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_1_3_0.csv.gz",
+      "asset": "store-visits-rice_1_3_0.csv.gz",
+      "bytes": 233255269,
+      "sha256": "0fb70c7075dcb5c1debad49c8da1be5b72cac467a38ed475b6cc49e60363395e"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_1_4_0.csv.gz",
+      "asset": "store-visits-rice_1_4_0.csv.gz",
+      "bytes": 232480677,
+      "sha256": "aedabb75910e6537416b90231c6040d8726eaf567125719a0b059c3b2d66c46d"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_1_5_0.csv.gz",
+      "asset": "store-visits-rice_1_5_0.csv.gz",
+      "bytes": 230128358,
+      "sha256": "62a017170c2ecb15422a88afad466ce693de233fa340abaf7fe96d8bd2759170"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_1_6_0.csv.gz",
+      "asset": "store-visits-rice_1_6_0.csv.gz",
+      "bytes": 236509007,
+      "sha256": "8ec4250d350bffb8da47b84655c3c82c5189160ac6dd461becc33e951d4da73a"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_1_7_0.csv.gz",
+      "asset": "store-visits-rice_1_7_0.csv.gz",
+      "bytes": 237401223,
+      "sha256": "dd00cdb96cc721c04955e3e433f260b944d8e44502dc51e43e949869e56af755"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_2_0_0.csv.gz",
+      "asset": "store-visits-rice_2_0_0.csv.gz",
+      "bytes": 226323491,
+      "sha256": "765d92b9a264f23f700bf40dd200fbecce8739fff37aea20741572984ab867f4"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_2_1_0.csv.gz",
+      "asset": "store-visits-rice_2_1_0.csv.gz",
+      "bytes": 221045484,
+      "sha256": "c1a024e0c81f8bc9ce3b3fdcdd1a85d4a1b7ce4ceb65247510d057477de8f535"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_2_2_0.csv.gz",
+      "asset": "store-visits-rice_2_2_0.csv.gz",
+      "bytes": 209658329,
+      "sha256": "0a354de8bed1461e0271dbce3058ecba40d54d938a57681eb0aa7472c4ae5314"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_2_3_0.csv.gz",
+      "asset": "store-visits-rice_2_3_0.csv.gz",
+      "bytes": 221498731,
+      "sha256": "fb04c82ecfa03254860264600f263688c000f0b0e6bf310196ff215249b3c073"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_2_4_0.csv.gz",
+      "asset": "store-visits-rice_2_4_0.csv.gz",
+      "bytes": 213519688,
+      "sha256": "519778142670b0b660a4d4c9247e911183ed7a9f30363f853d8119a87e851f37"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_2_5_0.csv.gz",
+      "asset": "store-visits-rice_2_5_0.csv.gz",
+      "bytes": 225821155,
+      "sha256": "d5319a3d403ced82168bf4a8b4d03234cde742430fb192758cd3900c9c6d8046"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_2_6_0.csv.gz",
+      "asset": "store-visits-rice_2_6_0.csv.gz",
+      "bytes": 222129881,
+      "sha256": "feb3a77db1dd07ea88d07a46e1715390bb2a9317733295f7c33169f40ec16596"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_2_7_0.csv.gz",
+      "asset": "store-visits-rice_2_7_0.csv.gz",
+      "bytes": 220886135,
+      "sha256": "cd63ea3b14fbcd740b546a3268699a7647a6c7ece52fd1b1012b46dc0cac3c4a"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_3_0_0.csv.gz",
+      "asset": "store-visits-rice_3_0_0.csv.gz",
+      "bytes": 226013752,
+      "sha256": "a9da1e989b620f3d77fbc7b8d894dbdfa094fa92ecde8981749aa75a88da9185"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_3_1_0.csv.gz",
+      "asset": "store-visits-rice_3_1_0.csv.gz",
+      "bytes": 215250395,
+      "sha256": "04d714e9437fde9d90d6ba3135f41c03cae3a6dd6ee27329023c0c4c40548a8f"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_3_2_0.csv.gz",
+      "asset": "store-visits-rice_3_2_0.csv.gz",
+      "bytes": 218542418,
+      "sha256": "3620abf2535e6eff5e100c479729a498b887ab18f37540f0c2077c0cec700947"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_3_3_0.csv.gz",
+      "asset": "store-visits-rice_3_3_0.csv.gz",
+      "bytes": 217427090,
+      "sha256": "4bf5205c9c3505d18542c4d58a8836e2adb777aa5c87580775490eb082fbbd02"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_3_4_0.csv.gz",
+      "asset": "store-visits-rice_3_4_0.csv.gz",
+      "bytes": 224689913,
+      "sha256": "b91c94ab7d9c2296a09fef0cd786adf169227c13bf466df940b192630efb11d9"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_3_5_0.csv.gz",
+      "asset": "store-visits-rice_3_5_0.csv.gz",
+      "bytes": 212829385,
+      "sha256": "b8b793577885518c4eac4d6e3cedb0b55ad507aaf1220103e91697d21c007305"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_3_6_0.csv.gz",
+      "asset": "store-visits-rice_3_6_0.csv.gz",
+      "bytes": 218803342,
+      "sha256": "33fd2bbf87438be02c1d6d191202c46655f114ac96f5e5bb25a55eabaa812fa3"
+    },
+    {
+      "path": "store-visits-rice/store-visits-rice_3_7_0.csv.gz",
+      "asset": "store-visits-rice_3_7_0.csv.gz",
+      "bytes": 215540155,
+      "sha256": "38af0596a56c50d6bf635791406fcc0ec7c480e2d253f5fcb27d96216fad0604"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_0_0_0.csv.gz",
+      "asset": "urban-heat-index-rice_0_0_0.csv.gz",
+      "bytes": 319915,
+      "sha256": "feef666603a220b734b5512a8a09f76f0ae665fb6f572a3a408d92a691ea7d02"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_0_1_0.csv.gz",
+      "asset": "urban-heat-index-rice_0_1_0.csv.gz",
+      "bytes": 325906,
+      "sha256": "3ba448443e819f1bfc26612878c62e710c4932e328ab63422ae983975dcd7952"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_0_2_0.csv.gz",
+      "asset": "urban-heat-index-rice_0_2_0.csv.gz",
+      "bytes": 327830,
+      "sha256": "1c2c2c79bde312ce1f753c76c18871169b4d616a8b7c2bcd864c8703c4efcb9e"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_0_3_0.csv.gz",
+      "asset": "urban-heat-index-rice_0_3_0.csv.gz",
+      "bytes": 324475,
+      "sha256": "3186f51b1797eef0d1d638d357da5e9598d889fdfd271c8665b165041d5f679a"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_0_4_0.csv.gz",
+      "asset": "urban-heat-index-rice_0_4_0.csv.gz",
+      "bytes": 356441,
+      "sha256": "c3488a40a527e11cc1456628a9c0b60e4b3005c3abb89a309422452436ebb53a"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_0_5_0.csv.gz",
+      "asset": "urban-heat-index-rice_0_5_0.csv.gz",
+      "bytes": 337763,
+      "sha256": "bc628e2f141d814796c6ec5f721ce1adb5c31285c5f3b507286ded6eded7b3cb"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_0_6_0.csv.gz",
+      "asset": "urban-heat-index-rice_0_6_0.csv.gz",
+      "bytes": 365034,
+      "sha256": "e2160e07d1d04ef40d01f70b1560b5b43cab2fbcfd272edc1415f537ce7216eb"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_0_7_0.csv.gz",
+      "asset": "urban-heat-index-rice_0_7_0.csv.gz",
+      "bytes": 326919,
+      "sha256": "8f41b6a5452da8ce093e85a0ff230edfe72fe9bbba19a7330744f36ab823118a"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_1_0_0.csv.gz",
+      "asset": "urban-heat-index-rice_1_0_0.csv.gz",
+      "bytes": 341172,
+      "sha256": "174b153ab558303c5893bb461d80ffa6974e8406185aa26c725e7c330e9ce65c"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_1_1_0.csv.gz",
+      "asset": "urban-heat-index-rice_1_1_0.csv.gz",
+      "bytes": 364851,
+      "sha256": "947069abb0d9acb439613ef4e5e89a93241070c606622f8f894f96a9d74d1dc9"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_1_2_0.csv.gz",
+      "asset": "urban-heat-index-rice_1_2_0.csv.gz",
+      "bytes": 332006,
+      "sha256": "106091629e4e449be5e65bc24baf994378b98b7b671fe3c0df86f4efa6f4509d"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_1_3_0.csv.gz",
+      "asset": "urban-heat-index-rice_1_3_0.csv.gz",
+      "bytes": 346138,
+      "sha256": "7940bd124ffb3ecb421d6c677ad13d81478b6d3833c834932c9657d07588b6e1"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_1_4_0.csv.gz",
+      "asset": "urban-heat-index-rice_1_4_0.csv.gz",
+      "bytes": 335291,
+      "sha256": "35f2810563a1763b0e68b4b9804f1d08c33798b3334974114fc7a79649942e76"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_1_5_0.csv.gz",
+      "asset": "urban-heat-index-rice_1_5_0.csv.gz",
+      "bytes": 333745,
+      "sha256": "2552cefc61d4ed0e67d3861cb266a170f9166df48116aa5c8c7fb2a7fc6ffd26"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_1_6_0.csv.gz",
+      "asset": "urban-heat-index-rice_1_6_0.csv.gz",
+      "bytes": 348629,
+      "sha256": "10ad38a3bdbd0f63afaec8ed8f504ae3ffd82586791404bbd9cf8592a5fa0e5e"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_1_7_0.csv.gz",
+      "asset": "urban-heat-index-rice_1_7_0.csv.gz",
+      "bytes": 308501,
+      "sha256": "a6ea4da247512a5df2387846a6545a65bb1588c451b381dcb6357b0f8a7fe434"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_2_0_0.csv.gz",
+      "asset": "urban-heat-index-rice_2_0_0.csv.gz",
+      "bytes": 349262,
+      "sha256": "9dd038efb9d29428d1fb9f912e45c6f5959017932eb0cf166c4996fd90e256ae"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_2_1_0.csv.gz",
+      "asset": "urban-heat-index-rice_2_1_0.csv.gz",
+      "bytes": 321749,
+      "sha256": "235eb757555d33ce97353f13386704805aa4220091537873072e9cb94984ac26"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_2_2_0.csv.gz",
+      "asset": "urban-heat-index-rice_2_2_0.csv.gz",
+      "bytes": 325315,
+      "sha256": "93127fe560c418dcfef3a489ea621352bb6e3963aeaa4b42b130b4df360a097d"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_2_3_0.csv.gz",
+      "asset": "urban-heat-index-rice_2_3_0.csv.gz",
+      "bytes": 348364,
+      "sha256": "d77303c913d11315882dbbe6f37aa879f5b955907551b1107cdb4574810d7e53"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_2_4_0.csv.gz",
+      "asset": "urban-heat-index-rice_2_4_0.csv.gz",
+      "bytes": 319155,
+      "sha256": "8a4c64ea3de60b59fc53c5789c5bf2d4f9e92b1539caddeca8d501f38730be28"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_2_5_0.csv.gz",
+      "asset": "urban-heat-index-rice_2_5_0.csv.gz",
+      "bytes": 303935,
+      "sha256": "a5054e390ec4addadc4b4e5d1964f8708501b2690089848b11b2435be88774e1"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_2_6_0.csv.gz",
+      "asset": "urban-heat-index-rice_2_6_0.csv.gz",
+      "bytes": 344328,
+      "sha256": "1d750be9b12a5a4b8a1dec528c31baa26d7b420b3e1f8dfd190ca5192c586b22"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_2_7_0.csv.gz",
+      "asset": "urban-heat-index-rice_2_7_0.csv.gz",
+      "bytes": 327354,
+      "sha256": "a8406b9b806de28998e81dc1db17ceef2377bb7ca9587057d10990f04546a5d1"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_3_0_0.csv.gz",
+      "asset": "urban-heat-index-rice_3_0_0.csv.gz",
+      "bytes": 311358,
+      "sha256": "90b02d74e50b3389d66520a26eac40e9967587f68da9e60d2c9034374447c19b"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_3_1_0.csv.gz",
+      "asset": "urban-heat-index-rice_3_1_0.csv.gz",
+      "bytes": 341295,
+      "sha256": "fe558ed763ad3632c5e8042a881f1cce9a693ea5dec8c6deba4838ad720f32dd"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_3_2_0.csv.gz",
+      "asset": "urban-heat-index-rice_3_2_0.csv.gz",
+      "bytes": 322401,
+      "sha256": "d594ccd33a83d5f1d52678ea287006981fc62de77ad981349148601fe8119abf"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_3_3_0.csv.gz",
+      "asset": "urban-heat-index-rice_3_3_0.csv.gz",
+      "bytes": 341988,
+      "sha256": "75d24914457216e137594da1b74073b5b2fa16a71449090004daeb03c9bba704"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_3_4_0.csv.gz",
+      "asset": "urban-heat-index-rice_3_4_0.csv.gz",
+      "bytes": 318930,
+      "sha256": "114218b8d21f335621ec3f520f56bda1100e60c552023aaab61f508eab69f192"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_3_5_0.csv.gz",
+      "asset": "urban-heat-index-rice_3_5_0.csv.gz",
+      "bytes": 330388,
+      "sha256": "b572ad6ceb489d5052b69d35a318ef47e3a279a4ab0c88bf247e4834d2957e14"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_3_6_0.csv.gz",
+      "asset": "urban-heat-index-rice_3_6_0.csv.gz",
+      "bytes": 346873,
+      "sha256": "5b74d2eefc8dc4cd51d1194b9a4f40d7eb7c8eb1176845b706dba89a710ee7d1"
+    },
+    {
+      "path": "urban-heat-index-rice/urban-heat-index-rice_3_7_0.csv.gz",
+      "asset": "urban-heat-index-rice_3_7_0.csv.gz",
+      "bytes": 345349,
+      "sha256": "01aa3e97bd9f66d7a8aec2554e221a6d8ca749b029f70248e73d57ece4293959"
+    },
+    {
+      "path": "WorldCupHack_Dictionary.xlsx",
+      "asset": "WorldCupHack_Dictionary.xlsx",
+      "bytes": 18468,
+      "sha256": "5039d75fbd522f4f53d7c2c29b2f7d78005433818b9b36dd2f1d7c7030fbffcc"
+    }
+  ]
+}

@@ -30,6 +30,7 @@ from eventflow.osm_ingestion import DEFAULT_BBOX, build_osm_profile, fetch_overp
 from eventflow.traffic_ingestion import build_traffic_profile, scan_traffic_counts
 from eventflow.model import EventFlowModel
 from eventflow.platform import MobilityPlatform
+from eventflow.nynj import NYNJEngine, narrative
 from eventflow.universal import UniversalPlanner
 from eventflow.sample_data import demo_city_readiness
 from eventflow.submission import build_submission_package
@@ -38,6 +39,7 @@ from houston_mvp.cli import build_dashboard_payload as build_houston_mvp_payload
 app = FastAPI(title="EventFlow Universal Mobility Planner", version="3.0.0")
 model = EventFlowModel(RICE_PROFILE_PATH, GTFS_PROFILE_PATH, OSM_PROFILE_PATH, TRAFFIC_PROFILE_PATH, CANDIDATE_PROFILE_PATH, EQUITY_PROFILE_PATH)
 platform = MobilityPlatform(ROOT)
+nynj = NYNJEngine(ROOT)
 universal_planner = UniversalPlanner(ROOT, platform)
 
 
@@ -45,6 +47,32 @@ class SimulationRequest(BaseModel):
     interventions: List[str] = Field(default_factory=list)
     time_window: str = "ingress_peak"
     operations: Dict[str, float] = Field(default_factory=dict)
+
+
+class NYNJRequest(BaseModel):
+    budget: float = Field(default=500000, ge=0, le=2000000)
+    priority: str = "balanced"
+    stress: str = "normal"
+
+
+@app.post("/api/nynj/plan")
+def nynj_plan(request: NYNJRequest) -> dict:
+    try:
+        result = nynj.plan(request.budget, request.priority, request.stress)
+        result["narrative"] = narrative(result)
+        return result
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/competition-data.json")
+def nynj_static_data() -> FileResponse:
+    return FileResponse(ROOT / "app/static/competition-data.json")
+
+
+@app.get("/competition-scenarios.json")
+def nynj_static_scenarios() -> FileResponse:
+    return FileResponse(ROOT / "app/static/competition-scenarios.json")
 
 
 class StressRequest(SimulationRequest):

@@ -1,0 +1,21 @@
+[
+  {
+    "source": "MTA regular subway GTFS",
+    "status": "ingested",
+    "stations": 496,
+    "routes": 29,
+    "url": "https://rrgtfsfeeds.s3.amazonaws.com/gtfs_subway.zip"
+  },
+  {
+    "source": "ACS 2024 5-year state 36",
+    "status": "unavailable",
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "url": "https://api.census.gov/data/2024/acs/acs5?get=NAME%2CB08201_001E%2CB08201_002E%2CB08201_001M%2CB08201_002M&for=county%3A%2A&in=state%3A36"
+  },
+  {
+    "source": "ACS 2024 5-year state 34",
+    "status": "unavailable",
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "url": "https://api.census.gov/data/2024/acs/acs5?get=NAME%2CB08201_001E%2CB08201_002E%2CB08201_001M%2CB08201_002M&for=county%3A%2A&in=state%3A34"
+  }
+]
