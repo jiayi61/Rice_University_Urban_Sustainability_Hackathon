@@ -9,3 +9,7 @@
 These are implementation checks, not external validation of intervention effectiveness. Hosted production deployment and a recorded pitch are separate deliverables and must not be inferred from a local preview.
 
 Existing unittest discovery: 15 tests passed, including the five NY/NJ checks. Python syntax compilation passed for the changed server, model and download script.
+
+## Houston-first interaction update
+
+The opening page now shows Houston. A required event-brief form opens a hidden prepared concert result. No new API calls are introduced; both city packages load from local JSON. The 36 saved concert scenarios are recomputed for 50,000 assumed departures. All 15 regression checks pass with snapshot reproduction at the saved demand multiplier.

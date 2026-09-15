@@ -1,17 +1,20 @@
 # EventFlow — From Crowd Forecast to City Action
-## New York / New Jersey: FIFA 2026 egress decision case
+## New York / New Jersey: Prepared stadium concert scenario
 
 Budget: $500,000. Priority: balanced. Disruption: normal.
 
-## Evidence and scope
+## Concert scenario assumptions
+Hypothetical MetLife Stadium concert in the New York region, physically in East Rutherford, New Jersey. Date unspecified. Assumed 50,000 departures; historical final-match mode shares and service rates transferred for this demonstration. The submitted free-text brief does not change these assumptions.
+
+## Historical evidence and scope
 NJ TRANSIT reported eight matches of aggregate egress passenger counts and clearance windows. The reference is Match 104, July 19, 2026. This retrospective case models only rail, Host Committee shuttle and rideshare cohorts; their sum is not total attendance. Organizer Rice data are transformed educational samples, retained as separate historical context and relative heat scenarios.
 
 Source: https://www.njtransit.com/press-releases/new-jersey-interagency-transportation-after-action-report-aar-njny-stadium-fifa
 
 ## Scenario result
 Selected incremental planning cost: $435,000 (range $325,000–$600,000).
-Modelled maximum clearance window: 180 → 132 minutes.
-Modelled queue-person-hours reduction: 18.4%. Across 81 deterministic scenarios: 12.0–24.2% (not a confidence interval).
+Modelled maximum clearance window: 186 → 138 minutes.
+Modelled queue-person-hours reduction: 18.3%. Across 81 deterministic scenarios: 12.0–24.1% (not a confidence interval).
 
 ## Selected actions
 - Reserve accessible transfer capacity: $110,000; proposed owner NJ TRANSIT accessibility staff + contracted operator; planning lead 60 days; dependency: Vehicle certification, continuous accessible path and trained staff; verify: Accessible trips delivered and requests left unserved.

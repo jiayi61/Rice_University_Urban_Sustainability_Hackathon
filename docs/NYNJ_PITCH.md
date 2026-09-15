@@ -1,3 +1,15 @@
+# Updated demonstration order
+
+1. Open with Houston / NRG Stadium. Explain the synthetic prototype baseline and mixed intervention comparison.
+2. Type: “I want to use the same approach for a concert in New York, with a $500,000 budget.”
+3. Open the prepared example. State that this demo uses a saved 50,000-departure NY/NJ concert scenario; natural-language API integration is a future step.
+4. Show local evidence, the budget portfolio, uncertainty and implementation requirements. Historical FIFA evidence is a transfer reference, not concert observations.
+5. Download the brief. Explain that the planning workflow is reusable while demand, constraints and validation must be event-specific.
+
+The older script below describes the historical NY/NJ reference case. Its numerical results must not be narrated as current concert results; use the current exported NYNJ_SUBMISSION.md instead.
+
+---
+
 # EventFlow: English submission narrative and pitch
 
 ## Devpost narrative

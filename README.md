@@ -1,6 +1,8 @@
-# EventFlow — New York / New Jersey
+# EventFlow — Houston to your next event
 
-A Track 1 competition prototype that turns reported stadium egress into a budgeted, stress-tested action portfolio. The venue is MetLife Stadium in East Rutherford, New Jersey. New York Penn and Secaucus are transfer context.
+The product starts with the Houston / NRG Stadium demonstration. A visitor types a new event brief, then opens a prepared New York-region concert scenario. The input is a local demo interaction: it does not call an AI API, search the web, parse custom constraints or generate a new event model.
+
+The prepared concert assumes 50,000 departures at MetLife Stadium in East Rutherford, New Jersey, with historical FIFA mode shares and throughput as reference assumptions. Its date is unspecified. Houston and NY/NJ reuse the decision workflow, not identical calibrated transport models. Houston retains its synthetic prototype data disclosure.
 
 ## Run
 
@@ -36,4 +38,4 @@ For full organizer data, authenticate GitHub CLI and follow [the dataset instruc
 - [Verification](VERIFICATION.md)
 - [Private original-data release](https://github.com/jiayi61/Rice_University_Urban_Sustainability_Hackathon/releases/tag/rice-data-2026-09-14)
 
-Earlier Houston and universal prototypes are retained for reference. Their preset percentages and synthetic readiness scores are not evidence for this NY/NJ submission. Archived documents are explicitly labelled. The NY/NJ homepage is the competition entry point.
+Earlier Houston and universal prototypes are retained for reference. Their preset percentages and synthetic readiness scores are not evidence for this NY/NJ submission. Archived documents are explicitly labelled. The Houston-first homepage and event brief are the competition entry point.

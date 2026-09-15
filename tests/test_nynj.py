@@ -39,7 +39,7 @@ class NYNJTests(unittest.TestCase):
         outcomes = set()
         for key, saved in self.snapshots.items():
             b, priority, stress = key.split(':')
-            current = self.engine.plan(int(b), priority, stress)
+            current = self.engine.plan(int(b), priority, stress, scale=saved['inputs']['demand_scale'])
             self.assertEqual(saved['recommended'], current['recommended'], key)
             r = current['recommended']
             self.assertLessEqual(r['cost'], int(b))
