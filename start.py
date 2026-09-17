@@ -42,6 +42,7 @@ from eventflow.model import EventFlowModel  # noqa: E402
 from eventflow.platform import MobilityPlatform  # noqa: E402
 from eventflow.nynj import NYNJEngine, narrative  # noqa: E402
 from eventflow.universal import UniversalPlanner  # noqa: E402
+from eventflow.api_config import api_status
 from eventflow.sample_data import demo_city_readiness  # noqa: E402
 from eventflow.submission import build_submission_package  # noqa: E402
 from houston_mvp.cli import build_dashboard_payload as build_houston_mvp_payload  # noqa: E402
@@ -205,6 +206,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.end_headers()
             elif path == "/api/health":
                 self.send_json({"status": "ok", "mode": MODEL.data_mode, "server": "standalone", "version": "3.0"})
+            elif path == '/api/config':
+                self.send_json(api_status())
             elif path == "/api/v2/catalog":
                 self.send_json(PLATFORM.catalog())
             elif path == "/api/catalog":
@@ -266,7 +269,9 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(PLATFORM.plan(str(data.get("event_id") or "houston_wc26")))
                 return
             if path == "/api/v3/brief":
-                self.send_json(UNIVERSAL.plan_from_brief(str(data.get("prompt") or ""), bool(data.get("online", True))))
+                if not isinstance(data.get('online', True), bool):
+                    raise ValueError('online must be boolean.')
+                self.send_json(UNIVERSAL.plan_from_brief(data.get("prompt") or "", data.get("online", True), data.get('inputs')))
                 return
             if path == "/api/dynamic-map/datasets":
                 record = _save_dynamic_dataset(data)

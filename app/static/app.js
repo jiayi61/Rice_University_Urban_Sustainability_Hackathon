@@ -272,7 +272,60 @@
    ?legendBox('Plan vs baseline pressure',`<div class="ramp"><i style="background:#176d60"></i><i style="background:#a8b3ac"></i><i style="background:#b23b2b"></i></div><div class="ramp-labels"><b>Relieved</b><b>Unchanged</b><b>Worse</b></div>${modes}<p class="legend-note">Corridor width still shows modelled demand; the grey shadow is the baseline width where the plan moved people off that corridor.</p>`)
    :legendBox('Modelled route pressure',`${rampSwatch(PRESSURE_RAMP)}<div class="ramp-labels"><b>0.6×</b><b>0.85</b><b>1.0</b><b>1.15×+</b></div><div class="ramp-labels" style="margin-top:2px"><b>Demand ÷ assumed capacity</b></div>${modes}<p class="legend-note">Ring segments show each zone’s modelled mode split; width shows demand. Flow animation marks direction only.</p>`);
  }
- function openPreparedExample(event){event.preventDefault();const brief=$('eventBrief').value.trim();$('requestError').hidden=Boolean(brief);if(!brief){$('eventBrief').focus();return;}
+ let liveMap, livePayload;
+ function setupLivePlanner(){
+  const form=$('eventRequest'), submit=form.querySelector('button[type="submit"]')||form.querySelector('button');
+  submit.textContent='Build my event plan ↗';
+  const note=form.querySelector('.request-bottom span');if(note)note.textContent='Public place data + reproducible scenario calculation';
+  const fields=document.createElement('div');fields.className='live-fields';
+  fields.innerHTML=`<p id="apiState" role="status">Checking API configuration…</p><p>Enter city and venue below to use structured input without AI. Leave city blank to let the configured API interpret your brief.</p>
+  <div class="live-inputs"><label>City / country<input id="liveCity" maxlength="200" placeholder="Chicago, USA"></label><label>Venue<input id="liveVenue" maxlength="200" placeholder="Soldier Field"></label><label>Event date<input id="liveDate" type="date"></label><label>Attendance<input id="liveAttendance" type="number" min="500" max="500000" placeholder="50000"></label><label>Budget (USD)<input id="liveBudget" type="number" min="0" max="100000000" placeholder="500000"></label></div>
+  <details><summary>Review operating assumptions before running</summary><p>These are editable planning assumptions, not measured local capacity. The model simulates the selected share of attendees using shared transport and added shuttles.</p><div class="live-inputs">
+  <label>Modeled share of attendees (%)<input id="liveCohort" type="number" min="1" max="100" value="40"></label>
+  <label>Existing service (people/hour)<input id="liveService" type="number" min="100" max="200000" value="12000"></label>
+  <label>Maximum extra buses<input id="liveFleet" type="number" min="0" max="500" value="100"></label>
+  <label>Charter cost / bus (USD)<input id="liveCost" type="number" min="100" max="100000" value="2500"></label></div></details>`;
+  form.insertBefore(fields,form.querySelector('.request-bottom'));
+  const demo=document.createElement('button');demo.type='button';demo.textContent='View the prepared NY/NJ evidence case';demo.addEventListener('click',openPreparedExample);form.append(demo);
+  const section=document.createElement('section');section.id='liveResult';section.className='card';section.hidden=true;section.setAttribute('aria-live','polite');$('new-event').after(section);
+  fetch('/api/config').then(r=>{if(!r.ok)throw Error();return r.json();}).then(c=>{$('apiState').textContent=c.configured?'API configured · '+c.model:'API key not configured · fill in city and venue to run, or set OPENAI_API_KEY in .env.';}).catch(()=>{$('apiState').textContent='Start the Python server to enable live planning.';});
+ }
+ function renderLive(p){
+  livePayload=p;const s=p.simulation,b=s.baseline,r=s.recommended;
+  if(liveMap){liveMap.remove();liveMap=null;}
+  const section=$('liveResult');section.hidden=false;
+  const cash=v=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(v);
+  const maxMinute=Math.max(b.clearance_minutes,r.clearance_minutes,120),maxPeople=b.cohort;
+  const line=(v,color)=>`<polyline fill="none" stroke="${color}" stroke-width="3" points="${v.timeline.filter(t=>t.minute<=maxMinute).map(t=>`${55+t.minute/maxMinute*525},${210-t.remaining/maxPeople*180}`).join(' ')}"/>`;
+  section.innerHTML=`<p class="eyebrow">03 / YOUR EVENT · LIVE CALCULATION</p><h2 tabindex="-1" id="liveTitle">${esc(p.venue.city)} · ${esc(p.venue.name)}</h2><p>${esc(p.event.name)} · ${esc(p.event.date)} · ${fmt(p.event.attendance)} attendees</p><p class="fine">${esc(p.brief.parser)} · ${esc(p.brief.generated_at)}. Scenario projection; local operating assumptions require verification.</p>
+   <div class="kpis">${[['Modeled transport cohort',fmt(b.cohort)+' people'],['Queue clearance',b.clearance_minutes+' → '+r.clearance_minutes+' min'],['Served within 2 hours',fmt(b.served_120)+' → '+fmt(r.served_120)],['Extra fleet / cost',r.fleet+' buses / '+cash(r.cost_usd)]].map(([a,v])=>`<article class="kpi"><span>${esc(a)}</span><strong>${esc(v)}</strong></article>`).join('')}</div>
+   <p>Evaluated ${s.evaluated_portfolios} fleet sizes. Selected the lowest queue burden within ${s.budget_usd===null?'the fleet limit (no budget supplied)':cash(s.budget_usd)}. Cost includes 18% delivery allowance.</p>
+   <div id="liveMap" style="height:420px"></div><p class="fine">Public road routes for proposed shuttles. Straight lines indicate unavailable road routing. Catchment demand shares remain assumptions.</p>
+   <svg viewBox="0 0 600 255" role="img" aria-label="Baseline and planned passengers remaining">${chartAxes(maxMinute,maxPeople,'Minutes after event end','People remaining')}${line(b,'#999')}${line(r,'#176d60')}</svg><p>Grey: baseline · Green: selected fleet</p>
+   <div class="table-wrap">${table(['Catchment','People','Extra buses','Cycle (min)','Clearance (min)','Route basis'],r.routes.map(v=>[esc(v.name),fmt(v.people),v.buses,v.cycle_minutes,v.clearance_minutes,esc(v.source)]))}</div>
+   <h3>Sensitivity · demand and service ±15%</h3><div class="table-wrap">${table(['Demand','Service','Baseline (min)','Plan (min)'],s.sensitivity.map(v=>[v.demand_factor+'×',v.service_factor+'×',v.baseline,v.plan]))}</div>
+   <h3>Evidence and assumptions</h3><div class="table-wrap">${table(['Input','Value'],Object.entries(s.parameters).map(([k,v])=>[esc(k.replaceAll('_',' ')),esc(v)]))}</div>
+   ${p.brief.assumptions.map(a=>`<p class="fine"><b>${esc(a.field)}: ${esc(a.value)}</b> · ${esc(a.basis)}</p>`).join('')}
+   ${Object.entries(p.data_freshness).map(([k,v])=>`<p class="fine"><b>${esc(k)}:</b> ${esc(v)}</p>`).join('')}
+   <ul>${s.limitations.map(v=>`<li>${esc(v)}</li>`).join('')}</ul><button id="liveDownload" class="primary">Download calculation and inputs ↓</button>`;
+  $('resultsNav').href='#liveResult';$('resultsNav').textContent='03 Your results';
+  if(window.L){liveMap=L.map('liveMap',{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors'}).addTo(liveMap);
+   const points=[[p.venue.lat,p.venue.lon]];L.marker(points[0]).bindTooltip(esc(p.venue.name)).addTo(liveMap);
+   for(const route of r.routes){points.push(...route.geometry);L.polyline(route.geometry,{color:'#176d60',weight:3,dashArray:route.source.includes('screening')?'5 5':null}).bindTooltip(esc(route.name)+' · '+route.buses+' proposed buses').addTo(liveMap);}liveMap.fitBounds(points,{padding:[25,25]});}
+  $('liveDownload').addEventListener('click',()=>{const u=URL.createObjectURL(new Blob([JSON.stringify(livePayload,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download='eventflow-calculation.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);});
+  $('liveTitle').focus({preventScroll:true});section.scrollIntoView({behavior:'smooth'});
+ }
+ async function submitLiveEvent(event){
+  event.preventDefault();const form=$('eventRequest'),button=form.querySelector('button[type="submit"]')||form.querySelector('button');
+  const inputs={};for(const[id,key]of[['liveCity','city_query'],['liveVenue','venue_query'],['liveDate','date']])if($(id).value.trim())inputs[key]=$(id).value.trim();
+  for(const[id,key]of[['liveAttendance','attendance'],['liveBudget','budget_usd'],['liveCohort','cohort_pct'],['liveService','baseline_service_pph'],['liveFleet','fleet_limit'],['liveCost','bus_cost_usd']])if($(id).value!=='')inputs[key]=Number($(id).value);
+  button.disabled=true;button.textContent='Resolving place, fetching routes and calculating…';$('requestError').hidden=true;$('newYorkResult').hidden=true;$('liveResult').hidden=true;
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),150000);
+  try{const response=await fetch('/api/v3/brief',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:$('eventBrief').value,online:true,inputs}),signal:controller.signal});const p=await response.json();if(!response.ok)throw Error(typeof p.detail==='string'?p.detail:'Check the input fields and retry.');renderLive(p);}
+  catch(e){$('requestError').textContent=e.name==='AbortError'?'Public data services took too long. Please retry.':e.message;$('requestError').hidden=false;}
+  finally{clearTimeout(timer);button.disabled=false;button.textContent='Build my event plan ↗';}
+ }
+ function openPreparedExample(event){event.preventDefault();$('liveResult').hidden=true;const brief=$('eventBrief').value.trim();$('requestError').hidden=Boolean(brief);if(!brief){$('eventBrief').focus();return;}
  $('submittedBrief').textContent=brief;$('newYorkResult').hidden=false;$('resultsNav').href='#newYorkResult';
  if(!map)initMap();
  choose().then(()=>{if(map){map.invalidateSize();const points=context.map.anchors.map(a=>[a.lat,a.lon]);if(points.length)map.fitBounds(points,{padding:[45,45]});}});
@@ -280,7 +333,7 @@
  }
  /* === SCROLL REVEALS: VISUAL PRESENTATION ONLY === */
  if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('entered');observer.unobserve(entry.target);}},{threshold:.08});for(const element of document.querySelectorAll('.map-layout,.request-panel,.section-title,.two-col'))observer.observe(element);}
- async function init(){try{const r=await Promise.all(['competition-data.json','competition-scenarios.json'].map(x=>fetch(x).then(r=>{if(!r.ok)throw Error('The evidence package could not load.');return r.json();})));[context,scenarios]=r;renderHouston('plan');renderEvidence();$('eventRequest').addEventListener('submit',openPreparedExample);
+ async function init(){setupLivePlanner();$('eventRequest').addEventListener('submit',submitLiveEvent);try{const r=await Promise.all(['competition-data.json','competition-scenarios.json'].map(x=>fetch(x).then(r=>{if(!r.ok)throw Error('The evidence package could not load.');return r.json();})));[context,scenarios]=r;renderHouston('plan');renderEvidence();
  for(const[id,view]of[['houstonBefore','baseline'],['houstonAfter','plan'],['houstonDelta','delta']])$(id).addEventListener('click',()=>renderHouston(view));
  $('editRequest').addEventListener('click',()=>{$('eventBrief').focus({preventScroll:true});$('new-event').scrollIntoView({behavior:'smooth'});});
  let budgetDebounce;

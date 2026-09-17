@@ -1,6 +1,8 @@
 # EventFlow — Houston to your next event
 
-The product starts with the Houston / NRG Stadium demonstration. A visitor types a new event brief, then opens a prepared New York-region concert scenario. The input is a local demo interaction: it does not call an AI API, search the web, parse custom constraints or generate a new event model.
+The product starts with the Houston / NRG Stadium demonstration. Visitors can now submit an event brief for live cross-city shuttle screening, or open the separate prepared NY/NJ evidence case. The live path uses optional server-side OpenAI extraction, public place and road data, and a deterministic queue/fleet model. It does not claim calibrated citywide traffic forecasts.
+
+**API 密钥填写：项目根目录 `.env` 中的 `OPENAI_API_KEY=`。** See [API setup and model assumptions](docs/API_SETUP.md). Without a key, fill the city and venue fields to run the same Python model. Open the main homepage, not `legacy.html`, for this new workflow.
 
 The prepared concert assumes 50,000 departures at MetLife Stadium in East Rutherford, New Jersey, with historical FIFA mode shares and throughput as reference assumptions. Its date is unspecified. Houston and NY/NJ reuse the decision workflow, not identical calibrated transport models. Houston retains its synthetic prototype data disclosure.
 

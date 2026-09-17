@@ -32,6 +32,7 @@ from eventflow.model import EventFlowModel
 from eventflow.platform import MobilityPlatform
 from eventflow.nynj import NYNJEngine, narrative
 from eventflow.universal import UniversalPlanner
+from eventflow.api_config import api_status
 from eventflow.sample_data import demo_city_readiness
 from eventflow.submission import build_submission_package
 from houston_mvp.cli import build_dashboard_payload as build_houston_mvp_payload
@@ -148,8 +149,9 @@ class PlannerRequest(BaseModel):
 
 
 class EventBriefRequest(BaseModel):
-    prompt: str = Field(min_length=8, max_length=1000)
+    prompt: str = Field(min_length=8, max_length=3000)
     online: bool = True
+    inputs: Dict[str, Any] = Field(default_factory=dict)
 
 
 def dynamic_dataset_summary(record: dict[str, Any]) -> dict[str, Any]:
@@ -206,6 +208,11 @@ def health() -> dict:
     return {"status": "ok", "mode": model.data_mode, "version": "3.0"}
 
 
+@app.get('/api/config')
+def config() -> dict:
+    return api_status()
+
+
 @app.get("/api/v2/catalog")
 def planner_catalog() -> dict:
     return platform.catalog()
@@ -222,7 +229,7 @@ def planner_plan(request: PlannerRequest) -> dict:
 @app.post("/api/v3/brief")
 def plan_event_brief(request: EventBriefRequest) -> dict:
     try:
-        return universal_planner.plan_from_brief(request.prompt, request.online)
+        return universal_planner.plan_from_brief(request.prompt, request.online, request.inputs)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 

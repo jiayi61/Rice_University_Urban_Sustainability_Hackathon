@@ -8,8 +8,10 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 import time
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import deepcopy
 from datetime import date, datetime, timedelta, timezone
@@ -19,9 +21,14 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 from .platform import MobilityPlatform, TIME_POINTS, _pulse
+from .api_config import load_env, api_status
+from .brief_api import extract_brief
+from .screening import simulate_event
 
 
 USER_AGENT = "EventFlow-Mobility-Research/3.0 (university planning prototype)"
+GEOCODE_LOCK = threading.Lock()
+GEOCODE_LAST = 0.0
 MONTHS = {name.lower(): number for number, name in enumerate(
     ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], 1
 )}
@@ -76,6 +83,7 @@ def _distance_km(a: tuple[float, float], b: tuple[float, float]) -> float:
 class UniversalPlanner:
     def __init__(self, root: str | Path, platform: MobilityPlatform):
         self.root = Path(root)
+        load_env(self.root)
         self.platform = platform
         self.cache_dir = self.root / "data" / "cache" / "universal"
         self.cache_dir.mkdir(parents=True, exist_ok=True)
@@ -96,7 +104,7 @@ class UniversalPlanner:
             date_start = iso_match.start() if iso_match else len(text)
         venue_match = re.search(r"\bat\s+(.+?)(?=\s+in\s+|\s+(?:on\s+)?(?:20\d{2}|" + month_pattern + r")\b|$)", text, re.I)
         city_match = re.search(r"\bin\s+(.+?)(?=\s+(?:on\s+)?(?:20\d{2}|" + month_pattern + r")\b|$)", text, re.I)
-        city = city_match.group(1).strip(" ,.") if city_match else ""
+        city = re.split(r'[.!?]|\s+(?:attendance|crowd|budget)\b', city_match.group(1), maxsplit=1, flags=re.I)[0].strip(" ,.") if city_match else ""
         venue = venue_match.group(1).strip(" ,.") if venue_match else ""
         lowered = text.lower()
         if any(word in lowered for word in ("concert", "tour", "live show", "gig")):
@@ -120,7 +128,8 @@ class UniversalPlanner:
         core = re.sub(r"^(?:give|show|create|make|run)\s+me\s+(?:projections?|a plan|planning)\s+for\s+", "", text[:date_start], flags=re.I)
         core = re.sub(r"\s+(?:at|in)\s+.+$", "", core, flags=re.I).strip(" ,.")
         title = re.sub(r"^(?:a|an)\s+", "", core, flags=re.I) or "Major event"
-        return {"prompt": text, "title": title, "short_name": title, "city_query": city, "venue_query": venue, "date": event_date, "start_time": start_time, "event_type": event_type}
+        budget_match = re.search(r'\$\s*([\d,]+(?:\.\d+)?)', text)
+        return {"prompt": text, "title": title, "short_name": title, "city_query": city, "venue_query": venue, "date": event_date, "start_time": start_time, "event_type": event_type, 'budget_usd': float(budget_match.group(1).replace(',', '')) if budget_match else None}
 
     def _read_cache(self, key: str, max_age_days: int = 30) -> Any | None:
         path = self.cache_dir / f"{_slug(key)}.json"
@@ -142,12 +151,19 @@ class UniversalPlanner:
             return json.loads(response.read().decode("utf-8"))
 
     def _nominatim(self, query: str) -> dict[str, Any] | None:
+        global GEOCODE_LAST
         key = f"geocode_{query}"
         cached = self._read_cache(key, 120)
         if cached:
             return cached
         params = urlencode({"format": "jsonv2", "q": query, "limit": 1, "addressdetails": 1, "extratags": 1})
-        rows = self._get_json(f"https://nominatim.openstreetmap.org/search?{params}")
+        endpoint = os.getenv('NOMINATIM_URL', 'https://nominatim.openstreetmap.org').rstrip('/')
+        with GEOCODE_LOCK:
+            time.sleep(max(0, 1.05 - (time.monotonic() - GEOCODE_LAST)))
+            try:
+                rows = self._get_json(f"{endpoint}/search?{params}")
+            finally:
+                GEOCODE_LAST = time.monotonic()
         result = rows[0] if rows else None
         if result:
             self._write_cache(key, result)
@@ -155,7 +171,9 @@ class UniversalPlanner:
 
     def _resolve_place(self, parsed: dict[str, Any], online: bool) -> tuple[dict[str, Any], list[dict[str, str]]]:
         city_key = parsed["city_query"].lower().strip()
-        seed = deepcopy(CITY_SEEDS.get(city_key) or next((v for k, v in CITY_SEEDS.items() if k in city_key or city_key in k), {}))
+        if not city_key:
+            raise ValueError('Please specify a city. No city has been selected automatically.')
+        seed = deepcopy(CITY_SEEDS.get(city_key) or {})
         assumptions: list[dict[str, str]] = []
         if seed:
             assumptions.append({"field": "Venue", "value": seed["venue"], "confidence": "medium", "basis": "Best-fit major venue for this event and city; edit the prompt to specify another venue."})
@@ -167,29 +185,43 @@ class UniversalPlanner:
                     address = hit.get("address", {})
                     country_code = address.get("country_code", seed.get("country_code", "us"))
                     currency, symbol = CURRENCY_BY_COUNTRY.get(country_code, (seed.get("currency", "USD"), seed.get("symbol", "$")))
+                    if parsed['venue_query'] and parsed['venue_query'].casefold() != seed.get('venue', '').casefold():
+                        seed.pop('origins', None)
+                        seed.pop('transit_lines', None)
+                    capacity_text = str(hit.get('extratags', {}).get('capacity', '')).replace(',', '')
+                    capacity = int(capacity_text) if capacity_text.isdigit() else 60000
                     seed.update({
                         "city": parsed["city_query"] or address.get("city") or address.get("town") or "Selected city",
                         "country": address.get("country", seed.get("country", "")), "country_code": country_code,
                         "currency": currency, "symbol": symbol, "venue": hit.get("name") or hit.get("display_name", "").split(",")[0],
-                        "lat": float(hit["lat"]), "lon": float(hit["lon"]), "capacity": int(hit.get("extratags", {}).get("capacity", 0) or seed.get("capacity", 60000)),
+                        "lat": float(hit["lat"]), "lon": float(hit["lon"]), "capacity": capacity,
                         "center": seed.get("center", [float(hit["lat"]), float(hit["lon"])]), "cost_factor": seed.get("cost_factor", 1.0),
                     })
                     assumptions[0 if assumptions else 0:] = [{"field": "Venue", "value": seed["venue"], "confidence": "high" if parsed["venue_query"] else "medium", "basis": "Resolved through OpenStreetMap Nominatim."}]
             except Exception:
-                pass
+                hit = None
+            if parsed['venue_query'] and not hit:
+                raise ValueError('The specified venue could not be verified. Check its name and city, then retry.')
+        elif parsed['venue_query'] and parsed['venue_query'].casefold() != seed.get('venue', '').casefold():
+            raise ValueError('Online lookup is required to verify this venue.')
         if not seed:
             raise ValueError(f"I could not resolve a venue for ‘{parsed['city_query'] or 'that city'}’. Add a city and, if possible, a venue name.")
         return seed, assumptions
 
     @staticmethod
     def _attendance(parsed: dict[str, Any], place: dict[str, Any]) -> tuple[int, dict[str, str]]:
+        if parsed.get('attendance') is not None:
+            value = parsed['attendance']
+            return value, {'field': 'Attendance', 'value': str(value), 'confidence': 'high', 'basis': 'User input; not an observed count.'}
         explicit = re.search(r"\b(?:attendance|crowd|capacity)\s*(?:of|=|:)?\s*([\d,]+)", parsed["prompt"], re.I)
         if explicit:
-            value = max(500, min(500000, int(explicit.group(1).replace(",", ""))))
+            value = int(explicit.group(1).replace(",", ""))
+            if not 500 <= value <= 500000:
+                raise ValueError('Attendance must be between 500 and 500,000.')
             return value, {"field": "Attendance", "value": f"{value:,}", "confidence": "high", "basis": "Provided in the event brief."}
         ratio = {"stadium_concert": .83, "football": .96, "festival": .72, "convention": .35, "road_event": .45}.get(parsed["event_type"], .75)
-        value = round(place.get("capacity", 60000) * ratio / 500) * 500
-        return value, {"field": "Attendance", "value": f"{value:,}", "confidence": "medium", "basis": f"{ratio:.0%} of the venue's planning capacity for this event type."}
+        value = max(500, min(500000, round(place.get("capacity", 60000) * ratio / 500) * 500))
+        return value, {"field": "Attendance", "value": f"{value:,}", "confidence": "low", "basis": f"Assumed {ratio:.0%} of planning capacity; capacity may use a 60,000 fallback. Enter an explicit audience count."}
 
     def _weather(self, place: dict[str, Any], event_date: str) -> dict[str, Any]:
         key = f"weather_{place['lat']:.3f}_{place['lon']:.3f}_{event_date[5:]}"
@@ -197,7 +229,8 @@ class UniversalPlanner:
         if cached:
             return cached
         event_day = date.fromisoformat(event_date) if re.match(r"\d{4}-\d{2}-\d{2}$", event_date) else date.today() + timedelta(days=180)
-        years = range(max(1940, event_day.year - 5), event_day.year)
+        last_year = min(event_day.year - 1, date.today().year - 1)
+        years = range(max(1940, last_year - 4), last_year + 1)
         days = [date(year, event_day.month, min(event_day.day, 28)) for year in years]
         start, end = min(days) - timedelta(days=12), max(days) + timedelta(days=12)
         params = urlencode({"latitude": place["lat"], "longitude": place["lon"], "start_date": start.isoformat(), "end_date": end.isoformat(), "daily": "temperature_2m_max,precipitation_sum,wind_speed_10m_max", "timezone": "auto"})
@@ -252,7 +285,7 @@ class UniversalPlanner:
         url = f"https://router.project-osrm.org/route/v1/driving/{origin[1]},{origin[0]};{destination[1]},{destination[0]}?overview=full&geometries=geojson"
         payload = self._get_json(url, 12)
         row = payload["routes"][0]
-        result = {"distance_km": round(row["distance"] / 1000, 1), "minutes": round(row["duration"] / 60, 1), "geometry": [[lat, lon] for lon, lat in row["geometry"]["coordinates"]], "source": "OpenStreetMap + OSRM (cached)"}
+        result = {"distance_km": round(row["distance"] / 1000, 1), "minutes": round(row["duration"] / 60, 1), "geometry": [[lat, lon] for lon, lat in row["geometry"]["coordinates"]], "source": "OpenStreetMap + OSRM (live or cached, up to 120 days)"}
         self._write_cache(key, result)
         return result
 
@@ -300,94 +333,77 @@ class UniversalPlanner:
             route_base[zone_id] = {"mode": mode, **routed}
         return zones, route_base
 
-    @staticmethod
-    def _generic_actions(actions: list[dict[str, Any]], place: dict[str, Any], fx: float, cost_factor: float, attendance_scale: float) -> list[dict[str, Any]]:
-        names = {
-            "rail": ("High-frequency rail / metro event overlay", "Venue-access rail corridor", "Transit agency"),
-            "shuttle": ("Hotel, hub and airport shuttle grid", "Major visitor origins to venue", "Event organizer + transit agency"),
-            "shuttle_max": ("Redundant citywide shuttle grid", "Airports, hotels and intercept lots", "Event organizer + transit agency"),
-            "bus_priority": ("Event bus-priority intersections", "Highest-pressure venue approaches", "City traffic authority"),
-            "bus_lane": ("Reversible event bus lane", "Primary venue access spine", "City traffic authority + transit agency"),
-            "signals": ("Adaptive event-day signal plan", "Venue-area intersections", "City traffic authority"),
-            "signals_max": ("Adaptive signals + incident reserve", "Venue and regional approaches", "City traffic authority"),
-            "park_ride": ("Two remote park-and-ride intercepts", "Outer-city approach corridors", "Transit agency + site operators"),
-            "park_ride_max": ("Three remote intercept hubs", "Regional approach corridors", "Transit agency + site operators"),
-            "pudo": ("Geofenced rideshare and taxi staging", "Outer venue curb zone", "Venue + taxi / ride-hail operators"),
-            "wayfinding": ("Multilingual transfer wayfinding", "Rail hubs, shuttle stops and venue gates", "Event organizer + transit agency"),
-            "walk": ("Protected last-mile approach network", "Stations and stops near the venue", "City public works + venue"),
-            "walk_max": ("Continuous accessible fan-route grid", "All major venue approach paths", "City public works + venue"),
-            "heat": ("Weather-safe queue and transfer package", "Transfer points and venue perimeter", "Public health + venue"),
-            "heat_max": ("Network-wide weather resilience package", "Transit hubs, fan routes and venue", "Public health + venue"),
-            "reserve": ("Disruption reserve and joint control cell", "Citywide event network", "Traffic authority + event organizer"),
-        }
-        for action in actions:
-            title, corridor, owner = names.get(action["action_id"], (action["title"], action["corridor"], action["owner"]))
-            action.update({"title": title, "corridor": corridor, "owner": owner})
-            for field in ("capex", "opex", "cost_mid", "cost_low", "cost_high"):
-                action[field] = round(action[field] * attendance_scale * cost_factor * fx)
-            for field in ("added_capacity", "people_covered"):
-                action[field] = round(action[field] * attendance_scale)
-            action["basis"] = f"Transferred 2026 planning benchmark, adjusted for {place['city']} event scale, local cost context and current FX. Requires agency/vendor validation."
-        return actions
-
-    def plan_from_brief(self, prompt: str, online: bool = True) -> dict[str, Any]:
-        parsed = self.parse_brief(prompt)
+    def plan_from_brief(self, prompt: str, online: bool = True, inputs: dict | None = None) -> dict[str, Any]:
+        if not isinstance(prompt, str) or not 8 <= len(prompt.strip()) <= 3000:
+            raise ValueError('Event brief must contain 8–3000 characters.')
+        inputs = inputs or {}
+        if not isinstance(inputs, dict):
+            raise ValueError('inputs must be an object.')
+        parser = 'Structured form / deterministic parser'
+        if online and api_status()['configured'] and not inputs.get('city_query'):
+            parsed = extract_brief(prompt)
+            parsed.update(prompt=prompt, short_name=parsed['title'])
+            parser = 'OpenAI structured extraction; Python simulation'
+        else:
+            parsed = self.parse_brief(prompt)
+        for key in ('city_query', 'venue_query', 'date', 'attendance', 'budget_usd'):
+            if inputs.get(key) not in (None, ''):
+                parsed[key] = inputs[key]
+        for key in ('city_query', 'venue_query'):
+            if not isinstance(parsed.get(key), str) or len(parsed[key]) > 200:
+                raise ValueError(f'{key} must be text of at most 200 characters.')
+        if parsed.get('attendance') is not None:
+            value = parsed['attendance']
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value != int(value) or not 500 <= value <= 500000:
+                raise ValueError('Attendance must be an integer between 500 and 500,000.')
+            parsed['attendance'] = int(value)
+        budget = parsed.get('budget_usd')
+        if budget is not None and (isinstance(budget, bool) or not isinstance(budget, (int, float)) or not math.isfinite(budget) or not 0 <= budget <= 100000000):
+            raise ValueError('Budget must be between 0 and 100,000,000 USD.')
+        parsed['date'] = parsed.get('date') or 'date not specified'
+        if parsed['date'] != 'date not specified':
+            date.fromisoformat(parsed['date'])
+        parsed['start_time'] = parsed.get('start_time') or '19:30'
         place, assumptions = self._resolve_place(parsed, online)
         attendance, attendance_assumption = self._attendance(parsed, place)
         assumptions.append(attendance_assumption)
         assumptions.extend([
             {"field": "Start time", "value": parsed["start_time"], "confidence": "medium", "basis": "Inferred from event type unless a time appears in the prompt."},
-            {"field": "Demand origins", "value": "8 modeled catchments", "confidence": "medium", "basis": "Major stations, visitor districts, airport and intercept access; validate with ticketing/postcode data."},
+            {"field": "Demand origins", "value": "Assumed catchment allocation", "confidence": "medium", "basis": "Major stations, visitor districts, airport and intercept access; validate with ticketing/postcode data."},
         ])
-        base = self.platform.plan("houston_concert" if parsed["event_type"] == "stadium_concert" else "houston_wc26")
+        base = {}
         weather = {"temperature_c": 22, "temperature_f": 72, "rain_probability_pct": 25, "wind_kmh": 14, "basis": "seasonal planning fallback"}
-        fallback_fx = {"GBP": .74, "EUR": .86, "CAD": 1.36, "MXN": 18.5, "JPY": 148.0, "AUD": 1.52, "BRL": 5.3, "CHF": .80}
-        fx_info = {"rate": fallback_fx.get(place["currency"], 1.0), "date": date.today().isoformat(), "source": "labeled fallback FX assumption"}
-        transport = {"stations": [], "source": "seeded transport context", "retrieved": date.today().isoformat()}
+        transport = {"stations": [], "source": "unavailable; using assumed catchments", "retrieved": None}
         if online:
             jobs = {}
             with ThreadPoolExecutor(max_workers=3) as pool:
                 if parsed["date"] != "date not specified": jobs[pool.submit(self._weather, place, parsed["date"])] = "weather"
-                jobs[pool.submit(self._exchange_rate, place["currency"])] = "fx"
                 jobs[pool.submit(self._transport, place)] = "transport"
                 for future in as_completed(jobs):
                     try:
                         value = future.result()
                         if jobs[future] == "weather": weather = value
-                        elif jobs[future] == "fx": fx_info = value
                         else: transport = value
                     except Exception:
                         pass
-        zones, route_base = self._zones_and_routes(place, attendance, base["plans"], online)
+        facilities = transport.get('stations', [])
+        if facilities and not place.get('origins'):
+            usable = [s for s in facilities if _distance_km((s['lat'], s['lon']), (place['lat'], place['lon'])) > .5][:8]
+            if usable:
+                place['origins'] = [(s['name'], 'proposed shuttle', s['lat'], s['lon'], 1 / len(usable)) for s in usable]
+        zones, route_base = self._zones_and_routes(place, attendance, [], online)
         event = {"event_id": f"brief_{_slug(parsed['title'])}_{_slug(place['city'])}", "city_id": _slug(place["city"]), "name": f"{parsed['title']} — {place['city']}", "short_name": parsed["title"], "event_type": parsed["event_type"], "date": parsed["date"], "start_time": parsed["start_time"], "attendance": attendance, "status": "generated from natural-language brief", "weather": weather}
         base["event"] = event
         base["venue"] = {"name": place["venue"], "lat": place["lat"], "lon": place["lon"], "capacity": place["capacity"], "city": place["city"], "country": place["country"]}
         base["zones"] = zones
-        scale = attendance / 65000
-        fx = fx_info["rate"]
-        factor = place.get("cost_factor", 1.0)
-        baseline_pressures = [1.22, 1.16, 1.11, 1.29, 1.07, 1.18, 1.24, 1.03]
-        for plan in base["plans"]:
-            plan["actions"] = self._generic_actions(plan["actions"], place, fx, factor, scale)
-            direct = sum(action["cost_mid"] for action in plan["actions"])
-            plan["cost"] = {"low": round(sum(a["cost_low"] for a in plan["actions"]) * 1.12), "mid": round(direct * 1.18), "high": round(sum(a["cost_high"] for a in plan["actions"]) * 1.24), "program_delivery_and_contingency": round(direct * .18), "basis": f"Planning estimate in {place['currency']}; includes local factor {factor:.2f}, FX {fx:.4f}, and 18% delivery/contingency."}
-            plan["metrics"].update({"people_covered": round(attendance * plan["coverage"]), "vehicles_avoided": round(attendance * (.072 + plan["emissions_reduction"] * .32))})
-            routes = []
-            for index, zone in enumerate(zones):
-                rb = route_base[zone["zone_id"]]
-                base_pressure = baseline_pressures[index % len(baseline_pressures)] * min(1.18, max(.78, scale ** .18))
-                peak = max(.45, base_pressure * (1 - plan["relief"] * (.92 if "rail" in rb["mode"] else .82)))
-                freeflow = rb["minutes"]
-                routes.append({"route_id": zone["zone_id"], "origin": zone["name"], "destination": place["venue"], "primary_mode": rb["mode"], "people": zone["visitors"], "people_covered": round(zone["visitors"] * plan["coverage"]), "distance_km": rb["distance_km"], "freeflow_minutes": freeflow, "baseline_minutes": round(freeflow * (1 + max(0, base_pressure - .68) * .95), 1), "plan_minutes": round(freeflow * (1 + max(0, peak - .68) * .82), 1), "baseline_pressure": round(base_pressure, 2), "peak_pressure": round(peak, 2), "first_mile_gap_m": zone["first_mile_gap"], "last_mile_gap_m": 280 if "rail" in rb["mode"] else 520, "geometry": rb["geometry"], "geometry_source": rb["source"], "timeline": [{"minute": minute, "pressure": round(peak * _pulse(minute), 2), "speed_pct_freeflow": round(max(22, 100 / (1 + max(0, peak * _pulse(minute) - .72) ** 2 * 2.2))), "travel_minutes": round(freeflow * (1 + max(0, peak * _pulse(minute) - .68) * .82), 1)} for minute in TIME_POINTS]})
-            plan["routes"] = routes
-            plan["metrics"]["max_pressure"] = round(max(r["peak_pressure"] for r in routes), 2)
-        seed_lines = place.get("transit_lines", [])
-        base["transit"] = {"feed": {"snapshot": transport.get("retrieved", date.today().isoformat()), "source": transport.get("source", "OpenStreetMap")}, "route_count": len(seed_lines), "routes": [{"route_id": f"public_{i}", "short_name": name, "name": name, "mode": mode, "color": color, "venue_access": True, "geometry": geometry} for i, (name, mode, color, geometry) in enumerate(seed_lines)], "stations": transport.get("stations", []), "discovered_station_count": len(transport.get("stations", []))}
-        base["currency"] = {"code": place["currency"], "symbol": place["symbol"], "usd_rate": fx, "rate_date": fx_info["date"], "source": fx_info["source"]}
-        base["brief"] = {"original_prompt": parsed["prompt"], "parser": "EventFlow deterministic brief parser v1", "assumptions": assumptions, "online_enrichment": online, "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")}
-        base["data_freshness"] = {"basemap": "live OpenStreetMap tiles", "venue": "Nominatim / curated fallback", "road_geometry": "OSRM street routing + cache" if online else "screening geometry", "transit": f"{transport.get('source')} · {len(transport.get('stations', []))} facilities", "weather": weather["basis"], "costs": f"2026 transferable benchmarks · {fx_info['source']} ({fx_info['date']})"}
+        base["transit"] = transport
+        base["currency"] = {"code": "USD", "symbol": "$"}
+        base["brief"] = {"original_prompt": parsed["prompt"], "parser": parser, "assumptions": assumptions, "online_enrichment": online, "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")}
+        base["data_freshness"] = {"basemap": "live OpenStreetMap tiles", "venue": "Nominatim / curated fallback", "road_geometry": f"{sum(1 for r in route_base.values() if 'screening' not in r['source'])}/{len(route_base)} routes from OSRM/cache; others estimated", "transit": f"{transport.get('source')} · {len(transport.get('stations', []))} facilities", "weather": weather["basis"], "costs": "User-editable USD charter assumptions; no local quote"}
         base["model_limits"] = ["Venue and attendance may be inferred; review the assumptions before operational use.", "Traffic values are scenario projections, not live sensor readings.", "Public transport discovery is not a substitute for an agency timetable or GTFS/GTFS-RT feed.", "Costs are transferable planning ranges, not local vendor quotes or procurement bids."]
-        base["schema_version"] = "3.0"
+        base["schema_version"] = "4.0"
+        base['simulation'] = simulate_event(zones, route_base, place, inputs, budget)
+        base['model_limits'].extend(base['simulation']['limitations'])
         return base
 
 

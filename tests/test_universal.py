@@ -21,14 +21,13 @@ def test_exact_shakira_london_brief_is_understood() -> None:
 
 def test_london_brief_generates_complete_offline_plan() -> None:
     payload = planner().plan_from_brief("Give me projections for a Shakira concert in London June 8th 2027", online=False)
-    assert payload["schema_version"] == "3.0"
+    assert payload["schema_version"] == "4.0"
     assert payload["venue"]["name"] == "Wembley Stadium"
     assert payload["event"]["attendance"] == 74500
-    assert payload["currency"]["code"] == "GBP"
-    assert len(payload["plans"]) == 3
-    assert len(payload["plans"][1]["routes"]) == len(payload["zones"]) == 8
+    assert payload["currency"]["code"] == "USD"
+    assert len(payload['simulation']['recommended']["routes"]) == len(payload["zones"]) == 8
     assert payload["brief"]["assumptions"]
-    assert payload["plans"][1]["metrics"]["max_pressure"] < payload["baseline"]["max_pressure"]
+    assert payload['simulation']['recommended']['queue_person_hours'] < payload['simulation']['baseline']['queue_person_hours']
 
 
 def test_explicit_venue_attendance_and_time_override_defaults() -> None:
@@ -40,8 +39,8 @@ def test_explicit_venue_attendance_and_time_override_defaults() -> None:
     assert payload["brief"]["assumptions"][1]["confidence"] == "high"
 
 
-def test_global_seed_city_uses_local_currency() -> None:
+def test_global_seed_city_uses_explicit_usd_cost_basis() -> None:
     payload = planner().plan_from_brief("Football final in Paris July 18th 2028", online=False)
     assert payload["venue"]["city"] == "Paris"
-    assert payload["currency"]["code"] == "EUR"
-    assert all(plan["cost"]["mid"] > 0 for plan in payload["plans"])
+    assert payload["currency"]["code"] == "USD"
+    assert payload['simulation']['recommended']['cost_usd'] > 0
