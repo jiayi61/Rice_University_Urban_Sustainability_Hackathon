@@ -33,6 +33,7 @@ from eventflow.platform import MobilityPlatform
 from eventflow.nynj import NYNJEngine, narrative
 from eventflow.universal import UniversalPlanner
 from eventflow.api_config import api_status
+from eventflow.pdf_report import remember_plan, saved_report
 from eventflow.sample_data import demo_city_readiness
 from eventflow.submission import build_submission_package
 from houston_mvp.cli import build_dashboard_payload as build_houston_mvp_payload
@@ -229,7 +230,7 @@ def planner_plan(request: PlannerRequest) -> dict:
 @app.post("/api/v3/brief")
 def plan_event_brief(request: EventBriefRequest) -> dict:
     try:
-        return universal_planner.plan_from_brief(request.prompt, request.online, request.inputs)
+        return remember_plan(universal_planner.plan_from_brief(request.prompt, request.online, request.inputs))
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
@@ -241,6 +242,19 @@ def catalog() -> dict:
         "stressors": model.stressor_catalog(),
         "presets": model.preset_catalog(),
     }
+
+
+class ReportRequest(BaseModel):
+    report_id: str = Field(min_length=1, max_length=100)
+
+
+@app.post('/api/v3/report')
+def report(request: ReportRequest) -> Response:
+    try:
+        return Response(saved_report(request.report_id), media_type='application/pdf',
+                        headers={'Content-Disposition': 'attachment; filename="EventFlow-decision-report.pdf"', 'Cache-Control': 'no-store'})
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 @app.get("/api/operations")
 def operations() -> dict:

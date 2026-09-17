@@ -11,7 +11,11 @@ OPENAI_MODEL=gpt-4.1-mini
 
 首次配置可复制 `.env.example` 为 `.env`。填完后重新运行 `python3 start.py --no-browser --port 8766`，打开 http://127.0.0.1:8766/#new-event 。不要将密钥写入 HTML、JavaScript 或提交到 GitHub；`.env` 已被忽略。模型名可以改成你账户支持且支持 Responses Structured Outputs 的模型。密钥存在仅表示已配置，连通性和额度会在首次请求时验证。
 
-主界面仍先展示休斯敦。提交活动需求调用后端实时建模；另一个按钮保留有观测依据的纽约预设案例。`legacy.html` 是原休斯敦工作台，顶部提供返回新入口的链接。
+主界面先展示休斯敦。只有点击 Build my event plan 并成功计算后，结果区和“03 Your results”才出现。主界面不加载或展示纽约预设方案；纽约与其他城市走同一个后端计算入口。`legacy.html` 是原休斯敦工作台。
+
+下载按钮返回排版好的 PDF，包含摘要、路线分配、队列图、敏感性分析和证据假设。报告直接读取服务端保存的这次计算，不重复调用 API。计算记录在当前进程中保存一小时，最多30条；服务器重启或记录过期后需要重新建模。
+
+PDF 依赖安装：`python3 -m venv .venv`，然后 `.venv/bin/pip install -r requirements.txt`。启动器在系统 Python 缺少 PDF 库时会使用项目虚拟环境。字体随项目附带并嵌入 PDF，开源许可见 `assets/fonts/OFL.txt`。
 
 ## 两种输入方式
 

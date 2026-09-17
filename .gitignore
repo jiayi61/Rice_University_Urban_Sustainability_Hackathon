@@ -6,5 +6,7 @@ __pycache__/
 .env.*
 !.env.example
 data/cache/universal/
+tmp/pdfs/
+output/pdf/
 raw-data/
 *.part

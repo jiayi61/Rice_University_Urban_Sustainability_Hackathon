@@ -1,10 +1,10 @@
 # EventFlow — Houston to your next event
 
-The product starts with the Houston / NRG Stadium demonstration. Visitors can now submit an event brief for live cross-city shuttle screening, or open the separate prepared NY/NJ evidence case. The live path uses optional server-side OpenAI extraction, public place and road data, and a deterministic queue/fleet model. It does not claim calibrated citywide traffic forecasts.
+The product starts with the Houston / NRG Stadium demonstration. Visitors submit an event brief for live cross-city shuttle screening. Results and result navigation appear only after a successful calculation; no prepared case is shown. The live path uses optional server-side OpenAI extraction, public place and road data, and a deterministic queue/fleet model. It does not claim calibrated citywide traffic forecasts.
 
 **API 密钥填写：项目根目录 `.env` 中的 `OPENAI_API_KEY=`。** See [API setup and model assumptions](docs/API_SETUP.md). Without a key, fill the city and venue fields to run the same Python model. Open the main homepage, not `legacy.html`, for this new workflow.
 
-The prepared concert assumes 50,000 departures at MetLife Stadium in East Rutherford, New Jersey, with historical FIFA mode shares and throughput as reference assumptions. Its date is unspecified. Houston and NY/NJ reuse the decision workflow, not identical calibrated transport models. Houston retains its synthetic prototype data disclosure.
+The archived NY/NJ research model assumes 50,000 departures at MetLife Stadium in East Rutherford, New Jersey, with historical FIFA mode shares and throughput as reference assumptions. Its date is unspecified. Houston and NY/NJ reuse the decision workflow, not identical calibrated transport models. Houston retains its synthetic prototype data disclosure.
 
 ## Run
 
@@ -12,7 +12,7 @@ The prepared concert assumes 50,000 departures at MetLife Stadium in East Ruther
 python3 start.py --no-browser --port 8000
 ```
 
-Open http://localhost:8000. No Python dependencies are required for the saved demo or NY/NJ model. Change budget, policy priority and disruption to compare 36 independently computed scenarios. Export the English decision brief from the page. The live model endpoint is `POST /api/nynj/plan`; the interface uses reproducible saved calculations, not a live traffic feed.
+Open http://localhost:8000. Install `requirements.txt` in `.venv` to enable PDF downloads. The main interface calls `POST /api/v3/brief` for each event, then `POST /api/v3/report` for a PDF from the same server-owned calculation. The historical NY/NJ model remains available for research through `POST /api/nynj/plan` but is not presented as the user's event result.
 
 ## What is real, and what is modelled?
 

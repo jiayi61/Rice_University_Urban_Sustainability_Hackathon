@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import importlib.util
+import os
 import socket
 import sys
 import threading
@@ -17,6 +19,8 @@ from typing import Any
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
+if importlib.util.find_spec('reportlab') is None and (ROOT / '.venv/bin/python').exists() and sys.prefix != str(ROOT / '.venv'):
+    os.execv(str(ROOT / '.venv/bin/python'), [str(ROOT / '.venv/bin/python'), *sys.argv])
 STATIC_FILE = ROOT / "app" / "static" / "index.html"
 LEGACY_FILE = ROOT / "app" / "static" / "legacy.html"
 STYLES_FILE = ROOT / "app" / "static" / "styles.css"
@@ -43,6 +47,7 @@ from eventflow.platform import MobilityPlatform  # noqa: E402
 from eventflow.nynj import NYNJEngine, narrative  # noqa: E402
 from eventflow.universal import UniversalPlanner  # noqa: E402
 from eventflow.api_config import api_status
+from eventflow.pdf_report import remember_plan, saved_report
 from eventflow.sample_data import demo_city_readiness  # noqa: E402
 from eventflow.submission import build_submission_package  # noqa: E402
 from houston_mvp.cli import build_dashboard_payload as build_houston_mvp_payload  # noqa: E402
@@ -271,7 +276,17 @@ class Handler(BaseHTTPRequestHandler):
             if path == "/api/v3/brief":
                 if not isinstance(data.get('online', True), bool):
                     raise ValueError('online must be boolean.')
-                self.send_json(UNIVERSAL.plan_from_brief(data.get("prompt") or "", data.get("online", True), data.get('inputs')))
+                self.send_json(remember_plan(UNIVERSAL.plan_from_brief(data.get("prompt") or "", data.get("online", True), data.get('inputs'))))
+                return
+            if path == '/api/v3/report':
+                body = saved_report(data.get('report_id'))
+                self.send_response(HTTPStatus.OK)
+                self.send_header('Content-Type', 'application/pdf')
+                self.send_header('Content-Disposition', 'attachment; filename="EventFlow-decision-report.pdf"')
+                self.send_header('Content-Length', str(len(body)))
+                self.send_header('Cache-Control', 'no-store')
+                self.end_headers()
+                self.wfile.write(body)
                 return
             if path == "/api/dynamic-map/datasets":
                 record = _save_dynamic_dataset(data)
