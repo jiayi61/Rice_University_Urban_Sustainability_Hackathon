@@ -6,7 +6,8 @@
  /* === SHARED MAP ENCODING === */
  // Standard OSM tiles, muted in CSS (.leaflet-tile-pane) so the model overlays stay legible on top.
  const BASEMAP='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',BASEMAP_ATTR='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
- const MODE_COLOR={rail:'#176d60',shuttle:'#356899',rideshare:'#c45b2d',walk:'#7a5ea8',park:'#6b7a86'};
+ const MODE_COLOR={rail:'#1457e5',shuttle:'#e66a00',rideshare:'#bd167d',walk:'#07834b',park:'#343b49'};
+ const HOUSTON_ASSET_COLOR='#008aab',HOUSTON_HEAT_COLOR='#d6a000';
  const HOUSTON_MODE_LABEL={rail:'Rail',shuttle:'Shuttle',rideshare:'Rideshare',walk:'Walk',park:'Park & ride'};
  const PRESSURE_RAMP=[[.60,'#2f8f5b'],[.85,'#8ea832'],[1.00,'#d9a021'],[1.15,'#d5762c'],[Infinity,'#b23b2b']];
  const WAIT_RAMP=[[30,'#2f8f5b'],[60,'#8ea832'],[90,'#d9a021'],[120,'#d5762c'],[Infinity,'#b23b2b']];
@@ -24,6 +25,11 @@
  const legendBox=(title,body)=>`<h4>${title}</h4>${body}`;
  function bindLayerChips(containerId,onToggle){const box=$(containerId);if(!box)return;
   for(const label of box.querySelectorAll('label[data-layer]')){const input=label.querySelector('input');
+   const key=label.dataset.layer,swatch=label.querySelector('i');
+   if(containerId==='houstonLayers'&&swatch){
+    swatch.style.color=MODE_COLOR[key]||({heat:HOUSTON_HEAT_COLOR,assets:HOUSTON_ASSET_COLOR})[key]||'#343b49';
+    if(key==='zones')swatch.style.background=`conic-gradient(${Object.values(MODE_COLOR).map((color,i)=>`${color} ${i*20}% ${(i+1)*20}%`).join(',')})`;
+   }
    input.addEventListener('change',()=>{label.classList.toggle('on',input.checked);onToggle(label.dataset.layer,input.checked);});}}
  function applyLayerChips(containerId,map,groups){const box=$(containerId);if(!box||!map)return;
   for(const label of box.querySelectorAll('label[data-layer]')){const group=groups[label.dataset.layer];if(!group)continue;
@@ -70,8 +76,8 @@
   const stadium=[context.houston.metadata.stadium.lat,context.houston.metadata.stadium.lon];
   const byId=Object.fromEntries(other.routes.map(r=>[r.route_id,r]));
   const maxVisitors=Math.max(...base.routes.map(r=>r.visitors),1);
-  /* One curved corridor per arrival zone and mode. The centre uses the layer colour;
-     the wider edge carries pressure so the map and layer controls always agree. */
+  /* Keep each corridor one mode colour. A white casing separates overlapping lines;
+     pressure is reported numerically in the readout and route tooltip. */
   for(const route of shown.routes){
    const twin=byId[route.route_id],group=houstonGroups[route.mode];if(!group)continue;
    const planRoute=houstonView==='baseline'?twin:route,baseRoute=houstonView==='baseline'?route:twin;
@@ -81,7 +87,6 @@
    const geometry=arc([route.lat1,route.lon1],stadium,bend);
    const weight=1.4+6.4*Math.sqrt(route.visitors/maxVisitors);
    const layerColor=MODE_COLOR[route.mode]||'#152a32';
-   const pressureSignal=houstonView==='delta'?deltaColor(deltaPressure):pressureColor(route.pressure);
    const tip=`<span class="tip-title">${esc(route.zone_name)} → NRG Stadium</span><div class="tip-grid">`
     +`<em>Mode</em><b style="color:${MODE_COLOR[route.mode]}">${esc(HOUSTON_MODE_LABEL[route.mode]||route.mode)}</b>`
     +`<em>Modelled visitors</em><b>${fmt(route.visitors)}${twin?` <span class="tip-delta ${route.visitors>=twin.visitors?'better':'worse'}">${signed(route.visitors-twin.visitors)}</span>`:''}</b>`
@@ -93,21 +98,21 @@
    // Baseline width is drawn first as a grey shadow; corridors are never over-painted by a later route.
    if(houstonView!=='baseline'&&baseRoute&&baseRoute.visitors>route.visitors)
     L.polyline(geometry,{color:'#9aa49d',weight:1.4+6.4*Math.sqrt(baseRoute.visitors/maxVisitors),opacity:.24,lineCap:'round'}).addTo(group);
-   L.polyline(geometry,{color:pressureSignal,weight:weight+4,opacity:.62,lineCap:'round'}).addTo(group);
-   L.polyline(geometry,{color:layerColor,weight,opacity:.98,lineCap:'round',dashArray:'10 14',className:route.pressure>1?'flow':'flow flow-slow'}).bindTooltip(tip,{sticky:true}).addTo(group);}
+   L.polyline(geometry,{color:'#ffffff',weight:weight+2.5,opacity:1,lineCap:'round',interactive:false}).addTo(group);
+   L.polyline(geometry,{color:layerColor,weight,opacity:1,lineCap:'round'}).bindTooltip(tip,{sticky:true}).addTo(group);}
   /* Arrival zones: ring shows the modelled mode split, size shows demand */
   for(const zone of shown.zones){
    const twin=other.zones.find(z=>z.zone_id===zone.zone_id);
    const size=Math.round(13+Math.sqrt(zone.visitors)/7.5);
    L.marker([zone.lat,zone.lon],{icon:L.divIcon({className:'',html:`<div class="mode-ring" style="width:${size}px;height:${size}px;background:conic-gradient(${houstonModeRing(zone)})"><span>${size>24?Math.round(zone.visitors/1000)+'k':''}</span></div>`,iconSize:[size,size],iconAnchor:[size/2,size/2]}),zIndexOffset:400})
     .bindTooltip(`<span class="tip-title">${esc(zone.name)}</span><div class="tip-grid"><em>Modelled visitors</em><b>${fmt(zone.visitors)}</b><em>Average trip</em><b>${fmt(zone.avg_minutes)} min</b>${houstonModeText(zone,houstonView==='baseline'?null:twin)}</div><p class="fine" style="margin:6px 0 0">${esc(zone.notes||'')}</p>`,{direction:'top'}).addTo(houstonGroups.zones);
-   L.circle([zone.lat,zone.lon],{radius:900+Math.sqrt(zone.heat_exposure)*15*zone.vulnerability,weight:1,color:'#c45b2d',opacity:.45,fillColor:'#e07a3c',fillOpacity:.15+zone.vulnerability*.2,className:'breathe'})
+   L.circle([zone.lat,zone.lon],{radius:900+Math.sqrt(zone.heat_exposure)*15*zone.vulnerability,weight:1,color:HOUSTON_HEAT_COLOR,opacity:.65,fillColor:HOUSTON_HEAT_COLOR,fillOpacity:.12+zone.vulnerability*.15,className:'breathe'})
     .bindTooltip(`<span class="tip-title">${esc(zone.name)} · heat exposure</span>Relative exposure index ${fmt(zone.heat_exposure)} · vulnerability ${zone.vulnerability.toFixed(2)}<br><em>Relative scenario weighting, not a measured temperature.</em>`).addTo(houstonGroups.heat);}
   /* Heat-safety assets: literally what the plan buys and where it lands */
   const shownAssets=houstonAssets(shown),otherAssets=houstonAssets(other);
   for(const[id,asset]of Object.entries(shownAssets)){const twin=otherAssets[id],diff=asset.total-(twin?.total||0);
    const size=Math.round(18+Math.min(12,asset.total*1.6));
-   L.marker([asset.lat,asset.lon],{icon:L.divIcon({className:'',html:`<div class="asset-pin asset${houstonView!=='baseline'&&diff>0?' up':''}" style="width:${size}px;height:${size}px">${asset.total}</div>`,iconSize:[size,size],iconAnchor:[size/2,size/2]}),zIndexOffset:600})
+   L.marker([asset.lat,asset.lon],{icon:L.divIcon({className:'',html:`<div class="asset-pin asset${houstonView!=='baseline'&&diff>0?' up':''}" style="background:${HOUSTON_ASSET_COLOR};width:${size}px;height:${size}px">${asset.total}</div>`,iconSize:[size,size],iconAnchor:[size/2,size/2]}),zIndexOffset:600})
     .bindTooltip(`<span class="tip-title">${esc(asset.name)}</span><div class="tip-grid"><em>Site type</em><b>${esc(String(asset.category).replace(/_/g,' '))}</b>${Object.entries(asset.units).map(([type,units])=>`<em>${type}</em><b>${units} unit${units===1?'':'s'}${twin?` <span class="tip-delta ${units>=(twin.units[type]||0)?'better':'worse'}">${signed(units-(twin.units[type]||0))}</span>`:''}</b>`).join('')}</div><p class="fine" style="margin:6px 0 0">${esc(asset.rationale||'')}</p>`,{direction:'top'}).addTo(houstonGroups.assets);}
   L.marker(stadium,{icon:L.divIcon({className:'',html:'<div class="venue-pin">◆</div>',iconSize:[34,34],iconAnchor:[17,17]}),zIndexOffset:900})
    .bindTooltip(`<span class="tip-title">NRG Stadium</span>${fmt(context.houston.metadata.total_visitors)} modelled arrivals`,{direction:'top'}).addTo(houstonGroups.zones);
@@ -127,10 +132,8 @@
   $('houstonReadout').innerHTML=`<span>${houstonView==='baseline'?'Before · today’s matchday':houstonView==='delta'?'After vs before':'After · mixed plan'}</span>${headline}<span style="letter-spacing:.2px;text-transform:none;font-size:9.5px;margin:2px 0 0">${note}</span><div class="readout-rows">${rows}</div>`;
  }
  function renderHoustonLegend(){
-  const modes=`<div class="legend-keys">${Object.entries(MODE_COLOR).map(([mode,color])=>`<span><i style="background:${color}"></i>${HOUSTON_MODE_LABEL[mode]||mode}</span>`).join('')}<span><i class="dot" style="background:#b5377e"></i>Heat-safety asset · number = units</span></div>`;
-  $('houstonLegend').innerHTML=houstonView==='delta'
-   ?legendBox('Mode colour + pressure change',`<div class="ramp"><i style="background:#176d60"></i><i style="background:#a8b3ac"></i><i style="background:#b23b2b"></i></div><div class="ramp-labels"><b>Relieved</b><b>Unchanged</b><b>Worse</b></div>${modes}<p class="legend-note">The corridor centre matches its layer colour. The outer edge shows pressure change; width shows modelled demand. The grey shadow is baseline demand moved off that corridor.</p>`)
-   :legendBox('Mode colour + route pressure',`${rampSwatch(PRESSURE_RAMP)}<div class="ramp-labels"><b>0.6×</b><b>0.85</b><b>1.0</b><b>1.15×+</b></div><div class="ramp-labels" style="margin-top:2px"><b>Outer edge · demand ÷ assumed capacity</b></div>${modes}<p class="legend-note">The corridor centre matches its layer colour. The outer edge shows pressure; width shows demand. Ring segments show each zone’s modelled mode split.</p>`);
+  const modes=`<div class="legend-keys">${Object.entries(MODE_COLOR).map(([mode,color])=>`<span><i style="background:${color}"></i>${HOUSTON_MODE_LABEL[mode]||mode}</span>`).join('')}<span><i class="dot" style="background:${HOUSTON_ASSET_COLOR}"></i>Heat-safety asset · number = units</span><span><i class="dot" style="background:${HOUSTON_HEAT_COLOR}"></i>Heat exposure area</span></div>`;
+  $('houstonLegend').innerHTML=legendBox('Transport modes',`${modes}<p class="legend-note">Line colour = transport mode. Width = modelled demand. Hover over a route for pressure and travel time.${houstonView==='delta'?' Changes are shown against the baseline; grey shadows show reduced demand.':''}</p>`);
  }
  let liveMap, livePayload;
  function setupLivePlanner(){

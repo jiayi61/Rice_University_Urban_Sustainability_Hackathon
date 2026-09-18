@@ -84,6 +84,9 @@ main{max-width:1500px;padding:0 5%}html{scroll-padding-top:100px}
 .layer-chips label i{width:11px;height:3px;border-radius:2px;background:currentColor;opacity:.35;flex:none}
 .layer-chips label.on{color:var(--ink);border-color:#9fb2a4;background:#f2f6f1}
 .layer-chips label.on i{opacity:1}
+#houstonLayers label i{width:17px;height:5px;opacity:1}
+#houstonLayers label:not(.on){border-style:dashed;background:#f7f7f5}
+#houstonLegend .legend-keys i:not(.dot){width:21px;height:5px}
 .chip-spacer{flex:1 1 12px}
 .zoom-toggle{border-radius:20px;padding:2px}
 .zoom-toggle button{border-radius:20px;padding:5px 10px;font-size:9px}
