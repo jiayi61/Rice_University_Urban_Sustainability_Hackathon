@@ -1,5 +1,23 @@
 # API 配置与跨城市建模
 
+## 数据库优先查询
+
+新活动接口 `/api/v3/brief` 会依次读取：GitHub 仓库随项目下载的
+`data/database/resources/` → 本机缓存 `data/cache/resources/` → 外部数据接口。
+只有对应地点/日期的数据缺失、过期或损坏时，才查询外部提供者。
+设置 OpenAI key 后也遵循该顺序；OpenAI 负责理解需求，Python 负责查库和计算。
+断网模式仍可使用有效的仓库数据及缓存。
+
+数据库清单是 `data/database/index.json`，现有主办方数据目录保留在
+`data/reference/world_cup_source_catalog/`。目录链接本身不算已下载的数据。
+返回值 `data_access` 和结果页的 “View data sources and retrieval dates”
+展示来源层级、原始提供者及读取日期。
+
+运行 `./.venv/bin/python scripts/sync_public_database.py` 可同步受支持的公共数据。
+日常请求自动写入本机缓存；同步脚本生成可审查、提交到 GitHub 的公共快照。
+不会随每次活动请求自动推送 GitHub，也不会将用户需求、密钥或报告写入公共数据快照。
+更多格式、过期策略和数据边界见 [数据库说明](../data/database/README.md)。
+
 ## 密钥填写位置
 
 在项目根目录的 `.env` 文件中填写（与 `start.py` 同级）：

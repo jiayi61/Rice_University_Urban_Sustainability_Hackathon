@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "key": "transport_40.8135_-74.0743",
+  "retrieved_at": "2026-09-18T04:12:29.293044+00:00",
+  "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B",
+  "max_age_days": 30,
+  "sha256": "f4f396c476435e83519937a409af3284d59ace072a7c54fb448cd8a30d73f9dc",
+  "payload": {
+    "stations": [
+      {
+        "name": "Garfield",
+        "mode": "rail",
+        "lat": 40.8666965,
+        "lon": -74.1055612,
+        "wheelchair": "no"
+      },
+      {
+        "name": "Meadowlands",
+        "mode": "rail",
+        "lat": 40.8129477,
+        "lon": -74.0720752,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Tonnelle Avenue",
+        "mode": "rail",
+        "lat": 40.787684,
+        "lon": -74.0315526,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Bergenline Avenue",
+        "mode": "rail",
+        "lat": 40.7821664,
+        "lon": -74.0220189,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Parking Deck A",
+        "mode": "parking",
+        "lat": 40.7873253,
+        "lon": -74.0457384,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking Deck D",
+        "mode": "parking",
+        "lat": 40.7913139,
+        "lon": -74.0491069,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8003407,
+        "lon": -74.0643369,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Rutherford",
+        "mode": "rail",
+        "lat": 40.8283566,
+        "lon": -74.1006254,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.7870989,
+        "lon": -74.0452463,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.7872136,
+        "lon": -74.0422113,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.7842526,
+        "lon": -74.0438716,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8076108,
+        "lon": -74.0167655,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8075093,
+        "lon": -74.0168427,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8077943,
+        "lon": -74.0171742,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8076716,
+        "lon": -74.0172237,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Delawanna",
+        "mode": "rail",
+        "lat": 40.8317746,
+        "lon": -74.1314936,
+        "wheelchair": "no"
+      },
+      {
+        "name": "Passaic",
+        "mode": "rail",
+        "lat": 40.8495053,
+        "lon": -74.1337924,
+        "wheelchair": "no"
+      },
+      {
+        "name": "Lyndhurst",
+        "mode": "rail",
+        "lat": 40.8141012,
+        "lon": -74.1228335,
+        "wheelchair": "no"
+      },
+      {
+        "name": "Teterboro",
+        "mode": "rail",
+        "lat": 40.864739,
+        "lon": -74.0627316,
+        "wheelchair": "no"
+      },
+      {
+        "name": "Secaucus Junction",
+        "mode": "rail",
+        "lat": 40.7613294,
+        "lon": -74.0757547,
+        "wheelchair": "limited"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8171926,
+        "lon": -74.0630568,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8168242,
+        "lon": -74.0615502,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8175191,
+        "lon": -74.0655094,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.817209,
+        "lon": -74.0655617,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8232904,
+        "lon": -74.0576103,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8240376,
+        "lon": -74.0567963,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8245117,
+        "lon": -74.0579005,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8229396,
+        "lon": -74.0559292,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8229985,
+        "lon": -74.0556531,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8227708,
+        "lon": -74.0552284,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8222004,
+        "lon": -74.0540888,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8218388,
+        "lon": -74.0532181,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8212924,
+        "lon": -74.0520007,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8222459,
+        "lon": -74.0528324,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8227467,
+        "lon": -74.053834,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8246402,
+        "lon": -74.058987,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.8248223,
+        "lon": -74.059847,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 40.826456,
+        "lon": -74.0625014,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "American Dream",
+        "mode": "bus",
+        "lat": 40.8112519,
+        "lon": -74.0666639,
+        "wheelchair": "unknown"
+      }
+    ],
+    "source": "OpenStreetMap Overpass",
+    "retrieved": "2026-09-18"
+  }
+}

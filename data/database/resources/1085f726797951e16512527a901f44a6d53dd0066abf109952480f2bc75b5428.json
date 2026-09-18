@@ -1,0 +1,1913 @@
+{
+  "schema_version": 1,
+  "key": "traffic_sites_houston_nrg",
+  "retrieved_at": "2026-09-18T04:12:12.588817+00:00",
+  "source_url": "https://geogimsms.houstontx.gov/arcgis/rest/services/TDO/Traffic_Management_gx/MapServer/14",
+  "max_age_days": 90,
+  "sha256": "7670bf14cca589bd8afdd620c27210d0425aecbd63b60cd48f6f741a0eb37260",
+  "payload": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "id": 24,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39976531305112,
+            29.672473946336094
+          ]
+        },
+        "properties": {
+          "OBJECTID": 24,
+          "ADDRESS": "9142 KNIGHT RD, HOUSTON, TX, 77054",
+          "SEGMENT": "W BELLFORT TO HOLMES",
+          "StationID": 31115138096,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 34,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37669286368478,
+            29.712080197184775
+          ]
+        },
+        "properties": {
+          "OBJECTID": 34,
+          "ADDRESS": "3000 S MACGREGOR WAY, HOUSTON, TX, 77021",
+          "SEGMENT": "ALMEDA TO ARDMORE",
+          "StationID": 31184138242,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 35,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.44479436660609,
+            29.68757104209132
+          ]
+        },
+        "properties": {
+          "OBJECTID": 35,
+          "ADDRESS": "4131 S BRAESWOOD BLVD",
+          "SEGMENT": "STELLA LINK TO SPRR",
+          "StationID": 30971138146,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 57,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42726199092388,
+            29.689558004671014
+          ]
+        },
+        "properties": {
+          "OBJECTID": 57,
+          "ADDRESS": "8600 BUFFALO SPEEDWAY, HOUSTON, TX, 77025",
+          "SEGMENT": "S BRAESWOOD TO S MAIN",
+          "StationID": 31026138155,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 71,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37639099204067,
+            29.713438990393623
+          ]
+        },
+        "properties": {
+          "OBJECTID": 71,
+          "ADDRESS": "2400 N MACGREGOR WAY, HOUSTON, TX, 77004",
+          "SEGMENT": "ALMEDA TO ARDMORE",
+          "StationID": 31185138247,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 84,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41383500732282,
+            29.715087987019274
+          ]
+        },
+        "properties": {
+          "OBJECTID": 84,
+          "ADDRESS": "2413 UNIVERSITY DR, HOUSTON, TX, 77005",
+          "SEGMENT": "GREENBRIAR TO KIRBY",
+          "StationID": 31066138249,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 87,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37561901029618,
+            29.66938199073462
+          ]
+        },
+        "properties": {
+          "OBJECTID": 87,
+          "ADDRESS": "3407 BELLFORT ST, HOUSTON, TX, 77051",
+          "SEGMENT": "SCOTT TO SOUTH FWY",
+          "StationID": 31192138087,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 95,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37099076124943,
+            29.713802156205556
+          ]
+        },
+        "properties": {
+          "OBJECTID": 95,
+          "ADDRESS": "3100 N MACGREGOR WAY, HOUSTON, TX, 77004",
+          "SEGMENT": "ARDMORE TO ENNIS",
+          "StationID": 31202138249,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 103,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42153800974081,
+            29.695397009069328
+          ]
+        },
+        "properties": {
+          "OBJECTID": 103,
+          "ADDRESS": "2815 S BRAESWOOD BLVD",
+          "SEGMENT": "KIRBY TO BUFFALO SPEEDWAY",
+          "StationID": 31044138177,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 109,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42483199640371,
+            29.678573012463428
+          ]
+        },
+        "properties": {
+          "OBJECTID": 109,
+          "ADDRESS": "9880 BUFFALO SPEEDWAY, HOUSTON, 77025",
+          "SEGMENT": "S MAIN TO SOUTH LOOP",
+          "StationID": 31035138116,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 120,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40131676055954,
+            29.68526055579559
+          ]
+        },
+        "properties": {
+          "OBJECTID": 120,
+          "ADDRESS": "2000 HOLLY HALL ST, HOUSTON, TX, 77054",
+          "SEGMENT": "FANNIN TO KNIGHT",
+          "StationID": 31109138142,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 127,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.4401209865572,
+            29.686338004334317
+          ]
+        },
+        "properties": {
+          "OBJECTID": 127,
+          "ADDRESS": "8900 STELLA LINK RD, HOUSTON, TX, 77025",
+          "SEGMENT": "S BRAESWOOD TO SOUTH LOOP",
+          "StationID": 30986138142,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 141,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41269649376618,
+            29.71670794122688
+          ]
+        },
+        "properties": {
+          "OBJECTID": 141,
+          "ADDRESS": "5500 GREENBRIAR DR, HOUSTON, TX, 77005",
+          "SEGMENT": "RICE BLVD TO UNIVERSITY",
+          "StationID": 31069138255,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 150,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40153981832172,
+            29.669023362282495
+          ]
+        },
+        "properties": {
+          "OBJECTID": 150,
+          "ADDRESS": "2000 HOLMES RD, HOUSTON, TX, 77054",
+          "SEGMENT": "KIRBY TO ALMEDA",
+          "StationID": 31110138083,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 154,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.43979667499644,
+            29.667039984056974
+          ]
+        },
+        "properties": {
+          "OBJECTID": 154,
+          "ADDRESS": "10600 STELLA LINK RD, HOUSTON, TX, 77025",
+          "SEGMENT": "W BELLFORT TO WILLOWBEND",
+          "StationID": 30989138072,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 160,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.38373000655544,
+            29.699498012152176
+          ]
+        },
+        "properties": {
+          "OBJECTID": 160,
+          "ADDRESS": "2894 OLD SPANISH TRAIL, HOUSTON, TX, 77054",
+          "SEGMENT": "ALMEDA TO HOLCOMBE",
+          "StationID": 31163138196,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 185,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39170838375314,
+            29.701741970381907
+          ]
+        },
+        "properties": {
+          "OBJECTID": 185,
+          "ADDRESS": "7300 CAMBRIDGE ST, HOUSTON, TX, 77030",
+          "SEGMENT": "OLD SPANISH TRAIL TO HOLCOMBE",
+          "StationID": 31138138203,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 192,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.43619100534306,
+            29.67286333028239
+          ]
+        },
+        "properties": {
+          "OBJECTID": 192,
+          "ADDRESS": "3700 W BELLFORT ST, HOUSTON, TX, 77025",
+          "SEGMENT": "S MAIN TO STELLA LINK",
+          "StationID": 31000138094,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 196,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.3912633796762,
+            29.672154933576223
+          ]
+        },
+        "properties": {
+          "OBJECTID": 196,
+          "ADDRESS": "2910 HOLMES RD, HOUSTON, 77051",
+          "SEGMENT": "ALMEDA TO SOUTH FWY",
+          "StationID": 31142138096,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 225,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40030045821143,
+            29.70160870196536
+          ]
+        },
+        "properties": {
+          "OBJECTID": 225,
+          "ADDRESS": "1301 S BRAESWOOD BLVD, HOUSTON, TX, 77030",
+          "SEGMENT": "HOLCOMBE TO FANNIN",
+          "StationID": 31110138202,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 284,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.38842898648615,
+            29.694371996373565
+          ]
+        },
+        "properties": {
+          "OBJECTID": 284,
+          "ADDRESS": "7300 ALMEDA RD, HOUSTON, TX, 77054",
+          "SEGMENT": "OLD SPANISH TRAIL TO SOUTH LOOP",
+          "StationID": 31149138177,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 285,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39982300721697,
+            29.663369011576037
+          ]
+        },
+        "properties": {
+          "OBJECTID": 285,
+          "ADDRESS": "11000 ALMEDA RD, HOUSTON, TX, 77045",
+          "SEGMENT": "KNIGHT RD TO REED RD",
+          "StationID": 31116138063,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 312,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.4399280143873,
+            29.67666199436026
+          ]
+        },
+        "properties": {
+          "OBJECTID": 312,
+          "ADDRESS": "9801 STELLA LINK RD",
+          "SEGMENT": "SOUTH LOOP TO W BELLFORT",
+          "StationID": 30987138107,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 313,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.44911100573121,
+            29.664506004896424
+          ]
+        },
+        "properties": {
+          "OBJECTID": 313,
+          "ADDRESS": "4300 WILLOWBEND BLVD, HOUSTON, TX, 77035",
+          "SEGMENT": "STELLA LINK TO S POST OAK",
+          "StationID": 30960138062,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 326,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.4145539918568,
+            29.69825799793661
+          ]
+        },
+        "properties": {
+          "OBJECTID": 326,
+          "ADDRESS": "2350 N BRAESWOOD BLVD",
+          "SEGMENT": "KIRBY TO S MAIN",
+          "StationID": 31066138188,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 368,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37336204411022,
+            29.677481971219954
+          ]
+        },
+        "properties": {
+          "OBJECTID": 368,
+          "ADDRESS": "3337 HOLMES RD, HOUSTON, TX, 77051",
+          "SEGMENT": "SOUTH FWY TO SCOTT",
+          "StationID": 31199138117,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 400,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42606599133019,
+            29.69718598923103
+          ]
+        },
+        "properties": {
+          "OBJECTID": 400,
+          "ADDRESS": "3100 N BRAESWOOD BLVD, HOUSTON, TX, 77025",
+          "SEGMENT": "KIRBY TO BUFFALO SPEEDWAY",
+          "StationID": 31029138183,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 401,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42469299316544,
+            29.67517099166647
+          ]
+        },
+        "properties": {
+          "OBJECTID": 401,
+          "ADDRESS": "9955 BUFFALO SPEEDWAY, HOUSTON, 77054",
+          "SEGMENT": "SOUTH LOOP TO W BELLFORT",
+          "StationID": 31036138103,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 425,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39690140551255,
+            29.714744446356114
+          ]
+        },
+        "properties": {
+          "OBJECTID": 425,
+          "ADDRESS": "6400 FANNIN ST, HOUSTON, TX, 77030",
+          "SEGMENT": "OUTER BELT TO HOLCOMBE",
+          "StationID": 31120138250,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 450,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39419723155699,
+            29.685347370560653
+          ]
+        },
+        "properties": {
+          "OBJECTID": 450,
+          "ADDRESS": "2250 HOLLY HALL ST, HOUSTON, TX, 77054",
+          "SEGMENT": "KNIGHT TO ALMEDA",
+          "StationID": 31132138143,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 463,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41840601449596,
+            29.71321500496957
+          ]
+        },
+        "properties": {
+          "OBJECTID": 463,
+          "ADDRESS": "6400 KIRBY DR, HOUSTON, TX, 77030",
+          "SEGMENT": "UNIVERSITY TO W HOLCOMBE",
+          "StationID": 31052138242,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 464,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.4402280068252,
+            29.6993299994285
+          ]
+        },
+        "properties": {
+          "OBJECTID": 464,
+          "ADDRESS": "7300 STELLA LINK RD, HOUSTON, TX, 77025",
+          "SEGMENT": "BELLAIRE TO S BRAESWOOD",
+          "StationID": 30984138190,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 470,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39901600440531,
+            29.673069001389422
+          ]
+        },
+        "properties": {
+          "OBJECTID": 470,
+          "ADDRESS": "2300 W BELLFORT ST, HOUSTON, TX, 77051",
+          "SEGMENT": "ALMEDA TO FANNIN",
+          "StationID": 31118138098,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 480,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37411700769997,
+            29.658184994714713
+          ]
+        },
+        "properties": {
+          "OBJECTID": 480,
+          "ADDRESS": "3400 REED RD, HOUSTON, TX, 77051",
+          "SEGMENT": "SCOTT TO SOUTH FWY",
+          "StationID": 31198138047,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 483,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40329182998158,
+            29.68787104457851
+          ]
+        },
+        "properties": {
+          "OBJECTID": 483,
+          "ADDRESS": "8100 FANNIN ST, HOUSTON, TX, 77054",
+          "SEGMENT": "GREENBRIAR TO SOUTH LOOP",
+          "StationID": 31102138152,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 491,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41668899446391,
+            29.664488005219912
+          ]
+        },
+        "properties": {
+          "OBJECTID": 491,
+          "ADDRESS": "701 HOLMES RD, HOUSTON, TX, 77045",
+          "SEGMENT": "S MAIN TO KIRBY",
+          "StationID": 31063138065,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 496,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41495087400295,
+            29.67313290057029
+          ]
+        },
+        "properties": {
+          "OBJECTID": 496,
+          "ADDRESS": "2198 W BELLFORT ST, HOUSTON, TX, 77054",
+          "SEGMENT": "KIRBY TO BUFFALO SPEEDWAY",
+          "StationID": 31067138097,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 515,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.44390299004534,
+            29.719896009565122
+          ]
+        },
+        "properties": {
+          "OBJECTID": 515,
+          "ADDRESS": "4115 BISSONNET ST, HOUSTON, TX, 77005",
+          "SEGMENT": "WESLAYAN TO W UNIV PLACE CITY LIMIT",
+          "StationID": 30970138264,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 517,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39979731648253,
+            29.67489995133513
+          ]
+        },
+        "properties": {
+          "OBJECTID": 517,
+          "ADDRESS": "8960 KNIGHT RD, HOUSTON, TX, 77054",
+          "SEGMENT": "SOUTH LOOP TO W BELLFORT",
+          "StationID": 31115138105,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 542,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.4073069904126,
+            29.713618009282406
+          ]
+        },
+        "properties": {
+          "OBJECTID": 542,
+          "ADDRESS": "2117 UNIVERSITY BLVD, HOUSTON, TX 77030",
+          "SEGMENT": "FANNIN TO GREENBRIAR",
+          "StationID": 31087138245,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 555,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37135998462806,
+            29.696506002403662
+          ]
+        },
+        "properties": {
+          "OBJECTID": 555,
+          "ADDRESS": "3300 YELLOWSTONE BLVD, HOUSTON, TX, 77021",
+          "SEGMENT": "SOUTH FWY TO TIERWESTER ",
+          "StationID": 31203138186,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 564,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39443699669975,
+            29.668571008573824
+          ]
+        },
+        "properties": {
+          "OBJECTID": 564,
+          "ADDRESS": "2600 BELLFORT ST, HOUSTON, TX, 77051",
+          "SEGMENT": "SOUTH FWY TO ALMEDA",
+          "StationID": 31133138082,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 570,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41237790958611,
+            29.68306087019132
+          ]
+        },
+        "properties": {
+          "OBJECTID": 570,
+          "ADDRESS": "8300 KIRBY DR, HOUSTON, TX, 77054",
+          "SEGMENT": "OLD SPANISH TRAIL TO SOUTH LOOP",
+          "StationID": 31074138133,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 583,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37880319272632,
+            29.698905348246477
+          ]
+        },
+        "properties": {
+          "OBJECTID": 583,
+          "ADDRESS": "3138 YELLOWSTONE BLVD, HOUSTON, TX, 77054",
+          "SEGMENT": "OLD SPANISH TRAIL TO SOUTH FWY",
+          "StationID": 31179138194,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 591,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39044599459633,
+            29.69826800323653
+          ]
+        },
+        "properties": {
+          "OBJECTID": 591,
+          "ADDRESS": "2300 OLD SPANISH TRAIL, HOUSTON, 77054",
+          "SEGMENT": "FANNIN TO ALMEDA",
+          "StationID": 31142138191,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 619,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.38325968908073,
+            29.70953211187443
+          ]
+        },
+        "properties": {
+          "OBJECTID": 619,
+          "ADDRESS": "6300 ALMEDA RD",
+          "SEGMENT": "N MACGREGOR TO OLD SPANISH TRAIL",
+          "StationID": 31164138232,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 646,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.43974506059932,
+            29.663840790501695
+          ]
+        },
+        "properties": {
+          "OBJECTID": 646,
+          "ADDRESS": "11500 STELLA LINK RD, HOUSTON, TX, 77025",
+          "SEGMENT": "WILLOWBEND TO S MAIN",
+          "StationID": 30989138061,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 711,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41221966909711,
+            29.6720960415712
+          ]
+        },
+        "properties": {
+          "OBJECTID": 711,
+          "ADDRESS": "9115 KIRBY DR, HOUSTON, TX, 77054",
+          "SEGMENT": "W BELLFORT TO HOLMES",
+          "StationID": 31076138093,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 712,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40980267559834,
+            29.70024508377703
+          ]
+        },
+        "properties": {
+          "OBJECTID": 712,
+          "ADDRESS": "7500 MAIN ST, HOUSTON, TX, 77030",
+          "SEGMENT": "GREENBRIAR TO S BRAESWOOD",
+          "StationID": 31080138196,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 736,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37543078130639,
+            29.71793385401415
+          ]
+        },
+        "properties": {
+          "OBJECTID": 736,
+          "ADDRESS": "2511 CALUMET ST, HOUSTON, TX, 77004",
+          "SEGMENT": "HWY 288 TO LIVE OAK",
+          "StationID": 31187138264,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 753,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41824529900451,
+            29.70205210297866
+          ]
+        },
+        "properties": {
+          "OBJECTID": 753,
+          "ADDRESS": "7200 KIRBY DR, HOUSTON, TX, 77025",
+          "SEGMENT": "W HOLCOMBE TO S BRAESWOOD",
+          "StationID": 31053138202,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 763,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41605705324953,
+            29.695529910987247
+          ]
+        },
+        "properties": {
+          "OBJECTID": 763,
+          "ADDRESS": "7726 KIRBY DR, HOUSTON, TX, 77030",
+          "SEGMENT": "S BRAESWOOD TO S MAIN",
+          "StationID": 31061138178,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 768,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39760054978204,
+            29.71574825108898
+          ]
+        },
+        "properties": {
+          "OBJECTID": 768,
+          "ADDRESS": "6400 MAIN ST, HOUSTON, TX, 77005",
+          "SEGMENT": "SUNSET TO UNIVERSITY",
+          "StationID": 31117138253,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 782,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.38278342947314,
+            29.68600436199236
+          ]
+        },
+        "properties": {
+          "OBJECTID": 782,
+          "ADDRESS": "2900 HOLLY HALL ST, HOUSTON, TX, 77054",
+          "SEGMENT": "ALMEDA TO SOUTH FWY",
+          "StationID": 31168138147,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 787,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40726899600385,
+            29.700020004059475
+          ]
+        },
+        "properties": {
+          "OBJECTID": 787,
+          "ADDRESS": "7777 GREENBRIAR DR, HOUSTON, TX, 77030",
+          "SEGMENT": "S MAIN TO S BRAESWOOD",
+          "StationID": 31088138195,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 860,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40984307390754,
+            29.697389660326966
+          ]
+        },
+        "properties": {
+          "OBJECTID": 860,
+          "ADDRESS": "2100 N BRAESWOOD BLVD, HOUSTON, TX, 77030",
+          "SEGMENT": "MAIN TO N STADIUM",
+          "StationID": 31081138186,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 869,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42358495122423,
+            29.706137948006315
+          ]
+        },
+        "properties": {
+          "OBJECTID": 869,
+          "ADDRESS": "3101 W HOLCOMBE BLVD, HOUSTON, TX, 77025",
+          "SEGMENT": "KIRBY TO BUFFALO SPEEDWAY",
+          "StationID": 31036138216,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 871,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.402414402165,
+            29.709599797136587
+          ]
+        },
+        "properties": {
+          "OBJECTID": 871,
+          "ADDRESS": "6620 MAIN ST, HOUSTON, TX, 77030",
+          "SEGMENT": "UNIVERSITY TO W HOLCOMBE",
+          "StationID": 31103138231,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 872,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.4285853508765,
+            29.67210636557403
+          ]
+        },
+        "properties": {
+          "OBJECTID": 872,
+          "ADDRESS": "3131 W BELLFORT ST, HOUSTON, TX, 77054",
+          "SEGMENT": "BUFFALO SPEEDWAY TO S MAIN",
+          "StationID": 31024138092,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 882,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37865622578607,
+            29.702910774157623
+          ]
+        },
+        "properties": {
+          "OBJECTID": 882,
+          "ADDRESS": "3131 HOLCOMBE BLVD, HOUSTON, TX, 77021",
+          "SEGMENT": "OLD SPANISH TRAIL TO ALMEDA",
+          "StationID": 31179138209,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 924,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39871963798332,
+            29.706243150641484
+          ]
+        },
+        "properties": {
+          "OBJECTID": 924,
+          "ADDRESS": "1300 HOLCOMBE BLVD, HOUSTON, TX, 77030",
+          "SEGMENT": "S BRAESWOOD TO S MAIN",
+          "StationID": 31114138218,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 926,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39556054825309,
+            29.681368962501622
+          ]
+        },
+        "properties": {
+          "OBJECTID": 926,
+          "ADDRESS": "8550 Cambridge St",
+          "SEGMENT": "NAOMI TO SOUTH LOOP",
+          "StationID": 31128138129,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 930,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39533829409832,
+            29.674837912977225
+          ]
+        },
+        "properties": {
+          "OBJECTID": 930,
+          "ADDRESS": "9100 ALMEDA RD, HOUSTON, TX, 77054",
+          "SEGMENT": "SOUTH LOOP TO KNIGHT",
+          "StationID": 31129138105,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1002,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41443898744245,
+            29.69738898715495
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1002,
+          "ADDRESS": "2300 S BRAESWOOD BLVD, HOUSTON, TX, 77030",
+          "SEGMENT": "S MAIN TO KIRBY",
+          "StationID": 31066138185,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1006,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.37317300129824,
+            29.716158994047724
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1006,
+          "ADDRESS": "2700 S CALUMET ST, HOUSTON, TX, 77004",
+          "SEGMENT": "LIVE OAK TO ENNIS",
+          "StationID": 31195138257,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1044,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.4014831823021,
+            29.698596169106057
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1044,
+          "ADDRESS": "7205 FANNIN ST, HOUSTON, TX, 77030",
+          "SEGMENT": "OLD SPANISH TRAIL TO S BRAESWOOD",
+          "StationID": 31107138191,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1086,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41264105969367,
+            29.710904410381062
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1086,
+          "ADDRESS": "6200 GREENBRIAR DR, HOUSTON, TX, 77030",
+          "SEGMENT": "UNIVERSITY TO W HOLCOMBE",
+          "StationID": 31070138234,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1103,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.3929140104959,
+            29.691361005796196
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1103,
+          "ADDRESS": "7901 CAMBRIDGE ST, HOUSTON, TX, 77054",
+          "SEGMENT": "OLD SPANISH TRAIL TO HOLLY HALL",
+          "StationID": 31135138165,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1139,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40707054961203,
+            29.703657461340025
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1139,
+          "ADDRESS": "7300 MAIN ST, HOUSTON, TX, 77030",
+          "SEGMENT": "W HOLCOMBE TO GREENBRIAR",
+          "StationID": 31089138209,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1163,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40428600498782,
+            29.6912960059204
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1163,
+          "ADDRESS": "8100 GREENBRIAR DR, HOUSTON, TX, 77054",
+          "SEGMENT": "OLD SPANISH TRAIL TO FANNIN",
+          "StationID": 31099138164,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1165,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.3883782195533,
+            29.706671490306793
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1165,
+          "ADDRESS": "2000 HOLCOMBE BLVD, HOUSTON, TX, 77030",
+          "SEGMENT": "ALMEDA TO S BRAESWOOD",
+          "StationID": 31148138221,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1202,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.3802064141288,
+            29.718631600027145
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1202,
+          "ADDRESS": "5700 ALMEDA RD, HOUSTON, TX, 77004",
+          "SEGMENT": "BINZ TO N MACGREGOR",
+          "StationID": 31172138266,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1239,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41550901128528,
+            29.717482987414797
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1239,
+          "ADDRESS": "2407 RICE BLVD, HOUSTON, TX, 77005",
+          "SEGMENT": "GREENBRIAR TO KIRBY",
+          "StationID": 31060138258,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1244,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39233399135775,
+            29.65756999189118
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1244,
+          "ADDRESS": "2555 REED RD, HOUSTON, TX, 77051",
+          "SEGMENT": "ALMEDA TO SOUTH FWY",
+          "StationID": 31141138043,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1257,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.4104503218571,
+            29.706221531434526
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1257,
+          "ADDRESS": "2228 W HOLCOMBE BLVD, HOUSTON, TX, 77030",
+          "SEGMENT": "S MAIN TO GREENBRIAR",
+          "StationID": 31078138218,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1270,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.44301699744113,
+            29.691147013449335
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1270,
+          "ADDRESS": "4066 N BRAESWOOD BLVD",
+          "SEGMENT": "STELLA LINK TO SPRR",
+          "StationID": 30976138160,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1279,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.38383785416036,
+            29.71876614804345
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1279,
+          "ADDRESS": "1701 HERMANN DR, HOUSTON, TX, 77004",
+          "SEGMENT": "JACKSON TO ALMEDA",
+          "StationID": 31161138266,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1320,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41242477604519,
+            29.70452340043223
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1320,
+          "ADDRESS": "7000 GREENBRIAR DR, HOUSTON, TX, 77030",
+          "SEGMENT": "W HOLCOMBE TO S MAIN",
+          "StationID": 31072138211,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1340,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41568000146957,
+            29.706169997226496
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1340,
+          "ADDRESS": "2421 W HOLCOMBE BLVD, HOUSTON, TX, 77030",
+          "SEGMENT": "GREENBRIAR TO KIRBY",
+          "StationID": 31061138217,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1356,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40529499733977,
+            29.69797901185435
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1356,
+          "ADDRESS": "7600 GREENBRIAR DR, HOUSTON, TX, 77030",
+          "SEGMENT": "S BRAESWOOD TO OLD SPANISH TRAIL",
+          "StationID": 31095138188,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1367,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41005801515219,
+            29.71813499249594
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1367,
+          "ADDRESS": "2302 RICE BLVD, HOUSTON, TX, 77005",
+          "SEGMENT": "S SHEPHERD TO GREENBRIAR",
+          "StationID": 31078138261,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1436,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41593799100728,
+            29.692545004747725
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1436,
+          "ADDRESS": "8100 MAIN ST, HOUSTON, TX, 77025",
+          "SEGMENT": "S BRAESWOOD TO OLD SPANISH TRAIL",
+          "StationID": 31062138167,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1460,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40920855124571,
+            29.693706910543387
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1460,
+          "ADDRESS": "1400 OLD SPANISH TRAIL, HOUSTON, 77054",
+          "SEGMENT": "S MAIN TO FANNIN",
+          "StationID": 31083138172,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1550,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41340600063775,
+            29.693346994842017
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1550,
+          "ADDRESS": "7919 KIRBY DR, HOUSTON, TX, 77054",
+          "SEGMENT": "S MAIN TO OLD SPANISH TRAIL",
+          "StationID": 31070138171,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1561,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40313297544306,
+            29.675626612706182
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1561,
+          "ADDRESS": "8700 FANNIN ST, HOUSTON, TX, 77054",
+          "SEGMENT": "SOUTH LOOP TO BELLFORT",
+          "StationID": 31104138107,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1576,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.3730036161538,
+            29.716776925453694
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1576,
+          "ADDRESS": "2600 N CALUMET ST, HOUSTON, TX, 77004",
+          "SEGMENT": "ENNIS TO LIVE OAK ",
+          "StationID": 31195138260,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1579,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.43183673906107,
+            29.690556015924326
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1579,
+          "ADDRESS": "3601 S BRAESWOOD BLVD",
+          "SEGMENT": "BUFFALO SPEEDWAY TO STELLA LINK",
+          "StationID": 31012138159,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1596,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40761858638635,
+            29.672543650086673
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1596,
+          "ADDRESS": "2300 W BELLFORT ST, HOUSTON, TX, 77051",
+          "SEGMENT": "FANNIN TO KIRBY",
+          "StationID": 31090138095,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1604,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.43248199236619,
+            29.69263800573017
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1604,
+          "ADDRESS": "3626 N BRAESWOOD BLVD",
+          "SEGMENT": "BUFFALO SPEEDWAY TO STELLA LINK",
+          "StationID": 31009138166,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1636,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41074499092824,
+            29.696850994436847
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1636,
+          "ADDRESS": "2100 S BRAESWOOD BLVD, HOUSTON, TX, 77030",
+          "SEGMENT": "N STADIUM TO S MAIN",
+          "StationID": 31078138184,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1660,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41846999232538,
+            29.719643990400424
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1660,
+          "ADDRESS": "5820 KIRBY DR, HOUSTON, TX, 77005",
+          "SEGMENT": "BISSONNET TO UNIVERSITY",
+          "StationID": 31051138266,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1692,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39561698492815,
+            29.68434299336413
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1692,
+          "ADDRESS": "1298 CAMBRIDGE ST, HOUSTON, TX, 77030",
+          "SEGMENT": "HOLLY HALL TO NAOMI",
+          "StationID": 31127138140,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 1703,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42733780320853,
+            29.699126300699337
+          ]
+        },
+        "properties": {
+          "OBJECTID": 1703,
+          "ADDRESS": "7600 BUFFALO SPEEDWAY, HOUSTON, TX, 77025",
+          "SEGMENT": "BELLAIRE TO S BRAESWOOD",
+          "StationID": 31025138190,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 7218,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39207701254185,
+            29.707949997022435
+          ]
+        },
+        "properties": {
+          "OBJECTID": 7218,
+          "ADDRESS": "2000 N Macgregor",
+          "SEGMENT": "HOLCOMBE TO ALMEDA",
+          "StationID": 31136138226,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 25354,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40547483193478,
+            29.69946761706685
+          ]
+        },
+        "properties": {
+          "OBJECTID": 25354,
+          "ADDRESS": "2100 S BRAESWOOD",
+          "SEGMENT": "FANNIN TO N STADIUM",
+          "StationID": 31094138194,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 25454,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.43887036390628,
+            29.66503387759868
+          ]
+        },
+        "properties": {
+          "OBJECTID": 25454,
+          "ADDRESS": "3900 WILLOWBEND",
+          "SEGMENT": "S MAIN TO STELLA LINK",
+          "StationID": 30992138065,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 25724,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40322999646999,
+            29.669713513461925
+          ]
+        },
+        "properties": {
+          "OBJECTID": 25724,
+          "ADDRESS": "9300 FANNIN",
+          "SEGMENT": "BELLFORT TO HOLMES",
+          "StationID": 31105138086,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 26443,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40364292924488,
+            29.662836203890595
+          ]
+        },
+        "properties": {
+          "OBJECTID": 26443,
+          "ADDRESS": "9990 FANNIN",
+          "SEGMENT": "HOLMES TO REED RD",
+          "StationID": 31104138061,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 26881,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.40225286695748,
+            29.69185857979913
+          ]
+        },
+        "properties": {
+          "OBJECTID": 26881,
+          "ADDRESS": "7800 FANNIN",
+          "SEGMENT": "OLD SPANISH TRAIL TO GREENBRIAR",
+          "StationID": 31105138166,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 27650,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41743761996351,
+            29.715062759110683
+          ]
+        },
+        "properties": {
+          "OBJECTID": 27650,
+          "ADDRESS": "2515 UNIVERSITY",
+          "SEGMENT": "KIRBY TO MORNINGSIDE",
+          "StationID": 31048138249,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 27683,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42874998367125,
+            29.660861648101417
+          ]
+        },
+        "properties": {
+          "OBJECTID": 27683,
+          "ADDRESS": "668 HOLMES",
+          "SEGMENT": "S MAIN TO BUFFALLO SPWY",
+          "StationID": 31025138051,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 44518,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.39810447709458,
+            29.68526731104882
+          ]
+        },
+        "properties": {
+          "OBJECTID": 44518,
+          "ADDRESS": "2111 HOLLY HALL ST",
+          "SEGMENT": "CAMBRIDGE & KNIGHT RD",
+          "StationID": 31119138143,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 45324,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42982683378301,
+            29.65184872477127
+          ]
+        },
+        "properties": {
+          "OBJECTID": 45324,
+          "ADDRESS": "12700 BUFFALO SPEEDWAY ",
+          "SEGMENT": "W AIRPORT TO HOLMES RD",
+          "StationID": 31022138018,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 45326,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.42643018010939,
+            29.668082859016458
+          ]
+        },
+        "properties": {
+          "OBJECTID": 45326,
+          "ADDRESS": "10700 BUFFALO SPEEDWAY ",
+          "SEGMENT": "HOMLES RD TO W BELLFORT AVE ",
+          "StationID": 31031138077,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": 47319,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -95.41224624878035,
+            29.67620405965574
+          ]
+        },
+        "properties": {
+          "OBJECTID": 47319,
+          "ADDRESS": "2277 KIBRY",
+          "SEGMENT": "610 SOUTH LOOP TO W BELLFORT",
+          "StationID": 31075138108,
+          "COLLECTIONTYPE": "MAJOR THOROUGHFARE ADT"
+        }
+      }
+    ],
+    "bbox": [
+      -95.45,
+      29.65,
+      -95.37,
+      29.72
+    ],
+    "source": "City of Houston · Major Thoroughfare ADT survey locations",
+    "source_url": "https://geogimsms.houstontx.gov/arcgis/rest/services/TDO/Traffic_Management_gx/MapServer/14",
+    "has_traffic_volumes": false,
+    "use": "Geographic evidence only; no measured traffic volumes or road capacity in this layer."
+  }
+}

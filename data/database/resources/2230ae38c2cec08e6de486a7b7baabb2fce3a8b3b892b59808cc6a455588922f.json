@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "key": "transport_29.6849_-95.4108",
+  "retrieved_at": "2026-09-18T04:12:26.323285+00:00",
+  "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B",
+  "max_age_days": 30,
+  "sha256": "067ae18d895a1ba6136c67b54ee9cf5843e4e76ff0c2c810e09e726657e0a2d3",
+  "payload": {
+    "stations": [
+      {
+        "name": "Dryden/TMC",
+        "mode": "rail",
+        "lat": 29.7097209,
+        "lon": -95.4008866,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Museum District (northbound)",
+        "mode": "rail",
+        "lat": 29.7243082,
+        "lon": -95.3881709,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Wheeler",
+        "mode": "rail",
+        "lat": 29.7327424,
+        "lon": -95.3833959,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Fannin South",
+        "mode": "rail",
+        "lat": 29.6735974,
+        "lon": -95.402855,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Stadium Park/Astrodome",
+        "mode": "rail",
+        "lat": 29.6859355,
+        "lon": -95.4033938,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Smith Lands",
+        "mode": "rail",
+        "lat": 29.6965162,
+        "lon": -95.4048496,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Texas Medical Center Transit Center",
+        "mode": "rail",
+        "lat": 29.7041849,
+        "lon": -95.4029178,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Hermann Park/Rice U",
+        "mode": "rail",
+        "lat": 29.7200304,
+        "lon": -95.3935887,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Memorial Hermann Hospital/Houston Zoo",
+        "mode": "rail",
+        "lat": 29.7144958,
+        "lon": -95.3971077,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 29.7080144,
+        "lon": -95.3997929,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Museum District (southbound)",
+        "mode": "rail",
+        "lat": 29.7247965,
+        "lon": -95.3890176,
+        "wheelchair": "yes"
+      },
+      {
+        "name": "Parking Lot H",
+        "mode": "parking",
+        "lat": 29.7151106,
+        "lon": -95.3887736,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 29.7341288,
+        "lon": -95.3940816,
+        "wheelchair": "unknown"
+      },
+      {
+        "name": "Parking facility",
+        "mode": "parking",
+        "lat": 29.7165596,
+        "lon": -95.4148542,
+        "wheelchair": "yes"
+      }
+    ],
+    "source": "OpenStreetMap Overpass",
+    "retrieved": "2026-09-18"
+  }
+}

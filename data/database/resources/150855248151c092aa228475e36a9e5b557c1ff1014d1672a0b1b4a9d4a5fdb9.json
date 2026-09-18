@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "key": "geocode_metlife stadium, new york",
+  "retrieved_at": "2026-09-18T04:12:27.528923+00:00",
+  "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=MetLife+Stadium%2C+new+york&limit=1&addressdetails=1&extratags=1",
+  "max_age_days": 120,
+  "sha256": "0e8d30f62e73b49262df74d9251fb416e516b86d27d147966cedd52ffc911bcf",
+  "payload": {
+    "place_id": 354705991,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 24221553,
+    "lat": "40.8135071",
+    "lon": "-74.0743442",
+    "category": "leisure",
+    "type": "stadium",
+    "place_rank": 30,
+    "importance": 0.5577431181269733,
+    "addresstype": "leisure",
+    "name": "MetLife Stadium",
+    "display_name": "MetLife Stadium, 1, MetLife Stadium Drive, East Rutherford, Bergen County, New Jersey, 07073, United States",
+    "address": {
+      "leisure": "MetLife Stadium",
+      "house_number": "1",
+      "road": "MetLife Stadium Drive",
+      "village": "East Rutherford",
+      "county": "Bergen County",
+      "state": "New Jersey",
+      "ISO3166-2-lvl4": "US-NJ",
+      "postcode": "07073",
+      "country": "United States",
+      "country_code": "us"
+    },
+    "extratags": {
+      "team": "New York Giants",
+      "owner": "New Jersey Sports and Exposition Authority",
+      "sport": "american_football",
+      "team_2": "New York Jets",
+      "website": "https://www.metlifestadium.com/",
+      "operator": "MetLife Stadium Company",
+      "wikidata": "Q10862290",
+      "wikipedia": "en:MetLife Stadium",
+      "start_date": "2010-04"
+    },
+    "boundingbox": [
+      "40.8122591",
+      "40.8147874",
+      "-74.0757696",
+      "-74.0729229"
+    ]
+  }
+}

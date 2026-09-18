@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "key": "geocode_nrg stadium, houston",
+  "retrieved_at": "2026-09-18T04:12:12.949564+00:00",
+  "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=NRG+Stadium%2C+houston&limit=1&addressdetails=1&extratags=1",
+  "max_age_days": 120,
+  "sha256": "29029f37fec236dd0dce70d2c5c0c1c5a21c8fd08290a1c2d7e425a1f3dd55b3",
+  "payload": {
+    "place_id": 301947808,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 119422708,
+    "lat": "29.6848581",
+    "lon": "-95.4108015",
+    "category": "leisure",
+    "type": "stadium",
+    "place_rank": 30,
+    "importance": 0.5322100156129131,
+    "addresstype": "leisure",
+    "name": "NRG Stadium",
+    "display_name": "NRG Stadium, 1, NRG Parkway, Houston, Harris County, Texas, 77054, United States",
+    "address": {
+      "leisure": "NRG Stadium",
+      "house_number": "1",
+      "road": "NRG Parkway",
+      "city": "Houston",
+      "county": "Harris County",
+      "state": "Texas",
+      "ISO3166-2-lvl4": "US-TX",
+      "postcode": "77054",
+      "country": "United States",
+      "country_code": "us"
+    },
+    "extratags": {
+      "phone": "+1-832-667-1400",
+      "sport": "american_football;soccer;rodeo",
+      "height": "79.25 m",
+      "website": "http://nrgpark.com/nrg-stadium",
+      "building": "stadium",
+      "operator": "SMG World",
+      "wikidata": "Q1058864",
+      "wikipedia": "en:NRG Stadium",
+      "start_date": "2002"
+    },
+    "boundingbox": [
+      "29.6834908",
+      "29.6862232",
+      "-95.4120153",
+      "-95.4095837"
+    ]
+  }
+}

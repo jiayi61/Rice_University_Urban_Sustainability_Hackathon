@@ -24,6 +24,7 @@ from .platform import MobilityPlatform, TIME_POINTS, _pulse
 from .api_config import load_env, api_status
 from .brief_api import extract_brief
 from .screening import simulate_event
+from .data_repository import DataRepository, TRAFFIC_KEY, TRAFFIC_LAYER, TRAFFIC_BBOX, fetch_houston_sites
 
 
 USER_AGENT = "EventFlow-Mobility-Research/3.0 (university planning prototype)"
@@ -85,6 +86,7 @@ class UniversalPlanner:
         self.root = Path(root)
         load_env(self.root)
         self.platform = platform
+        self.database = DataRepository(self.root)
         self.cache_dir = self.root / "data" / "cache" / "universal"
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
@@ -132,17 +134,13 @@ class UniversalPlanner:
         return {"prompt": text, "title": title, "short_name": title, "city_query": city, "venue_query": venue, "date": event_date, "start_time": start_time, "event_type": event_type, 'budget_usd': float(budget_match.group(1).replace(',', '')) if budget_match else None}
 
     def _read_cache(self, key: str, max_age_days: int = 30) -> Any | None:
-        path = self.cache_dir / f"{_slug(key)}.json"
-        if not path.exists() or time.time() - path.stat().st_mtime > max_age_days * 86400:
-            return None
-        try:
-            return json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            return None
+        return self.database.read(key, max_age_days)
 
-    def _write_cache(self, key: str, payload: Any) -> None:
-        path = self.cache_dir / f"{_slug(key)}.json"
-        path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    def _write_cache(self, key: str, payload: Any, source_url: str, max_age_days: int = 30) -> None:
+        record = self.database.write(key, payload, source_url, max_age_days)
+        payload['_data_access'] = {'tier': 'external API', 'source_url': source_url,
+                                   'retrieved_at': record['retrieved_at'], 'key': record['key'],
+                                   'max_age_days': max_age_days}
 
     @staticmethod
     def _get_json(url: str, timeout: float = 7) -> Any:
@@ -150,12 +148,14 @@ class UniversalPlanner:
         with urlopen(request, timeout=timeout) as response:
             return json.loads(response.read().decode("utf-8"))
 
-    def _nominatim(self, query: str) -> dict[str, Any] | None:
+    def _nominatim(self, query: str, online: bool = True) -> dict[str, Any] | None:
         global GEOCODE_LAST
         key = f"geocode_{query}"
         cached = self._read_cache(key, 120)
         if cached:
             return cached
+        if not online:
+            return None
         params = urlencode({"format": "jsonv2", "q": query, "limit": 1, "addressdetails": 1, "extratags": 1})
         endpoint = os.getenv('NOMINATIM_URL', 'https://nominatim.openstreetmap.org').rstrip('/')
         with GEOCODE_LOCK:
@@ -166,22 +166,24 @@ class UniversalPlanner:
                 GEOCODE_LAST = time.monotonic()
         result = rows[0] if rows else None
         if result:
-            self._write_cache(key, result)
+            self._write_cache(key, result, f'{endpoint}/search?{params}', 120)
         return result
 
     def _resolve_place(self, parsed: dict[str, Any], online: bool) -> tuple[dict[str, Any], list[dict[str, str]]]:
-        city_key = parsed["city_query"].lower().strip()
+        city_key = parsed["city_query"].lower().split(',')[0].strip()
+        city_key = {'nyc': 'new york', 'new york city': 'new york', 'new york / new jersey': 'new york'}.get(city_key, city_key)
         if not city_key:
             raise ValueError('Please specify a city. No city has been selected automatically.')
         seed = deepcopy(CITY_SEEDS.get(city_key) or {})
         assumptions: list[dict[str, str]] = []
         if seed:
             assumptions.append({"field": "Venue", "value": seed["venue"], "confidence": "medium", "basis": "Best-fit major venue for this event and city; edit the prompt to specify another venue."})
-        if online and (parsed["venue_query"] or not seed):
-            query = f"{parsed['venue_query']}, {parsed['city_query']}" if parsed["venue_query"] else f"stadium, {parsed['city_query']}"
+        known_place = self._read_cache(f"geocode_{seed['venue']}, {city_key}", 120) if seed and not parsed['venue_query'] else None
+        if parsed["venue_query"] or not seed or known_place:
+            query = f"{parsed['venue_query']}, {city_key}" if parsed["venue_query"] else f"stadium, {city_key}"
             try:
-                hit = self._nominatim(query)
-                if hit and (parsed["venue_query"] or not seed):
+                hit = known_place or self._nominatim(query, online=online)
+                if hit and (parsed["venue_query"] or not seed or known_place):
                     address = hit.get("address", {})
                     country_code = address.get("country_code", seed.get("country_code", "us"))
                     currency, symbol = CURRENCY_BY_COUNTRY.get(country_code, (seed.get("currency", "USD"), seed.get("symbol", "$")))
@@ -196,11 +198,12 @@ class UniversalPlanner:
                         "currency": currency, "symbol": symbol, "venue": hit.get("name") or hit.get("display_name", "").split(",")[0],
                         "lat": float(hit["lat"]), "lon": float(hit["lon"]), "capacity": capacity,
                         "center": seed.get("center", [float(hit["lat"]), float(hit["lon"])]), "cost_factor": seed.get("cost_factor", 1.0),
+                        '_data_access': hit.get('_data_access', {}),
                     })
                     assumptions[0 if assumptions else 0:] = [{"field": "Venue", "value": seed["venue"], "confidence": "high" if parsed["venue_query"] else "medium", "basis": "Resolved through OpenStreetMap Nominatim."}]
             except Exception:
                 hit = None
-            if parsed['venue_query'] and not hit:
+            if parsed['venue_query'] and not hit and (online or parsed['venue_query'].casefold() != seed.get('venue', '').casefold()):
                 raise ValueError('The specified venue could not be verified. Check its name and city, then retry.')
         elif parsed['venue_query'] and parsed['venue_query'].casefold() != seed.get('venue', '').casefold():
             raise ValueError('Online lookup is required to verify this venue.')
@@ -223,11 +226,13 @@ class UniversalPlanner:
         value = max(500, min(500000, round(place.get("capacity", 60000) * ratio / 500) * 500))
         return value, {"field": "Attendance", "value": f"{value:,}", "confidence": "low", "basis": f"Assumed {ratio:.0%} of planning capacity; capacity may use a 60,000 fallback. Enter an explicit audience count."}
 
-    def _weather(self, place: dict[str, Any], event_date: str) -> dict[str, Any]:
-        key = f"weather_{place['lat']:.3f}_{place['lon']:.3f}_{event_date[5:]}"
+    def _weather(self, place: dict[str, Any], event_date: str, online: bool = True) -> dict[str, Any]:
+        key = f"weather_{place['lat']:.3f}_{place['lon']:.3f}_{event_date}"
         cached = self._read_cache(key, 120)
         if cached:
             return cached
+        if not online:
+            raise LookupError('Weather unavailable in the local database.')
         event_day = date.fromisoformat(event_date) if re.match(r"\d{4}-\d{2}-\d{2}$", event_date) else date.today() + timedelta(days=180)
         last_year = min(event_day.year - 1, date.today().year - 1)
         years = range(max(1940, last_year - 4), last_year + 1)
@@ -246,7 +251,7 @@ class UniversalPlanner:
         winds = [daily["wind_speed_10m_max"][i] for i in selected if daily["wind_speed_10m_max"][i] is not None]
         c = sum(temps) / len(temps) if temps else 22
         result = {"temperature_c": round(c, 1), "temperature_f": round(c * 9 / 5 + 32), "rain_probability_pct": round(sum(v > 1 for v in rain) / max(1, len(rain)) * 100), "wind_kmh": round(sum(winds) / max(1, len(winds)), 1), "basis": f"Open-Meteo historical normal around this calendar date ({min(years)}–{max(years)})."}
-        self._write_cache(key, result)
+        self._write_cache(key, result, f'https://archive-api.open-meteo.com/v1/archive?{params}', 120)
         return result
 
     def _exchange_rate(self, currency: str) -> dict[str, Any]:
@@ -257,14 +262,16 @@ class UniversalPlanner:
             return cached
         payload = self._get_json(f"https://api.frankfurter.app/latest?from=USD&to={currency}", 7)
         result = {"rate": float(payload["rates"][currency]), "date": payload["date"], "source": "Frankfurter / ECB reference rates"}
-        self._write_cache(f"fx_usd_{currency}", result)
+        self._write_cache(f"fx_usd_{currency}", result, 'https://api.frankfurter.app/latest', 7)
         return result
 
-    def _transport(self, place: dict[str, Any]) -> dict[str, Any]:
+    def _transport(self, place: dict[str, Any], online: bool = True) -> dict[str, Any]:
         key = f"transport_{place['lat']:.4f}_{place['lon']:.4f}"
         cached = self._read_cache(key, 30)
         if cached:
             return cached
+        if not online:
+            raise LookupError('Transport unavailable in the local database.')
         query = f'''[out:json][timeout:20];(node(around:6500,{place['lat']},{place['lon']})[railway=station];node(around:6500,{place['lat']},{place['lon']})[amenity=bus_station];node(around:6500,{place['lat']},{place['lon']})[amenity=parking];);out tags center 100;'''
         url = "https://overpass-api.de/api/interpreter?" + urlencode({"data": query})
         payload = self._get_json(url, 24)
@@ -274,19 +281,34 @@ class UniversalPlanner:
             kind = "parking" if tags.get("amenity") == "parking" else ("bus" if tags.get("amenity") == "bus_station" else "rail")
             stations.append({"name": tags.get("name") or f"{kind.title()} facility", "mode": kind, "lat": element.get("lat"), "lon": element.get("lon"), "wheelchair": tags.get("wheelchair", "unknown")})
         result = {"stations": [s for s in stations if s["lat"] is not None][:60], "source": "OpenStreetMap Overpass", "retrieved": date.today().isoformat()}
-        self._write_cache(key, result)
+        self._write_cache(key, result, url, 30)
         return result
 
-    def _osrm(self, origin: tuple[float, float], destination: tuple[float, float]) -> dict[str, Any]:
+    def _traffic_context(self, place: dict[str, Any], online: bool) -> dict[str, Any]:
+        west, south, east, north = TRAFFIC_BBOX
+        if not (west <= place['lon'] <= east and south <= place['lat'] <= north):
+            return {'features': [], 'source': 'No configured official survey-location connector for this venue.'}
+        cached = self._read_cache(TRAFFIC_KEY, 90)
+        if cached:
+            return cached
+        if not online:
+            return {'features': [], 'source': 'Official survey locations unavailable locally.'}
+        result = fetch_houston_sites(self._get_json)
+        self._write_cache(TRAFFIC_KEY, result, TRAFFIC_LAYER, 90)
+        return result
+
+    def _osrm(self, origin: tuple[float, float], destination: tuple[float, float], online: bool = True) -> dict[str, Any]:
         key = f"route_{origin[0]:.4f}_{origin[1]:.4f}_{destination[0]:.4f}_{destination[1]:.4f}"
         cached = self._read_cache(key, 120)
         if cached:
             return cached
+        if not online:
+            raise LookupError('Road route unavailable in the local database.')
         url = f"https://router.project-osrm.org/route/v1/driving/{origin[1]},{origin[0]};{destination[1]},{destination[0]}?overview=full&geometries=geojson"
         payload = self._get_json(url, 12)
         row = payload["routes"][0]
         result = {"distance_km": round(row["distance"] / 1000, 1), "minutes": round(row["duration"] / 60, 1), "geometry": [[lat, lon] for lon, lat in row["geometry"]["coordinates"]], "source": "OpenStreetMap + OSRM (live or cached, up to 120 days)"}
-        self._write_cache(key, result)
+        self._write_cache(key, result, url, 120)
         return result
 
     @staticmethod
@@ -312,14 +334,13 @@ class UniversalPlanner:
         remaining = attendance
         destination = (place["lat"], place["lon"])
         route_results: dict[int, dict[str, Any]] = {}
-        if online:
-            with ThreadPoolExecutor(max_workers=6) as pool:
-                futures = {pool.submit(self._osrm, (row[2], row[3]), destination): index for index, row in enumerate(origins)}
-                for future in as_completed(futures):
-                    try:
-                        route_results[futures[future]] = future.result()
-                    except Exception:
-                        pass
+        with ThreadPoolExecutor(max_workers=6) as pool:
+            futures = {pool.submit(self._osrm, (row[2], row[3]), destination, online=online): index for index, row in enumerate(origins)}
+            for future in as_completed(futures):
+                try:
+                    route_results[futures[future]] = future.result()
+                except Exception:
+                    pass
         for index, (name, mode, lat, lon, share) in enumerate(origins):
             visitors = remaining if index == len(origins) - 1 else round(attendance * share / total_share)
             remaining -= visitors
@@ -374,18 +395,20 @@ class UniversalPlanner:
         base = {}
         weather = {"temperature_c": 22, "temperature_f": 72, "rain_probability_pct": 25, "wind_kmh": 14, "basis": "seasonal planning fallback"}
         transport = {"stations": [], "source": "unavailable; using assumed catchments", "retrieved": None}
-        if online:
-            jobs = {}
-            with ThreadPoolExecutor(max_workers=3) as pool:
-                if parsed["date"] != "date not specified": jobs[pool.submit(self._weather, place, parsed["date"])] = "weather"
-                jobs[pool.submit(self._transport, place)] = "transport"
-                for future in as_completed(jobs):
-                    try:
-                        value = future.result()
-                        if jobs[future] == "weather": weather = value
-                        else: transport = value
-                    except Exception:
-                        pass
+        traffic = {'features': [], 'source': 'Official survey locations unavailable.'}
+        jobs = {}
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            if parsed["date"] != "date not specified": jobs[pool.submit(self._weather, place, parsed["date"], online=online)] = "weather"
+            jobs[pool.submit(self._transport, place, online=online)] = "transport"
+            jobs[pool.submit(self._traffic_context, place, online)] = "traffic"
+            for future in as_completed(jobs):
+                try:
+                    value = future.result()
+                    if jobs[future] == "weather": weather = value
+                    elif jobs[future] == "traffic": traffic = value
+                    else: transport = value
+                except Exception:
+                    pass
         facilities = transport.get('stations', [])
         if facilities and not place.get('origins'):
             usable = [s for s in facilities if _distance_km((s['lat'], s['lon']), (place['lat'], place['lon'])) > .5][:8]
@@ -397,10 +420,16 @@ class UniversalPlanner:
         base["venue"] = {"name": place["venue"], "lat": place["lat"], "lon": place["lon"], "capacity": place["capacity"], "city": place["city"], "country": place["country"]}
         base["zones"] = zones
         base["transit"] = transport
+        base['traffic_context'] = traffic
+        evidence = {'venue': place, 'transport': transport, 'weather': weather, 'traffic survey sites': traffic, **route_base}
+        base['data_access'] = {name: value.get('_data_access') or {'tier': 'assumption / unavailable'} for name, value in evidence.items()}
         base["currency"] = {"code": "USD", "symbol": "$"}
         base["brief"] = {"original_prompt": parsed["prompt"], "parser": parser, "assumptions": assumptions, "online_enrichment": online, "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")}
         base["data_freshness"] = {"basemap": "live OpenStreetMap tiles", "venue": "Nominatim / curated fallback", "road_geometry": f"{sum(1 for r in route_base.values() if 'screening' not in r['source'])}/{len(route_base)} routes from OSRM/cache; others estimated", "transit": f"{transport.get('source')} · {len(transport.get('stations', []))} facilities", "weather": weather["basis"], "costs": "User-editable USD charter assumptions; no local quote"}
         base["model_limits"] = ["Venue and attendance may be inferred; review the assumptions before operational use.", "Traffic values are scenario projections, not live sensor readings.", "Public transport discovery is not a substitute for an agency timetable or GTFS/GTFS-RT feed.", "Costs are transferable planning ranges, not local vendor quotes or procurement bids."]
+        tiers = ('repository', 'local cache', 'external API', 'assumption / unavailable')
+        base['data_freshness']['data_lookup'] = 'Repository → local cache → external API. ' + '; '.join(f"{tier}: {sum(info['tier'] == tier for info in base['data_access'].values())}" for tier in tiers)
+        base['data_freshness']['traffic_survey_sites'] = f"{len(traffic.get('features', []))} official locations; geographic evidence only, no measured flow or capacity."
         base["schema_version"] = "4.0"
         base['simulation'] = simulate_event(zones, route_base, place, inputs, budget)
         base['model_limits'].extend(base['simulation']['limitations'])

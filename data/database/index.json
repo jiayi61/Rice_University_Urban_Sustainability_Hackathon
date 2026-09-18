@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "catalog_url": "https://github.com/HoustonSI/WorldCupUSSpatialData101",
+  "catalog_path": "../reference/world_cup_source_catalog",
+  "resources": [
+    {
+      "key": "traffic_sites_houston_nrg",
+      "source_url": "https://geogimsms.houstontx.gov/arcgis/rest/services/TDO/Traffic_Management_gx/MapServer/14",
+      "retrieved_at": "2026-09-18T04:12:12.588817+00:00",
+      "max_age_days": 90,
+      "sha256": "7670bf14cca589bd8afdd620c27210d0425aecbd63b60cd48f6f741a0eb37260",
+      "file": "resources/1085f726797951e16512527a901f44a6d53dd0066abf109952480f2bc75b5428.json"
+    },
+    {
+      "key": "geocode_metlife stadium, new york",
+      "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=MetLife+Stadium%2C+new+york&limit=1&addressdetails=1&extratags=1",
+      "retrieved_at": "2026-09-18T04:12:27.528923+00:00",
+      "max_age_days": 120,
+      "sha256": "0e8d30f62e73b49262df74d9251fb416e516b86d27d147966cedd52ffc911bcf",
+      "file": "resources/150855248151c092aa228475e36a9e5b557c1ff1014d1672a0b1b4a9d4a5fdb9.json"
+    },
+    {
+      "key": "transport_29.6849_-95.4108",
+      "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B",
+      "retrieved_at": "2026-09-18T04:12:26.323285+00:00",
+      "max_age_days": 30,
+      "sha256": "067ae18d895a1ba6136c67b54ee9cf5843e4e76ff0c2c810e09e726657e0a2d3",
+      "file": "resources/2230ae38c2cec08e6de486a7b7baabb2fce3a8b3b892b59808cc6a455588922f.json"
+    },
+    {
+      "key": "route_40.7877_-74.0316_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0315526,40.787684;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:29.621622+00:00",
+      "max_age_days": 120,
+      "sha256": "c5238d5b717c011f8e16d47f3cc4cfcdd88a667470e10822eabca56d8314f3cc",
+      "file": "resources/30082668ba5ba38eed73b992d6f4ec645991e39b3ba0c8e2659c46af41339f4c.json"
+    },
+    {
+      "key": "route_29.7200_-95.3936_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3935887,29.7200304;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:27.366544+00:00",
+      "max_age_days": 120,
+      "sha256": "74aa4eadcb0ec9d6b147022a0f0f613a869e8b0c19e64e5a4f8b017be23b1a51",
+      "file": "resources/33f051940a6568ea3e54238f24917fa2d6bbf8ed0538b9e7006d594f1ec67ac5.json"
+    },
+    {
+      "key": "route_40.7871_-74.0452_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0452463,40.7870989;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:30.268752+00:00",
+      "max_age_days": 120,
+      "sha256": "ba5bad6a0c87feda4457fec272760b376817546eb2db62017ecb8eab02db6597",
+      "file": "resources/346d2cefaf77fc6ce4a942c4184a2e20aa1a602bb1ba7dacc8274e22a2a94273.json"
+    },
+    {
+      "key": "route_29.7327_-95.3834_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3833959,29.7327424;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:26.754279+00:00",
+      "max_age_days": 120,
+      "sha256": "d71ca5ae582181b1f2168dd4abb0b17b858eb75a8d85d6075ab6f94d00329007",
+      "file": "resources/3be8e2c7b6db0ac5c161aff78b886e6f6d6a1419a25b0d2f1faa568b8e4d6032.json"
+    },
+    {
+      "key": "route_29.6859_-95.4034_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4033938,29.6859355;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:27.062357+00:00",
+      "max_age_days": 120,
+      "sha256": "d43aa7f1d0c9b11a8c8b25c94c333139a9c3e64797a5352c88d56ad278865e3d",
+      "file": "resources/3ecc361b3ee52aae8a53a8f09b07cd00eacddcd2222baaa7b39e8f1bc03d0794.json"
+    },
+    {
+      "key": "route_40.8284_-74.1006_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1006254,40.8283566;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:30.219180+00:00",
+      "max_age_days": 120,
+      "sha256": "2c387765130bc150152cbcc4867a0e953e986d1e99e9cb3c986bb4332689c681",
+      "file": "resources/4816b8b8cf01ffa709c95c03fc77ec26680735ba8bc432c827460848f9a8c068.json"
+    },
+    {
+      "key": "route_40.8003_-74.0643_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0643369,40.8003407;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:29.943901+00:00",
+      "max_age_days": 120,
+      "sha256": "f68d996632bbaac0d94122d8eaba316cb7a0e282d0610331bd900471721e5900",
+      "file": "resources/5a2743048ccd38f8bd9352859a0038cbd23d2231c82f0152187617cf07ddf5a2.json"
+    },
+    {
+      "key": "route_40.8667_-74.1056_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1055612,40.8666965;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:29.624190+00:00",
+      "max_age_days": 120,
+      "sha256": "2999d22b1df8e983e96493c7b0169c8ed5945fe221490d798cd347fad8095f1a",
+      "file": "resources/78319388db762acbf87fce1eb97b1f54e9957197de0e3d7888622cb5b917a406.json"
+    },
+    {
+      "key": "route_29.6965_-95.4048_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4048496,29.6965162;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:27.062442+00:00",
+      "max_age_days": 120,
+      "sha256": "30bf63a81e0bc7a67503c9f5fcb95af0ac678a7893cff41b66810cf3aa23b1d7",
+      "file": "resources/839a36389ffdedd082011faa225e8ee9a4a6818c5fa9f125bb15f63dd58da144.json"
+    },
+    {
+      "key": "route_29.7097_-95.4009_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4008866,29.7097209;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:26.749782+00:00",
+      "max_age_days": 120,
+      "sha256": "bb5095c1b9ebc70bc823327b2a4aa9133302b673a46e45a4c1a6e3f10bbae5d0",
+      "file": "resources/8a379f8e4f899aa9fa83c393ced9015a607932703732813fe1fd8d26fb337751.json"
+    },
+    {
+      "key": "route_40.7873_-74.0457_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0457384,40.7873253;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:29.914200+00:00",
+      "max_age_days": 120,
+      "sha256": "cef028527dbb6f630467cb214f99b9733ee211aae82be7cdecf7406eafd21a9d",
+      "file": "resources/a5857c4268ac86f58fa4a3544510e9c72cbaf39f31629592c05be37291265870.json"
+    },
+    {
+      "key": "route_40.7913_-74.0491_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0491069,40.7913139;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:29.945579+00:00",
+      "max_age_days": 120,
+      "sha256": "328d8fdcbc79153cd43a469380ff041e4970250a0c03fc8119f32dbb5ee60176",
+      "file": "resources/a63f62b9dee8b8ef18ea17774aa231d94479c03c57093f8ec7577e5e0803b97c.json"
+    },
+    {
+      "key": "route_40.7822_-74.0220_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0220189,40.7821664;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:29.609292+00:00",
+      "max_age_days": 120,
+      "sha256": "5ced2b9e09c4f8c9e46860555807d376a84552df54fa375fc5ba1c4af118e20c",
+      "file": "resources/ab9d5aa21a30f2bbeeeb1a0f6a47b39cd38a031c3051303c79d369df3b5bb597.json"
+    },
+    {
+      "key": "route_29.7042_-95.4029_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4029178,29.7041849;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:27.363761+00:00",
+      "max_age_days": 120,
+      "sha256": "2415aa4f297b2e149b5678d9003b2a218d56509d9233325ec165ff10ed08eab0",
+      "file": "resources/c41aa73524211a6a602dd7becab9763f148f685bb4b27bcacad1deea7abfc560.json"
+    },
+    {
+      "key": "route_29.6736_-95.4029_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.402855,29.6735974;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:27.061864+00:00",
+      "max_age_days": 120,
+      "sha256": "96df008b245f63a67ab4597f924374aad857a78fa1871f9c6cc80a4646b4f7d3",
+      "file": "resources/c97b1e573fab0f1fb170d8fd01ab6a471e947e5002779744b378f73fd23dfba2.json"
+    },
+    {
+      "key": "geocode_nrg stadium, houston",
+      "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=NRG+Stadium%2C+houston&limit=1&addressdetails=1&extratags=1",
+      "retrieved_at": "2026-09-18T04:12:12.949564+00:00",
+      "max_age_days": 120,
+      "sha256": "29029f37fec236dd0dce70d2c5c0c1c5a21c8fd08290a1c2d7e425a1f3dd55b3",
+      "file": "resources/d8ef52f0d2fbee497d8767be3627f68fc6c207888de9c2a795a59162e865eb2a.json"
+    },
+    {
+      "key": "transport_40.8135_-74.0743",
+      "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B",
+      "retrieved_at": "2026-09-18T04:12:29.293044+00:00",
+      "max_age_days": 30,
+      "sha256": "f4f396c476435e83519937a409af3284d59ace072a7c54fb448cd8a30d73f9dc",
+      "file": "resources/e82515cecf9a4bafe584cd6aa19cd11b74c1c2accf62a25a1dd3c7743e7f348c.json"
+    },
+    {
+      "key": "route_29.7243_-95.3882_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3881709,29.7243082;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:12:26.751858+00:00",
+      "max_age_days": 120,
+      "sha256": "b4adf22e8ed1703e7bb526ba9cdb352fc852849205c299b4f13d5db7314e80c6",
+      "file": "resources/f29d7007f53c4eb69ce30ade49d5d06bd4d8e7c53dd5c4689b6188e3f1bdb924.json"
+    }
+  ],
+  "last_sync": [
+    {
+      "key": "traffic_sites_houston_nrg",
+      "status": "stored",
+      "source_url": "https://geogimsms.houstontx.gov/arcgis/rest/services/TDO/Traffic_Management_gx/MapServer/14"
+    },
+    {
+      "key": "geocode_nrg stadium, houston",
+      "status": "stored",
+      "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=NRG+Stadium%2C+houston&limit=1&addressdetails=1&extratags=1"
+    },
+    {
+      "key": "transport_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B"
+    },
+    {
+      "key": "route_29.7097_-95.4009_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4008866,29.7097209;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7243_-95.3882_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3881709,29.7243082;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7327_-95.3834_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3833959,29.7327424;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6736_-95.4029_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.402855,29.6735974;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6859_-95.4034_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4033938,29.6859355;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6965_-95.4048_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4048496,29.6965162;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7042_-95.4029_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4029178,29.7041849;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7200_-95.3936_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3935887,29.7200304;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "geocode_metlife stadium, new york",
+      "status": "stored",
+      "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=MetLife+Stadium%2C+new+york&limit=1&addressdetails=1&extratags=1"
+    },
+    {
+      "key": "transport_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B"
+    },
+    {
+      "key": "route_40.8667_-74.1056_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1055612,40.8666965;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.7877_-74.0316_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0315526,40.787684;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.7822_-74.0220_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0220189,40.7821664;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.7873_-74.0457_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0457384,40.7873253;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.7913_-74.0491_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0491069,40.7913139;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8003_-74.0643_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0643369,40.8003407;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8284_-74.1006_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1006254,40.8283566;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.7871_-74.0452_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0452463,40.7870989;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    }
+  ]
+}

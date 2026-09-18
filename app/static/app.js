@@ -169,6 +169,7 @@
    <h3>Evidence and assumptions</h3><div class="table-wrap">${table(['Input','Value'],Object.entries(s.parameters).map(([k,v])=>[esc(k.replaceAll('_',' ')),esc(v)]))}</div>
    ${p.brief.assumptions.map(a=>`<p class="fine"><b>${esc(a.field)}: ${esc(a.value)}</b> · ${esc(a.basis)}</p>`).join('')}
    ${Object.entries(p.data_freshness).map(([k,v])=>`<p class="fine"><b>${esc(k)}:</b> ${esc(v)}</p>`).join('')}
+   ${p.data_access?`<details><summary>View data sources and retrieval dates</summary><div class="table-wrap">${table(['Resource','Loaded from','Retrieved (UTC)','Source'],Object.entries(p.data_access).map(([name,info])=>[esc(name),esc(info.tier),esc(info.retrieved_at?.slice(0,10)||'—'),/^https:\/\//.test(info.source_url||'')?`<a href="${esc(info.source_url)}" target="_blank" rel="noopener">Provider ↗</a>`:'Planning assumption / unavailable']))}</div></details>`:''}
    <ul>${s.limitations.map(v=>`<li>${esc(v)}</li>`).join('')}</ul><button id="liveDownload" class="primary">Download decision report (PDF) ↓</button>`;
   $('resultsNav').hidden=false;$('resultsNav').href='#liveResult';$('resultsNav').textContent='03 Your results';
   if(window.L){liveMap=L.map('liveMap',{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors'}).addTo(liveMap);
