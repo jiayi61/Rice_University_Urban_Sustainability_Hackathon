@@ -4,12 +4,36 @@
   "catalog_path": "../reference/world_cup_source_catalog",
   "resources": [
     {
+      "key": "route_29.6511_-95.4647_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4647,29.6511;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:16.625485+00:00",
+      "max_age_days": 120,
+      "sha256": "f64f94c7fd3896c9b311db20601f5a9c9ba68824cb24241ca2580853155dd061",
+      "file": "resources/09a7b774dcd14bb5cd2d8e4203efd5dbc5f2495ea8bec120d84b03fa2b4d65de.json"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.8284_-74.1006",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1006254,40.8283566?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.079957+00:00",
+      "max_age_days": 120,
+      "sha256": "395977567fd6a6d5fbd7b0a4a215e6cd169512f1ed00d5251d6f0b3fc731e421",
+      "file": "resources/0fa6af1f0424d158cb50a8c4c6ddf57b60aedee67d96b926f12c06e57d45f938.json"
+    },
+    {
       "key": "traffic_sites_houston_nrg",
       "source_url": "https://geogimsms.houstontx.gov/arcgis/rest/services/TDO/Traffic_Management_gx/MapServer/14",
-      "retrieved_at": "2026-09-18T04:12:12.588817+00:00",
+      "retrieved_at": "2026-09-18T04:23:13.815445+00:00",
       "max_age_days": 90,
       "sha256": "7670bf14cca589bd8afdd620c27210d0425aecbd63b60cd48f6f741a0eb37260",
       "file": "resources/1085f726797951e16512527a901f44a6d53dd0066abf109952480f2bc75b5428.json"
+    },
+    {
+      "key": "route_29.6744_-95.4029_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4029,29.6744;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:16.627905+00:00",
+      "max_age_days": 120,
+      "sha256": "20e6bd3eaaa1826701aff4fc03274145661d2c3a09108e1494df3f4760c8b0f6",
+      "file": "resources/120c072ec661c0aa5cae95873485a5131effd8772eb45865d8388ab2a959caff.json"
     },
     {
       "key": "geocode_metlife stadium, new york",
@@ -18,6 +42,38 @@
       "max_age_days": 120,
       "sha256": "0e8d30f62e73b49262df74d9251fb416e516b86d27d147966cedd52ffc911bcf",
       "file": "resources/150855248151c092aa228475e36a9e5b557c1ff1014d1672a0b1b4a9d4a5fdb9.json"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.6965_-95.4048",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4048496,29.6965162?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.131646+00:00",
+      "max_age_days": 120,
+      "sha256": "3f7da67c8426497e03c3638c858c42babe7e24c1b81e27e7610b131be6888325",
+      "file": "resources/1658dfccfb899a6063992fb2aa3f45f55dafefe2cfccfaeeca670e44dde3bbc8.json"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.8647_-74.0627",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0627316,40.864739?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:16.001967+00:00",
+      "max_age_days": 120,
+      "sha256": "c6194f062eb6603b00ad6540d1612bd5acba1f261f4a0b454cc57892be4aeb2b",
+      "file": "resources/178d36808ba3de970217df1d18f275e5a2430acb43daf3ffa009d0d5cbd29f15.json"
+    },
+    {
+      "key": "route_29.7390_-95.4641_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4641,29.739;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:16.943091+00:00",
+      "max_age_days": 120,
+      "sha256": "8d8a7ca23740097516baac4137aa97facde34a95b576ec2237da38e54cfc8f88",
+      "file": "resources/1f5bba633c6eee6dc719edfe7ee251ed25fe7327749366046dbe4a5067af9715.json"
+    },
+    {
+      "key": "route_40.7613_-74.0758_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0757547,40.7613294;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.693326+00:00",
+      "max_age_days": 120,
+      "sha256": "5675218957d980460e6fc6b21382d5899bf9ca50effb02bf879ec577ebdb6b0f",
+      "file": "resources/210f32e4e92820c016d13c9c7ba4fa7c629f66a35e7e41a5dd895253e91b4abb.json"
     },
     {
       "key": "transport_29.6849_-95.4108",
@@ -52,12 +108,36 @@
       "file": "resources/346d2cefaf77fc6ce4a942c4184a2e20aa1a602bb1ba7dacc8274e22a2a94273.json"
     },
     {
+      "key": "route_40.8135_-74.0743_40.7877_-74.0316",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0315526,40.787684?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.077305+00:00",
+      "max_age_days": 120,
+      "sha256": "96f2adf169b2f49ea2b41b4a4808d829341a1634156015557fca712f34edbf0f",
+      "file": "resources/348f10e0a1c9c84b1f9a9869381d6ec50a4f1edea75a6afd0b8c9ea45b99e969.json"
+    },
+    {
       "key": "route_29.7327_-95.3834_29.6849_-95.4108",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3833959,29.7327424;-95.4108015,29.6848581?overview=full&geometries=geojson",
       "retrieved_at": "2026-09-18T04:12:26.754279+00:00",
       "max_age_days": 120,
       "sha256": "d71ca5ae582181b1f2168dd4abb0b17b858eb75a8d85d6075ab6f94d00329007",
       "file": "resources/3be8e2c7b6db0ac5c161aff78b886e6f6d6a1419a25b0d2f1faa568b8e4d6032.json"
+    },
+    {
+      "key": "route_29.7522_-95.3524_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3524,29.7522;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:17.249477+00:00",
+      "max_age_days": 120,
+      "sha256": "9ab16a1537b1bd635557e2834a8dd07d1579dd1c66258553a78f631225b330ab",
+      "file": "resources/3dc146d9cd8f6bc759539a8b4f533dfb760dcf47240f86ca0ef1a62400c33bce.json"
+    },
+    {
+      "key": "route_29.7145_-95.3971_29.6849_-95.4108",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3971077,29.7144958;-95.4108015,29.6848581?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.447998+00:00",
+      "max_age_days": 120,
+      "sha256": "bbdb17f737ebb7943d5ae0c11d3681a95b75b9589281b086c5d569db627d535e",
+      "file": "resources/3e8d73b7d44f9649a1f36e749155723b12bbac0eebc3db0328cd4be2ab2249ad.json"
     },
     {
       "key": "route_29.6859_-95.4034_29.6849_-95.4108",
@@ -68,12 +148,52 @@
       "file": "resources/3ecc361b3ee52aae8a53a8f09b07cd00eacddcd2222baaa7b39e8f1bc03d0794.json"
     },
     {
+      "key": "route_40.8495_-74.1338_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1337924,40.8495053;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.995678+00:00",
+      "max_age_days": 120,
+      "sha256": "45f5d7e27031f72af6d0a110c637199c488b3db35b0cde7b1e3fe9d9497fa982",
+      "file": "resources/4033890617d372c4ddedbdeb5dfa72662e20b56a5c6e014bcb3ac3bb6beffbbb.json"
+    },
+    {
       "key": "route_40.8284_-74.1006_40.8135_-74.0743",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1006254,40.8283566;-74.0743442,40.8135071?overview=full&geometries=geojson",
       "retrieved_at": "2026-09-18T04:12:30.219180+00:00",
       "max_age_days": 120,
       "sha256": "2c387765130bc150152cbcc4867a0e953e986d1e99e9cb3c986bb4332689c681",
       "file": "resources/4816b8b8cf01ffa709c95c03fc77ec26680735ba8bc432c827460848f9a8c068.json"
+    },
+    {
+      "key": "route_29.7216_-95.3896_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3896,29.7216;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:16.938989+00:00",
+      "max_age_days": 120,
+      "sha256": "8f2c46df65d72c34bd9317132bb7b52730f33667b8b57f8c5beb93a16e1ac15d",
+      "file": "resources/49bc379bcc647da68505119829fd5f8b4065fd74e505d66866fa4a123bc11925.json"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.8495_-74.1338",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1337924,40.8495053?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:16.303346+00:00",
+      "max_age_days": 120,
+      "sha256": "952504f99d41667e6b33b1e8541eddc08c76b7c198f7c4eb70719fe01cdd2d18",
+      "file": "resources/511e5c3c7a86fa236b63846c65b791b98e2866560b8da6b0de8466d2a96bd262.json"
+    },
+    {
+      "key": "route_40.8141_-74.1228_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1228335,40.8141012;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.079258+00:00",
+      "max_age_days": 120,
+      "sha256": "8be5ed2ec58e048658274d540bb87ab8bf4c2ebb10718e49f698ead0c47ee895",
+      "file": "resources/52a8b6727354743f008812a0e9c6345379c5ac84f9a6d22d238bd4d02a0587e9.json"
+    },
+    {
+      "key": "route_40.8647_-74.0627_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0627316,40.864739;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.691879+00:00",
+      "max_age_days": 120,
+      "sha256": "58089e0d53e395e8eb570cb87a841c99d193b6b96f79a015355ac8c5adf12e38",
+      "file": "resources/53a1e8fa4cd7143354c4ec66ae2f752df560c989d79424203111e04bfddf3daf.json"
     },
     {
       "key": "route_40.8003_-74.0643_40.8135_-74.0743",
@@ -84,12 +204,76 @@
       "file": "resources/5a2743048ccd38f8bd9352859a0038cbd23d2231c82f0152187617cf07ddf5a2.json"
     },
     {
+      "key": "route_29.6454_-95.2789_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.2789,29.6454;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:16.627341+00:00",
+      "max_age_days": 120,
+      "sha256": "ccb15165749eaff876fcf57fb46091df63fa6adbeaeb323b3bac8c003388df83",
+      "file": "resources/5a835da862d93ebcfe135f3d68a73be84c7394eea9f8ad68cb53293b57995e5b.json"
+    },
+    {
+      "key": "route_29.7426_-95.3767_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3767,29.7426;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:17.251168+00:00",
+      "max_age_days": 120,
+      "sha256": "58b6e45d88b546c987b5179f816f0f48070945afefd2e0043629e6b304d5855c",
+      "file": "resources/620a00b3eeb59ddf8bb38d40e25e5136d80351513a5291a05b60b0c368ebf27a.json"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.8318_-74.1315",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1314936,40.8317746?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.685872+00:00",
+      "max_age_days": 120,
+      "sha256": "cfae05aec2cfc92814b535189758c5db53635b4a9975e9e1ab5c74febf422ba8",
+      "file": "resources/6cd51d5ee85b84866decea11321428efc3aea132bb6facbd9652ed5f5396f81c.json"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.6736_-95.4029",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.402855,29.6735974?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.131433+00:00",
+      "max_age_days": 120,
+      "sha256": "b364bda92b937c20ba5bb557bf3ea9b3e261d600858080f7ebee56fee3cc2250",
+      "file": "resources/6ee059036acac8227f40ddd190bcbe8f617dfbee175b4d8c0134633aa5b747af.json"
+    },
+    {
+      "key": "route_29.9902_-95.3368_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3368,29.9902;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:17.652230+00:00",
+      "max_age_days": 120,
+      "sha256": "9bb2fc87453d3319c45c6f7bb7bb191d82a737de9038b7493e66e5d875e19ba3",
+      "file": "resources/74f34851a597348b6d20c9618e6c35ebe0854c4a339ac15145ee43150572c34d.json"
+    },
+    {
+      "key": "route_29.7604_-95.3698_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3698,29.7604;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:17.248583+00:00",
+      "max_age_days": 120,
+      "sha256": "8e36ad9994fdd7a17222348fc7f835370bae4b18cad9245e8f24b3ea00ae0022",
+      "file": "resources/7720b16153f560ee64122a6a6d703018e60ac8b6cfef0d97ebd88b490ae63fc2.json"
+    },
+    {
       "key": "route_40.8667_-74.1056_40.8135_-74.0743",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1055612,40.8666965;-74.0743442,40.8135071?overview=full&geometries=geojson",
       "retrieved_at": "2026-09-18T04:12:29.624190+00:00",
       "max_age_days": 120,
       "sha256": "2999d22b1df8e983e96493c7b0169c8ed5945fe221490d798cd347fad8095f1a",
       "file": "resources/78319388db762acbf87fce1eb97b1f54e9957197de0e3d7888622cb5b917a406.json"
+    },
+    {
+      "key": "route_40.8318_-74.1315_40.8135_-74.0743",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1314936,40.8317746;-74.0743442,40.8135071?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.377475+00:00",
+      "max_age_days": 120,
+      "sha256": "aaea470d2f1a7a36ac5e515dfe161383fae53a54012b80a0b143dfea0918555a",
+      "file": "resources/7d0591095d0513a67932c0724886c2f9aa71473a02ae79b378bf09420d2762ca.json"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7097_-95.4009",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4008866,29.7097209?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.449195+00:00",
+      "max_age_days": 120,
+      "sha256": "51b20c2bc44e5aa3bb9ac70e46fb54b69a1d370f9fc426ad6ef6cd3bf7a28652",
+      "file": "resources/7ebaa7584682a02d67f26dfbd9def343d6914dbd98b2091eb316e0fb456c6108.json"
     },
     {
       "key": "route_29.6965_-95.4048_29.6849_-95.4108",
@@ -100,12 +284,36 @@
       "file": "resources/839a36389ffdedd082011faa225e8ee9a4a6818c5fa9f125bb15f63dd58da144.json"
     },
     {
+      "key": "route_29.6849_-95.4108_29.6859_-95.4034",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4033938,29.6859355?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.131218+00:00",
+      "max_age_days": 120,
+      "sha256": "0f47085502e86ec1a8457e230de091131dbb842a596e4b0164e7f5739e350c0f",
+      "file": "resources/87978f04238365aff8c58f04d8681fdefa754100daeed73983d0072df3311985.json"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7145_-95.3971",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3971077,29.7144958?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.761582+00:00",
+      "max_age_days": 120,
+      "sha256": "1682c3340a944e384c1c710ca2328cd240f1eec344eb40b2c2527f544406819d",
+      "file": "resources/89cdc001dd67fef71022ceabec0af079aba4887daa372c6a475621d03d5f6a49.json"
+    },
+    {
       "key": "route_29.7097_-95.4009_29.6849_-95.4108",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4008866,29.7097209;-95.4108015,29.6848581?overview=full&geometries=geojson",
       "retrieved_at": "2026-09-18T04:12:26.749782+00:00",
       "max_age_days": 120,
       "sha256": "bb5095c1b9ebc70bc823327b2a4aa9133302b673a46e45a4c1a6e3f10bbae5d0",
       "file": "resources/8a379f8e4f899aa9fa83c393ced9015a607932703732813fe1fd8d26fb337751.json"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7200_-95.3936",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3935887,29.7200304?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.758832+00:00",
+      "max_age_days": 120,
+      "sha256": "963be04d3e827937e954bcf2768b0d182043107ad449f5c5a300996f42de0013",
+      "file": "resources/9afb9db7485d5f2005f75008d5448378940cca3aec99fbd0dab328b9adb80bac.json"
     },
     {
       "key": "route_40.7873_-74.0457_40.8135_-74.0743",
@@ -132,6 +340,38 @@
       "file": "resources/ab9d5aa21a30f2bbeeeb1a0f6a47b39cd38a031c3051303c79d369df3b5bb597.json"
     },
     {
+      "key": "route_40.8135_-74.0743_40.7613_-74.0758",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0757547,40.7613294?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.999184+00:00",
+      "max_age_days": 120,
+      "sha256": "f96eea82ee8cd65ec049c3482baa62eafa90436d0edf9b0e1620e0a750d22b9a",
+      "file": "resources/adfcbeea1e5d0a134881a0eed419196e4f79e374c65f79c59411c26775857661.json"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.7822_-74.0220",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0220189,40.7821664?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.382507+00:00",
+      "max_age_days": 120,
+      "sha256": "92779dcd492b7c5f9be2d70a2cdc6d79e995d90285e83940475ebae98475bd8a",
+      "file": "resources/b26fd1921b1c8eba6e1c18d76ca391471a34299969cf02875aee7475cc02d194.json"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7243_-95.3882",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3881709,29.7243082?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.758501+00:00",
+      "max_age_days": 120,
+      "sha256": "fcefcfea5602e407baa8999fed237d3529dbe43ab006a7af75380d93bcbf65c6",
+      "file": "resources/b8f82420117329ec78815f58033e1a6e7b0ec61140532d87088e6e15474f0243.json"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7042_-95.4029",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4029178,29.7041849?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:14.446388+00:00",
+      "max_age_days": 120,
+      "sha256": "5ba365d3be61f3caee286f4a1cd24e3e5cacc50fa2b4f5252d766595ffcc7fee",
+      "file": "resources/bfe159970347d59442962317d72f9da33b86a02dc748e20d6d5979756583a61b.json"
+    },
+    {
       "key": "route_29.7042_-95.4029_29.6849_-95.4108",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4029178,29.7041849;-95.4108015,29.6848581?overview=full&geometries=geojson",
       "retrieved_at": "2026-09-18T04:12:27.363761+00:00",
@@ -148,6 +388,14 @@
       "file": "resources/c97b1e573fab0f1fb170d8fd01ab6a471e947e5002779744b378f73fd23dfba2.json"
     },
     {
+      "key": "route_40.8135_-74.0743_40.8141_-74.1228",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1228335,40.8141012?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:15.382999+00:00",
+      "max_age_days": 120,
+      "sha256": "e35537f47c344a194c1e8fd88f91d2306931755081b52fb2083de4e9f8122230",
+      "file": "resources/d3e8b83c7ec6f98bbf4b3a5262e3aad809f3295b2c35e8e0919e6ce77b7c32fc.json"
+    },
+    {
       "key": "geocode_nrg stadium, houston",
       "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=NRG+Stadium%2C+houston&limit=1&addressdetails=1&extratags=1",
       "retrieved_at": "2026-09-18T04:12:12.949564+00:00",
@@ -162,6 +410,14 @@
       "max_age_days": 30,
       "sha256": "f4f396c476435e83519937a409af3284d59ace072a7c54fb448cd8a30d73f9dc",
       "file": "resources/e82515cecf9a4bafe584cd6aa19cd11b74c1c2accf62a25a1dd3c7743e7f348c.json"
+    },
+    {
+      "key": "route_29.7069_-95.4018_29.6847_-95.4107",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4018,29.7069;-95.4107,29.6847?overview=full&geometries=geojson",
+      "retrieved_at": "2026-09-18T04:23:16.938588+00:00",
+      "max_age_days": 120,
+      "sha256": "45219e20eb009d9c368855eaad49c292a403b4fefe982d97af3da30cf70de121",
+      "file": "resources/eaf91ca10f04c6195e63446c1130d6d95bb9fb0b1d51fa6d7cd4a8aecccfd5dd.json"
     },
     {
       "key": "route_29.7243_-95.3882_29.6849_-95.4108",
@@ -189,29 +445,14 @@
       "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B"
     },
     {
-      "key": "route_29.7097_-95.4009_29.6849_-95.4108",
-      "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4008866,29.7097209;-95.4108015,29.6848581?overview=full&geometries=geojson"
-    },
-    {
-      "key": "route_29.7243_-95.3882_29.6849_-95.4108",
-      "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3881709,29.7243082;-95.4108015,29.6848581?overview=full&geometries=geojson"
-    },
-    {
-      "key": "route_29.7327_-95.3834_29.6849_-95.4108",
-      "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3833959,29.7327424;-95.4108015,29.6848581?overview=full&geometries=geojson"
-    },
-    {
-      "key": "route_29.6736_-95.4029_29.6849_-95.4108",
-      "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.402855,29.6735974;-95.4108015,29.6848581?overview=full&geometries=geojson"
-    },
-    {
       "key": "route_29.6859_-95.4034_29.6849_-95.4108",
       "status": "stored",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4033938,29.6859355;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.6859_-95.4034",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4033938,29.6859355?overview=full&geometries=geojson"
     },
     {
       "key": "route_29.6965_-95.4048_29.6849_-95.4108",
@@ -219,14 +460,69 @@
       "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4048496,29.6965162;-95.4108015,29.6848581?overview=full&geometries=geojson"
     },
     {
+      "key": "route_29.6849_-95.4108_29.6965_-95.4048",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4048496,29.6965162?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6736_-95.4029_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.402855,29.6735974;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.6736_-95.4029",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.402855,29.6735974?overview=full&geometries=geojson"
+    },
+    {
       "key": "route_29.7042_-95.4029_29.6849_-95.4108",
       "status": "stored",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4029178,29.7041849;-95.4108015,29.6848581?overview=full&geometries=geojson"
     },
     {
+      "key": "route_29.6849_-95.4108_29.7042_-95.4029",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4029178,29.7041849?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7097_-95.4009_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4008866,29.7097209;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7097_-95.4009",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4008866,29.7097209?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7145_-95.3971_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3971077,29.7144958;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7145_-95.3971",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3971077,29.7144958?overview=full&geometries=geojson"
+    },
+    {
       "key": "route_29.7200_-95.3936_29.6849_-95.4108",
       "status": "stored",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3935887,29.7200304;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7200_-95.3936",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3935887,29.7200304?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7243_-95.3882_29.6849_-95.4108",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3881709,29.7243082;-95.4108015,29.6848581?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6849_-95.4108_29.7243_-95.3882",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3881709,29.7243082?overview=full&geometries=geojson"
     },
     {
       "key": "geocode_metlife stadium, new york",
@@ -239,9 +535,24 @@
       "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B"
     },
     {
-      "key": "route_40.8667_-74.1056_40.8135_-74.0743",
+      "key": "route_40.8284_-74.1006_40.8135_-74.0743",
       "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1055612,40.8666965;-74.0743442,40.8135071?overview=full&geometries=geojson"
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1006254,40.8283566;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.8284_-74.1006",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1006254,40.8283566?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8141_-74.1228_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1228335,40.8141012;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.8141_-74.1228",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1228335,40.8141012?overview=full&geometries=geojson"
     },
     {
       "key": "route_40.7877_-74.0316_40.8135_-74.0743",
@@ -249,34 +560,109 @@
       "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0315526,40.787684;-74.0743442,40.8135071?overview=full&geometries=geojson"
     },
     {
+      "key": "route_40.8135_-74.0743_40.7877_-74.0316",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0315526,40.787684?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8318_-74.1315_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1314936,40.8317746;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.8318_-74.1315",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1314936,40.8317746?overview=full&geometries=geojson"
+    },
+    {
       "key": "route_40.7822_-74.0220_40.8135_-74.0743",
       "status": "stored",
       "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0220189,40.7821664;-74.0743442,40.8135071?overview=full&geometries=geojson"
     },
     {
-      "key": "route_40.7873_-74.0457_40.8135_-74.0743",
+      "key": "route_40.8135_-74.0743_40.7822_-74.0220",
       "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0457384,40.7873253;-74.0743442,40.8135071?overview=full&geometries=geojson"
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0220189,40.7821664?overview=full&geometries=geojson"
     },
     {
-      "key": "route_40.7913_-74.0491_40.8135_-74.0743",
+      "key": "route_40.8647_-74.0627_40.8135_-74.0743",
       "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0491069,40.7913139;-74.0743442,40.8135071?overview=full&geometries=geojson"
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0627316,40.864739;-74.0743442,40.8135071?overview=full&geometries=geojson"
     },
     {
-      "key": "route_40.8003_-74.0643_40.8135_-74.0743",
+      "key": "route_40.8135_-74.0743_40.8647_-74.0627",
       "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0643369,40.8003407;-74.0743442,40.8135071?overview=full&geometries=geojson"
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0627316,40.864739?overview=full&geometries=geojson"
     },
     {
-      "key": "route_40.8284_-74.1006_40.8135_-74.0743",
+      "key": "route_40.7613_-74.0758_40.8135_-74.0743",
       "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1006254,40.8283566;-74.0743442,40.8135071?overview=full&geometries=geojson"
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0757547,40.7613294;-74.0743442,40.8135071?overview=full&geometries=geojson"
     },
     {
-      "key": "route_40.7871_-74.0452_40.8135_-74.0743",
+      "key": "route_40.8135_-74.0743_40.7613_-74.0758",
       "status": "stored",
-      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0452463,40.7870989;-74.0743442,40.8135071?overview=full&geometries=geojson"
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0757547,40.7613294?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8495_-74.1338_40.8135_-74.0743",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1337924,40.8495053;-74.0743442,40.8135071?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_40.8135_-74.0743_40.8495_-74.1338",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1337924,40.8495053?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6454_-95.2789_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.2789,29.6454;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6511_-95.4647_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4647,29.6511;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.6744_-95.4029_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4029,29.6744;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7069_-95.4018_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4018,29.7069;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7216_-95.3896_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3896,29.7216;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7390_-95.4641_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4641,29.739;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7426_-95.3767_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3767,29.7426;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7522_-95.3524_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3524,29.7522;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.7604_-95.3698_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3698,29.7604;-95.4107,29.6847?overview=full&geometries=geojson"
+    },
+    {
+      "key": "route_29.9902_-95.3368_29.6847_-95.4107",
+      "status": "stored",
+      "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3368,29.9902;-95.4107,29.6847?overview=full&geometries=geojson"
     }
   ]
 }

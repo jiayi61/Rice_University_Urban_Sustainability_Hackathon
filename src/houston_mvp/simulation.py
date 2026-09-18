@@ -69,7 +69,8 @@ def simulate_all(dataset: Dataset) -> dict[str, Any]:
     return {
         "metadata": {
             "prototype": "FIFA 2026 Houston + NRG Stadium Track 1 + Track 3 MVP",
-            "data_status": "Synthetic sample data",
+            "data_status": "Public road inputs with synthetic demand and operating assumptions" if dataset.evidence.get('road_routes') else 'Synthetic sample data; public road inputs unavailable',
+            'evidence': dataset.evidence,
             "stadium": STADIUM,
             "total_visitors": sum(zone.visitors for zone in dataset.zones),
         },
@@ -193,6 +194,9 @@ def simulate_scenario(dataset: Dataset, scenario: Scenario) -> dict[str, Any]:
                 "pressure": round(pressure, 3),
                 "distance_km": route.distance_km,
                 "base_minutes": route.base_minutes,
+                'geometry': route.geometry,
+                'route_source': route.route_source,
+                'retrieved_at': route.retrieved_at,
                 "adjusted_minutes": round(adjusted_minutes, 1),
                 "shade_index": round(effective_shade, 3),
                 "ada_score": route.ada_score,

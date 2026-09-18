@@ -1,0 +1,498 @@
+{
+  "scope": "Reproducible screening scenarios, not observed performance validation",
+  "shared_inputs": {
+    "attendance": 50000,
+    "budget_usd": 100000,
+    "cohort_pct": 40,
+    "baseline_service_pph": 12000,
+    "road_delay_factor": 1.3
+  },
+  "cities": [
+    {
+      "city": "Houston",
+      "sites": [
+        "Stadium Park/Astrodome",
+        "Smith Lands",
+        "Fannin South",
+        "Texas Medical Center Transit Center",
+        "Dryden/TMC",
+        "Memorial Hermann Hospital/Houston Zoo",
+        "Hermann Park/Rice U",
+        "Museum District (northbound)"
+      ],
+      "road_routes": 8,
+      "fleet": 33,
+      "cost_usd": 97350,
+      "baseline_clearance_minutes": 100.0,
+      "plan_clearance_minutes": 93.0,
+      "baseline_queue_person_hours": 16666.7,
+      "plan_queue_person_hours": 13920.2,
+      "allocation": [
+        {
+          "site": "Stadium Park/Astrodome",
+          "buses": 6,
+          "outbound_minutes": 3.9,
+          "return_minutes": 3.8
+        },
+        {
+          "site": "Smith Lands",
+          "buses": 5,
+          "outbound_minutes": 5.9,
+          "return_minutes": 5.0
+        },
+        {
+          "site": "Fannin South",
+          "buses": 6,
+          "outbound_minutes": 5.1,
+          "return_minutes": 4.4
+        },
+        {
+          "site": "Texas Medical Center Transit Center",
+          "buses": 4,
+          "outbound_minutes": 8.0,
+          "return_minutes": 6.1
+        },
+        {
+          "site": "Dryden/TMC",
+          "buses": 4,
+          "outbound_minutes": 7.3,
+          "return_minutes": 7.6
+        },
+        {
+          "site": "Memorial Hermann Hospital/Houston Zoo",
+          "buses": 3,
+          "outbound_minutes": 8.6,
+          "return_minutes": 8.0
+        },
+        {
+          "site": "Hermann Park/Rice U",
+          "buses": 3,
+          "outbound_minutes": 10.1,
+          "return_minutes": 9.0
+        },
+        {
+          "site": "Museum District (northbound)",
+          "buses": 2,
+          "outbound_minutes": 9.6,
+          "return_minutes": 10.3
+        }
+      ],
+      "stress_tests": [
+        {
+          "name": "Demand +25%",
+          "demand_factor": 1.25,
+          "service_factor": 1,
+          "road_delay_multiplier": 1,
+          "baseline_minutes": 125.0,
+          "plan_minutes": 116.3
+        },
+        {
+          "name": "Service -30%",
+          "demand_factor": 1,
+          "service_factor": 0.7,
+          "road_delay_multiplier": 1,
+          "baseline_minutes": 142.9,
+          "plan_minutes": 132.9
+        },
+        {
+          "name": "Road times +50%",
+          "demand_factor": 1,
+          "service_factor": 1,
+          "road_delay_multiplier": 1.5,
+          "baseline_minutes": 100.0,
+          "plan_minutes": 94.6
+        },
+        {
+          "name": "Combined disruption",
+          "demand_factor": 1.25,
+          "service_factor": 0.7,
+          "road_delay_multiplier": 1.5,
+          "baseline_minutes": 178.6,
+          "plan_minutes": 169.0
+        }
+      ],
+      "data_access": {
+        "venue": {
+          "tier": "repository",
+          "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=NRG+Stadium%2C+houston&limit=1&addressdetails=1&extratags=1",
+          "retrieved_at": "2026-09-18T04:12:12.949564+00:00",
+          "key": "geocode_nrg stadium, houston",
+          "max_age_days": 120
+        },
+        "transport": {
+          "tier": "repository",
+          "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C29.6848581%2C-95.4108015%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B",
+          "retrieved_at": "2026-09-18T04:12:26.323285+00:00",
+          "key": "transport_29.6849_-95.4108",
+          "max_age_days": 30
+        },
+        "weather": {
+          "tier": "assumption / unavailable"
+        },
+        "traffic survey sites": {
+          "tier": "repository",
+          "source_url": "https://geogimsms.houstontx.gov/arcgis/rest/services/TDO/Traffic_Management_gx/MapServer/14",
+          "retrieved_at": "2026-09-18T04:23:13.815445+00:00",
+          "key": "traffic_sites_houston_nrg",
+          "max_age_days": 90
+        },
+        "zone_1": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4033938,29.6859355?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.131218+00:00",
+          "key": "route_29.6849_-95.4108_29.6859_-95.4034",
+          "max_age_days": 120
+        },
+        "zone_2": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4048496,29.6965162?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.131646+00:00",
+          "key": "route_29.6849_-95.4108_29.6965_-95.4048",
+          "max_age_days": 120
+        },
+        "zone_3": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.402855,29.6735974?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.131433+00:00",
+          "key": "route_29.6849_-95.4108_29.6736_-95.4029",
+          "max_age_days": 120
+        },
+        "zone_4": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4029178,29.7041849?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.446388+00:00",
+          "key": "route_29.6849_-95.4108_29.7042_-95.4029",
+          "max_age_days": 120
+        },
+        "zone_5": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.4008866,29.7097209?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.449195+00:00",
+          "key": "route_29.6849_-95.4108_29.7097_-95.4009",
+          "max_age_days": 120
+        },
+        "zone_6": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3971077,29.7144958?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.761582+00:00",
+          "key": "route_29.6849_-95.4108_29.7145_-95.3971",
+          "max_age_days": 120
+        },
+        "zone_7": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3935887,29.7200304?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.758832+00:00",
+          "key": "route_29.6849_-95.4108_29.7200_-95.3936",
+          "max_age_days": 120
+        },
+        "zone_8": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4108015,29.6848581;-95.3881709,29.7243082?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.758501+00:00",
+          "key": "route_29.6849_-95.4108_29.7243_-95.3882",
+          "max_age_days": 120
+        },
+        "zone_1 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4033938,29.6859355;-95.4108015,29.6848581?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:27.062357+00:00",
+          "key": "route_29.6859_-95.4034_29.6849_-95.4108",
+          "max_age_days": 120
+        },
+        "zone_2 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4048496,29.6965162;-95.4108015,29.6848581?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:27.062442+00:00",
+          "key": "route_29.6965_-95.4048_29.6849_-95.4108",
+          "max_age_days": 120
+        },
+        "zone_3 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.402855,29.6735974;-95.4108015,29.6848581?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:27.061864+00:00",
+          "key": "route_29.6736_-95.4029_29.6849_-95.4108",
+          "max_age_days": 120
+        },
+        "zone_4 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4029178,29.7041849;-95.4108015,29.6848581?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:27.363761+00:00",
+          "key": "route_29.7042_-95.4029_29.6849_-95.4108",
+          "max_age_days": 120
+        },
+        "zone_5 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.4008866,29.7097209;-95.4108015,29.6848581?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:26.749782+00:00",
+          "key": "route_29.7097_-95.4009_29.6849_-95.4108",
+          "max_age_days": 120
+        },
+        "zone_6 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3971077,29.7144958;-95.4108015,29.6848581?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:14.447998+00:00",
+          "key": "route_29.7145_-95.3971_29.6849_-95.4108",
+          "max_age_days": 120
+        },
+        "zone_7 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3935887,29.7200304;-95.4108015,29.6848581?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:27.366544+00:00",
+          "key": "route_29.7200_-95.3936_29.6849_-95.4108",
+          "max_age_days": 120
+        },
+        "zone_8 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-95.3881709,29.7243082;-95.4108015,29.6848581?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:26.751858+00:00",
+          "key": "route_29.7243_-95.3882_29.6849_-95.4108",
+          "max_age_days": 120
+        }
+      }
+    },
+    {
+      "city": "New York",
+      "sites": [
+        "Rutherford",
+        "Lyndhurst",
+        "Tonnelle Avenue",
+        "Delawanna",
+        "Bergenline Avenue",
+        "Teterboro",
+        "Secaucus Junction",
+        "Passaic"
+      ],
+      "road_routes": 8,
+      "fleet": 33,
+      "cost_usd": 97350,
+      "baseline_clearance_minutes": 100.0,
+      "plan_clearance_minutes": 90.7,
+      "baseline_queue_person_hours": 16666.7,
+      "plan_queue_person_hours": 14396.7,
+      "allocation": [
+        {
+          "site": "Rutherford",
+          "buses": 6,
+          "outbound_minutes": 7.1,
+          "return_minutes": 6.8
+        },
+        {
+          "site": "Lyndhurst",
+          "buses": 5,
+          "outbound_minutes": 7.7,
+          "return_minutes": 9.8
+        },
+        {
+          "site": "Tonnelle Avenue",
+          "buses": 4,
+          "outbound_minutes": 8.7,
+          "return_minutes": 11.0
+        },
+        {
+          "site": "Delawanna",
+          "buses": 4,
+          "outbound_minutes": 8.7,
+          "return_minutes": 10.6
+        },
+        {
+          "site": "Bergenline Avenue",
+          "buses": 4,
+          "outbound_minutes": 9.3,
+          "return_minutes": 11.7
+        },
+        {
+          "site": "Teterboro",
+          "buses": 4,
+          "outbound_minutes": 9.9,
+          "return_minutes": 10.7
+        },
+        {
+          "site": "Secaucus Junction",
+          "buses": 3,
+          "outbound_minutes": 9.8,
+          "return_minutes": 13.1
+        },
+        {
+          "site": "Passaic",
+          "buses": 3,
+          "outbound_minutes": 10.5,
+          "return_minutes": 12.3
+        }
+      ],
+      "stress_tests": [
+        {
+          "name": "Demand +25%",
+          "demand_factor": 1.25,
+          "service_factor": 1,
+          "road_delay_multiplier": 1,
+          "baseline_minutes": 125.0,
+          "plan_minutes": 113.4
+        },
+        {
+          "name": "Service -30%",
+          "demand_factor": 1,
+          "service_factor": 0.7,
+          "road_delay_multiplier": 1,
+          "baseline_minutes": 142.9,
+          "plan_minutes": 129.6
+        },
+        {
+          "name": "Road times +50%",
+          "demand_factor": 1,
+          "service_factor": 1,
+          "road_delay_multiplier": 1.5,
+          "baseline_minutes": 100.0,
+          "plan_minutes": 92.9
+        },
+        {
+          "name": "Combined disruption",
+          "demand_factor": 1.25,
+          "service_factor": 0.7,
+          "road_delay_multiplier": 1.5,
+          "baseline_minutes": 178.6,
+          "plan_minutes": 165.8
+        }
+      ],
+      "data_access": {
+        "venue": {
+          "tier": "repository",
+          "source_url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=MetLife+Stadium%2C+new+york&limit=1&addressdetails=1&extratags=1",
+          "retrieved_at": "2026-09-18T04:12:27.528923+00:00",
+          "key": "geocode_metlife stadium, new york",
+          "max_age_days": 120
+        },
+        "transport": {
+          "tier": "repository",
+          "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3B%28node%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Brailway%3Dstation%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dbus_station%5D%3Bnode%28around%3A6500%2C40.8135071%2C-74.0743442%29%5Bamenity%3Dparking%5D%3B%29%3Bout+tags+center+100%3B",
+          "retrieved_at": "2026-09-18T04:12:29.293044+00:00",
+          "key": "transport_40.8135_-74.0743",
+          "max_age_days": 30
+        },
+        "weather": {
+          "tier": "assumption / unavailable"
+        },
+        "traffic survey sites": {
+          "tier": "assumption / unavailable"
+        },
+        "zone_1": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1006254,40.8283566?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.079957+00:00",
+          "key": "route_40.8135_-74.0743_40.8284_-74.1006",
+          "max_age_days": 120
+        },
+        "zone_2": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1228335,40.8141012?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.382999+00:00",
+          "key": "route_40.8135_-74.0743_40.8141_-74.1228",
+          "max_age_days": 120
+        },
+        "zone_3": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0315526,40.787684?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.077305+00:00",
+          "key": "route_40.8135_-74.0743_40.7877_-74.0316",
+          "max_age_days": 120
+        },
+        "zone_4": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1314936,40.8317746?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.685872+00:00",
+          "key": "route_40.8135_-74.0743_40.8318_-74.1315",
+          "max_age_days": 120
+        },
+        "zone_5": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0220189,40.7821664?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.382507+00:00",
+          "key": "route_40.8135_-74.0743_40.7822_-74.0220",
+          "max_age_days": 120
+        },
+        "zone_6": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0627316,40.864739?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:16.001967+00:00",
+          "key": "route_40.8135_-74.0743_40.8647_-74.0627",
+          "max_age_days": 120
+        },
+        "zone_7": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.0757547,40.7613294?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.999184+00:00",
+          "key": "route_40.8135_-74.0743_40.7613_-74.0758",
+          "max_age_days": 120
+        },
+        "zone_8": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0743442,40.8135071;-74.1337924,40.8495053?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:16.303346+00:00",
+          "key": "route_40.8135_-74.0743_40.8495_-74.1338",
+          "max_age_days": 120
+        },
+        "zone_1 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1006254,40.8283566;-74.0743442,40.8135071?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:30.219180+00:00",
+          "key": "route_40.8284_-74.1006_40.8135_-74.0743",
+          "max_age_days": 120
+        },
+        "zone_2 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1228335,40.8141012;-74.0743442,40.8135071?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.079258+00:00",
+          "key": "route_40.8141_-74.1228_40.8135_-74.0743",
+          "max_age_days": 120
+        },
+        "zone_3 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0315526,40.787684;-74.0743442,40.8135071?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:29.621622+00:00",
+          "key": "route_40.7877_-74.0316_40.8135_-74.0743",
+          "max_age_days": 120
+        },
+        "zone_4 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1314936,40.8317746;-74.0743442,40.8135071?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.377475+00:00",
+          "key": "route_40.8318_-74.1315_40.8135_-74.0743",
+          "max_age_days": 120
+        },
+        "zone_5 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0220189,40.7821664;-74.0743442,40.8135071?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:12:29.609292+00:00",
+          "key": "route_40.7822_-74.0220_40.8135_-74.0743",
+          "max_age_days": 120
+        },
+        "zone_6 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0627316,40.864739;-74.0743442,40.8135071?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.691879+00:00",
+          "key": "route_40.8647_-74.0627_40.8135_-74.0743",
+          "max_age_days": 120
+        },
+        "zone_7 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.0757547,40.7613294;-74.0743442,40.8135071?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.693326+00:00",
+          "key": "route_40.7613_-74.0758_40.8135_-74.0743",
+          "max_age_days": 120
+        },
+        "zone_8 return": {
+          "tier": "repository",
+          "source_url": "https://router.project-osrm.org/route/v1/driving/-74.1337924,40.8495053;-74.0743442,40.8135071?overview=full&geometries=geojson",
+          "retrieved_at": "2026-09-18T04:23:15.995678+00:00",
+          "key": "route_40.8495_-74.1338_40.8135_-74.0743",
+          "max_age_days": 120
+        }
+      }
+    }
+  ],
+  "houston_intro": {
+    "public_road_routes": 30,
+    "survey_locations": 105,
+    "old_baseline_average_trip_minutes": 28.2,
+    "new_baseline_average_trip_minutes": 23.4
+  }
+}

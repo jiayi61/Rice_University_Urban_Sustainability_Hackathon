@@ -63,12 +63,12 @@
   if(view)houstonView=view;
   const{base,plan}=houstonScenarios(),shown=houstonView==='baseline'?base:plan,other=houstonView==='baseline'?plan:base;
   for(const[id,name]of[['houstonBefore','baseline'],['houstonAfter','plan'],['houstonDelta','delta']])$(id)&&$(id).classList.toggle('active',houstonView===name);
-  const metrics=[['Modelled visitors',fmt(base.kpis.total_visitors),'Synthetic event demand'],['Peak route pressure',`${base.kpis.max_route_pressure.toFixed(2)} → ${plan.kpis.max_route_pressure.toFixed(2)}×`,'Demand relative to assumed capacity'],['Transit + shuttle share',`${base.kpis.transit_shuttle_share_pct} → ${plan.kpis.transit_shuttle_share_pct}%`,'Modelled mode mix'],['Routes over capacity',`${base.kpis.over_capacity_route_count} → ${plan.kpis.over_capacity_route_count}`,'Baseline → mixed plan']];
+  const metrics=[['Modelled visitors',fmt(base.kpis.total_visitors),'Synthetic event demand'],['Peak route pressure',`${base.kpis.max_route_pressure.toFixed(2)} → ${plan.kpis.max_route_pressure.toFixed(2)}×`,'Demand relative to assumed capacity'],['Transit + shuttle share',`${base.kpis.transit_shuttle_share_pct} → ${plan.kpis.transit_shuttle_share_pct}%`,'Modelled mode mix'],['Average trip time',`${base.kpis.avg_travel_minutes} → ${plan.kpis.avg_travel_minutes} min`,`${context.houston.metadata.evidence?.road_routes||0} routes use public road inputs`]];
   $('houstonKpis').innerHTML=metrics.map(([a,b,c])=>`<article class="kpi"><span class="label">${a}</span><strong>${b}</strong><small>${c}</small><div style="margin-top:10px">${badge('Houston model projection')}</div></article>`).join('');
   if(!window.L){$('houstonMap').textContent='Map unavailable. The Houston comparison remains available above.';return;}
   if(!houstonMap){houstonMap=L.map('houstonMap',{scrollWheelZoom:false});
    L.tileLayer(BASEMAP,{attribution:BASEMAP_ATTR,maxZoom:19}).addTo(houstonMap);
-   houstonGroups={rail:L.layerGroup(),shuttle:L.layerGroup(),rideshare:L.layerGroup(),park:L.layerGroup(),walk:L.layerGroup(),zones:L.layerGroup(),heat:L.layerGroup(),assets:L.layerGroup()};
+   houstonGroups={rail:L.layerGroup(),shuttle:L.layerGroup(),rideshare:L.layerGroup(),park:L.layerGroup(),walk:L.layerGroup(),zones:L.layerGroup(),heat:L.layerGroup(),assets:L.layerGroup(),survey:L.layerGroup()};
    bindLayerChips('houstonLayers',()=>applyLayerChips('houstonLayers',houstonMap,houstonGroups));
    for(const[id,scope]of[['houstonZoomApproach','approach'],['houstonZoomCore','core'],['houstonZoomRegion','region']])$(id).addEventListener('click',()=>fitHouston(scope));
    fitHouston('core');}
@@ -84,7 +84,7 @@
    const deltaPressure=(planRoute?.pressure??0)-(baseRoute?.pressure??0);
    // Each mode fans out on its own curve so corridors sharing an origin stay separable.
    const bend=({rail:.04,shuttle:.26,rideshare:-.24,park:.46,walk:-.44})[route.mode]??.15;
-   const geometry=arc([route.lat1,route.lon1],stadium,bend);
+   const geometry=route.geometry?.length?route.geometry:arc([route.lat1,route.lon1],stadium,bend);
    const weight=1.4+6.4*Math.sqrt(route.visitors/maxVisitors);
    const layerColor=MODE_COLOR[route.mode]||'#152a32';
    const tip=`<span class="tip-title">${esc(route.zone_name)} → NRG Stadium</span><div class="tip-grid">`
@@ -94,7 +94,7 @@
     +`<em>Peak demand</em><b>${fmt(route.peak_visitors_per_hour)}/h vs ${fmt(route.capacity_per_hour)}/h capacity</b>`
     +`<em>Travel time</em><b>${fmt(route.adjusted_minutes)} min · ${route.distance_km} km</b>`
     +`<em>First/last-mile gap</em><b>${fmt(route.gap_m)} m</b>`
-    +`</div><p class="fine" style="margin:6px 0 0">Curved schematic link, not a verified road path.</p>`;
+    +`</div><p class="fine" style="margin:6px 0 0">${esc(route.route_source||'Schematic link; not a verified road path.')}${route.retrieved_at?' · retrieved '+esc(route.retrieved_at.slice(0,10)):''}</p>`;
    // Baseline width is drawn first as a grey shadow; corridors are never over-painted by a later route.
    if(houstonView!=='baseline'&&baseRoute&&baseRoute.visitors>route.visitors)
     L.polyline(geometry,{color:'#9aa49d',weight:1.4+6.4*Math.sqrt(baseRoute.visitors/maxVisitors),opacity:.24,lineCap:'round'}).addTo(group);
@@ -116,6 +116,8 @@
     .bindTooltip(`<span class="tip-title">${esc(asset.name)}</span><div class="tip-grid"><em>Site type</em><b>${esc(String(asset.category).replace(/_/g,' '))}</b>${Object.entries(asset.units).map(([type,units])=>`<em>${type}</em><b>${units} unit${units===1?'':'s'}${twin?` <span class="tip-delta ${units>=(twin.units[type]||0)?'better':'worse'}">${signed(units-(twin.units[type]||0))}</span>`:''}</b>`).join('')}</div><p class="fine" style="margin:6px 0 0">${esc(asset.rationale||'')}</p>`,{direction:'top'}).addTo(houstonGroups.assets);}
   L.marker(stadium,{icon:L.divIcon({className:'',html:'<div class="venue-pin">◆</div>',iconSize:[34,34],iconAnchor:[17,17]}),zIndexOffset:900})
    .bindTooltip(`<span class="tip-title">NRG Stadium</span>${fmt(context.houston.metadata.total_visitors)} modelled arrivals`,{direction:'top'}).addTo(houstonGroups.zones);
+  for(const feature of context.houston.metadata.evidence?.survey_features||[]){const[lon,lat]=feature.geometry.coordinates;
+   L.circleMarker([lat,lon],{radius:4,color:'#202a36',weight:1,fillColor:'#fff',fillOpacity:1}).bindTooltip(`${esc(feature.properties.ADDRESS)}<br>Official survey location · no flow measurement in this layer`).addTo(houstonGroups.survey);}
   renderHoustonReadout(base,plan);renderHoustonLegend();applyLayerChips('houstonLayers',houstonMap,houstonGroups);
  }
  function renderHoustonReadout(base,plan){
@@ -147,7 +149,7 @@
   <label>Modeled share of attendees (%)<input id="liveCohort" type="number" min="1" max="100" value="40"></label>
   <label>Existing service (people/hour)<input id="liveService" type="number" min="100" max="200000" value="12000"></label>
   <label>Maximum extra buses<input id="liveFleet" type="number" min="0" max="500" value="100"></label>
-  <label>Charter cost / bus (USD)<input id="liveCost" type="number" min="100" max="100000" value="2500"></label></div></details>`;
+  <label>Charter cost / bus (USD)<input id="liveCost" type="number" min="100" max="100000" value="2500"></label><label>Event road-time multiplier<input id="liveRoadDelay" type="number" min="1" max="5" step="0.1" value="1.3"></label></div></details>`;
   form.insertBefore(fields,form.querySelector('.request-bottom'));
   const section=document.createElement('section');section.id='liveResult';section.className='card';section.hidden=true;section.setAttribute('aria-live','polite');$('new-event').after(section);
   fetch('/api/config').then(r=>{if(!r.ok)throw Error();return r.json();}).then(c=>{$('apiState').textContent=c.configured?'API configured · '+c.model:'API key not configured · fill in city and venue to run, or set OPENAI_API_KEY in .env.';}).catch(()=>{$('apiState').textContent='Start the Python server to enable live planning.';});
@@ -162,10 +164,12 @@
   section.innerHTML=`<p class="eyebrow">03 / YOUR EVENT · LIVE CALCULATION</p><h2 tabindex="-1" id="liveTitle">${esc(p.venue.city)} · ${esc(p.venue.name)}</h2><p>${esc(p.event.name)} · ${esc(p.event.date)} · ${fmt(p.event.attendance)} attendees</p><p class="fine">${esc(p.brief.parser)} · ${esc(p.brief.generated_at)}. Scenario projection; local operating assumptions require verification.</p>
    <div class="kpis">${[['Modeled transport cohort',fmt(b.cohort)+' people'],['Queue clearance',b.clearance_minutes+' → '+r.clearance_minutes+' min'],['Served within 2 hours',fmt(b.served_120)+' → '+fmt(r.served_120)],['Extra fleet / cost',r.fleet+' buses / '+cash(r.cost_usd)]].map(([a,v])=>`<article class="kpi"><span>${esc(a)}</span><strong>${esc(v)}</strong></article>`).join('')}</div>
    <p>Evaluated ${s.evaluated_portfolios} fleet sizes. Selected the lowest queue burden within ${s.budget_usd===null?'the fleet limit (no budget supplied)':cash(s.budget_usd)}. Cost includes 18% delivery allowance.</p>
-   <div id="liveMap" style="height:420px"></div><p class="fine">Public road routes for proposed shuttles. Straight lines indicate unavailable road routing. Catchment demand shares remain assumptions.</p>
+   <div id="liveMap" style="height:420px"></div><p class="fine">Road paths run from the venue to candidate transfer sites. Separate return times inform bus cycles. Straight lines indicate unavailable road routing. Demand shares and the event road-time multiplier remain assumptions.</p>
    <svg viewBox="0 0 600 255" role="img" aria-label="Baseline and planned passengers remaining">${chartAxes(maxMinute,maxPeople,'Minutes after event end','People remaining')}${line(b,'#999')}${line(r,'#176d60')}</svg><p>Grey: baseline · Green: selected fleet</p>
    <div class="table-wrap">${table(['Catchment','People','Extra buses','Cycle (min)','Clearance (min)','Route basis'],r.routes.map(v=>[esc(v.name),fmt(v.people),v.buses,v.cycle_minutes,v.clearance_minutes,esc(v.source)]))}</div>
    <h3>Sensitivity · demand and service ±15%</h3><div class="table-wrap">${table(['Demand','Service','Baseline (min)','Plan (min)'],s.sensitivity.map(v=>[v.demand_factor+'×',v.service_factor+'×',v.baseline,v.plan]))}</div>
+   ${s.stress_tests?`<h3>Disruptions · same selected fleet</h3><div class="table-wrap">${table(['Scenario','Baseline (min)','Plan (min)'],s.stress_tests.map(v=>[esc(v.name),v.baseline_minutes,v.plan_minutes]))}</div>`:''}
+   ${p.candidate_sites?.length?`<h3>Candidate transfer sites</h3><p>Nearby facilities are screened by type, distance and duplicate locations. Demand shares are assumed; loading permission and usable capacity require verification.</p><div class="table-wrap">${table(['Site','Facility type','Distance to venue','Wheelchair access'],p.candidate_sites.map(v=>[esc(v.name),esc(v.mode),v.distance_to_venue_km+' km',esc(v.wheelchair||'unknown')]))}</div>`:''}
    <h3>Evidence and assumptions</h3><div class="table-wrap">${table(['Input','Value'],Object.entries(s.parameters).map(([k,v])=>[esc(k.replaceAll('_',' ')),esc(v)]))}</div>
    ${p.brief.assumptions.map(a=>`<p class="fine"><b>${esc(a.field)}: ${esc(a.value)}</b> · ${esc(a.basis)}</p>`).join('')}
    ${Object.entries(p.data_freshness).map(([k,v])=>`<p class="fine"><b>${esc(k)}:</b> ${esc(v)}</p>`).join('')}
@@ -190,7 +194,7 @@
  async function submitLiveEvent(event){
   event.preventDefault();const form=$('eventRequest'),button=form.querySelector('button[type="submit"]')||form.querySelector('button');
   const inputs={};for(const[id,key]of[['liveCity','city_query'],['liveVenue','venue_query'],['liveDate','date']])if($(id).value.trim())inputs[key]=$(id).value.trim();
-  for(const[id,key]of[['liveAttendance','attendance'],['liveBudget','budget_usd'],['liveCohort','cohort_pct'],['liveService','baseline_service_pph'],['liveFleet','fleet_limit'],['liveCost','bus_cost_usd']])if($(id).value!=='')inputs[key]=Number($(id).value);
+  for(const[id,key]of[['liveAttendance','attendance'],['liveBudget','budget_usd'],['liveCohort','cohort_pct'],['liveService','baseline_service_pph'],['liveFleet','fleet_limit'],['liveCost','bus_cost_usd'],['liveRoadDelay','road_delay_factor']])if($(id).value!=='')inputs[key]=Number($(id).value);
   button.disabled=true;button.textContent='Resolving place, fetching routes and calculating…';$('requestError').hidden=true;$('resultsNav').hidden=true;$('liveResult').hidden=true;
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),150000);
   try{const response=await fetch('/api/v3/brief',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:$('eventBrief').value,online:true,inputs}),signal:controller.signal});const p=await response.json();if(!response.ok)throw Error(typeof p.detail==='string'?p.detail:'Check the input fields and retry.');renderLive(p);}

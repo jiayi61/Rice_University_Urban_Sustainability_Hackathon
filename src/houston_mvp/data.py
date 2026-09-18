@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+from dataclasses import replace
 import json
 from pathlib import Path
 from typing import Any
@@ -114,7 +115,30 @@ def load_dataset() -> Dataset:
         scenarios=load_scenarios(),
     )
     _validate_routes(dataset)
-    return dataset
+    return enrich_road_inputs(dataset, ROOT)
+
+
+def enrich_road_inputs(dataset: Dataset, root: Path) -> Dataset:
+    from eventflow.data_repository import DataRepository, TRAFFIC_KEY
+    db = DataRepository(root)
+    updated, matched = [], 0
+    for route in dataset.routes:
+        key = f'route_{route.lat1:.4f}_{route.lon1:.4f}_{route.lat2:.4f}_{route.lon2:.4f}'
+        saved = db.read(key, 120) if route.mode in ('shuttle', 'rideshare', 'park') else None
+        if saved:
+            route = replace(route, distance_km=saved['distance_km'], base_minutes=round(saved['minutes']*1.3, 2),
+                            geometry=saved['geometry'], retrieved_at=saved['_data_access']['retrieved_at'],
+                            route_source='OSRM road geometry and free-flow time × assumed 1.30 event-delay factor')
+            matched += 1
+        updated.append(route)
+    sites = db.read(TRAFFIC_KEY, 90)
+    return replace(dataset, routes=updated, evidence={
+        'road_routes': matched, 'total_routes': len(updated),
+        'traffic_survey_sites': len(sites['features']) if sites else 0,
+        'survey_features': sites['features'] if sites else [],
+        'survey_source': sites.get('source_url') if sites else None,
+        'limits': 'Road geometry and travel times use public data where available. Demand, capacity, rail/walk times, heat and intervention effects remain scenario assumptions. Survey locations contain no traffic volumes.',
+    })
 
 
 def _validate_routes(dataset: Dataset) -> None:

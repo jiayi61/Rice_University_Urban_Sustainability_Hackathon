@@ -121,10 +121,17 @@ def build_pdf(p):
         story.append(para(key.replace('_',' ').title()+': '+str(value),'small'))
     for route in r['routes']:
         story.append(para(route['name']+': '+route['source'],'small'))
-    story.extend([Spacer(1,12),para('Method','h2'),para('Bus cycle = twice one-way road time + dwell. Added people/hour = buses x seats x load factor x 60 / cycle. For cohort Q and hourly service rate m: clearance = 60Q/m; queue burden = Q squared / (2m). All passengers enter queues at event end. Fleet is allocated proportionally using integer rounding with conserved totals.','small')])
+    story.extend([Spacer(1,12),para('Method','h2'),para('Bus cycle = (outbound + return road time) x assumed event road-time multiplier + dwell. Missing return routes use an explicitly labelled outbound-time assumption. Added people/hour = buses x seats x load factor x 60 / cycle. For cohort Q and hourly service rate m: clearance = 60Q/m; queue burden = Q squared / (2m). All passengers enter queues at event end. Each additional bus goes to the route with the largest reduction in queue burden. This allocation is optimal only under the stated separable-queue, uniform-bus-cost assumptions.','small')])
     for item in s['limitations']:
         story.append(para('- '+item,'small'))
     story.extend([Spacer(1,10),para('Public data references: OpenStreetMap contributors (ODbL), https://www.openstreetmap.org/copyright ; OSRM, https://project-osrm.org ; Open-Meteo historical data (when available), https://open-meteo.com . The source status above distinguishes fetched/cached data from assumptions.','small')])
+    if s.get('stress_tests'):
+        story.extend([PageBreak(),para('05 / DISRUPTION CHECKS','eyebrow'),para('Test the selected plan','h1'),
+            para('The same selected route-by-route fleet allocation is held fixed. Multipliers are planning assumptions; these are not observed outcomes or statistical confidence intervals.'),
+            table(['Scenario','Baseline min','Plan min'],[[v['name'],v['baseline_minutes'],v['plan_minutes']] for v in s['stress_tests']],[279,110,110]),
+            Spacer(1,18),para('Directional road times','h2'),
+            table(['Transfer site','Out min','Return min'],[[v['name'],v['outbound_minutes'],v['return_minutes']] for v in r['routes']],[279,110,110]),
+            para('Free-flow road times above are multiplied by the event-delay factor before dwell is added. Routing uses a driving profile and does not verify bus restrictions or permitted loading areas.','small')])
 
     def footer(canvas, document):
         canvas.setStrokeColor(colors.HexColor('#D6DFD8'));canvas.line(48,43,547,43)

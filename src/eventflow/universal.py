@@ -25,6 +25,7 @@ from .api_config import load_env, api_status
 from .brief_api import extract_brief
 from .screening import simulate_event
 from .data_repository import DataRepository, TRAFFIC_KEY, TRAFFIC_LAYER, TRAFFIC_BBOX, fetch_houston_sites
+from .site_selection import select_sites, site_origins
 
 
 USER_AGENT = "EventFlow-Mobility-Research/3.0 (university planning prototype)"
@@ -279,7 +280,7 @@ class UniversalPlanner:
         for element in payload.get("elements", []):
             tags = element.get("tags", {})
             kind = "parking" if tags.get("amenity") == "parking" else ("bus" if tags.get("amenity") == "bus_station" else "rail")
-            stations.append({"name": tags.get("name") or f"{kind.title()} facility", "mode": kind, "lat": element.get("lat"), "lon": element.get("lon"), "wheelchair": tags.get("wheelchair", "unknown")})
+            stations.append({"name": tags.get("name") or f"{kind.title()} facility", "mode": kind, "lat": element.get("lat"), "lon": element.get("lon"), "wheelchair": tags.get("wheelchair", "unknown"), 'access': tags.get('access', 'unknown'), 'osm_id': element.get('id')})
         result = {"stations": [s for s in stations if s["lat"] is not None][:60], "source": "OpenStreetMap Overpass", "retrieved": date.today().isoformat()}
         self._write_cache(key, result, url, 30)
         return result
@@ -334,19 +335,30 @@ class UniversalPlanner:
         remaining = attendance
         destination = (place["lat"], place["lon"])
         route_results: dict[int, dict[str, Any]] = {}
+        return_results: dict[int, dict[str, Any]] = {}
         with ThreadPoolExecutor(max_workers=6) as pool:
-            futures = {pool.submit(self._osrm, (row[2], row[3]), destination, online=online): index for index, row in enumerate(origins)}
+            futures = {}
+            for index, row in enumerate(origins):
+                origin = (row[2], row[3])
+                # Egress: occupied bus leaves venue, then returns to collect again.
+                futures[pool.submit(self._osrm, destination, origin, online=online)] = (index, 'outbound')
+                futures[pool.submit(self._osrm, origin, destination, online=online)] = (index, 'return')
             for future in as_completed(futures):
                 try:
-                    route_results[futures[future]] = future.result()
+                    index, direction = futures[future]
+                    (route_results if direction == 'outbound' else return_results)[index] = future.result()
                 except Exception:
                     pass
         for index, (name, mode, lat, lon, share) in enumerate(origins):
             visitors = remaining if index == len(origins) - 1 else round(attendance * share / total_share)
             remaining -= visitors
             distance = _distance_km((lat, lon), destination)
-            fallback = {"distance_km": round(distance, 1), "minutes": round(max(7, distance * 2.1), 1), "geometry": [[lat, lon], [place["lat"], place["lon"]]], "source": "screening geometry; online routing unavailable"}
+            fallback = {"distance_km": round(distance, 1), "minutes": round(max(7, distance * 2.1), 1), "geometry": [[place["lat"], place["lon"]], [lat, lon]], "source": "screening geometry; online routing unavailable"}
             routed = route_results.get(index, fallback)
+            back = return_results.get(index)
+            routed = {**routed, 'return_minutes': back['minutes'] if back else routed['minutes'],
+                      'return_source': back['source'] if back else 'Assumed same as outbound; return route unavailable',
+                      'return_data_access': back.get('_data_access') if back else None}
             vulnerability = .68 if "airport" in mode else (.56 if "ride" in mode else .38)
             gap = 210 if "rail" in mode else (620 if "ride" in mode else 430)
             zone_id = f"zone_{index + 1}"
@@ -410,10 +422,12 @@ class UniversalPlanner:
                 except Exception:
                     pass
         facilities = transport.get('stations', [])
+        selected_sites = select_sites(facilities, place)
         if facilities and not place.get('origins'):
-            usable = [s for s in facilities if _distance_km((s['lat'], s['lon']), (place['lat'], place['lon'])) > .5][:8]
-            if usable:
-                place['origins'] = [(s['name'], 'proposed shuttle', s['lat'], s['lon'], 1 / len(usable)) for s in usable]
+            if selected_sites:
+                place['origins'] = site_origins(selected_sites)
+                assumptions = [a for a in assumptions if a['field'] != 'Demand origins']
+                assumptions.append({'field': 'Transfer-site demand', 'value': f'{len(selected_sites)} nearby candidate sites; equal assumed demand shares', 'confidence': 'low', 'basis': 'Public facilities within 0.5–6.5 km; interchange types prioritized and nearby duplicates merged. These are transfer destinations, not measured attendee origins. Loading permissions and usable capacity remain unverified.'})
         zones, route_base = self._zones_and_routes(place, attendance, [], online)
         event = {"event_id": f"brief_{_slug(parsed['title'])}_{_slug(place['city'])}", "city_id": _slug(place["city"]), "name": f"{parsed['title']} — {place['city']}", "short_name": parsed["title"], "event_type": parsed["event_type"], "date": parsed["date"], "start_time": parsed["start_time"], "attendance": attendance, "status": "generated from natural-language brief", "weather": weather}
         base["event"] = event
@@ -421,8 +435,10 @@ class UniversalPlanner:
         base["zones"] = zones
         base["transit"] = transport
         base['traffic_context'] = traffic
+        base['candidate_sites'] = selected_sites
         evidence = {'venue': place, 'transport': transport, 'weather': weather, 'traffic survey sites': traffic, **route_base}
         base['data_access'] = {name: value.get('_data_access') or {'tier': 'assumption / unavailable'} for name, value in evidence.items()}
+        base['data_access'].update({name+' return': route.get('return_data_access') or {'tier': 'assumption / unavailable'} for name, route in route_base.items()})
         base["currency"] = {"code": "USD", "symbol": "$"}
         base["brief"] = {"original_prompt": parsed["prompt"], "parser": parser, "assumptions": assumptions, "online_enrichment": online, "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")}
         base["data_freshness"] = {"basemap": "live OpenStreetMap tiles", "venue": "Nominatim / curated fallback", "road_geometry": f"{sum(1 for r in route_base.values() if 'screening' not in r['source'])}/{len(route_base)} routes from OSRM/cache; others estimated", "transit": f"{transport.get('source')} · {len(transport.get('stations', []))} facilities", "weather": weather["basis"], "costs": "User-editable USD charter assumptions; no local quote"}

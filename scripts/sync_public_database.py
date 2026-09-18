@@ -14,12 +14,14 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
 from eventflow.data_repository import TRAFFIC_KEY, TRAFFIC_LAYER, fetch_houston_sites
-from eventflow.universal import UniversalPlanner, CITY_SEEDS, _distance_km
+from eventflow.universal import UniversalPlanner, CITY_SEEDS
+from eventflow.site_selection import select_sites, site_origins
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--city', action='append', choices=['houston', 'new york'])
+    parser.add_argument('--houston-baseline', action='store_true', help='Also fetch road routes for the Houston introduction.')
     args = parser.parse_args()
     planner = UniversalPlanner(ROOT, None)
     outcomes = []
@@ -54,22 +56,35 @@ def main():
         try:
             transport = planner._transport(place)
             publish(transport)
-            facilities = [s for s in transport['stations'] if _distance_km((s['lat'], s['lon']), (place['lat'], place['lon'])) > .5][:8]
+            facilities = select_sites(transport['stations'], place)
             if facilities:
-                place['origins'] = [(s['name'], 'proposed shuttle', s['lat'], s['lon'], 1 / len(facilities)) for s in facilities]
+                place['origins'] = site_origins(facilities)
             print(f"{city}: {len(transport['stations'])} transport facilities")
         except Exception as exc:
             outcomes.append({'key': f'transport_{city}', 'status': 'unavailable', 'reason': type(exc).__name__})
         def fetch_route(row):
-            return planner._osrm((row[2], row[3]), (place['lat'], place['lon']))
+            return [planner._osrm((row[2], row[3]), (place['lat'], place['lon'])),
+                    planner._osrm((place['lat'], place['lon']), (row[2], row[3]))]
         with ThreadPoolExecutor(max_workers=3) as pool:
             futures = [pool.submit(fetch_route, row) for row in planner._fallback_origins(place)]
             for future in futures:
                 try:
-                    publish(future.result())
+                    for result in future.result():
+                        publish(result)
                 except Exception as exc:
                     outcomes.append({'key': f'route_{city}', 'status': 'unavailable', 'reason': type(exc).__name__})
 
+    if args.houston_baseline:
+        from houston_mvp.data import load_dataset
+        dataset = load_dataset()
+        endpoints = sorted({(r.lat1, r.lon1, r.lat2, r.lon2) for r in dataset.routes if r.mode in ('shuttle', 'rideshare', 'park')})
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            futures = [pool.submit(planner._osrm, (a,b), (c,d)) for a,b,c,d in endpoints]
+            for future in futures:
+                try:
+                    publish(future.result())
+                except Exception as exc:
+                    outcomes.append({'key': 'houston_baseline_route', 'status': 'unavailable', 'reason': type(exc).__name__})
     directory = ROOT / 'data/database'
     directory.mkdir(parents=True, exist_ok=True)
     records = []

@@ -54,6 +54,7 @@ def test_offline_plan_uses_repository_coordinates_facilities_and_routes(tmp_path
           'address': {'country': 'United States', 'country_code': 'us'}, 'extratags': {'capacity': '72220'}})
     save('transport_29.6847_-95.4107', {'stations': [{'name': 'Verified station', 'lat': 29.70, 'lon': -95.41, 'mode': 'rail'}], 'source': 'Public stations'})
     save('route_29.7000_-95.4100_29.6847_-95.4107', {'distance_km': 3.1, 'minutes': 11, 'geometry': [[29.7, -95.41], [29.6847, -95.4107]], 'source': 'OSRM'})
+    save('route_29.6847_-95.4107_29.7000_-95.4100', {'distance_km': 3.2, 'minutes': 12, 'geometry': [[29.6847, -95.4107], [29.7, -95.41]], 'source': 'OSRM'})
     save(TRAFFIC_KEY, {'features': [{'type': 'Feature'}], 'has_traffic_volumes': False})
     with patch.object(planner, '_get_json', side_effect=AssertionError('Network must not be used')) as network:
         result = planner.plan_from_brief('Concert in Houston', online=False,

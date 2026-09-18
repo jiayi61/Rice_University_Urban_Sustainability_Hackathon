@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 
@@ -38,6 +38,9 @@ class Route:
     shade_index: float
     ada_score: float
     gap_m: float
+    geometry: list | None = None
+    route_source: str = 'Synthetic mode-specific planning assumption'
+    retrieved_at: str | None = None
 
 
 @dataclass(frozen=True)
@@ -75,3 +78,4 @@ class Dataset:
     routes: list[Route]
     candidates: list[ResourceCandidate]
     scenarios: list[Scenario]
+    evidence: dict = field(default_factory=dict)
